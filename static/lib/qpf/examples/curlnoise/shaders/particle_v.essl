@@ -1,0 +1,20 @@
+uniform sampler2D particleTexture;
+attribute vec2 aUv;
+
+varying float life;
+
+void main(){
+
+	vec4 p = texture2D(particleTexture, aUv);
+
+	if(p.w > 0.0){
+		gl_Position = projectionMatrix * modelViewMatrix * vec4(p.xyz, 1.0);
+	}
+	else{
+		gl_Position = projectionMatrix * modelViewMatrix * vec4(1000.0, 1000.0, 1000.0, 1.0);
+	}
+
+	life = 1.0 - p.w / 6.0;	
+	gl_PointSize = 4.0;
+
+}

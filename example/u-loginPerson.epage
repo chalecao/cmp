@@ -1,0 +1,343 @@
+[
+  {
+    "meta": {
+      "date": "2016-12-27",
+      "name": "u-loginPerson"
+    },
+    "viewport": {
+      "width": 1440,
+      "height": 600
+    },
+    "elements": [
+      {
+        "eid": 12,
+        "type": "ELEMENT",
+        "properties": {
+          "id": "u-loginPerson-container",
+          "width": 200,
+          "height": 280,
+          "left": 0,
+          "top": 0,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "epage-element epage-element",
+          "include": "",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "color": "#ffffff",
+          "fontSize": 16,
+          "classStr": "epage-element epage-element"
+        }
+      },
+      {
+        "eid": 13,
+        "type": "TEXT",
+        "properties": {
+          "id": "u-loginPerson-title",
+          "width": 180,
+          "height": 20,
+          "left": 10,
+          "top": 90,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "epage-element epage-text",
+          "include": "",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "text": "${webUser.nickName?html?js_string}",
+          "fontFamily": "微软雅黑,Microsoft YaHei",
+          "fontSize": 14,
+          "color": "#111111",
+          "horzontalAlign": "center",
+          "verticleAlign": "top",
+          "lineHeight": 20,
+          "classStr": "epage-element epage-text f-thide"
+        }
+      },
+      {
+        "eid": 14,
+        "type": "IMAGE",
+        "properties": {
+          "id": "u-loginPerson-pic",
+          "width": 56,
+          "height": 56,
+          "left": 72,
+          "top": 28,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 28.039124954578487,
+          "borderTopRightRadius": 28.039124954578487,
+          "borderBottomRightRadius": 28.039124954578487,
+          "borderBottomLeftRadius": 28.039124954578487,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "epage-element epage-image",
+          "include": "",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "src": "${webUser.largeFaceUrl?default('http://mc.stu.126.net/res/images/common/headImg/big.jpg')?html}",
+          "color": "#ffffff",
+          "fontSize": 16,
+          "classStr": "epage-element epage-image"
+        }
+      },
+      {
+        "eid": 15,
+        "type": "TEXT",
+        "properties": {
+          "id": "u-loginPerson-mycourse",
+          "width": 170,
+          "height": 36,
+          "left": 15,
+          "top": 225,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": true,
+          "backgroundColor": 5683497,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "boxFontSize": 16,
+          "newBlank": true,
+          "targetUrl": "http://www.icourse163.org/home.htm",
+          "boxClassStr": "epage-element epage-text",
+          "include": "",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "text": "我的课程",
+          "fontFamily": "微软雅黑,Microsoft YaHei",
+          "fontSize": 16,
+          "color": "#ffffff",
+          "horzontalAlign": "center",
+          "verticleAlign": "top",
+          "lineHeight": 36,
+          "classStr": "epage-element epage-text u-button"
+        }
+      },
+      {
+        "eid": 16,
+        "type": "TEXT",
+        "properties": {
+          "id": "u-loginPerson-tips",
+          "width": 163,
+          "height": 46,
+          "left": 19,
+          "top": 140,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "epage-element epage-text",
+          "include": "",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "text": "您还没有参加任何课程哦 快去免费选课吧",
+          "fontFamily": "微软雅黑,Microsoft YaHei",
+          "fontSize": 13,
+          "color": "#111111",
+          "horzontalAlign": "center",
+          "verticleAlign": "top",
+          "lineHeight": 23,
+          "classStr": "epage-element epage-text"
+        }
+      },
+      {
+        "eid": 17,
+        "type": "ELEMENT",
+        "properties": {
+          "id": "u-loginPerson-latest",
+          "width": 169,
+          "height": 75,
+          "left": 15,
+          "top": 132,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "epage-element epage-element",
+          "include": "",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "color": "#ffffff",
+          "fontSize": 16,
+          "classStr": "epage-element epage-element"
+        }
+      }
+    ],
+    "assets": {}
+  }
+]

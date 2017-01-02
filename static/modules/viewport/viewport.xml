@@ -1,0 +1,3 @@
+<container id="Viewport">
+    <viewport id="ViewportMain" width="@binding[viewportWidth]" height="@binding[viewportHeight]" scale="@binding[viewportScale]"></viewport>
+</container>

@@ -1,0 +1,9 @@
+varying float life;
+
+uniform sampler2D spiritTexture;
+uniform vec3 color;
+
+void main(){
+	float a = texture2D(spiritTexture, gl_PointCoord).x;
+	gl_FragColor = vec4(color, a * (1.0-life)*0.1);
+}

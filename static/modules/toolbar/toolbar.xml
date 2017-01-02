@@ -1,0 +1,32 @@
+<inline id="Toolbar">
+    <toolbargroup>
+        <button text="eHtml" onclick="@binding[exportHTML]"></button>
+        <button text="eRUI" onclick="@binding[exportRUI]"></button>
+        <button text="eFTL" onclick="@binding[exportFTL]"></button>
+        <button text="eMac" onclick="@binding[exportMac]"></button>
+        <button text="align" onclick="@binding[alignProcess]"></button>
+        <button text="newM" onclick="@binding[newModule]"></button>
+        <button text="newU" onclick="@binding[newUnit]"></button>
+        <button text="export" onclick="@binding[exportProject]"></button>
+        <iconbutton icon="save" title="saveProject" onclick="@binding[saveProject]"></iconbutton>
+        <iconbutton icon="load" title="importProject" onclick="@binding[importProject]"></iconbutton>
+    </toolbargroup>
+    <meta class="divider"></meta>
+    <toolbargroup>
+        <iconbutton icon="element" onclick="@binding[createElement]"></iconbutton>
+        <iconbutton icon="image" onclick="@binding[createImage]"></iconbutton>
+        <iconbutton icon="text" onclick="@binding[createText]"></iconbutton>
+        <iconbutton icon="function" onclick="@binding[createFunction]"></iconbutton>
+    </toolbargroup>
+    <meta class="divider"></meta>
+    <toolbargroup>
+        <iconbutton icon="zoom-in" onclick="@binding[zoomIn]"></iconbutton>
+        <iconbutton icon="zoom-out" onclick="@binding[zoomOut]"></iconbutton>
+        <label text="@binding[viewportScale]" class="viewport-scale"></label>
+    </toolbargroup>
+    <meta class="divider"></meta>
+    <toolbargroup class="viewport-size">
+        <spinner value="@binding[viewportWidth]" min="0" width="100"></spinner>
+        <spinner value="@binding[viewportHeight]" min="0" width="100"></spinner>
+    </toolbargroup>
+</inline>

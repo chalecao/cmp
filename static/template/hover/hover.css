@@ -1,0 +1,30 @@
+.e-hover-source:hover .e-hover-target {
+    display: block;
+}
+
+.e-hover-target {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-top: -1px;
+    padding-top: 14px;
+    top: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+}
+
+.e-hover-arrow {
+    position: absolute;
+    top: 7px;
+    /*left: 47%;*/
+    width: 20px;
+    height: 10px;
+    background: url(http://edu-image.nosdn.127.net/B59A8F7FC52C3FBC3D2C59023185CB8B.png?imageView&thumbnail=400y500&quality=100) no-repeat 9999px 9999px;
+    background-position: -136px -104px;
+    z-index: 1;
+}
+
+.e-hover-content {
+    padding: 10px 15px 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+}

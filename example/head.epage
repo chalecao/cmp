@@ -1,0 +1,582 @@
+{
+  "meta": {
+    "date": "2016-12-22"
+  },
+  "viewport": {
+    "width": 960,
+    "height": 600
+  },
+  "elements": [
+    {
+      "eid": 1,
+      "type": "TEXT",
+      "properties": {
+        "id": "m-head-category",
+        "width": 70,
+        "height": 20,
+        "left": 0,
+        "top": 74,
+        "zIndex": 2,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": true,
+        "targetUrl": "http://www.icourse163.org/category/all",
+        "classStr": "epage-element epage-text",
+        "text": "全部课程",
+        "fontFamily": "微软雅黑, Microsoft YaHei",
+        "fontSize": 16,
+        "color": "#111111",
+        "horzontalAlign": "center",
+        "verticleAlign": "middle",
+        "lineHeight": 21
+      }
+    },
+    {
+      "eid": 2,
+      "type": "IMAGE",
+      "properties": {
+        "id": "m-head-logo",
+        "width": 241,
+        "height": 34,
+        "left": 0,
+        "top": 19,
+        "zIndex": 1,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": true,
+        "targetUrl": "http://www.icourse163.org/",
+        "classStr": "epage-element epage-image",
+        "src": "url(image/2#src)"
+      }
+    },
+    {
+      "eid": 3,
+      "type": "ELEMENT",
+      "properties": {
+        "id": "m-head-container",
+        "width": 1260,
+        "height": 106,
+        "left": 0,
+        "top": 0,
+        "zIndex": 0,
+        "background": true,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": false,
+        "targetUrl": "",
+        "classStr": "epage-element epage-element"
+      }
+    },
+    {
+      "eid": 4,
+      "type": "TEXT",
+      "properties": {
+        "id": "m-head-school",
+        "width": 65,
+        "height": 20,
+        "left": 107,
+        "top": 74,
+        "zIndex": 2,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": true,
+        "targetUrl": "http://www.icourse163.org/university/view/all.htm",
+        "classStr": "epage-element epage-text",
+        "text": "入驻学校",
+        "fontFamily": "微软雅黑, Microsoft YaHei",
+        "fontSize": 16,
+        "color": "#111111",
+        "horzontalAlign": "center",
+        "verticleAlign": "middle",
+        "lineHeight": 21
+      }
+    },
+    {
+      "eid": 5,
+      "type": "TEXT",
+      "properties": {
+        "id": "m-head-cloud",
+        "width": 55,
+        "height": 20,
+        "left": 212,
+        "top": 74,
+        "zIndex": 2,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": true,
+        "targetUrl": "http://www.icourse163.org/spoc/schoolcloud/index.htm",
+        "classStr": "epage-element epage-text",
+        "text": "学校云",
+        "fontFamily": "微软雅黑, Microsoft YaHei",
+        "fontSize": 16,
+        "color": "#111111",
+        "horzontalAlign": "center",
+        "verticleAlign": "middle",
+        "lineHeight": 21
+      }
+    },
+    {
+      "eid": 6,
+      "type": "IMAGE",
+      "properties": {
+        "id": "m-head-app",
+        "width": 13,
+        "height": 22,
+        "left": 817,
+        "top": 26,
+        "zIndex": 1,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": false,
+        "targetUrl": "",
+        "classStr": "epage-element epage-image",
+        "src": "url(image/6#src)"
+      }
+    },
+    {
+      "eid": 7,
+      "type": "TEXT",
+      "properties": {
+        "id": "m-head-app-text",
+        "width": 55,
+        "height": 20,
+        "left": 833,
+        "top": 26,
+        "zIndex": 2,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": false,
+        "targetUrl": "",
+        "classStr": "epage-element epage-text",
+        "text": "手机版",
+        "fontFamily": "微软雅黑, Microsoft YaHei",
+        "fontSize": 14,
+        "color": "#111111",
+        "horzontalAlign": "center",
+        "verticleAlign": "middle",
+        "lineHeight": 22
+      }
+    },
+    {
+      "eid": 8,
+      "type": "TEXT",
+      "properties": {
+        "id": "m-head-right-course",
+        "width": 84,
+        "height": 19,
+        "left": 1064,
+        "top": 75,
+        "zIndex": 2,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": false,
+        "targetUrl": "",
+        "classStr": "epage-element epage-text",
+        "text": "在线开放课程",
+        "fontFamily": "微软雅黑, Microsoft YaHei",
+        "fontSize": 14,
+        "color": "#666666",
+        "horzontalAlign": "center",
+        "verticleAlign": "middle",
+        "lineHeight": 22
+      }
+    },
+    {
+      "eid": 9,
+      "type": "TEXT",
+      "properties": {
+        "id": "m-head-right-more",
+        "width": 84,
+        "height": 19,
+        "left": 1176,
+        "top": 75,
+        "zIndex": 2,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": false,
+        "targetUrl": "",
+        "classStr": "epage-element epage-text",
+        "text": "更多课程频道",
+        "fontFamily": "微软雅黑, Microsoft YaHei",
+        "fontSize": 14,
+        "color": "#666666",
+        "horzontalAlign": "center",
+        "verticleAlign": "middle",
+        "lineHeight": 22
+      }
+    },
+    {
+      "eid": 10,
+      "type": "TEXT",
+      "properties": {
+        "id": "m-head-login",
+        "width": 30,
+        "height": 19,
+        "left": 1191,
+        "top": 27,
+        "zIndex": 2,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": false,
+        "targetUrl": "",
+        "classStr": "epage-element epage-text",
+        "text": "登录",
+        "fontFamily": "微软雅黑, Microsoft YaHei",
+        "fontSize": 14,
+        "color": "#111111",
+        "horzontalAlign": "center",
+        "verticleAlign": "middle",
+        "lineHeight": 22
+      }
+    },
+    {
+      "eid": 11,
+      "type": "TEXT",
+      "properties": {
+        "id": "m-head-reg",
+        "width": 30,
+        "height": 19,
+        "left": 1231,
+        "top": 27,
+        "zIndex": 2,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": false,
+        "targetUrl": "",
+        "classStr": "epage-element epage-text",
+        "text": "注册",
+        "fontFamily": "微软雅黑, Microsoft YaHei",
+        "fontSize": 14,
+        "color": "#111111",
+        "horzontalAlign": "center",
+        "verticleAlign": "middle",
+        "lineHeight": 22
+      }
+    },
+    {
+      "eid": 12,
+      "type": "TEXT",
+      "properties": {
+        "id": "m-head-spin",
+        "width": 30,
+        "height": 19,
+        "left": 1211,
+        "top": 27,
+        "zIndex": 2,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": false,
+        "targetUrl": "",
+        "classStr": "epage-element epage-text",
+        "text": "|",
+        "fontFamily": "微软雅黑, Microsoft YaHei",
+        "fontSize": 14,
+        "color": "#111111",
+        "horzontalAlign": "center",
+        "verticleAlign": "middle",
+        "lineHeight": 22
+      }
+    },
+    {
+      "eid": 13,
+      "type": "ELEMENT",
+      "properties": {
+        "id": "m-head-search",
+        "width": 256,
+        "height": 30,
+        "left": 908,
+        "top": 21,
+        "zIndex": 0,
+        "background": false,
+        "backgroundColor": 16777215,
+        "backgroundImageType": "none",
+        "backgroundGradientStops": [
+          {
+            "percent": 0,
+            "color": "rgba(255, 255, 255, 1)"
+          },
+          {
+            "percent": 1,
+            "color": "rgba(0, 0, 0, 1)"
+          }
+        ],
+        "backgroundGradientAngle": 180,
+        "borderTopLeftRadius": 0,
+        "borderTopRightRadius": 0,
+        "borderBottomRightRadius": 0,
+        "borderBottomLeftRadius": 0,
+        "hasShadow": false,
+        "shadowOffsetX": 0,
+        "shadowOffsetY": 0,
+        "shadowBlur": 10,
+        "shadowColor": 0,
+        "newBlank": false,
+        "targetUrl": "",
+        "classStr": "epage-element epage-element"
+      }
+    }
+  ],
+  "assets": {
+    "image": {
+      "2#src": {
+        "data": "http://edu-image.nosdn.127.net/B34DC36428D2D51B8EF5EE2C83CE9BF2.png?imageView&thumbnail=241y34&quality=100",
+        "type": "image"
+      },
+      "6#src": {
+        "data": "http://edu-image.nosdn.127.net/A86D659AE094BFBB8FF9B005168FB7B2.png?imageView&thumbnail=13y22&quality=100",
+        "type": "image"
+      }
+    }
+  }
+}

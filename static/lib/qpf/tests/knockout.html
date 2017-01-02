@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript" src="../thirdparty/knockout.js"></script>
+	<script type="text/javascript" src="../thirdparty/ko.mapping.js"></script>
+	<script type="text/javascript" src="../thirdparty/jquery.js"></script>
+	<script type="text/javascript">
+		
+		var viewModel = {
+			foo : ko.observable("test")
+		}
+		var $el = $('<div><div data-bind="text:foo()+10"></div></div>');
+
+		ko.applyBindings(viewModel, $el[0]);
+
+		$(document.body).append($el);
+		viewModel.foo("hahahahah");
+
+
+	</script>
+</body>
+</html>
