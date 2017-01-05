@@ -24,17 +24,17 @@ define(function(require) {
             this._scale(this.scale());
 
             contextMenu.bindTo(this.$el, function(target) {
-                var $epageEl = $(target).parents('.epage-element');
-                if ($epageEl.length) {
+                var $cmpEl = $(target).parents('.cmp-element');
+                if ($cmpEl.length) {
                     var items = [{
                         label: "删除",
                         exec: function() {
-                            command.execute("remove", $epageEl.attr("data-epage-eid"));
+                            command.execute("remove", $cmpEl.attr("data-cmp-eid"));
                         }
                     }, {
                         label: "复制",
                         exec: function() {
-                            command.execute("copy", $epageEl.attr("data-epage-eid"));
+                            command.execute("copy", $cmpEl.attr("data-cmp-eid"));
                         }
                     }];
                 } else {

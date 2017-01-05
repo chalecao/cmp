@@ -1,4 +1,4 @@
-define(function(require) {
+define(function (require) {
 
     var factory = require("core/factory");
     var ko = require("knockout");
@@ -6,7 +6,7 @@ define(function(require) {
 
     factory.register("text", {
         type: "TEXT",
-        extendProperties: function() {
+        extendProperties: function () {
             return {
                 text: ko.observable("请输入文字"),
                 fontFamily: ko.observable("微软雅黑,Microsoft YaHei"),
@@ -18,7 +18,7 @@ define(function(require) {
                 classStr: ko.observable(""),
             }
         },
-        extendUIConfig: function() {
+        extendUIConfig: function () {
             return {
                 text: {
                     label: "文本",
@@ -30,19 +30,43 @@ define(function(require) {
                     label: "字体",
                     ui: "combobox",
                     class: "small",
-                    items: [
-                        { text: '宋体', value: "宋体,SimSun" },
-                        { text: '微软雅黑', value: "微软雅黑,Microsoft YaHei" },
-                        { text: '楷体', value: "楷体,楷体_GB2312, SimKai" },
-                        { text: '黑体', value: "黑体,SimHei" },
-                        { text: '隶书', value: "隶书,SimLi" },
-                        { text: 'Andale Mono', value: 'andale mono' },
-                        { text: 'Arial', value: 'arial,helvetica,sans-serif' },
-                        { text: 'Arial Black', value: 'arial black,avant garde' },
-                        { text: 'Comic Sans Ms', value: 'comic sans ms' },
-                        { text: 'Impact', value: 'impact,chicago' },
-                        { text: 'Times New Roman', value: 'times new roman' }
-                    ],
+                    items: [{
+                        text: '宋体',
+                        value: "宋体,SimSun"
+                    }, {
+                        text: '微软雅黑',
+                        value: "微软雅黑,Microsoft YaHei"
+                    }, {
+                        text: '楷体',
+                        value: "楷体,楷体_GB2312, SimKai"
+                    }, {
+                        text: '黑体',
+                        value: "黑体,SimHei"
+                    }, {
+                        text: '隶书',
+                        value: "隶书,SimLi"
+                    }, {
+                        text: 'Andale Mono',
+                        value: 'andale mono'
+                    }, {
+                        text: 'Arial',
+                        value: 'arial,helvetica,sans-serif'
+                    }, {
+                        text: 'Arial Black',
+                        value: 'arial black,avant garde'
+                    }, {
+                        text: 'Comic Sans Ms',
+                        value: 'comic sans ms'
+                    }, {
+                        text: 'Impact',
+                        value: 'impact,chicago'
+                    }, {
+                        text: 'Times New Roman',
+                        value: 'times new roman'
+                    }, {
+                        text: '无',
+                        value: ''
+                    }],
                     value: this.properties.fontFamily
                 },
 
@@ -106,7 +130,7 @@ define(function(require) {
             }
         },
 
-        onCreate: function($wrapper) {
+        onCreate: function ($wrapper) {
             var $text = $("<span style='line-height:normal;display:inline-block;vertical-align:middle;width:100%;'></span>");
             var self = this;
 
@@ -117,19 +141,20 @@ define(function(require) {
             }
 
             //Font family
-            ko.computed(function() {
+            ko.computed(function () {
                 var fontFamily = self.properties.fontFamily();
                 var classStr = self.properties.classStr();
                 $text.css({
                     'font-family': fontFamily
                 })
+
                 $text.attr({
                     'class': classStr
                 });
             });
 
             //Font size and text color
-            ko.computed(function() {
+            ko.computed(function () {
                 var text = self.properties.text();
                 var fontSize = self.properties.fontSize() + "px";
                 // var color = onecolor(self.properties.color()).css();
@@ -142,7 +167,7 @@ define(function(require) {
             });
 
             //Text align
-            ko.computed(function() {
+            ko.computed(function () {
                 var verticleAlign = self.properties.verticleAlign();
                 var horzontalAlign = self.properties.horzontalAlign();
 
@@ -153,7 +178,7 @@ define(function(require) {
             });
 
             //Line height
-            ko.computed(function() {
+            ko.computed(function () {
                 var lineHeight = self.properties.lineHeight();
                 if (lineHeight) {
                     $text.css({

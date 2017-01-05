@@ -1,0 +1,208 @@
+[
+  {
+    "meta": {
+      "date": "2017-1-4",
+      "name": "u-lessonItem"
+    },
+    "viewport": {
+      "width": 1440,
+      "height": 600
+    },
+    "elements": [
+      {
+        "eid": 13160,
+        "type": "ELEMENT",
+        "properties": {
+          "id": "u-lessonItem-container",
+          "rid": "",
+          "width": "236",
+          "height": "27",
+          "left": 0,
+          "top": 0,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "marginTop": 0,
+          "marginRight": 0,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "shadowColorAlpha": 1,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "cmp-element cmp-element",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "color": "#ffffff",
+          "classStr": "cmp-element cmp-element",
+          "include": ""
+        }
+      },
+      {
+        "eid": 13161,
+        "type": "TEXT",
+        "properties": {
+          "id": "u-lessonItem-item",
+          "rid": "",
+          "width": "151",
+          "height": "27",
+          "left": 12,
+          "top": 0,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "marginTop": 0,
+          "marginRight": 0,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "shadowColorAlpha": 1,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "cmp-element cmp-text f-thide",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "text": "{item.lessonUnitName}",
+          "fontFamily": "微软雅黑,Microsoft YaHei",
+          "fontSize": 13,
+          "color": "#333333",
+          "horzontalAlign": "left",
+          "verticleAlign": "middle",
+          "lineHeight": 27,
+          "classStr": ""
+        }
+      },
+      {
+        "eid": 13162,
+        "type": "TEXT",
+        "properties": {
+          "id": "u-lessonItem-time",
+          "rid": "",
+          "width": "36",
+          "height": "27",
+          "left": 188,
+          "top": 0,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "marginTop": 0,
+          "marginRight": 0,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "shadowColorAlpha": 1,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "cmp-element cmp-text",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "text": "{item.duration}",
+          "fontFamily": "微软雅黑,Microsoft YaHei",
+          "fontSize": 13,
+          "color": "#999999",
+          "horzontalAlign": "center",
+          "verticleAlign": "middle",
+          "lineHeight": 27,
+          "classStr": ""
+        }
+      }
+    ],
+    "assets": {}
+  }
+]

@@ -4,8 +4,8 @@ define(function (require) {
     var ko = require("knockout");
     var Module = require("../module");
     var xml = require("text!./toolbar.xml");
-    var moduleExample = require("text!template/module/m-example.epage");
-    var unitExample = require("text!template/unit/u-example.epage");
+    var moduleExample = require("text!template/module/m-example.cmp");
+    var unitExample = require("text!template/unit/u-example.cmp");
     var command = require("core/command");
     var $ = require("$");
 
@@ -61,7 +61,7 @@ define(function (require) {
             var blob = new Blob([JSON.stringify(result["result"], null, 2)], {
                 type: "text/plain;charset=utf-8"
             });
-            saveAs(blob, result["name"] + ".epage");
+            saveAs(blob, result["name"] + ".cmp");
         },
         saveProject: function () {
             var result = project.export(true);
@@ -132,9 +132,9 @@ define(function (require) {
             }
             if (_cacheCall) {
                 _cacheCall = _cacheCall.replace(/\_\_cacheName\_\_/g, _name);
-                ruiExample = ruiExample.replace(/\_\_cacheJS\_\_/g,",'./cache.js'").replace(/\_\_cacheName\_\_/g, ","+_name).replace(/\_\_cacheCall\_\_/g, _cacheCall);
+                ruiExample = ruiExample.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + _name + "Cache").replace(/\_\_cacheCall\_\_/g, _cacheCall);
             } else {
-                ruiExample = ruiExample.replace(/\_\_cacheJS\_\_/g,'').replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, "");
+                ruiExample = ruiExample.replace(/\_\_cacheJS\_\_/g, '').replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, "");
             }
 
             var blob = new Blob([ruiExample], {
@@ -200,7 +200,7 @@ define(function (require) {
     function uploadProjectFile(e) {
         var file = e.target.files[0];
 
-        if (file && file.name.substr(-5) === 'epage') {
+        if (file && file.name.substr(-3) === 'cmp') {
             fileReader.onload = function (e) {
                 fileReader.onload = null;
 

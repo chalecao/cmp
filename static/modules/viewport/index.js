@@ -56,13 +56,13 @@ define(function(require) {
     viewport.on("start", function() {
         _viewport = viewport.mainComponent.$el.find("#ViewportMain").qpf("get")[0];
         //控制选中某个元素
-        viewport.$el.delegate('.epage-element', "click", selectElement);
+        viewport.$el.delegate('.cmp-element', "click", selectElement);
 
         initDragUpload();
     });
 
     function selectElement(e) {
-        var eid = $(this).attr("data-epage-eid");
+        var eid = $(this).attr("data-cmp-eid");
         if (eid) {
             hierarchy.selectElementsByEID([eid]);
         }

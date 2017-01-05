@@ -6,7 +6,7 @@ define(function (require) {
     var viewportModule = require("modules/viewport/index");
     var hierarchyModule = require("modules/hierarchy/index");
     var componentModule = require("modules/component/index");
-    
+
 
     function find(assets, path) {
         var pathArr = path.split("/");
@@ -99,8 +99,11 @@ define(function (require) {
                         }
                     });
                 });
-                element.on("addFuncComponent", function (_componentName, _parentElement) {
-                    var _elments = [];
+
+                function addFuncComponentHandler(_componentName, _parentElement) {
+                    var _elments = [],
+                        _componentName = _componentName,
+                        _parentElement = _parentElement;
                     _.each(componentModule.components(), function (item, key) {
                         if (item["meta"]["name"] == _componentName) {
                             _elments = item["elements"];
@@ -109,6 +112,9 @@ define(function (require) {
                                 var element = factory.create(item.type.toLowerCase(), {
                                     "id": item.properties.id
                                 });
+                                if (item.properties.funcType == "IF" || item.properties.funcType == "FOR" || item.properties.funcType == "INCLUDE") {
+                                    element.on("addFuncComponent", addFuncComponentHandler);
+                                }
                                 element.import(item);
                                 elements.push(element);
                             });
@@ -132,14 +138,21 @@ define(function (require) {
                             _.each(elements, function (item1, key1) {
                                 //判断是不是container
                                 if (item1.$wrapper.css("position") != "relative") {
+                                    if (item1.$wrapper.find("a").children().length < 1) {
+                                        item1.$wrapper.find("a").remove();
+                                    }
+                                    if (!item1.$wrapper.find("a").attr("href")) {
+                                        item1.$wrapper.html(item1.$wrapper.find("a").html());
+                                    }
                                     viewportModule.getViewPort().addElement(item1, _container);
                                 }
 
                             });
-                            return;
+                            return false;
                         }
-                    });
-                });
+                    })
+                };
+                element.on("addFuncComponent", addFuncComponentHandler);
 
                 element.import(item);
                 elements.push(element);
@@ -171,6 +184,46 @@ define(function (require) {
                 elements: [],
                 assets: {}
             };
+
+            function searchAndAddsubModule(json) {
+                if (json.properties.trueFuncBody && !isSave) {
+                    _json = componentModule.getTarget(json.properties.trueFuncBody);
+                    if (Object.keys(_json).length) {
+                        _resultList.push(_json);
+                        _.each(_json.elements, function (element) {
+                            searchAndAddsubModule(element);
+                        });
+
+                    }
+                }
+                if (json.properties.falseFuncBody && !isSave) {
+                    _json = componentModule.getTarget(json.properties.falseFuncBody);
+                    if (Object.keys(_json).length) {
+                        _resultList.push(_json);
+                        _.each(_json.elements, function (element) {
+                            searchAndAddsubModule(element);
+                        });
+                    }
+                }
+                if (json.properties.forFuncBody && !isSave) {
+                    _json = componentModule.getTarget(json.properties.forFuncBody);
+                    if (Object.keys(_json).length) {
+                        _resultList.push(_json);
+                        _.each(_json.elements, function (element) {
+                            searchAndAddsubModule(element);
+                        });
+                    }
+                }
+                if (json.properties.includeBody && !isSave) {
+                    _json = componentModule.getTarget(json.properties.includeBody);
+                    if (Object.keys(_json).length) {
+                        _resultList.push(_json);
+                        _.each(_json.elements, function (element) {
+                            searchAndAddsubModule(element);
+                        });
+                    }
+                }
+            }
             //存储所有的组件，包含子组件
             var _resultList = [];
             _.each(hierarchyModule.elements(), function (element) {
@@ -181,25 +234,8 @@ define(function (require) {
                 if (_compo && !isSave) {
                     _resultList.push(componentModule.getTarget(_compo));
                 }
-                if (json.properties.trueFuncBody && !isSave) {
-                    _json = componentModule.getTarget(json.properties.trueFuncBody);
-                    if (Object.keys(_json).length) {
-                        _resultList.push(_json);
-                    }
-                }
-                if (json.properties.falseFuncBody && !isSave) {
-                    _json = componentModule.getTarget(json.properties.falseFuncBody);
-                    if (Object.keys(_json).length) {
-                        _resultList.push(_json);
-                    }
-                }
-                if (json.properties.forFuncBody && !isSave) {
-                    _json = componentModule.getTarget(json.properties.forFuncBody);
-                    if (Object.keys(_json).length) {
-                        _resultList.push(_json);
-                    }
-                }
 
+                searchAndAddsubModule(json);
                 result.elements.push(_.omit(json, 'assets'));
 
                 _.each(json.assets, function (field, type) {
@@ -240,7 +276,7 @@ define(function (require) {
                 if (element.isCache()) {
                     _temp = element.exportCache();
                     _cache += _temp['cacheItem'];
-                    _cacheCall+= _temp['cacheItemCall'];
+                    _cacheCall += _temp['cacheItemCall'];
                 } else if (!element.isContainer()) {
                     _temp = element.exportHTMLCSS();
                     _container.append(_temp["html"]);
@@ -252,7 +288,7 @@ define(function (require) {
                 "css": _css.join(" "),
                 "name": _name,
                 "cache": _cache,
-                "cacheCall":_cacheCall
+                "cacheCall": _cacheCall
             }
         },
         exportMacro: function () {

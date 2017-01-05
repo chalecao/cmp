@@ -121,10 +121,6 @@ define(function (require) {
                 boxClassStr: ko.observable(""),
 
                 //-------------------
-                // ftl include related
-                include: ko.observable(""),
-
-                //-------------------
                 //overflow related
                 overflowX: ko.observable(false),
                 overflowY: ko.observable(false),
@@ -458,11 +454,7 @@ define(function (require) {
                 field: "style",
                 text: props.boxClassStr
             },
-            include: {
-                label: "ftl引入",
-                ui: "textfield",
-                text: props.include
-            },
+
             overflowX: {
                 label: "overflowX",
                 ui: "checkbox",
@@ -494,7 +486,7 @@ define(function (require) {
 
         initialize: function (config) {
 
-            this.$wrapper.attr("data-epage-eid", this.eid);
+            this.$wrapper.attr("data-cmp-eid", this.eid);
 
             var self = this,
                 properties = self.properties;
@@ -560,9 +552,12 @@ define(function (require) {
             // rid
             ko.computed({
                 read: function () {
-                    self.$wrapper.attr({
-                        'id': self.properties.rid()
-                    })
+                    var _rid = self.properties.rid();
+                    if (_rid) {
+                        self.$wrapper.attr({
+                            'id': self.properties.rid()
+                        });
+                    }
                 }
             });
 
@@ -574,7 +569,7 @@ define(function (require) {
                     if (_url) {
                         $(self.$wrapper.find("a")[0]).attr({
                             'href': _url
-                        })
+                        });
                     } else {
                         $(self.$wrapper.find("a")[0]).removeAttr('href');
                     }
@@ -655,7 +650,7 @@ define(function (require) {
                             return Math.round(item.value()) + "px"
                         }).join(" "),
                         'margin': _.map(ma, function (item) {
-                            return (typeof item.value() == "number") ? (Math.round(item.value()) + "px") : (item.value()+ "px");
+                            return (typeof item.value() == "number") ? (Math.round(item.value()) + "px") : (item.value() + "px");
                         }).join(" "),
                         'padding': _.map(pa, function (item) {
                             return Math.round(item.value()) + "px"
@@ -791,13 +786,13 @@ define(function (require) {
                         })
                     }
                 }
-            })
+            });
 
             this.$wrapper.css({
                 position: "absolute"
             });
 
-            this.properties.boxClassStr("epage-element epage-" + this.type.toLowerCase());
+            this.properties.boxClassStr("cmp-element cmp-" + this.type.toLowerCase());
 
             this.onCreate(this.$wrapper);
 
@@ -898,12 +893,12 @@ define(function (require) {
                 _classStr = $(value).attr("class");
                 if (_classStr) {
                     $(value).attr({
-                        "class": that.removeEpageClass(_classStr)
+                        "class": that.removeCMPClass(_classStr)
                     });
                 }
                 _style = $(value).attr("style");
                 if (_style) {
-                    _className = pclass + "_" + $(value).prop("tagName").toLowerCase() + key;
+                    _className = pclass + "_" + $(value).prop("tagName").toLowerCase() + genExID();
                     _css.push("." + _className + "{" + _style + "}");
                     $(value).removeAttr("style");
                     $(value).addClass(_className);
@@ -927,11 +922,11 @@ define(function (require) {
             }
 
         },
-        removeEpageClass: function (_classStr) {
+        removeCMPClass: function (_classStr) {
             _classStr = $.trim(_classStr);
-            //去除epage qpf
+            //去除cmp qpf
             _.each(_classStr.split(" "), function (item, key) {
-                if (item.indexOf("epage") >= 0 || item.indexOf("qpf") >= 0) {
+                if (item.indexOf("cmp") >= 0 || item.indexOf("qpf") >= 0) {
                     _classStr = _classStr.replace(item, "");
                 }
             });
@@ -942,7 +937,7 @@ define(function (require) {
             //每个元素添加className
             this.$wrapper.find(".element-select-outline").remove();
             var _html = "",
-                _include = this.properties.include(),
+
                 _type = this.type,
                 _classStr = this.properties.boxClassStr(),
                 _rid = this.properties.rid(),
@@ -951,31 +946,25 @@ define(function (require) {
             if (_rid) {
                 _idStr = " id='" + _rid + "'";
             }
-            _classStr = this.removeEpageClass(_classStr);
-            var _tempHtmlCss = {},
-                _tempFTL = "";
+            _classStr = this.removeCMPClass(_classStr);
+            var _tempHtmlCss = {};
 
-            if (_include) {
-                // 如果填写了ftl include
-                _html = "<div" + _idStr + " class='" + this.properties.id() + " " + _classStr + "'><#include '" + _include + "'/></div>";
+            if (!this.$wrapper.hasClass("e-hover-source") && !this.$wrapper.hasClass("cmp-func") && !this.$wrapper.find("a").attr("href")) {
+                // 如果超链接没有内容而且不是hover，那么去掉超链接
+                _tempHtmlCss = this.getHTMLCSS(this.$wrapper.find("a").html(), this.properties.id());
             } else {
-                if (!this.$wrapper.hasClass("e-hover-source") && !this.$wrapper.hasClass("epage-func") && !this.$wrapper.find("a").attr("href")) {
-                    // 如果超链接没有内容而且不是hover，那么去掉超链接
-                    _tempHtmlCss = this.getHTMLCSS(this.$wrapper.find("a").html(), this.properties.id());
-                } else {
-                    _tempHtmlCss = this.getHTMLCSS(this.$wrapper.html(), this.properties.id());
+                _tempHtmlCss = this.getHTMLCSS(this.$wrapper.html(), this.properties.id());
 
-                }
-                _html = "<div" + _idStr + " class='" + this.properties.id() + " " + _classStr + "'>" + _tempHtmlCss["html"] + "</div>";
-                _css += _tempHtmlCss["css"];
             }
+            _html = "<div" + _idStr + " class='" + this.properties.id() + " " + _classStr + "'>" + _tempHtmlCss["html"] + "</div>";
+            _css += _tempHtmlCss["css"];
             //wraper的样式
             _css += "." + this.properties.id() + " {" + this.$wrapper.attr("style") + "}";
 
             if (this.$wrapper.hasClass("e-hover-source")) {
                 _css += hoverCss;
             }
-            _html = _html.replace(/data-epage-eid\=\"(\d*)\"/g, "").replace(/\s+\'/g, "\'");
+            _html = _html.replace(/data-cmp-eid\=\"(\d*)\"/g, "").replace(/\s+\'/g, "\'");
             return {
                 "html": _html,
                 "css": _css
@@ -1025,6 +1014,12 @@ define(function (require) {
 
     function genEID() {
         return eid++;
+    }
+
+    var exportId = 1;
+
+    function genExID() {
+        return exportId++;
     }
 
     return Element;

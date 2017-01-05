@@ -96,6 +96,11 @@ define(function(require) {
                     exec: function() {
                         command.execute("copy", $uiEl.qpf("get")[0].target());
                     }
+                }, {
+                    label: "hover",
+                    exec: function() {
+                        command.execute("copy", $uiEl.qpf("get")[0].target());
+                    }
                 }]
             } else {
                 return [{

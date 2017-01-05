@@ -1,43 +1,51 @@
-define(function(require) {
+define(function (require) {
 
     var factory = require("core/factory");
     var ko = require("knockout");
-    var isIf = ko.observable(false);
-    var isFor = ko.observable(false);
-    var isCache = ko.observable(false);
     factory.register("func", {
         type: "FUNC",
-        extendProperties: function() {
+        extendProperties: function () {
             return {
-                text: ko.observable("IF函数"),
+                text: ko.observable("函数"),
                 funcType: ko.observable("IF"),
                 funcLanguage: ko.observable("FTL"),
-                ifFuncItem: ko.observable("itemName"),
-                trueFuncBody: ko.observable('M/U name'),
-                falseFuncBody: ko.observable('M/U name'),
-                forFuncItem: ko.observable('itemName'),
-                forFuncBody: ko.observable("M/U name"),
+                ifFuncItem: ko.observable(""),
+                trueFuncBody: ko.observable(''),
+                falseFuncBody: ko.observable(''),
+                forFuncItem: ko.observable(''),
+                forFuncBody: ko.observable(""),
                 requestName: ko.observable(""),
                 requestUrl: ko.observable(""),
                 requestType: ko.observable("post"),
                 requestParam: ko.observable("{}"),
-                onLoadFunc:ko.observable(""),
+                onLoadFunc: ko.observable(""),
+                includeBody: ko.observable(""),
+
             }
         },
 
 
-        extendUIConfig: function() {
+        extendUIConfig: function () {
+            var _that = this;
             return {
                 funcType: {
                     label: "函数类型",
                     ui: "combobox",
                     class: "small",
                     field: 'func',
-                    items: [
-                        { text: 'IF函数', value: "IF" },
-                        { text: 'FOR函数', value: "FOR" },
-                        { text: 'Cache函数', value: "CACHE" },
-                    ],
+                    items: [{
+                        text: 'IF函数',
+                        value: "IF"
+                    }, {
+                        text: 'FOR函数',
+                        value: "FOR"
+                    }, {
+                        text: 'Include函数',
+                        value: "INCLUDE"
+                    }, {
+                        text: 'Cache函数',
+                        value: "CACHE"
+                    }, ],
                     value: this.properties.funcType
                 },
                 funcLanguage: {
@@ -45,97 +53,159 @@ define(function(require) {
                     ui: "combobox",
                     class: "small",
                     field: 'func',
-                    items: [
-                        { text: 'FTL模板', value: "FTL" },
-                        { text: 'Regular模板', value: "Regular" },
-                        { text: 'JS函数', value: "JS" }
-                    ],
+                    items: [{
+                        text: 'FTL模板',
+                        value: "FTL"
+                    }, {
+                        text: 'Regular模板',
+                        value: "Regular"
+                    }, {
+                        text: 'JS函数',
+                        value: "JS"
+                    }],
                     value: this.properties.funcLanguage
+                },
+                includeBody: {
+                    label: "包含组件",
+                    ui: "textfield",
+                    field: 'func',
+                    text: this.properties.includeBody,
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "INCLUDE";
+                        }
+                    })
                 },
                 ifFuncItem: {
                     label: "IfItem",
                     ui: "textfield",
                     field: 'func',
                     text: this.properties.ifFuncItem,
-                    visible: isIf
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "IF";
+                        }
+                    })
                 },
                 trueFuncBody: {
                     label: "IfTrue",
                     ui: "textfield",
                     field: 'func',
                     text: this.properties.trueFuncBody,
-                    visible: isIf
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "IF";
+                        }
+                    })
                 },
                 falseFuncBody: {
                     label: "IfFalse",
                     ui: "textfield",
                     field: 'func',
                     text: this.properties.falseFuncBody,
-                    visible: isIf
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "IF";
+                        }
+                    })
                 },
                 forFuncItem: {
                     label: "ForItem",
                     ui: "textfield",
                     field: 'func',
                     text: this.properties.forFuncItem,
-                    visible: isFor
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "FOR";
+                        }
+                    })
                 },
                 forFuncBody: {
                     label: "ForBody",
                     ui: "textfield",
                     field: 'func',
                     text: this.properties.forFuncBody,
-                    visible: isFor
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "FOR";
+                        }
+                    })
                 },
                 requestName: {
                     label: "方法名称",
                     ui: "textfield",
                     field: 'func',
                     text: this.properties.requestName,
-                    visible: isCache
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "CACHE";
+                        }
+                    })
                 },
                 requestUrl: {
                     label: "请求地址",
                     ui: "textfield",
                     field: 'func',
                     text: this.properties.requestUrl,
-                    visible: isCache
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "CACHE";
+                        }
+                    })
                 },
-               
+
                 requestType: {
                     label: "请求类型",
                     ui: "combobox",
                     class: "small",
                     field: 'func',
-                    items: [
-                        { text: 'POST', value: "post" },
-                        { text: 'GET', value: "get" },
-                        { text: 'DWR', value: "dwr" }
+                    items: [{
+                            text: 'POST',
+                            value: "post"
+                        }, {
+                            text: 'GET',
+                            value: "get"
+                        }, {
+                            text: 'DWR',
+                            value: "dwr"
+                        }
 
                     ],
                     value: this.properties.requestType,
-                    visible: isCache
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "CACHE";
+                        }
+                    })
                 },
                 requestParam: {
                     label: "请求参数",
                     ui: "textarea",
                     field: 'func',
                     text: this.properties.requestParam,
-                    visible: isCache
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "CACHE";
+                        }
+                    })
                 },
                 onLoadFunc: {
                     label: "成功回掉",
                     ui: "textarea",
                     field: 'func',
                     text: this.properties.onLoadFunc,
-                    visible: isCache
+                    visible: ko.computed({
+                        read: function () {
+                            return _that.properties.funcType() == "CACHE";
+                        }
+                    })
                 },
 
             }
         },
 
 
-        onCreate: function($wrapper) {
+        onCreate: function ($wrapper) {
             var $text = $("<span></span>");
             var self = this;
 
@@ -146,22 +216,21 @@ define(function(require) {
             }
 
             //function 函数
-            ko.computed(function() {
+            ko.computed(function () {
                 var funcType = self.properties.funcType();
                 var funcLanguage = self.properties.funcLanguage();
-                if(funcType == "CACHE"){
+                if (funcType == "CACHE") {
                     self.properties.funcLanguage("JS");
                 }
                 $text.html(funcType + "函数<br/>" + self.properties.funcLanguage() + "模板/语言");
-                isIf(funcType == "IF");
-                isFor(funcType == "FOR");
-                isCache(funcType == "CACHE");
-                
 
 
                 var _tempFTL = "";
 
                 if (funcType == "IF") {
+                    if (self.properties.ifFuncItem() == "itemName") {
+                        return;
+                    }
                     self.$wrapper.empty();
                     if (funcLanguage == "FTL") {
                         // 如果是if函数
@@ -178,6 +247,12 @@ define(function(require) {
                     }
 
                 } else if (funcType == "FOR") {
+                    if (self.properties.forFuncItem() == "itemName") {
+                        return;
+                    }
+                    if (self.properties.forFuncBody() == "M/U name") {
+                        return;
+                    }
                     self.$wrapper.empty();
                     // 如果是for函数
                     if (funcLanguage == "FTL") {
@@ -186,6 +261,7 @@ define(function(require) {
                         _tempFTL = "{#list " + self.properties.forFuncItem() + " as item}<div class='f-for-body'></div>{/list}";
                     }
                     self.$wrapper.append(_tempFTL);
+
                     if (self.properties.forFuncBody()) {
                         self.trigger("addFuncComponent", self.properties.forFuncBody(), self.$wrapper.find(".f-for-body"));
                     }
@@ -193,7 +269,25 @@ define(function(require) {
                 } else if (funcType == "CACHE") {
                     self.$wrapper.empty();
                     $wrapper.append($text);
-                }else {
+                } else if (funcType == "INCLUDE") {
+                    self.$wrapper.empty();
+                    var _include = self.properties.includeBody();
+                    if (_include) {
+                        if (funcLanguage == "FTL") {
+                            if (_include.indexOf(".ftl") > 0) {
+                                // 如果是带ftl后缀，则可能是引入外部的ftl，这里不作处理
+                                _tempFTL = "<#include '" + _include + "'/>";
+                            } else {
+                                _tempFTL = "<div class='f-include-body'></div>";
+                            }
+                        } else if (funcLanguage == "Regular") {
+                            _tempFTL = "<div class='f-include-body'></div>";
+                        }
+                        self.$wrapper.append(_tempFTL);
+                        self.trigger("addFuncComponent", _include, self.$wrapper.find(".f-include-body"));
+
+                    }
+                } else {
                     self.$wrapper.empty();
                 }
 
@@ -201,31 +295,8 @@ define(function(require) {
             });
 
 
-        },
-        // onExport: function() {
-        //     var _tempFTL = "";
-        //     if (this.properties.funcLanguage() == "FTL") {
-        //         if (this.properties.funcType() == "IF") {
-        //             // 如果是if函数
-        //             _tempFTL = "<#if " + this.properties.ifFuncItem() + "??><#include '" + this.properties.trueFuncBody() + ".ftl'><#else><#include '" + this.properties.falseFuncBody() + ".ftl'>&lt;/#if>";
-        //         } else if (this.properties.funcType() == "FOR") {
-        //             // 如果是for函数
-        //             _tempFTL = "<#include '" + this.properties.forFuncBody() + ".ftl'/><#list " + this.properties.forFuncItem() + " as item><@" + this.properties.forFuncBody().replace(/\-/g, "_") + " item />&lt;/#list>";
-        //         }
-        //         _tempFTL += "</div>";
-        //     } else if (this.properties.funcLanguage() == "Regular") {
-        //         //todo
-        //         if (this.properties.funcType() == "IF") {
-        //             // 如果是if函数
-        //             _tempFTL = "{#if " + this.properties.ifFuncItem() + "}<div class='m-if-true'></div>{#else}<div class='m-if-false'></div>{/if}";
-        //         } else if (this.properties.funcType() == "FOR") {
-        //             // 如果是for函数
-        //             _tempFTL = "{#list " + this.properties.forFuncItem() + " as item}" + this.properties.forFuncBody().replace(/\$\{/g, "{") + "{/list}";
-        //         }
-        //         _tempFTL += "</div>";
-        //     }
-        //     return _tempFTL;
-        // }
+        }
+
     });
 
 });

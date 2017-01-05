@@ -47,7 +47,7 @@
           "shadowColor": 0,
           "newBlank": false,
           "targetUrl": "",
-          "classStr": "epage-element epage-element",
+          "classStr": "cmp-element cmp-element",
           "include": "",
           "overflowX": false,
           "overflowY": false,
