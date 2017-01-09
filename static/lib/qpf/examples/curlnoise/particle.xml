@@ -1,5 +1,0 @@
-<panel title="particle">
-	<panel class="item" title="Spawn size">
-		<range min="0" max="1" precision="2" value="@binding[spawnSize]"></range>
-	</panel>
-</panel>
