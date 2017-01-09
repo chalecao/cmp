@@ -4,4 +4,8 @@ node_modules
 .git
 .vscode
 static/src
-static/lib/cmui
+
+static/lib/cmui/*
+!static/lib/cmui/dist/
+!static/lib/cmui/dist
+
