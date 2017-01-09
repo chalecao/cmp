@@ -20,7 +20,7 @@ CMP是一个用于制作网页的工具，你可以用它来制作静态网页�
 1. 目前还只能制作组件UI，不能制作复杂嵌套的页面。目前仅支持container元素相对定位，其他元素都需要相对于container元素的绝对定位。
 
 ## 使用介绍
-<img src="static/style/images/cmp_overview.png" />
+<img src="static/style/images/cmp_intro.png" />
 如上图所示，你可以创建一个模块或者UI或者Cache,然后在container中添加图片或者文字等元素，并在右侧控制该元素对应的属性。
 
 ## feature
