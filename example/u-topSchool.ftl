@@ -1,1 +1,0 @@
-<div class="u-topSchool-container  "><div class="u-topSchool-tip  "><span class="u-topSchool-tip_span0">全部120所合作高校</span></div><div class="u-topSchool-func  "><#include 'u-schoolItem.ftl'/><#list schoolList as item><@u_schoolItem item /></#list></div></div>

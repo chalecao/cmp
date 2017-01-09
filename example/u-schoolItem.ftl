@@ -1,1 +1,0 @@
-<#macro u_schoolItem u_schoolItem><div class="u-schoolItem-container  f-fl"><div class="u-schoolItem-image  "><img src="${u_schoolItem.img}" width="110" height="31" class="u-schoolItem-image_img0"></div></div></#macro>

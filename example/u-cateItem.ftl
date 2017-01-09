@@ -1,1 +1,0 @@
-<#macro u_cateItem u_cateItem><div class="u-cateItem-container  "><div class="u-cateItem-icon  ${u_cateItem.picUrl}"></div><div class="u-cateItem-txt  f-thide"><span class="epage-element epage-text f-thide u-cateItem-txt_span0" css=" f-thide">${u_cateItem.cateName}</span></div></div></#macro>
