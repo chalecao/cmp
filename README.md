@@ -5,6 +5,8 @@ CMP是一个用于制作网页的工具，你可以用它来制作静态网页�
 
 <img src="static/style/images/cmp_overview.png" />
 
+试用地址: https://chalecao.github.io/cmp/static/
+
 ## 约定
 1. 命名
   组件默认m-xxx-, UI默认u-xxx-, cache默认c-xxx-。其中最外层父元素默认m/u/c-xxx-container, 后面的-container是提取标志，提取前面的m/u/c-xxx部分作为整个组件的name。导出和保存时默认以该名称命名。
