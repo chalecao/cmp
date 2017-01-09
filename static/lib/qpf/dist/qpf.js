@@ -2794,71 +2794,71 @@ define("meta/overlaymanager", function(){});
 // @method updatePosition   update the slider position manually
 // @event change newValue prevValue self[Slider]
 //===================================
-define('meta/slider',['require','./meta','../helper/draggable','knockout','$','_'],function(require){
+define('meta/slider',['require','./meta','../helper/draggable','knockout','$','_'],function (require) {
 
-var Meta = require("./meta");
-var Draggable = require("../helper/draggable");
-var ko = require("knockout");
-var $ = require("$");
-var _ = require("_");
+    var Meta = require("./meta");
+    var Draggable = require("../helper/draggable");
+    var ko = require("knockout");
+    var $ = require("$");
+    var _ = require("_");
 
-var Slider = Meta.derive(function(){
+    var Slider = Meta.derive(function () {
 
-    var ret =  {
+        var ret = {
 
-        $el : $('<div data-bind="css:orientation"></div>'),
+            $el: $('<div data-bind="css:orientation"></div>'),
 
-        step : ko.observable(1),
+            step: ko.observable(1),
 
-        min : ko.observable(-100),
+            min: ko.observable(-100),
 
-        max : ko.observable(100),
+            max: ko.observable(100),
 
-        orientation : ko.observable("horizontal"),// horizontal | vertical
+            orientation: ko.observable("horizontal"), // horizontal | vertical
 
-        precision : ko.observable(2),
+            precision: ko.observable(2),
 
-        format : "{{value}}",
+            format: "{{value}}",
 
-        _format : function(number){
-            return this.format.replace("{{value}}", number);
-        },
+            _format: function (number) {
+                return this.format.replace("{{value}}", number);
+            },
 
-        // compute size dynamically when dragging
-        autoResize : true
-    }
+            // compute size dynamically when dragging
+            autoResize: true
+        }
 
-    ret.value = ko.observable(1).extend({
-        clamp : { 
-                    max : ret.max,
-                    min : ret.min
-                }
-    });
+        ret.value = ko.observable(1).extend({
+            clamp: {
+                max: ret.max,
+                min: ret.min
+            }
+        });
 
-    ret._valueNumeric = ko.computed(function(){
-        return ret.value().toFixed(ret.precision());
-    })
+        ret._valueNumeric = ko.computed(function () {
+            return ret.value().toFixed(ret.precision());
+        })
 
-    ret._percentageStr = ko.computed({
-        read : function(){
-            var min = ret.min();
-            var max = ret.max();
-            var value = ret.value();
-            var percentage = ( value - min ) / ( max - min );
-            
-            return percentage * 100 + "%";
-        },
-        deferEvaluation : true
-    })
-    return ret;
+        ret._percentageStr = ko.computed({
+            read: function () {
+                var min = ret.min();
+                var max = ret.max();
+                var value = ret.value();
+                var percentage = (value - min) / (max - min);
 
-}, {
+                return percentage * 100 + "%";
+            },
+            deferEvaluation: true
+        })
+        return ret;
 
-    type : "SLIDER",
+    }, {
 
-    css : 'slider',
+        type: "SLIDER",
 
-    template : '<div class="qpf-slider-groove-box">\
+        css: 'slider',
+
+        template: '<div class="qpf-slider-groove-box">\
                     <div class="qpf-slider-groove">\
                         <div class="qpf-slider-percentage" data-bind="style:{width:_percentageStr}"></div>\
                     </div>\
@@ -2870,98 +2870,100 @@ var Slider = Meta.derive(function(){
                     <div class="qpf-slider-value" data-bind="text:_format(_valueNumeric())"></div>\
                 </div>',
 
-    eventsProvided : _.union(Meta.prototype.eventsProvided, "change"),
-    
-    initialize : function(){
-        // add draggable mixin
-        Draggable.applyTo( this, {
-            axis : ko.computed(function(){
-                return this.orientation() == "horizontal" ? "x" : "y"
-            }, this)
-        });
+        eventsProvided: _.union(Meta.prototype.eventsProvided, "change"),
 
-        var prevValue = this._valueNumeric();
-        this.value.subscribe(function(){
-            this.trigger("change", this._valueNumeric(), prevValue, this);
-            prevValue = this._valueNumeric();
-        }, this);
-    },
+        initialize: function () {
+            // add draggable mixin
+            Draggable.applyTo(this, {
+                axis: ko.computed(function () {
+                    return this.orientation() == "horizontal" ? "x" : "y"
+                }, this)
+            });
 
-    afterRender : function(){
+            var prevValue = this._valueNumeric();
+            this.value.subscribe(function () {
+                this.trigger("change", this._valueNumeric(), prevValue, this);
+                prevValue = this._valueNumeric();
+            }, this);
+        },
 
-        // cache the element;
-        this._$groove = this.$el.find(".qpf-slider-groove");
-        this._$percentage = this.$el.find(".qpf-slider-percentage");
-        this._$control = this.$el.find(".qpf-slider-control");
+        afterRender: function () {
 
-        this.draggable.container = this._$groove;
-        var item = this.draggable.add( this._$control );
-        
-        item.on("drag", this._dragHandler, this);
+            // cache the element;
+            this._$groove = this.$el.find(".qpf-slider-groove");
+            this._$percentage = this.$el.find(".qpf-slider-percentage");
+            this._$control = this.$el.find(".qpf-slider-control");
 
-        // disable text selection
-        this.$el.mousedown(function(e){
-            e.preventDefault();
-        });
-    },
+            this.draggable.container = this._$groove;
+            var item = this.draggable.add(this._$control);
 
-    onResize : function(){
-        Meta.prototype.onResize.call(this);
-    },
+            item.on("drag", this._dragHandler, this);
 
-    computePercentage : function(){
+            // disable text selection
+            this.$el.mousedown(function (e) {
+                e.preventDefault();
+            });
+            
+        },
 
-        if( this.autoResize ){
-            this._cacheSize();
-        }
+        onResize: function () {
+            Meta.prototype.onResize.call(this);
+        },
 
-        var offset = this._computeOffset();
-        return offset / ( this._grooveSize - this._sliderSize );
-    },
+        computePercentage: function () {
 
-    _cacheSize : function(){
+            if (this.autoResize) {
+                this._cacheSize();
+            }
 
-        // cache the size of the groove and slider
-        var isHorizontal =this._isHorizontal();
-        this._grooveSize =  isHorizontal ?
-                            this._$groove.width() :
-                            this._$groove.height();
-        this._sliderSize = isHorizontal ?
-                            this._$control.width() :
-                            this._$control.height();
-    },
+            var offset = this._computeOffset();
+            return offset / (this._grooveSize - this._sliderSize);
+        },
 
-    _computeOffset : function(){
+        _cacheSize: function () {
 
-        var isHorizontal = this._isHorizontal();
-        var grooveOffset = isHorizontal ?
-                            this._$groove.offset().left :
-                            this._$groove.offset().top;
-        var sliderOffset = isHorizontal ? 
-                            this._$control.offset().left :
-                            this._$control.offset().top;
+            // cache the size of the groove and slider
+            var isHorizontal = this._isHorizontal();
+            this._grooveSize = isHorizontal ?
+                this._$groove.width() :
+                this._$groove.height();
+            this._sliderSize = isHorizontal ?
+                this._$control.width() :
+                this._$control.height();
+        },
 
-        return sliderOffset - grooveOffset;
-    },
+        _computeOffset: function () {
 
-    _dragHandler : function(){
+            var isHorizontal = this._isHorizontal();
+            var grooveOffset = isHorizontal ?
+                this._$groove.offset().left :
+                this._$groove.offset().top;
+            var sliderOffset = isHorizontal ?
+                this._$control.offset().left :
+                this._$control.offset().top;
 
-        var percentage = this.computePercentage(),
-            min = parseFloat( this.min() ),
-            max = parseFloat( this.max() ),
-            value = (max-min)*percentage+min;
+            return sliderOffset - grooveOffset;
+        },
 
-        this.value( value );  
-    },
+        _dragHandler: function () {
 
-    _isHorizontal : function(){
-        return ko.utils.unwrapObservable( this.orientation ) == "horizontal";
-    },
-})
+            var percentage = this.computePercentage(),
+                min = parseFloat(this.min()),
+                max = parseFloat(this.max()),
+                value = (max - min) * percentage + min;
 
-Meta.provideBinding("slider", Slider);
+            this.value(value);
+            this.value(this._valueNumeric());
+        },
 
-return Slider;
+        _isHorizontal: function () {
+            return ko.utils.unwrapObservable(this.orientation) == "horizontal";
+        },
+    })
+
+    Meta.provideBinding("slider", Slider);
+
+    return Slider;
 
 })
 ;
@@ -3081,39 +3083,55 @@ return Spinner;
 // @VMProp placeholder
 //
 //===================================
-define('meta/textfield',['require','./meta','knockout','_'],function(require){
+define('meta/textfield',['require','./meta','knockout','_'],function (require) {
 
-var Meta = require('./meta');
-var ko = require("knockout");
-var _ = require("_");
+    var Meta = require('./meta');
+    var ko = require("knockout");
+    var _ = require("_");
 
-var TextField = Meta.derive(function(){
-return {
-    
-    tag : "div",
+    var TextField = Meta.derive(function () {
+        return {
 
-    text : ko.observable(""),
-        
-    placeholder : ko.observable("")
+            tag: "div",
 
-}}, {
-    
-    type : "TEXTFIELD",
+            text: ko.observable(""),
 
-    css : 'textfield',
+            placeholder: ko.observable("")
 
-    template : '<input type="text" data-bind="attr:{placeholder:placeholder}, value:text"/>',
+        }
+    }, {
 
-    onResize : function(){
-        this.$el.find("input").width( this.width() );
-        Meta.prototype.onResize.call(this);
-    }
+        type: "TEXTFIELD",
+
+        css: 'textfield',
+
+        template: '<input type="text" data-bind="attr:{placeholder:placeholder}, value:text"/>',
+        afterRender: function () {
+            var self = this;
+            this.$el.keydown(function (event) {
+                if (isNaN(+self.text())) {
+                    return;
+                } else {
+                    // up = +  down=-
+                    if (event.keyCode == 38) {
+                        self.value((+self.text()) + 1);
+                    } else if (event.keyCode == 40) {
+                        self.value((+self.text()) - 1);
+                    }
+                }
+            });
+        },
+        onResize: function () {
+            this.$el.find("input").width(this.width());
+            Meta.prototype.onResize.call(this);
+        }
+    })
+
+    Meta.provideBinding("textfield", TextField);
+
+    return TextField;
 })
-
-Meta.provideBinding("textfield", TextField);
-
-return TextField;
-});
+;
 ;
 define("meta/texture", function(){});
 

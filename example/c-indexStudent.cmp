@@ -1,0 +1,87 @@
+[
+  {
+    "meta": {
+      "date": "2017-1-5",
+      "name": "c-indexStudent"
+    },
+    "viewport": {
+      "width": 1440,
+      "height": 600
+    },
+    "elements": [
+      {
+        "eid": 1,
+        "type": "FUNC",
+        "properties": {
+          "id": "c-indexStudent-container",
+          "rid": "",
+          "width": "1260",
+          "height": "317",
+          "left": 0,
+          "top": 0,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "marginTop": 0,
+          "marginRight": 0,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "shadowColorAlpha": 1,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "cmp-element cmp-func",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "text": "函数",
+          "funcType": "CACHE",
+          "funcLanguage": "JS",
+          "ifFuncItem": "",
+          "trueFuncBody": "",
+          "falseFuncBody": "",
+          "forFuncItem": "",
+          "forFuncBody": "",
+          "requestName": "getStudent",
+          "requestUrl": "123123",
+          "requestType": "post",
+          "requestParam": "{}",
+          "onLoadFunc": "",
+          "includeBody": ""
+        }
+      }
+    ],
+    "assets": {}
+  }
+]

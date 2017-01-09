@@ -1,18 +1,21 @@
 /**
  * boot the web app
  */
-(function() {
+(function () {
     //=========================
     // CONFIG
     //=========================
 
-    $LAB.setGlobalDefaults({ BasePath: 'lib/' });
+    $LAB.setGlobalDefaults({
+        BasePath: 'lib/'
+    });
     //=========================
     // Load Library
     //=========================
     $LAB.script("require.js")
         .script("director.js")
         .script("FileSaver.js")
+        .script("cmp.bundle.js")
         .wait(boot);
 
     //========================
@@ -22,7 +25,18 @@
 
         config();
 
-        require(["app"], function(app) {
+        require(["app", "modules/common/histogram",
+            "modules/common/list",
+            "modules/common/modal",
+            "modules/common/region",
+            "modules/common/iconbutton",
+            "modules/common/togglebutton",
+            "modules/common/toggleiconbutton",
+            "modules/common/nativehtml",
+            "modules/common/textArea",
+            "modules/common/gradient",
+            "modules/common/color"
+        ], function (app) {
             app.start();
         })
     }
@@ -34,7 +48,7 @@
             paths: {
                 async: "lib/async",
                 onecolor: "lib/onecolor",
-                qpf: "lib/qpf/dist/qpf",
+                qpf: "lib/cmui/dist/qpf",
                 // qpf: "lib/qpf",
                 emage: "lib/emage",
                 knockout: "lib/knockout",
@@ -49,19 +63,8 @@
                 },
                 '_': {
                     exports: "_"
-                },
-                'app': ["modules/common/histogram",
-                    "modules/common/list",
-                    "modules/common/modal",
-                    "modules/common/region",
-                    "modules/common/iconbutton",
-                    "modules/common/togglebutton",
-                    "modules/common/toggleiconbutton",
-                    "modules/common/nativehtml",
-                    "modules/common/textArea",
-                    "modules/common/gradient",
-                    "modules/common/color"
-                ]
+                }
+
             },
             waitSeconds: 30
         })

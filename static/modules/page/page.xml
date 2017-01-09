@@ -1,3 +1,0 @@
-<container id="Page">
-    <list id="PagesList" dataSource="@binding[pagesList]" itemView="@binding[ElementView]" onselect="@binding[_selectPages]"></list>
-</container>

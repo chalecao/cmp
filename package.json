@@ -1,18 +1,12 @@
 {
-  "name": "emage",
-  "version": "0.1.0",
-  "devDependencies": {
-    "grunt": "*",
-    "grunt-contrib-requirejs": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-less": "*",
-    "grunt-preprocess": "*"
-  },
-  "dependencies": {
-    "glob": "^7.1.1"
-  }
+    "name": "cmp",
+    "version": "0.1.0",
+    "author": "ch19900606@gmail.com",
+    "scripts": {
+        "build": "cd build && node update.js && node r.js -o config.js",
+        "server": "http-server ."
+    },
+    "dependencies": {
+        "glob": "^7.1.1"
+    }
 }

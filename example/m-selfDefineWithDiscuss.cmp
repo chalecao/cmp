@@ -80,7 +80,7 @@
   },
   {
     "meta": {
-      "date": "2017-1-4",
+      "date": "2017-1-5",
       "name": "u-lessonCard"
     },
     "viewport": {
@@ -89,7 +89,7 @@
     },
     "elements": [
       {
-        "eid": 321,
+        "eid": 675,
         "type": "ELEMENT",
         "properties": {
           "id": "u-lessonCard-container",
@@ -150,7 +150,7 @@
         }
       },
       {
-        "eid": 322,
+        "eid": 676,
         "type": "IMAGE",
         "properties": {
           "id": "u-lessonCard-img",
@@ -210,7 +210,7 @@
         }
       },
       {
-        "eid": 323,
+        "eid": 677,
         "type": "ELEMENT",
         "properties": {
           "id": "u-lessonCard-cover",
@@ -268,7 +268,7 @@
         }
       },
       {
-        "eid": 324,
+        "eid": 678,
         "type": "ELEMENT",
         "properties": {
           "id": "u-lessonCard-bar",
@@ -326,7 +326,7 @@
         }
       },
       {
-        "eid": 325,
+        "eid": 679,
         "type": "TEXT",
         "properties": {
           "id": "u-lessonCard-className",
@@ -373,7 +373,7 @@
           "shadowBlur": 10,
           "shadowColor": 0,
           "shadowColorAlpha": 1,
-          "boxFontSize": 16,
+          "boxFontSize": 0,
           "newBlank": false,
           "targetUrl": "",
           "boxClassStr": "cmp-element cmp-text",
@@ -392,7 +392,7 @@
         }
       },
       {
-        "eid": 326,
+        "eid": 680,
         "type": "TEXT",
         "properties": {
           "id": "u-lessonCard-name",
@@ -439,7 +439,7 @@
           "shadowBlur": 10,
           "shadowColor": 0,
           "shadowColorAlpha": 1,
-          "boxFontSize": 16,
+          "boxFontSize": 0,
           "newBlank": false,
           "targetUrl": "",
           "boxClassStr": "cmp-element cmp-text",
@@ -458,7 +458,7 @@
         }
       },
       {
-        "eid": 327,
+        "eid": 681,
         "type": "TEXT",
         "properties": {
           "id": "u-lessonCard-time",
@@ -505,7 +505,7 @@
           "shadowBlur": 10,
           "shadowColor": 0,
           "shadowColorAlpha": 1,
-          "boxFontSize": 16,
+          "boxFontSize": 0,
           "newBlank": false,
           "targetUrl": "",
           "boxClassStr": "cmp-element cmp-text",
@@ -524,7 +524,7 @@
         }
       },
       {
-        "eid": 328,
+        "eid": 682,
         "type": "TEXT",
         "properties": {
           "id": "u-lessonCard-icon",
@@ -534,7 +534,7 @@
           "left": 91,
           "top": 178,
           "zIndex": 3,
-          "boxColor": "#000000",
+          "boxColor": "#ffffff",
           "border": false,
           "borderColor": 5617961,
           "background": false,
@@ -571,7 +571,7 @@
           "shadowBlur": 10,
           "shadowColor": 0,
           "shadowColorAlpha": 1,
-          "boxFontSize": 16,
+          "boxFontSize": 54,
           "newBlank": false,
           "targetUrl": "",
           "boxClassStr": "cmp-element cmp-text u-icon-playing",
@@ -590,7 +590,7 @@
         }
       },
       {
-        "eid": 329,
+        "eid": 683,
         "type": "FUNC",
         "properties": {
           "id": "u-lessonCard-list",
@@ -623,7 +623,7 @@
           "borderTopRightRadius": 0,
           "borderBottomRightRadius": 0,
           "borderBottomLeftRadius": 0,
-          "marginTop": 0,
+          "marginTop": 8,
           "marginRight": 0,
           "marginBottom": 0,
           "marginLeft": 0,
@@ -872,7 +872,7 @@
   },
   {
     "meta": {
-      "date": "2017-1-4",
+      "date": "2017-1-5",
       "name": "u-baseCourseCard"
     },
     "viewport": {
@@ -881,7 +881,7 @@
     },
     "elements": [
       {
-        "eid": 4186,
+        "eid": 67,
         "type": "ELEMENT",
         "properties": {
           "id": "u-baseCourseCard-container",
@@ -915,8 +915,8 @@
           "borderBottomRightRadius": 0,
           "borderBottomLeftRadius": 0,
           "marginTop": 0,
-          "marginRight": 0,
-          "marginBottom": 0,
+          "marginRight": 20,
+          "marginBottom": 20,
           "marginLeft": 0,
           "paddingTop": 0,
           "paddingRight": 0,
@@ -931,7 +931,7 @@
           "boxFontSize": 16,
           "newBlank": false,
           "targetUrl": "",
-          "boxClassStr": "cmp-element cmp-element",
+          "boxClassStr": "cmp-element cmp-element f-fl",
           "overflowX": false,
           "overflowY": false,
           "hover": false,
@@ -942,7 +942,7 @@
         }
       },
       {
-        "eid": 4187,
+        "eid": 68,
         "type": "IMAGE",
         "properties": {
           "id": "u-baseCourseCard-img",
@@ -998,11 +998,11 @@
           "hover": false,
           "hoverComponent": "",
           "src": "{item.coverUrl}",
-          "alt": ""
+          "alt": "{item.courseName}"
         }
       },
       {
-        "eid": 4188,
+        "eid": 69,
         "type": "TEXT",
         "properties": {
           "id": "u-baseCourseCard-title",
@@ -1068,7 +1068,7 @@
         }
       },
       {
-        "eid": 4189,
+        "eid": 70,
         "type": "TEXT",
         "properties": {
           "id": "u-baseCourseCard-school",
@@ -1134,7 +1134,7 @@
         }
       },
       {
-        "eid": 4190,
+        "eid": 71,
         "type": "TEXT",
         "properties": {
           "id": "u-baseCourseCard-people",
@@ -1204,7 +1204,7 @@
   },
   {
     "meta": {
-      "date": "2017-1-4",
+      "date": "2017-1-5",
       "name": "u-discussList"
     },
     "viewport": {
@@ -1213,7 +1213,7 @@
     },
     "elements": [
       {
-        "eid": 1038,
+        "eid": 365,
         "type": "ELEMENT",
         "properties": {
           "id": "u-discussList-container",
@@ -1274,15 +1274,15 @@
         }
       },
       {
-        "eid": 1039,
+        "eid": 366,
         "type": "ELEMENT",
         "properties": {
           "id": "u-discussList-bar",
           "rid": "",
           "width": "4",
           "height": "17",
-          "left": 15,
-          "top": 13,
+          "left": 13,
+          "top": 15,
           "zIndex": 1,
           "boxColor": "#000000",
           "border": false,
@@ -1332,7 +1332,7 @@
         }
       },
       {
-        "eid": 1040,
+        "eid": 367,
         "type": "TEXT",
         "properties": {
           "id": "u-discussList-name",
@@ -1379,7 +1379,7 @@
           "shadowBlur": 10,
           "shadowColor": 0,
           "shadowColorAlpha": 1,
-          "boxFontSize": 16,
+          "boxFontSize": 0,
           "newBlank": false,
           "targetUrl": "",
           "boxClassStr": "cmp-element cmp-text",
@@ -1398,7 +1398,7 @@
         }
       },
       {
-        "eid": 1041,
+        "eid": 368,
         "type": "FUNC",
         "properties": {
           "id": "u-discussList-item",
@@ -1474,6 +1474,212 @@
   },
   {
     "meta": {
+      "date": "2017-1-4",
+      "name": "u-discussItem"
+    },
+    "viewport": {
+      "width": 1440,
+      "height": 600
+    },
+    "elements": [
+      {
+        "eid": 3062,
+        "type": "ELEMENT",
+        "properties": {
+          "id": "u-discussItem-container",
+          "rid": "",
+          "width": "216",
+          "height": "73",
+          "left": 0,
+          "top": 0,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "marginTop": 0,
+          "marginRight": 0,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "shadowColorAlpha": 1,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "cmp-element cmp-element",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "color": "#ffffff",
+          "classStr": "cmp-element cmp-element",
+          "include": ""
+        }
+      },
+      {
+        "eid": 3063,
+        "type": "TEXT",
+        "properties": {
+          "id": "u-discussItem-title",
+          "rid": "",
+          "width": "216",
+          "height": "40",
+          "left": 0,
+          "top": 0,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "marginTop": 0,
+          "marginRight": 0,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "shadowColorAlpha": 1,
+          "boxFontSize": 16,
+          "newBlank": true,
+          "targetUrl": "{item.targetUrl}",
+          "boxClassStr": "cmp-element cmp-text",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "text": "{item.postTitle}",
+          "fontFamily": "微软雅黑,Microsoft YaHei",
+          "fontSize": 14,
+          "color": "#111111",
+          "horzontalAlign": "left",
+          "verticleAlign": "middle",
+          "lineHeight": 20,
+          "classStr": ""
+        }
+      },
+      {
+        "eid": 3064,
+        "type": "TEXT",
+        "properties": {
+          "id": "u-discussItem-course",
+          "rid": "",
+          "width": "216",
+          "height": "16",
+          "left": 0,
+          "top": 44,
+          "zIndex": 0,
+          "boxColor": "#000000",
+          "border": false,
+          "borderColor": 5617961,
+          "background": false,
+          "backgroundColor": 16777215,
+          "backgroundAlpha": 1,
+          "backgroundImageType": "none",
+          "backgroundGradientStops": [
+            {
+              "percent": 0,
+              "color": "rgba(255, 255, 255, 1)"
+            },
+            {
+              "percent": 1,
+              "color": "rgba(0, 0, 0, 1)"
+            }
+          ],
+          "backgroundGradientAngle": 180,
+          "backgroundImageStr": "",
+          "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
+          "borderBottomRightRadius": 0,
+          "borderBottomLeftRadius": 0,
+          "marginTop": 0,
+          "marginRight": 0,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "paddingTop": 0,
+          "paddingRight": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "hasShadow": false,
+          "shadowOffsetX": 0,
+          "shadowOffsetY": 0,
+          "shadowBlur": 10,
+          "shadowColor": 0,
+          "shadowColorAlpha": 1,
+          "boxFontSize": 16,
+          "newBlank": false,
+          "targetUrl": "",
+          "boxClassStr": "cmp-element cmp-text f-thide",
+          "overflowX": false,
+          "overflowY": false,
+          "hover": false,
+          "hoverComponent": "",
+          "text": "{item.courseName}",
+          "fontFamily": "微软雅黑,Microsoft YaHei",
+          "fontSize": 12,
+          "color": "#999999",
+          "horzontalAlign": "left",
+          "verticleAlign": "middle",
+          "lineHeight": 16,
+          "classStr": ""
+        }
+      }
+    ],
+    "assets": {}
+  },
+  {
+    "meta": {
       "date": "2017-1-5",
       "name": "m-selfDefineWithDiscuss"
     },
@@ -1483,7 +1689,7 @@
     },
     "elements": [
       {
-        "eid": 29,
+        "eid": 45,
         "type": "ELEMENT",
         "properties": {
           "id": "m-selfDefineWithDiscuss-container",
@@ -1544,7 +1750,7 @@
         }
       },
       {
-        "eid": 30,
+        "eid": 46,
         "type": "TEXT",
         "properties": {
           "id": "m-selfDefine-catName",
@@ -1591,7 +1797,7 @@
           "shadowBlur": 10,
           "shadowColor": 0,
           "shadowColorAlpha": 1,
-          "boxFontSize": 16,
+          "boxFontSize": 0,
           "newBlank": false,
           "targetUrl": "",
           "boxClassStr": "cmp-element cmp-text",
@@ -1610,7 +1816,7 @@
         }
       },
       {
-        "eid": 31,
+        "eid": 47,
         "type": "FUNC",
         "properties": {
           "id": "m-selfDefine-subCateFunc",
@@ -1682,7 +1888,7 @@
         }
       },
       {
-        "eid": 33,
+        "eid": 49,
         "type": "FUNC",
         "properties": {
           "id": "m-selfDefine-lessonFunc",
@@ -1754,14 +1960,14 @@
         }
       },
       {
-        "eid": 46,
+        "eid": 62,
         "type": "FUNC",
         "properties": {
-          "id": "m-selfDefine-courseFunc",
+          "id": "m-selfDefine-course3Func",
           "rid": "",
           "width": "768",
-          "height": "420",
-          "left": 246,
+          "height": "424",
+          "left": 256,
           "top": 51,
           "zIndex": 0,
           "boxColor": "#000000",
@@ -1805,8 +2011,8 @@
           "newBlank": false,
           "targetUrl": "",
           "boxClassStr": "cmp-element cmp-func",
-          "overflowX": false,
-          "overflowY": false,
+          "overflowX": true,
+          "overflowY": true,
           "hover": false,
           "hoverComponent": "",
           "text": "IF函数",
@@ -1826,7 +2032,7 @@
         }
       },
       {
-        "eid": 52,
+        "eid": 68,
         "type": "FUNC",
         "properties": {
           "id": "m-selfDefine-discussFunc",

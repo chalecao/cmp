@@ -1,0 +1,20 @@
+{
+    "name": "cmp",
+    "description": "",
+    "main": "",
+    "authors": [
+        "ch19900606@gmail.com"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/chalecao/cmp",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "cmui": "https://github.com/chalecao/cmui.git#master"
+    }
+}
