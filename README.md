@@ -6,6 +6,7 @@ CMP是一个用于制作网页的工具，你可以用它来制作静态网页�
 <img src="static/style/images/cmp_overview.png" />
 
 试用地址: https://chalecao.github.io/cmp/static/
+
 [详细使用手册](https://chalecao.gitbooks.io/cmp-manual/content/)
 
 ## 约定
