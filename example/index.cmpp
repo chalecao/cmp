@@ -1,0 +1,56 @@
+[
+  {
+    "name": "u-courseCardWithTime",
+    "desc": "带有时间的课程卡片",
+    "img":"/example/courseCardWithTime/example.png",
+    "url": "/example/courseCardWithTime/u-courseCardWithTime.cmp"
+  },
+  {
+    "name": "u-liveCard",
+    "desc": "直播课时卡片",
+    "img":"/example/liveCard/example.png",
+    "url": "/example/liveCard/u-liveCard.cmp"
+  },
+  {
+    "name": "u-discussCardWithQuote",
+    "desc": "带有引言的讨论区卡片",
+    "img":"/example/discussCardWithQuote/example.png",
+    "url": "/example/discussCardWithQuote/u-discussCardWithQuote.cmp"
+  },
+  {
+    "name": "u-discussCardWithDetail",
+    "desc": "带有简介的讨论区卡片",
+    "img":"/example/discussCardWithDetail/example.png",
+    "url": "/example/discussCardWithDetail/u-discussCardWithDetail.cmp"
+  },
+  {
+    "name": "m-selfDefineWithDiscuss",
+    "desc": "带有讨论区的自定义课程推荐",
+    "img":"/example/selfDefineWithDiscuss/example.png",
+    "url": "/example/selfDefineWithDiscuss/m-selfDefineWithDiscuss.cmp"
+  },
+  {
+    "name": "m-selfDefineNoDiscuss",
+    "desc": "不带有讨论区的自定义课程推荐",
+    "img":"/example/selfDefineNoDiscuss/example.png",
+    "url": "/example/selfDefineNoDiscuss/m-selfDefineNoDiscuss.cmp"
+  },
+  {
+    "name": "u-imgBox",
+    "desc": "一行展示2个或三个的图片栏",
+    "img":"/example/simpleImgBox/example.png",
+    "url": "/example/simpleImgBox/u-imgBox.cmp"
+  },
+  {
+    "name": "u-student",
+    "desc": "展示学生卡片",
+    "img":"/example/studentCard/example.png",
+    "url": "/example/studentCard/u-student.cmp"
+  },
+  {
+    "name": "p-index",
+    "desc": "首页FTL内容",
+    "img":"/example/indexPage/example.png",
+    "url": "/example/indexPage/p-index.cmp"
+  }
+]
