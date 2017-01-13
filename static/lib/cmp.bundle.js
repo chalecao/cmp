@@ -2304,11 +2304,11 @@ m.trigger("importProject");
                 exec: function() {
                     var e = new p({
                         attributes: {
-                            text: ""
+                            text: "/example/index.cmpp"
                         }
                     });
-                    h.popup("\u8bf7\u8f93\u5165\u8fdc\u7a0b\u7ec4\u4ef6\u5730\u5740\uff1a", e, function() {
-                        e.text();
+                    h.popup("\u8bf7\u8f93\u5165\u8fdc\u7a0b\u7ec4\u4ef6\u5730\u5740\uff1a", e, function(t) {
+                        e.text() && m.trigger("importProjectFromUrl", e.text()), t();
                     });
                 }
             }, {
@@ -2967,6 +2967,10 @@ exportProject: function() {
         v.newProject();
     }), p.on("importProject", function() {
         v.importProject();
+    }), p.on("importProjectFromUrl", function(e) {
+        f.get(e, function(e) {
+            l.importPage(JSON.parse(e));
+        });
     });
     var m = new FileReader;
     return e("elements/image"), e("elements/text"), e("elements/func"), v;
