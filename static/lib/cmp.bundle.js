@@ -2304,7 +2304,7 @@ m.trigger("importProject");
                 exec: function() {
                     var e = new p({
                         attributes: {
-                            text: "/example/index.cmpp"
+                            text: "../example/index.cmpp"
                         }
                     });
                     h.popup("\u8bf7\u8f93\u5165\u8fdc\u7a0b\u7ec4\u4ef6\u5730\u5740\uff1a", e, function(t) {
