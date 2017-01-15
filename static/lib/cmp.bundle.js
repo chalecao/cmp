@@ -2192,25 +2192,33 @@ id: n.properties.id
         }), f.bindTo(d.mainComponent.$el, function(e) {
             var t = $(e).parents(".qpf-ui-element");
             return t.length ? [ {
-                label: "\u63d2\u5165",
-                exec: function() {}
-            }, {
-                label: "\u7f16\u8f91",
-                exec: function() {}
+                label: "\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60",
+                exec: function() {
+                    d.trigger("save2pool", t.qpf("get")[0].target());
+                }
             } ] : [ {
-                label: "\u65b0\u5efa\u7ec4\u4ef6",
-                exec: function() {}
+                label: "\u65b0\u5efamodule",
+                exec: function() {
+                    d.trigger("newModule");
+                }
+            }, {
+                label: "\u65b0\u5efaunit",
+                exec: function() {
+                    d.trigger("newUnit");
+                }
             }, {
                 label: "\u5bfc\u5165\u7ec4\u4ef6",
-                exec: function() {}
+                exec: function() {
+                    d.trigger("importProject");
+                }
             } ];
         });
     }), d;
 }), define("text!modules/page/element.html", [], function() {
-    return '<div data-bind="text:id"></div>\r\n<div class="qpf-page-desc" data-bind="text:desc"></div>\r\n<img class="qpf-page-img" data-bind="attr: { src: img}">\r\n';
+    
+return '<div data-bind="text:id"></div>\r\n<div class="qpf-page-desc" data-bind="text:desc"></div>\r\n<img class="qpf-page-img" data-bind="attr: { src: img}">\r\n';
 }), define("modules/page/element", [ "require", "qpf", "knockout", "text!./element.html" ], function(e) {
-    var t = e("qpf"), 
-n = e("knockout"), r = t.meta.Meta.derive(function() {
+    var t = e("qpf"), n = e("knockout"), r = t.meta.Meta.derive(function() {
         return {
             id: n.observable(""),
             desc: n.observable(""),
@@ -2225,51 +2233,51 @@ n = e("knockout"), r = t.meta.Meta.derive(function() {
     return r;
 }), define("text!modules/page/page.xml", [], function() {
     return '<container id="Page">\r\n    <list id="PagesList" dataSource="@binding[pagesList]" itemView="@binding[ElementView]" onselect="@binding[_selectPages]"></list>\r\n</container>';
-}), define("modules/page/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./page.xml", "_", "../property/index", "../component/index", "../hierarchy/index", "modules/common/contextmenu", "modules/common/modal", "./element" ], function(e) {
-    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./page.xml"
-), u = e("_"), a = e("../property/index"), f = e("../component/index"), l = e("../hierarchy/index"), c = e("modules/common/contextmenu"), h = e("modules/common/modal"), p = t.use("meta/textfield"), d = e("./element"), v = "", m = new s({
+}), define("modules/page/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./page.xml"
+, "_", "../property/index", "../component/index", "../hierarchy/index", "modules/common/contextmenu", "modules/common/modal", "./element" ], function(e) {
+    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./page.xml"), u = e("_"), a = e("../property/index"), f = e("../component/index"), l = e("../hierarchy/index"), c = e("modules/common/contextmenu"), h = e("modules/common/modal"), p = t.use("meta/textfield"), d = t.use("container/vbox"), v = e("./element"), m = "", g = "", y = new s({
         name: "page",
         xml: o,
         pagesList: n.observableArray([]),
         selectedPages: n.observableArray([]),
-        ElementView: d,
+        ElementView: v,
         _selectPages: function(e) {
-            m.selectedPages(u.map(e, function(e) {
+            y.selectedPages(u.map(e, function(e) {
                 return e.target;
             }));
-            var t = m.selectedPages(), n = t[t.length - 1];
-            n && (f.components().length ? h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6", function(e) {
-                f.clearComponents(), l.removeAll(), m.trigger("selectPage", n), e();
+            var t = y.selectedPages(), n = t[t.length - 1];
+            n && (f.components().length ? h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6"
+, function(e) {
+                f.clearComponents(), l.removeAll(), y.trigger("selectPage", n), e();
             }, function(e) {
-                m.selectedPages([]);
-                var t = 
-m.pagesList();
-                m.pagesList([]), m.pagesList(t), e();
-            }) : m.trigger("selectPage", n));
+                y.selectedPages([]);
+                var t = y.pagesList();
+                y.pagesList([]), y.pagesList(t), e();
+            }) : y.trigger("selectPage", n));
         },
         load: function(e) {
-            var t = m.pagesList();
+            var t = y.pagesList();
             u.map(e, function(e) {
-                var n = u.find(v.split("_"), function(t) {
+                var n = u.find(m.split("_"), function(t) {
                     return t == e.name;
                 });
                 n ? h.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u5df2\u5b58\u5728\u7ec4\u4ef6" + e.name + ", \u70b9\u51fb\u786e\u5b9a\u66ff\u6362\u4e3a\u65b0\u7684\u7ec4\u4ef6", function(n) {
                     u.each(t, function(t) {
-                        if (t.id == e.name) return t.target = e.url, !1;
+                        if (t.id == e.name) return t.target = e, !1;
                     }), n();
                 }, function(e) {
                     e();
                 }) : (t.push({
                     id: e.name,
-                    img: e.img,
+                    
+img: e.img,
                     desc: "-" + e.desc,
-                    target: e.url
-                }), v += e.name + "_");
+                    target: e
+                }), m += e.name + "_");
             }), this.pagesList(t);
         },
-        
-getTarget: function(e) {
-            var t = m.pagesList(), n = {};
+        getTarget: function(e) {
+            var t = y.pagesList(), n = {};
             return u.each(t, function(t, r) {
                 if (t.id == e) {
                     n = t.target;
@@ -2278,26 +2286,51 @@ getTarget: function(e) {
             }), n;
         }
     });
-    return m.pages = function() {
-        return u.map(m.pagesList(), function(e) {
+    return y.pages = function() {
+        return u.map(y.pagesList(), function(e) {
             return e.target;
         });
-    }, m.on("start", function() {
-        m.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(e) {
-            m.trigger("focus", $(this).qpf("get")[0].target());
-        }), c.bindTo(m.mainComponent.$el, function(e) {
+    }, y.on("start", function() {
+        y.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(e) {
+            y.trigger("focus", $(this).qpf("get")[0].target());
+        }), c.bindTo(y.mainComponent.$el, function(e) {
             var t = $(e).parents(".qpf-ui-element");
             return t.length ? [ {
                 label: "\u7f16\u8f91",
-                exec: function() {}
+                exec: function() {
+                    var e = t.qpf("get"
+)[0].target(), n = new d, r = new p({
+                        attributes: {
+                            text: e.desc
+                        }
+                    }), i = new p({
+                        attributes: {
+                            text: e.img
+                        }
+                    }), s = new p({
+                        attributes: {
+                            text: e.url
+                        }
+                    });
+                    n.add(r), n.add(i), n.add(s), h.popup("\u8bf7\u8f93\u5165", n, function(t) {
+                        var n = {
+                            name: _comName,
+                            desc: r.text(),
+                            img: i.text(),
+                            url: s.text(),
+                            postUrl: e.postUrl
+                        };
+                        pageModule.load(n), t();
+                    });
+                }
             }, {
                 label: "\u5220\u9664",
-                exec: function() {}
+                exec: function(
+) {}
             } ] : [ {
                 label: "\u52a0\u8f7d\u672c\u5730\u7ec4\u4ef6",
                 exec: function() {
-                    
-m.trigger("importProject");
+                    y.trigger("importProject");
                 }
             }, {
                 label: "\u52a0\u8f7d\u8fdc\u7a0b\u7ec4\u4ef6",
@@ -2308,15 +2341,60 @@ m.trigger("importProject");
                         }
                     });
                     h.popup("\u8bf7\u8f93\u5165\u8fdc\u7a0b\u7ec4\u4ef6\u5730\u5740\uff1a", e, function(t) {
-                        e.text() && m.trigger("importProjectFromUrl", e.text()), t();
+                        e.text() && (g = e.text(), y.trigger("importProjectFromUrl", e.text())), t();
                     });
                 }
             }, {
-                label: "\u5237\u65b0",
-                exec: function() {}
+                label: "\u5bfc\u51fa\u7ec4\u4ef6\u6c60",
+                exec: function() {
+                    var e = new p({
+                        attributes: {
+                            text: "\u7ec4\u4ef6\u6c60\u540d\u79f0"
+                        
+}
+                    });
+                    h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u540d\u79f0\uff1a", e, function(t) {
+                        if (e.text()) {
+                            var n = new Blob([ JSON.stringify(y.pages(), null, 2) ], {
+                                type: "text/plain;charset=utf-8"
+                            });
+                            saveAs(n, e.text() + ".cmpp");
+                        }
+                        t();
+                    });
+                }
+            }, {
+                label: "\u4fdd\u5b58\u7ec4\u4ef6\u6c60",
+                exec: function() {
+                    if (g) {
+                        var e = g.substring(g.lastIndexOf("/"), g.indexOf("cmpp") - 1);
+                        $.post("/api/" + e, {
+                            ext: "{name:" + e + ", url:" + g + "}",
+                            cmpData: JSON.stringify(y.pages(), null, 2)
+                        }, function() {});
+                    } else {
+                        
+var t = new p({
+                            attributes: {
+                                text: "../example/index.cmpp"
+                            }
+                        });
+                        h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u5730\u5740\uff1a", t, function(e) {
+                            if (t.text()) {
+                                g = t.text();
+                                var n = g.substring(g.lastIndexOf("/"), g.indexOf("cmpp") - 1);
+                                $.post("/api/" + n, {
+                                    ext: "{name:" + n + ", url:" + g + "}",
+                                    cmpData: JSON.stringify(y.pages(), null, 2)
+                                }, function() {});
+                            }
+                            e();
+                        });
+                    }
+                }
             } ];
         });
-    }), m;
+    }), y;
 }), define("text!modules/toolbar/toolbar.xml", [], function() {
     return '<inline id="Toolbar">\r\n    <toolbargroup>\r\n        <button text="eHtml" onclick="@binding[exportHTML]"></button>\r\n        <button text="eRUI" onclick="@binding[exportRUI]"></button>\r\n        <button text="eFTL" onclick="@binding[exportFTL]"></button>\r\n        <!--<button text="eMac" onclick="@binding[exportMac]"></button>-->\r\n        <button text="align" onclick="@binding[alignProcess]"></button>\r\n        <button text="newM" onclick="@binding[newModule]"></button>\r\n        <button text="newU" onclick="@binding[newUnit]"></button>\r\n        <button text="newC" onclick="@binding[newCache]"></button>\r\n        <button text="export" onclick="@binding[exportProject]"></button>\r\n        <iconbutton icon="save" title="saveProject" onclick="@binding[saveProject]"></iconbutton>\r\n        <iconbutton icon="load" title="importProject" onclick="@binding[importProject]"></iconbutton>\r\n    </toolbargroup>\r\n    <meta class="divider"></meta>\r\n    <toolbargroup>\r\n        <iconbutton icon="element" onclick="@binding[createElement]"></iconbutton>\r\n        <iconbutton icon="image" onclick="@binding[createImage]"></iconbutton>\r\n        <iconbutton icon="text" onclick="@binding[createText]"></iconbutton>\r\n        <iconbutton icon="function" onclick="@binding[createFunction]"></iconbutton>\r\n    </toolbargroup>\r\n    <meta class="divider"></meta>\r\n    <toolbargroup>\r\n        <iconbutton icon="zoom-in" onclick="@binding[zoomIn]"></iconbutton>\r\n        <iconbutton icon="zoom-out" onclick="@binding[zoomOut]"></iconbutton>\r\n        <label text="@binding[viewportScale]" class="viewport-scale"></label>\r\n    </toolbargroup>\r\n    <meta class="divider"></meta>\r\n    <toolbargroup class="viewport-size">\r\n        <spinner value="@binding[viewportWidth]" min="0" width="100"></spinner>\r\n        <spinner value="@binding[viewportHeight]" min="0" width="100"></spinner>\r\n    </toolbargroup>\r\n</inline>\r\n'
 ;
@@ -2474,7 +2552,7 @@ this.$el.css({
             e instanceof Array ? u.load(e) : u.load([ e ]);
             var t = this;
             u.on("selectPage", function(e) {
-                e && n.get(e, function(e) {
+                e.url && n.get(e.url, function(e) {
                     t.import(JSON.parse(e));
                 });
             });
@@ -2486,9 +2564,9 @@ this.$el.css({
                         var s = /url\((\S*?)\)/.exec(t);
                         if (s) {
                             var o = s[1], u = a(e.assets, o);
-                            u && (r[i] = u);
-                        
-}
+                            u && (r[i] = 
+u);
+                        }
                     } else (t instanceof Array || t instanceof Object) && n(t);
                 });
             }
@@ -2507,9 +2585,9 @@ this.$el.css({
                                 (e.properties.funcType == "IF" || e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("addFuncComponent", f), t.import(e), a.push(t);
                             });
                             var l;
-                            return t.each(a, function(e, t) {
-                                
-e.isContainer() && (e.$wrapper.css({
+                            return t.each(a, function(
+e, t) {
+                                e.isContainer() && (e.$wrapper.css({
                                     position: "relative"
                                 }), e.$wrapper.find("a").remove(), l = e.$wrapper, i.getViewPort().addElement(e, n), n.parent().css({
                                     "margin-left": -Math.floor(+e.properties.width() / 2 + 15)
@@ -2525,9 +2603,9 @@ e.isContainer() && (e.$wrapper.css({
                 function f(e, n) {
                     var s = [], e = e, n = n;
                     t.each(o.components(), function(o, u) {
-                        if (o["meta"]["name"] == e) {
-                            s = 
-o.elements;
+                        if (o["meta"]["name"] == 
+e) {
+                            s = o.elements;
                             var l = [];
                             t.each(s, function(e) {
                                 var t = r.create(e.type.toLowerCase(), {
@@ -2539,8 +2617,8 @@ o.elements;
                             return t.each(l, function(e, t) {
                                 if (e.isContainer()) return e.$wrapper.css({
                                     position: "relative"
-                                }), e.$wrapper.find("a").attr("href") ? c = e.$wrapper.find("a") : (e.$wrapper.find("a").children().length < 1 ? e.$wrapper.find("a").remove() : e.$wrapper.html(e.$wrapper.find("a").html
-()), c = e.$wrapper), i.getViewPort().addElement(e, n), !1;
+                                }), e.$wrapper.find("a").attr("href") ? c = e.$wrapper.find("a") : (e.$wrapper.find("a").children().length < 1 ? e.$wrapper.find("a").remove() : e.
+$wrapper.html(e.$wrapper.find("a").html()), c = e.$wrapper), i.getViewPort().addElement(e, n), !1;
                             }), t.each(l, function(e, t) {
                                 e.isContainer() || (e.$wrapper.find("a").children().length < 1 && e.$wrapper.find("a").remove(), !e.$wrapper.find("a").attr("href") && !e.properties.hoverComponent() && e.$wrapper.html(e.$wrapper.find("a").html()), i.getViewPort().addElement(e, c));
                             }), !1;
@@ -2556,8 +2634,8 @@ o.elements;
         },
         "export": function(e) {
             function a(n) {
-                n.properties.trueFuncBody && !
-e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length && (f.push(_json), t.each(_json.elements, function(e) {
+                
+n.properties.trueFuncBody && !e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length && (f.push(_json), t.each(_json.elements, function(e) {
                     a(e);
                 }))), n.properties.falseFuncBody && !e && (_json = o.getTarget(n.properties.falseFuncBody), Object.keys(_json).length && (f.push(_json), t.each(_json.elements, function(e) {
                     a(e);
@@ -2565,9 +2643,9 @@ e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length 
                     a(e);
                 }))), n.properties.includeBody && !e && (_json = o.getTarget(n.properties.includeBody), Object.keys(_json).length && (f.push(_json), t.each(_json.elements, function(e) {
                     a(e);
-                }))), n.properties.hoverComponent && !e && (_json = o.getTarget(n.properties.hoverComponent), Object.keys(_json).length && (f.push(_json), t.each(_json.elements, function(e) {
-                    
-a(e);
+                }))), n.properties.hoverComponent && !e && (_json = o.getTarget(n.properties.hoverComponent), Object.keys(_json).length && (f.push(_json), t.each(_json.elements
+, function(e) {
+                    a(e);
                 })));
             }
             var n = new Date, r = "example";
@@ -2593,9 +2671,9 @@ a(e);
                 var n = e.export(), r = "";
                 a(n), u.elements.push(t.omit(n, "assets")), t.each(n.assets, function(e, n) {
                     t.each(e, function(e, t) {
-                        u.assets[n] || (u.assets[n] = {}), u.assets[n][t] = e;
-                    
-});
+                        u.assets[n] || (u.assets[n] = 
+{}), u.assets[n][t] = e;
+                    });
                 });
             }), f.push(u), {
                 result: f,
@@ -2614,9 +2692,9 @@ a(e);
                 html: n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">"),
                 css: r.join(" "),
                 name: i,
-                cache: u,
-                cacheCall
-: a
+                
+cache: u,
+                cacheCall: a
             };
         },
         exportMacro: function() {
@@ -2637,9 +2715,9 @@ a(e);
             };
         },
         alignProcess: function() {
-            var e = 0, n = 0, r = 0;
             
-t.each(s.elements(), function(t) {
+var e = 0, n = 0, r = 0;
+            t.each(s.elements(), function(t) {
                 if (t.isContainer()) {
                     e = t.getTop(), n = t.getLeft(), r = t.getZ(), t.setTop(0), t.setLeft(0);
                     return;
@@ -2820,30 +2898,30 @@ t.each(s.elements(), function(t) {
             });
         }
     });
-}), define("modules/toolbar/index", [ "require", "qpf", "knockout", "../module", "text!./toolbar.xml", "text!template/module/m-example.cmp", "text!template/unit/u-example.cmp", "text!template/cache/c-example.cmp", "core/command", "$", "project/project", "../hierarchy/index", "modules/component/index", "modules/page/index", "../viewport/index", "./toolbargroup", "text!template/rui/component.js", "text!template/cache/cache.js", "elements/image", "elements/text", "elements/func" ], function(e) {
-    function g(e) {
+}), define("modules/toolbar/index", [ "require", "qpf", "knockout", "../module", "text!./toolbar.xml", "text!template/module/m-example.cmp", "text!template/unit/u-example.cmp", "text!template/cache/c-example.cmp", "core/command", "$", "project/project", "../hierarchy/index", "modules/component/index", "modules/page/index", "../viewport/index", "modules/common/modal", "./toolbargroup", "text!template/rui/component.js", "text!template/cache/cache.js", "elements/image", "elements/text", "elements/func" ], function(e) {
+    function x(e) {
         var t = e.target.files[0];
-        t && t.type.match(/image/
-) && (m.onload = function(e) {
-            m.onload = null, a.execute("create", "image", {
+        
+t && t.type.match(/image/) && (S.onload = function(e) {
+            S.onload = null, a.execute("create", "image", {
                 src: e.target.result
             });
-        }, m.readAsDataURL(t));
+        }, S.readAsDataURL(t));
     }
-    function y(e) {
+    function T(e) {
         var t = e.target.files[0];
-        t && t.name.substr(-3) === "cmp" ? (m.onload = function(e) {
-            m.onload = null;
+        t && t.name.substr(-3) === "cmp" ? (S.onload = function(e) {
+            S.onload = null;
             var t = l.import(JSON.parse(e.target.result));
-        }, m.readAsText(t)) : t && t.name.substr(-4) === "cmpp" && (m.onload = function(e) {
-            m.onload = null;
+        }, S.readAsText(t)) : t && t.name.substr(-4) === "cmpp" && (S.onload = function(e) {
+            S.onload = null;
             var t = l.importPage(JSON.parse(e.target.result));
-        }, m.readAsText(t));
+        }, S.readAsText(t));
     }
-    var t = e("qpf"), n = e("knockout"), r = e("../module"), i = e("text!./toolbar.xml"), s = e("text!template/module/m-example.cmp"), o = e("text!template/unit/u-example.cmp"), u = e("text!template/cache/c-example.cmp"), a = e("core/command"), f = e("$"), l = e("project/project"), c = e("../hierarchy/index"), h = e("modules/component/index"), p = e("modules/page/index"), d = e("../viewport/index"
-);
+    var t = e("qpf"), n = e("knockout"), r = e("../module"), i = e("text!./toolbar.xml"), s = e("text!template/module/m-example.cmp"), o = e("text!template/unit/u-example.cmp"), u = e("text!template/cache/c-example.cmp"), a = e("core/command"), f = e("$"), l = e("project/project"), c = e("../hierarchy/index"), h = e("modules/component/index"), p = e("modules/page/index"
+), d = e("../viewport/index"), v = e("modules/common/modal"), m = t.use("meta/textfield"), g = t.use("container/vbox"), y = t.use("container/container"), b = t.use("container/inline"), w = t.use("meta/label");
     e("./toolbargroup");
-    var v = new r({
+    var E = new r({
         name: "toolbar",
         xml: i,
         createElement: function() {
@@ -2867,14 +2945,14 @@ t.each(s.elements(), function(t) {
         zoomOut: function() {
             var e = d.viewportScale();
             d.viewportScale(Math.min(Math.max(e - .1, .2), 1.5));
-        },
+        
+},
         viewportScale: n.computed(function() {
             return Math.floor(d.viewportScale() * 100) + "%";
         }),
         viewportWidth: d.viewportWidth,
         viewportHeight: d.viewportHeight,
-        
-exportProject: function() {
+        exportProject: function() {
             var e = l.export(!1), t = new Blob([ JSON.stringify(e.result, null, 2) ], {
                 type: "text/plain;charset=utf-8"
             });
@@ -2886,7 +2964,7 @@ exportProject: function() {
         },
         importProject: function() {
             var e = f("<input type='file' />");
-            e[0].addEventListener("change", y), e.click();
+            e[0].addEventListener("change", T), e.click();
         },
         newModule: function() {
             c.removeAll(), l.loadComponent(JSON.parse(s)[0]);
@@ -2895,13 +2973,13 @@ exportProject: function() {
             c.removeAll(), l.loadComponent(JSON.parse(o)[0]);
         },
         newCache: function() {
-            c.removeAll(), l.loadComponent(JSON.parse(u)[0]);
+            c.removeAll
+(), l.loadComponent(JSON.parse(u)[0]);
         },
         exportFTL: function() {
             var e = l.exportHTMLCSS(), t = new Blob([ e.html ], {
                 type: "text/plain;charset=utf-8"
-            
-});
+            });
             saveAs(t, e.name + ".ftl");
             var t = new Blob([ e.css ], {
                 type: "text/plain;charset=utf-8"
@@ -2920,11 +2998,11 @@ exportProject: function() {
             });
             saveAs(s, "component.css");
             var o = r.name;
-            t = t.replace(/\_\_componentName\_\_/g, o), o = o.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g, "C"), t = t.replace(/\_\_componentNameCap\_\_/g, o);
+            t = t.replace(/\_\_componentName\_\_/g, o), o = 
+o.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g, "C"), t = t.replace(/\_\_componentNameCap\_\_/g, o);
             var u = r.cache, a = r.cacheCall;
             if (u) {
-                n = n.replace
-(/\_\_cache\_\_/g, o).replace(/\_\_content\_\_/g, u);
+                n = n.replace(/\_\_cache\_\_/g, o).replace(/\_\_content\_\_/g, u);
                 var s = new Blob([ n ], {
                     type: "text/plain;charset=utf-8"
                 });
@@ -2938,14 +3016,14 @@ exportProject: function() {
         },
         exportHTML: function() {
             var e = l.exportHTMLCSS(), t = new Blob([ e.html ], {
-                type: "text/plain;charset=utf-8"
+                type
+: "text/plain;charset=utf-8"
             });
             saveAs(t, e.name + ".html");
             var t = new Blob([ e.css ], {
                 type: "text/plain;charset=utf-8"
             });
-            saveAs
-(t, e.name + ".css");
+            saveAs(t, e.name + ".css");
         },
         exportMac: function() {
             var e = l.exportMacro(), t = new Blob([ e.html ], {
@@ -2962,16 +3040,77 @@ exportProject: function() {
         }
     });
     h.on("importProject", function() {
-        v.importProject();
-    }), h.on("newProject", function() {
-        v.newProject();
-    }), p.on("importProject", function() {
-        v.importProject();
+        E.importProject();
+    }), h.on("newModule", function() {
+        E.newModule();
+    }), h.on("newUnit", function() {
+        E.newUnit();
+    }), h.on("save2pool", function(e) {
+        if (p.pages().length < 1) v.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01"
+, function(e) {
+            e();
+        }, function(e) {
+            e();
+        }); else {
+            var t = e.meta.name, n = _.find(p.pages(), function(e) {
+                return e.name == t;
+            }), r = l.export(!1);
+            if (n) f.post(n.postUrl, {
+                ext: JSON.stringify(n),
+                cmpData: JSON.stringify(r.result)
+            }, function() {}); else {
+                var i = new y, s = new b, o = new b, u = new b;
+                s.add(new w({
+                    attributes: {
+                        text: "\u7ec4\u4ef6\u63cf\u8ff0\uff1a"
+                    }
+                }));
+                var a = new m({
+                    attributes: {
+                        text: "\u7ec4\u4ef6\u63cf\u8ff0"
+                    }
+                });
+                s.add(a), o.add(new w({
+                    attributes: {
+                        text: "\u7f29\u7565\u56fe\u7247\uff1a"
+                    }
+                }));
+                var c = new 
+m({
+                    attributes: {
+                        text: "\u7f29\u7565\u56feurl"
+                    }
+                });
+                o.add(c), u.add(new w({
+                    attributes: {
+                        text: "\u7ec4\u4ef6\u5730\u5740\uff1a"
+                    }
+                }));
+                var h = new m({
+                    attributes: {
+                        text: "\u7ec4\u4ef6\u5730\u5740\u524d\u7f00/" + t + "/" + t + ".cmp"
+                    }
+                });
+                u.add(h), i.add(s), i.add(o), i.add(u), v.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", i, function(e) {
+                    var n = {
+                        name: t,
+                        desc: a.text(),
+                        img: c.text(),
+                        url: h.text(),
+                        postUrl: "/api/" + t
+                    };
+                    p.load([ n ]), e();
+                });
+            }
+        }
+    }), p.on("importProject"
+, function() {
+        E.importProject();
     }), p.on("importProjectFromUrl", function(e) {
         f.get(e, function(e) {
             l.importPage(JSON.parse(e));
         });
     });
-    var m = new FileReader;
-    return e("elements/image"), e("elements/text"), e("elements/func"), v;
+    var S = new FileReader;
+    return e("elements/image"), e("elements/text"), e("elements/func"), E;
 });;
