@@ -1,6 +1,6 @@
 {
     "name": "cmps",
-    "version": "0.1.1",
+    "version": "0.1.3",
     "contributors": [{
         "name": "Chale Cao",
         "email": "ch19900606@gmail.com"
@@ -8,7 +8,7 @@
     "description": "cmps is not only a server tool but also a powerful tool to design & make your component/UI quickly and best.",
     "scripts": {
         "build": "cd build && node update.js && node r.js -o config.js",
-        "buildS": "coffee --compile --output lib/ lib/"
+        "builds": "coffee --compile --output lib/ lib/"
     },
     "dependencies": {
         "coffee-script": "^1.12.2",
