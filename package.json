@@ -1,12 +1,30 @@
 {
-    "name": "cmp",
-    "version": "0.1.0",
-    "author": "ch19900606@gmail.com",
+    "name": "cmps",
+    "version": "0.1.1",
+    "contributors": [{
+        "name": "Chale Cao",
+        "email": "ch19900606@gmail.com"
+    }],
+    "description": "cmps is not only a server tool but also a powerful tool to design & make your component/UI quickly and best.",
     "scripts": {
         "build": "cd build && node update.js && node r.js -o config.js",
-        "server": "http-server ."
+        "buildS": "coffee --compile --output lib/ lib/"
     },
     "dependencies": {
-        "glob": "^7.1.1"
+        "coffee-script": "^1.12.2",
+        "glob": "^7.1.1",
+        "journey": "^0.4.0-pre-3",
+        "opts": "^1.2.2"
+    },
+    "bin": {
+        "cmps": "./bin/cmp.js"
+    },
+    "main": "./lib/cmp.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/chalecao/cmp.git"
+    },
+    "engines": {
+        "nodne": ">=0.4.0"
     }
 }

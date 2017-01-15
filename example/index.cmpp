@@ -3,7 +3,8 @@
     "name": "u-courseCardWithTime",
     "desc": "带有时间的课程卡片",
     "img":"../example/courseCardWithTime/example.png",
-    "url": "../example/courseCardWithTime/u-courseCardWithTime.cmp"
+    "url": "../example/courseCardWithTime/u-courseCardWithTime.cmp",
+    "postUrl": "/api/u-courseCardWithTime"
   },
   {
     "name": "u-liveCard",
