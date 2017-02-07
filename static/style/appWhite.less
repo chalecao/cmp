@@ -4,8 +4,8 @@
 @import "./qpf/css-vendor.less";
 
 ::-webkit-scrollbar {
-    height:8px;
-    width:8px;
+    height:6px;
+    width:6px;
     background:rgba(200, 180, 180, 0.5);
     transition:all 0.3s ease-in-out;
     border-radius:5px;
@@ -14,7 +14,7 @@
     display:none;
 }
 ::-webkit-scrollbar-thumb {
-    width:8px;
+    width:6px;
     min-height:15px;
     background:rgba(0, 0, 0, 0.2) !important;
     transition:all 0.3s ease-in-out;border-radius:5px;
@@ -147,6 +147,7 @@ body{
         z-index: 100;
         .qpf-panel-body {
             padding: 10px;
+            background: #323234;
         }
         .qpf-ui-inline{
             margin-top: 10px;
@@ -159,20 +160,20 @@ body{
     box-shadow: 0px 0px 10px black;
 
     .qpf-ui-toolbar-group{
-        margin:0px 10px;
+        margin:0px 5px;
     }
 
     .qpf-ui-icon-button{
-        width:40px;
-        height:40px;
+        width:30px;
+        height:30px;
         margin:0px 5px;
         box-shadow: none;
         border: none;
         background:none;
 
         .qpf-icon{
-            width:40px;
-            height:40px;
+            width:30px;
+            height:30px;
             background-size: 20px 20px;
 
             &.save{
@@ -209,8 +210,8 @@ body{
     }
 
     .viewport-scale{
-        line-height: 40px;
-        height:40px;
+        line-height: 30px;
+        height:30px;
     }
 
     .viewport-size{
@@ -220,7 +221,7 @@ body{
         background-repeat: no-repeat;
         background-position: 0% 50%;
         .qpf-ui-spinner{
-            margin:7px 3px;
+            margin:2px 3px;
         }
         input{
             width:50px;
@@ -229,7 +230,7 @@ body{
 
     .divider{
         width:0px;
-        height:40px;
+        height:30px;
         border-left: 1px solid #444;
         border-right: 1px solid #222;
     }
@@ -406,7 +407,7 @@ body{
     .qpf-ui-list{
         height: 100%;
         background-color: #EBEBEB;
-        box-shadow: 0px 4px 5px #000;
+        // box-shadow: 0px 4px 5px #000;
         padding-top: 1px;
     }
 
@@ -432,6 +433,7 @@ body{
     }
     .qpf-ui-list {
         overflow-y: auto;
+        overflow-x: hidden;
     }
 }
 

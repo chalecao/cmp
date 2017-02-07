@@ -38,10 +38,10 @@ cmps ./cmp -p 8088 -s false
 5. Cache默认导出 component.js component.html component.css 和cache.js ,其中component.js中会自动注入cache请求，可以作为主UI在页面中使用，通过页面的page.js来支配。
 
 ## 规范
-1. 支持组件通过函数来嵌套，但是不建议嵌套台多层次，如果需要，建议拆分成子UI来做。
+1. 支持组件通过函数来嵌套，但是不建议嵌套太深层次（嵌套2-3层可以，层次太深不利于维护），如果需要，建议拆分成子UI来做。
 
 ## 局限性
-1. 目前还只能制作组件UI，不能制作复杂嵌套的页面。目前仅支持container元素相对定位，其他元素都需要相对于container元素的绝对定位。
+1. 目前还只能制作展示型UI组件，表单型组件正在开发中。
 
 ## 简单介绍
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_intro.png" />
@@ -54,4 +54,6 @@ cmps ./cmp -p 8088 -s false
 2. 支持hover组件，很容易制作出各种hover组件
 3. 支付FTL语法嵌套，可以使用include、IF、FOR语句，配合子组件使用。支持FTL导出，导出为依据container提取的name.ftl和name.scss
 4. 支持Regular 组件导出，导出文件为component.js component.html component.scss
+5. 支持通过函数实现组件嵌套，实现复杂页面。
+6. 添加动画函数支持，所有组件都可以添加动画，导出时会智能导出动画相关的css内容。（注意如果嵌套的组件中含有动画，则需要手动下载animate.min.css文件，引入到项目中）
 
