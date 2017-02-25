@@ -2,7 +2,9 @@
   {
     "meta": {
       "date": "2017-1-13",
-      "name": "u-student"
+      "name": "u-student",
+      "componentJS":"",
+      "cacheJS":""
     },
     "viewport": {
       "width": 1440,

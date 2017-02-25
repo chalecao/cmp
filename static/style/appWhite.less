@@ -195,7 +195,12 @@ body{
             &.function{
                 background-image: url(images/function.svg);
             }
-
+            &.embed{
+                background-image: url(images/embed.svg);
+            }
+            &.shuffle{
+                background-image: url(images/shuffle.svg);
+            }
             &.zoom-in{
                 background-image: url(images/zoom-in.svg);
             }
@@ -482,4 +487,16 @@ body{
 .qpf-combobox-items{
     overflow-y: scroll;
     max-height: 200px;
+}
+.flexBox .qpf-children{
+    display: box;
+    display: -webkit-box;
+    display: flex;
+}
+.tabContent, .mainContent, .propContent{
+    position: relative !important;
+    left:0px !important;
+}
+#Viewport{
+    width: auto !important;
 }

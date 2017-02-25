@@ -1,0 +1,42 @@
+#editor {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    display: none;
+    background-color: #000;
+}
+
+#code-editor textarea {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 50px;
+}
+
+#editor .CodeMirror {
+    height: 100%;
+    font-size: 14px;
+    /*background-color: rgba(0, 0, 0, 0.95);*/
+    line-height: 22px;
+}
+
+.editor-toolbar {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    z-index: 100;
+}
+
+.editor-toolbar button {
+    margin: 5px;
+    margin: 5px;
+    background-color: #4EADD5;
+    border: 0px;
+    color: #fff;
+    padding: 2px 7px;
+    cursor: pointer;
+}

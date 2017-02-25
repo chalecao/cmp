@@ -194,6 +194,9 @@ body{
             &.function{
                 background-image: url(images/function.svg);
             }
+            &.shuffle{
+                background-image: url(images/shuffle.svg);
+            }
 
             &.zoom-in{
                 background-image: url(images/zoom-in.svg);
@@ -257,8 +260,8 @@ body{
         // linear-gradient(rgba(200,200,200,.3) 1px, transparent 1px),
         // linear-gradient(0deg, rgba(200,200,200,.3) 1px, transparent 1px);
         
-        background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
-        background-position:-1px -1px, -1px -1px, -1px -1px, -1px -1px;
+        background-size:100px, 118px, 20px 20px;
+        // background-position:-1px -1px, -1px -1px, -1px -1px, -1px -1px;
 
         position: absolute;
 
@@ -480,4 +483,16 @@ body{
 .qpf-combobox-items{
     overflow-y: scroll;
     max-height: 200px;
+}
+.flexBox .qpf-children{
+    display: box;
+    display: -webkit-box;
+    display: flex;
+}
+.tabContent, .mainContent, .propContent{
+    position: relative !important;
+    left:0px !important;
+}
+#Viewport{
+    width: auto !important;
 }

@@ -57,3 +57,28 @@ cmps ./cmp -p 8088 -s false
 5. 支持通过函数实现组件嵌套，实现复杂页面。
 6. 添加动画函数支持，所有组件都可以添加动画，导出时会智能导出动画相关的css内容。（注意如果嵌套的组件中含有动画，则需要手动下载animate.min.css文件，引入到项目中）
 
+## release
+
+### release 1.0.0
+更新了許多，算是一個里程碑的版本。
+
+1.增加JS在线编辑器，保存JS代码到数据模型中。目前代码编辑器还只能编辑js代码。
+2.丰富组件池数据模型，示例如下：
+```
+[
+  {
+    "name": "u-courseCardWithTime",
+    "desc": "带有时间的课程卡片",
+    "img": "../index/courseCardWithTime/example.png",
+    "url": "../index/courseCardWithTime/u-courseCardWithTime.cmp",
+    "ftlPath": "FTL文件夹绝对路径地址/",
+    "cssPath": "CSS文件夹绝对路径地址/",
+    "ruiPath": "C:/work/edu-mooc-2.0/src/javascript/common/ui/card/courseCardWithTime/",
+    "postUrl": "/api/u-courseCardWithTime"
+  },
+  ...
+]
+```
+增加rui路径和FTL路径，这样可以直接保存组件，不用再麻烦的手动选择保存路径，其中根据之前的rui保存策略，component.js,component.css,component.html,cache.js都是保存在同一个目录的。ftl和css需要分别指定目录。
+  
+

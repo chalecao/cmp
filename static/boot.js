@@ -5,7 +5,6 @@
     //=========================
     // CONFIG
     //=========================
-
     $LAB.setGlobalDefaults({
         BasePath: 'lib/'
     });
@@ -17,14 +16,12 @@
         .script("FileSaver.js")
         .script("cmp.bundle.js")
         .wait(boot);
-
     //========================
     // Load Main Module
     //========================
     function boot() {
-
         config();
-
+        
         require(["app", "modules/common/histogram",
             "modules/common/list",
             "modules/common/modal",
@@ -40,10 +37,7 @@
             app.start();
         })
     }
-
-
     function config() {
-
         requirejs.config({
             paths: {
                 async: "lib/async",
@@ -51,6 +45,8 @@
                 qpf: "lib/cmui/dist/qpf",
                 // qpf: "lib/qpf",
                 emage: "lib/emage",
+                codemirror: "lib/codemirror/codemirror",
+                codemirrorJS: "lib/codemirror/mode/javascript",
                 knockout: "lib/knockout",
                 'ko.mapping': 'lib/ko.mapping',
                 // Use jquery temporary, zepto's bind does not support context
@@ -69,5 +65,4 @@
             waitSeconds: 30
         })
     }
-
 }).call(this)
