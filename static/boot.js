@@ -45,6 +45,7 @@
                 qpf: "lib/cmui/dist/qpf",
                 // qpf: "lib/qpf",
                 emage: "lib/emage",
+                d3: "lib/d3",
                 codemirror: "lib/codemirror/codemirror",
                 codemirrorJS: "lib/codemirror/mode/javascript",
                 knockout: "lib/knockout",

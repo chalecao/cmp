@@ -17,7 +17,6 @@ npm install cmps -g
 查看帮助：
 ```
 cmps --help
-
 ```
 常用命令：
 ```
@@ -81,4 +80,3 @@ cmps ./cmp -p 8088 -s false
 ```
 增加rui路径和FTL路径，这样可以直接保存组件，不用再麻烦的手动选择保存路径，其中根据之前的rui保存策略，component.js,component.css,component.html,cache.js都是保存在同一个目录的。ftl和css需要分别指定目录。
   
-
