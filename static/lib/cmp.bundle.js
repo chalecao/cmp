@@ -393,15 +393,16 @@ backgroundGradientStops: n.observableArray([ {
                 hover: n.observable(!1),
                 hoverComponent: n.observable(""),
                 hoverStr: n.observable(""),
+                titleStr: n.observable(""),
                 animateStr: n.observable("none"),
                 dataCate: n.observable(""),
                 dataAction: n.observable(""),
                 dataLabel: n.observable(""),
                 positionStr: n.observable("absolute"),
                 floatStr: n.observable(""),
-                eventName: n.observable(""),
-                eventHandler
-: n.observable("")
+                eventName
+: n.observable(""),
+                eventHandler: n.observable("")
             },
             onResize: function() {},
             onMove: function() {},
@@ -432,10 +433,10 @@ backgroundGradientStops: n.observableArray([ {
                     type: "spinner",
                     value: u.left,
                     precision: 0,
-                    step: 1
-                }, {
                     
-name: "top",
+step: 1
+                }, {
+                    name: "top",
                     type: "spinner",
                     value: u.top,
                     precision: 0,
@@ -466,10 +467,10 @@ name: "top",
                 label: "\u7c7b\u578b*",
                 ui: "combobox",
                 "class": "small",
-                field: "style",
+                field: "style"
+,
                 items: [ {
-                    
-text: "\u666e\u901a\u5143\u7d20",
+                    text: "\u666e\u901a\u5143\u7d20",
                     value: "ELEMENT"
                 }, {
                     text: "\u56fe\u7247",
@@ -499,9 +500,9 @@ text: "\u666e\u901a\u5143\u7d20",
                     value: "block"
                 }, {
                     text: "inline-block",
-                    value: "inline-block"
-                
-}, {
+                    
+value: "inline-block"
+                }, {
                     text: "none",
                     value: "none"
                 } ],
@@ -534,9 +535,9 @@ text: "\u666e\u901a\u5143\u7d20",
                     type: "textfield",
                     text: u.width,
                     value: u.width
-                }, {
-                    
-name: "height",
+                
+}, {
+                    name: "height",
                     type: "textfield",
                     text: u.height,
                     value: u.height
@@ -567,9 +568,9 @@ name: "height",
                     value: "dashed"
                 }, {
                     text: "\u70b9\u70b9\u70b9",
-                    value: "dotted"
-                
-} ],
+                    
+value: "dotted"
+                } ],
                 value: u.borderStyle
             },
             borderWidth: {
@@ -601,9 +602,9 @@ name: "height",
                     min: 0,
                     max: 20
                 }, {
-                    name: "left",
                     
-type: "slider",
+name: "left",
+                    type: "slider",
                     value: u.borderLeft,
                     precision: 0,
                     step: 1,
@@ -634,8 +635,8 @@ type: "slider",
                 visible: e
             },
             backgroundImageType: {
-                label: "\u80cc\u666f\u56fe\u7247"
-,
+                
+label: "\u80cc\u666f\u56fe\u7247",
                 ui: "combobox",
                 "class": "small",
                 field: "style",
@@ -665,9 +666,9 @@ type: "slider",
                 stops: u.backgroundGradientStops,
                 angle: u.backgroundGradientAngle,
                 visible: i
-            },
-            borderRadius
-: {
+            
+},
+            borderRadius: {
                 label: "\u5706\u89d2",
                 ui: "vector",
                 field: "style",
@@ -695,9 +696,9 @@ type: "slider",
                 }, {
                     name: "bottom-left",
                     type: "slider",
-                    value: u.borderBottomLeftRadius,
-                    precision
-: 0,
+                    value: u.borderBottomLeftRadius
+,
+                    precision: 0,
                     step: 1,
                     min: 0
                 } ],
@@ -728,9 +729,9 @@ type: "slider",
                     step: 1,
                     min: -20,
                     max: 50
-                }, {
-                    
-name: "left",
+                
+}, {
+                    name: "left",
                     type: "textfield",
                     text: u.marginLeft,
                     value: u.marginLeft
@@ -760,8 +761,8 @@ name: "left",
                     value: u.paddingBottom,
                     precision: 0,
                     step: 1,
-                    min: 0
-,
+                    
+min: 0,
                     max: 200
                 }, {
                     name: "left",
@@ -910,6 +911,11 @@ precision: 0,
                 ui: "textfield",
                 text: u.dataLabel
             },
+            titleStr: {
+                label: "\u63cf\u8ff0\u63d0\u793a",
+                ui: "textfield",
+                text: u.titleStr
+            },
             eventName: {
                 label: "on-",
                 ui: "textfield",
@@ -926,11 +932,11 @@ precision: 0,
     }, {
         initialize: function(e) {
             function c(e) {
-                return e.indexOf("<") >= 0 || e.indexOf(".") >= 0;
+                
+return e.indexOf("<") >= 0 || e.indexOf(".") >= 0;
             }
             this.$wrapper.attr("data-cmp-eid", this.eid);
-            var t = 
-this, o = t.properties;
+            var t = this, o = t.properties;
             e && o.typeStr(e.type);
             if (e) {
                 if (e.extendProperties) {
@@ -954,11 +960,11 @@ this, o = t.properties;
                 }
             }), n.computed({
                 read: function() {
-                    var e = o.width(), n = o.height();
+                    
+var e = o.width(), n = o.height();
                     t.resize(e, n), l || t.onResize(e, n), l = !1;
                 }
-            
-}), n.computed({
+            }), n.computed({
                 read: function() {
                     t.$wrapper.css({
                         "z-index": t.properties.zIndex(),
@@ -980,11 +986,12 @@ this, o = t.properties;
                     }) : r(t.$wrapper.find("a")[0]).removeAttr("href");
                 }
             }), n.computed({
-                read: function() {
-                    var e = t.properties.boxClassStr();
+                read: 
+function() {
+                    var e = t.properties.boxClassStr(), n = t.properties.titleStr();
                     t.$wrapper.attr({
-                        "class"
-: e
+                        "class": e,
+                        title: n
                     });
                 }
             }), n.computed({
@@ -1001,14 +1008,14 @@ this, o = t.properties;
                     var e = t.properties.newBlank(), n = t.properties.targetUrl();
                     n.length && (e ? r(t.$wrapper.find("a")[0]).attr({
                         target: "_blank"
-                    }) : r(t.$wrapper.find("a")[0]).attr({
+                    }) 
+: r(t.$wrapper.find("a")[0]).attr({
                         target: "_top"
                     }));
                 }
             }), n.computed({
                 read: function() {
-                    
-var e = t.properties.overflow();
+                    var e = t.properties.overflow();
                     switch (e) {
                       case "visiable":
                         t.$wrapper.css({
@@ -1029,12 +1036,12 @@ var e = t.properties.overflow();
                         t.$wrapper.css({
                             overflow: "hidden"
                         });
-                    }
+                    
+}
                 }
             }), n.computed({
                 read: function() {
-                    var e = t.uiConfig.borderRadius.items, n = t.uiConfig.margin.items, r = t.uiConfig.padding
-.items;
+                    var e = t.uiConfig.borderRadius.items, n = t.uiConfig.margin.items, r = t.uiConfig.padding.items;
                     t.$wrapper.css({
                         "border-radius": i.map(e, function(e) {
                             return Math.round(e.value()) + "px";
@@ -1052,10 +1059,10 @@ var e = t.properties.overflow();
                     color: t.properties.boxColor(),
                     "font-size": t.properties.boxFontSize()
                 });
-            }), n.computed(function() {
+            
+}), n.computed(function() {
                 var e = t.properties.animateStr(), n = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
-                e && 
-(t.$wrapper.hasClass("animated") || t.$wrapper.addClass("animated"), t.tempAniStr && t.tempAniStr != e && t.$wrapper.removeClass(t.tempAniStr), t.tempAniStr = e, t.$wrapper.addClass(e).one(n, function() {}));
+                e && (t.$wrapper.hasClass("animated") || t.$wrapper.addClass("animated"), t.tempAniStr && t.tempAniStr != e && t.$wrapper.removeClass(t.tempAniStr), t.tempAniStr = e, t.$wrapper.addClass(e).one(n, function() {}));
             }), n.computed({
                 read: function() {
                     var e = t.properties.borderStyle(), n = t.properties.borderColor(), r = t.properties.borderAlpha(), o = s(n);
@@ -1067,14 +1074,14 @@ var e = t.properties.overflow();
                         "border-color": o.cssa()
                     }), t.$wrapper.css({
                         "border-width": i.map(u, function(e) {
-                            return Math.round(e.value()) + "px";
+                            return Math.round
+(e.value()) + "px";
                         }).join(" ")
                     })) : t.$wrapper.css({
                         border: ""
                     });
                 }
-            
-}), n.computed({
+            }), n.computed({
                 read: function() {
                     var e = t.properties.background(), n = t.properties.backgroundColor(), r = t.properties.backgroundAlpha(), o = s(n);
                     o._alpha = r;
@@ -1090,9 +1097,9 @@ var e = t.properties.overflow();
                             });
                             break;
                           case "gradient":
-                            var a = t.properties.backgroundGradientStops(), f = t.properties.backgroundGradientAngle(), l = "linear-gradient(" + f + "deg, " + i.map(a, function(e) {
-                                return s(e.color()).cssa() + " " + 
-Math.round(e.percent() * 100) + "%";
+                            var a = t.properties.backgroundGradientStops
+(), f = t.properties.backgroundGradientAngle(), l = "linear-gradient(" + f + "deg, " + i.map(a, function(e) {
+                                return s(e.color()).cssa() + " " + Math.round(e.percent() * 100) + "%";
                             }).join(", ") + ")";
                             t.$wrapper.css({
                                 "background-image": "-webkit-" + l,
@@ -1111,18 +1118,18 @@ Math.round(e.percent() * 100) + "%";
                 }
             }), n.computed({
                 read: function() {
-                    var e = t.properties.hover(), n = t.properties.hoverComponent();
-                    e ? c(n) ? (t.$wrapper.find(".e-hover-code").remove(), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.append(r("<div></div>")
-.append(r(n).addClass("e-hover-code")).html())) : (t.$wrapper.find(".e-hover-target").remove(), t.properties.boxClassStr().indexOf("e-hover-source") < 0 && t.properties.boxClassStr(t.properties.boxClassStr() + " e-hover-source"), t.$wrapper.css({
+                    var e = t.properties.hover(), n = t.properties
+.hoverComponent();
+                    e ? c(n) ? (t.$wrapper.find(".e-hover-code").remove(), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.append(r("<div></div>").append(r("<div></div>").addClass("e-hover-code").append(n)).html())) : (t.$wrapper.find(".e-hover-target").remove(), t.properties.boxClassStr().indexOf("e-hover-source") < 0 && t.properties.boxClassStr(t.properties.boxClassStr() + " e-hover-source"), t.$wrapper.css({
                         cursor: "pointer"
                     }), t.$wrapper.append(f), n && t.trigger("addHoverComponent", n, t.$wrapper.find(".e-hover-content"))) : (t.$wrapper.removeClass("e-hover-source"), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.find(".e-hover-code").remove());
                 }
             }), n.computed({
                 read: function() {
-                    var e = t.properties, n = Math.round(e.shadowOffsetX()) + "px", r = Math.round(e.shadowOffsetY()) + "px", i = Math.round(e.shadowBlur()) + "px", o = Math.round(e.shadowColor()), u = e.shadowColorAlpha(), a = s(o);
+                    var e = t.properties, n = Math.round(e.shadowOffsetX()) + "px", r = Math.round(e.shadowOffsetY()) + "px", i = Math.round(e.shadowBlur()) + "px", o = Math.round
+(e.shadowColor()), u = e.shadowColorAlpha(), a = s(o);
                     a._alpha = u, i && e.hasShadow() ? t.$wrapper.css({
-                        "box-shadow": [ n, r, i, a.cssa() ].join(" "
-)
+                        "box-shadow": [ n, r, i, a.cssa() ].join(" ")
                     }) : t.$wrapper.css({
                         "box-shadow": ""
                     });
@@ -1141,12 +1148,12 @@ Math.round(e.percent() * 100) + "%";
             }), n.computed({
                 read: function() {
                     var e = t.properties.eventName(), n = t.properties.eventHandler();
-                    e ? (t.tempEventName = e, t.$wrapper.attr("on-" + e, "{" + n + "}")) : (t.$wrapper.removeAttr("on-" + t.tempEventName), t.tempEventName = "");
+                    e ? (t.tempEventName = e, t.$wrapper.attr
+("on-" + e, "{" + n + "}")) : (t.$wrapper.removeAttr("on-" + t.tempEventName), t.tempEventName = "");
                 }
             }), n.computed({
                 read: function() {
-                    
-var e = t.properties.dataCate(), n = t.properties.dataAction(), r = t.properties.dataLabel();
+                    var e = t.properties.dataCate(), n = t.properties.dataAction(), r = t.properties.dataLabel();
                     e && t.$wrapper.attr({
                         "data-cate": e
                     }), n && t.$wrapper.attr({
@@ -1159,11 +1166,11 @@ var e = t.properties.dataCate(), n = t.properties.dataAction(), r = t.properties
                 position: "absolute"
             }), this.properties.boxClassStr("cmp-element cmp-" + this.type.toLowerCase()), this.onCreate(this.$wrapper), this.properties.id() || this.properties.id(x(this.type));
         },
-        syncPositionManually: function() {
+        
+syncPositionManually: function() {
             var e = parseInt(this.$wrapper.css("left")), t = parseInt(this.$wrapper.css("top"));
             this.properties.left(e), this.properties.top(t);
-        
-},
+        },
         resize: function(e, t) {
             this.$wrapper.width(e), this.$wrapper.height(t), this.$wrapper.find("a").height(t);
         },
@@ -1187,8 +1194,8 @@ var e = t.properties.dataCate(), n = t.properties.dataAction(), r = t.properties
         },
         exportCache: function() {
             var e = "", t = "";
-            return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()).replace(/\_\_method\_\_/g, this
-.properties.requestType()) : e = p.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()), t = d.replace(/\_\_funcName\_\_/g, this.properties.requestName()).replace(/\_\_reqData\_\_/g, this.properties.requestParam()).replace(/\_\_cb\_\_/g, this.properties.onLoadFunc()), {
+            
+return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()).replace(/\_\_method\_\_/g, this.properties.requestType()) : e = p.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()), t = d.replace(/\_\_funcName\_\_/g, this.properties.requestName()).replace(/\_\_reqData\_\_/g, this.properties.requestParam()).replace(/\_\_cb\_\_/g, this.properties.onLoadFunc()), {
                 cacheItem: e,
                 cacheItemCall: t
             };
@@ -1206,7 +1213,8 @@ var e = t.properties.dataCate(), n = t.properties.dataAction(), r = t.properties
             this.properties.left(e);
         },
         setTop: function(e) {
-            this.properties.top(e);
+            this.properties.top
+(e);
         },
         setZ: function(e) {
             this.properties.zIndex(e);
@@ -1214,8 +1222,7 @@ var e = t.properties.dataCate(), n = t.properties.dataAction(), r = t.properties
         setPosition: function(e) {
             this.$wrapper.css({
                 position: e
-            
-});
+            });
         },
         getName: function() {
             var e = this.properties.id();
@@ -1231,10 +1238,10 @@ var e = t.properties.dataCate(), n = t.properties.dataAction(), r = t.properties
                 if (s) {
                     o = t + "_" + r(a).prop("tagName").toLowerCase() + k();
                     var f = w.exec(s);
-                    f && +f[1].split(",")[3] > 0 && (s = "background-color:rgb(" + f[1].split(",").slice(0, 3).join(",") + ");filter:alpha(opacity=" + +f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
+                    f && +f[1].split(",")[3] > 0 && (s = "background-color:rgb(" + f[1].split(",").slice(0, 3).join(",") + ");filter:alpha(opacity=" + +
+f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                     var l = r(a).attr("hoverstyle");
-                    l && (n.push("." + o + ":hover{" + i.
-getCSS3String(l) + "}"), r(a).removeAttr("hoverstyle")), r(a).removeAttr("style"), r(a).addClass(o);
+                    l && (n.push("." + o + ":hover{" + i.getCSS3String(l) + "}"), r(a).removeAttr("hoverstyle")), r(a).removeAttr("style"), r(a).addClass(o);
                 } else o = r(a).attr("class");
                 i.getCss(r(a), o, n);
             });
@@ -1254,42 +1261,42 @@ getCSS3String(l) + "}"), r(a).removeAttr("hoverstyle")), r(a).removeAttr("style"
         getCSS3String: function(e) {
             if (!e) return;
             var t = e.split(":")[0];
-            return "box-shadow_".indexOf(t) >= 0 ? (e = e.split(":")[1], e.indexOf(";") < 0 && (e += ";"), "-webkit-" + t + ":" + e + "-moz-" + t + ":" + e + "" + t + ":" + e + "") : e + ";";
+            return "box-shadow_"
+.indexOf(t) >= 0 ? (e = e.split(":")[1], e.indexOf(";") < 0 && (e += ";"), "-webkit-" + t + ":" + e + "-moz-" + t + ":" + e + "" + t + ":" + e + "") : e + ";";
         },
-        
-exportHTMLCSS: function() {
+        exportHTMLCSS: function() {
             this.$wrapper.find(".element-select-outline").remove();
-            var e = "", t = this.type, n = this.properties.boxClassStr(), r = this.properties.hoverStr(), i = this.properties.animateStr(), s = this.properties.rid(), o = "", a = "", f = this.$wrapper.html();
-            i != "none" ? (a += m.common, a += m.list[i], n = this.removeCMPClass(n) + " animated " + i) : n = this.removeCMPClass(n), f.indexOf("animated") >= 0 && u.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u5d4c\u5957\u4e2d\u542b\u6709\u52a8\u753b\uff0c\u8bf7\u4e0b\u8f7d<a style='color:#fff;' href='style/lib/animate.min.css' target='_blank'>animate.min.css</a>\u6837\u5f0f\u548c\u6eda\u52a8\u52a0\u8f7d\u52a8\u753b\u5904\u7406\u51fd\u6570<a style='color:#fff;' href='style/lib/animate.js' target='_blank'>animate.js</a>", function(e) {
+            var e = "", t = this.type, n = this.properties.boxClassStr(), r = this.properties.hoverStr(), i = this.properties.titleStr(), s = this.properties.animateStr(), o = this.properties.rid(), a = "", f = "", h = this.$wrapper.html();
+            s != "none" ? (f += m.common, f += m.list[s], n = this.removeCMPClass(n) + " animated " + s) : n = this.removeCMPClass(n), h.indexOf("animated") >= 0 && u.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u5d4c\u5957\u4e2d\u542b\u6709\u52a8\u753b\uff0c\u8bf7\u4e0b\u8f7d<a style='color:#fff;' href='style/lib/animate.min.css' target='_blank'>animate.min.css</a>\u6837\u5f0f\u548c\u6eda\u52a8\u52a0\u8f7d\u52a8\u753b\u5904\u7406\u51fd\u6570<a style='color:#fff;' href='style/lib/animate.js' target='_blank'>animate.js</a>"
+, function(e) {
                 e();
             }, function(e) {
                 e();
-            }), s && (o = " id='" + s + "'");
-            var h = {};
-            !this.
-$wrapper.hasClass("e-hover-source") && !this.$wrapper.hasClass("cmp-func") && !this.$wrapper.find("a").attr("href") ? h = this.getHTMLCSS(this.$wrapper.find("a").html(), this.properties.id()) : h = this.getHTMLCSS(f, this.properties.id());
-            if (this.type == "FUNC" && this.properties.funcType() == "IF" && this.properties.falseFuncBody().length < 1) e = h.html.replace(/{#else}.*{\/if}/g, "{/if}"), a = h.css; else {
-                e = "<div" + o + " class='" + this.properties.id() + " " + n + "'";
-                var p = this.properties.eventName(), d = this.properties.eventHandler();
-                p && (e += " on-" + p + "={" + d + "}");
-                var v = this.properties.dataCate(), g = this.properties.dataAction(), y = this.properties.dataLabel();
-                v && (e += ' data-cate="' + v + '" '), g && (e += ' data-action="' + g + '" '), y && (e += ' data-label="' + y + '" '), e += ">" + h.html + "</div>", a += h.css;
-                var b = this.$wrapper.attr("style"
-);
-                this.isContainer() && (b = b.replace("absolute", "relative"));
-                var E = w.exec(b);
-                E && +E[1].split(",")[3] > 0 && (b = "background-color:rgb(" + E[1].split(",").slice(0, 3).join(",") + ");filter:alpha(opacity=" + +E[1].split(",")[3] * 100 + ");" + b), a += "." + this.properties.id() + " {" + b + "}", r && (a += "." + this.properties.id() + ":hover {" + this.getCSS3String(r) + "}");
+            }), o && (a = " id='" + o + "'");
+            var p = {};
+            !this.$wrapper.hasClass("e-hover-source") && !this.$wrapper.hasClass("cmp-func") && !this.$wrapper.find("a").attr("href") ? p = this.getHTMLCSS(this.$wrapper.find("a").html(), this.properties.id()) : p = this.getHTMLCSS(h, this.properties.id());
+            if (this.type == "FUNC" && this.properties.funcType() == "IF" && this.properties.falseFuncBody().length < 1) e = p.html.replace(/{#else}.*{\/if}/g, "{/if}"), f = p.css; else {
+                e = "<div" + a + " class='" + this.properties.id() + " " + n + "'";
+                var d = this.properties.eventName(), v = this.properties.eventHandler();
+                d && (e += " on-" + d + "={" + v + "}");
+                var g = this.properties.dataCate(), y = this.properties.dataAction(), b = this.properties.dataLabel();
+                g && (e += ' data-cate="' + g + '" '
+), y && (e += ' data-action="' + y + '" '), b && (e += ' data-label="' + b + '" '), i && (e += ' title="' + i + '" '), e += ">" + p.html + "</div>", f += p.css;
+                var E = this.$wrapper.attr("style");
+                this.isContainer() && (E = E.replace("absolute", "relative"));
+                var S = w.exec(E);
+                S && +S[1].split(",")[3] > 0 && (E = "background-color:rgb(" + S[1].split(",").slice(0, 3).join(",") + ");filter:alpha(opacity=" + +S[1].split(",")[3] * 100 + ");" + E), f += "." + this.properties.id() + " {" + E + "}", r && (f += "." + this.properties.id() + ":hover {" + this.getCSS3String(r) + "}");
             }
-            if (f.indexOf("e-hover-source") >= 0 || f.indexOf("e-hover-code") >= 0) a += l;
-            if (f.indexOf("f-fl") >= 0 || f.indexOf("f-line") >= 0 || f.indexOf("f-2lines") >= 0 || f.indexOf("f-3lines") >= 0 || f.indexOf("f-4lines") >= 0) a += c;
-            return e = e.replace(/data-cmp-eid\=\"(\d*)\"/g, "").replace(/\s+\'/g, "'"), {
+            if (h.indexOf("e-hover-source") >= 0 || h.indexOf("e-hover-code") >= 0) f += l;
+            if (h.indexOf("f-fl") >= 0 || h.indexOf("f-line") >= 0 || h.indexOf("f-2lines") >= 0 || h.indexOf("f-3lines") >= 0 || h.indexOf("f-4lines") >= 0) f += c;
+            return e = e.replace(/data-cmp-eid\=\"(\d*)\"/g, "").replace(/\s+\'/g, "'"
+), {
                 html: e,
-                css: a
+                css: f
             };
         },
         "import": function(e) {
-            o.fromJS(e.properties, {}, this.properties), delete this.properties.__ko_mapping__, 
-this.onImport(e);
+            o.fromJS(e.properties, {}, this.properties), delete this.properties.__ko_mapping__, this.onImport(e);
         },
         makeAsset: function(e, t, n, r) {
             var i = this.eid + "#" + t;
@@ -1310,12 +1317,12 @@ this.onImport(e);
             var i = new t;
             o[i.eid] = i;
             var u = s[e];
-            return i.initialize(u), r && (n.fromJS(r, {}, i.properties), delete i.properties.__ko_mapping__), i;
+            return i.initialize(u), r && (n.fromJS(r, {}, i.properties), delete i.properties
+.__ko_mapping__), i;
         },
         clone: function(e) {
             var t = e.type.toLowerCase(), r = n.toJS(e.properties), i = e.__original__ ? e.__original__.properties.id() : e.properties.id();
-            
-r.id = a(i), r.left += 10, r.top += 10;
+            r.id = a(i), r.left += 10, r.top += 10;
             var s = u.create(t, r);
             return s.__original__ = e.__original__ || e, s;
         },
@@ -1341,13 +1348,13 @@ r.id = a(i), r.left += 10, r.top += 10;
     var t = e("core/factory"), n = e("knockout");
     t.register("func", {
         type: "FUNC",
-        extendProperties: function() {
+        extendProperties
+: function() {
             return {
                 text: n.observable("\u51fd\u6570"),
                 funcType: n.observable("IF"),
                 funcLanguage: n.observable("FTL"),
-                ifFuncItem
-: n.observable(""),
+                ifFuncItem: n.observable(""),
                 trueFuncBody: n.observable(""),
                 falseFuncBody: n.observable(""),
                 forFuncItem: n.observable(""),
@@ -1367,14 +1374,14 @@ r.id = a(i), r.left += 10, r.top += 10;
                     label: "\u51fd\u6570\u7c7b\u578b",
                     ui: "combobox",
                     "class": "small",
-                    field: "func",
+                    field: "func"
+,
                     items: [ {
                         text: "IF\u51fd\u6570",
                         value: "IF"
                     }, {
                         text: "FOR\u51fd\u6570",
-                        
-value: "FOR"
+                        value: "FOR"
                     }, {
                         text: "Include\u51fd\u6570",
                         value: "INCLUDE"
@@ -1395,14 +1402,14 @@ value: "FOR"
                     }, {
                         text: "Regular\u6a21\u677f",
                         value: "Regular"
-                    }, {
+                    
+}, {
                         text: "JS\u51fd\u6570",
                         value: "JS"
                     } ],
                     value: this.properties.funcLanguage
                 },
-                includeBody
-: {
+                includeBody: {
                     label: "\u5305\u542b\u7ec4\u4ef6",
                     ui: "textarea",
                     field: "func",
@@ -1422,14 +1429,14 @@ value: "FOR"
                         read: function() {
                             return e.properties.funcType() == "IF";
                         }
-                    })
+                    
+})
                 },
                 trueFuncBody: {
                     label: "IfTrue",
                     ui: "textarea",
                     field: "func",
-                    text: this.properties
-.trueFuncBody,
+                    text: this.properties.trueFuncBody,
                     visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "IF";
@@ -1451,11 +1458,11 @@ value: "FOR"
                     label: "ForItem",
                     ui: "textfield",
                     field: "func",
-                    text: this.properties.forFuncItem,
+                    
+text: this.properties.forFuncItem,
                     visible: n.computed({
                         read: function() {
-                            return e.properties.funcType() == "FOR"
-;
+                            return e.properties.funcType() == "FOR";
                         }
                     })
                 },
@@ -1477,13 +1484,13 @@ value: "FOR"
                     text: this.properties.requestName,
                     visible: n.computed({
                         read: function() {
-                            return e.properties.funcType() == "CACHE";
+                            return e
+.properties.funcType() == "CACHE";
                         }
                     })
                 },
                 requestUrl: {
-                    label: "\u8bf7\u6c42\u5730\u5740"
-,
+                    label: "\u8bf7\u6c42\u5730\u5740",
                     ui: "textfield",
                     field: "func",
                     text: this.properties.requestUrl,
@@ -1506,12 +1513,12 @@ value: "FOR"
                         value: "get"
                     }, {
                         text: "DWR",
-                        value: "dwr"
+                        
+value: "dwr"
                     } ],
                     value: this.properties.requestType,
                     visible: n.computed({
-                        read
-: function() {
+                        read: function() {
                             return e.properties.funcType() == "CACHE";
                         }
                     })
@@ -1532,12 +1539,12 @@ value: "FOR"
                     ui: "textarea",
                     field: "func",
                     text: this.properties.onLoadFunc,
-                    visible: n.computed({
+                    visible: n.computed
+({
                         read: function() {
                             return e.properties.funcType() == "CACHE";
                         }
-                    
-})
+                    })
                 }
             };
         },
@@ -1554,9 +1561,9 @@ value: "FOR"
                     var a = r.properties.ifFuncItem();
                     if (!a) return;
                     r.$wrapper.empty();
-                    var f = u + "-t", l = u + "-f";
-                    s == "FTL" ? o = "<#if " + a + "><div class='" + f + "'></div><#else><div class='" + l + "'></div>&lt;/#if>" : s == "Regular" && 
-(o = "{#if " + a + "}<div class='" + f + "'></div>{#else}<div class='" + l + "'></div>{/if}"), r.$wrapper.append(o);
+                    var f = u + "-t"
+, l = u + "-f";
+                    s == "FTL" ? o = "<#if " + a + "><div class='" + f + "'></div><#else><div class='" + l + "'></div>&lt;/#if>" : s == "Regular" && (o = "{#if " + a + "}<div class='" + f + "'></div>{#else}<div class='" + l + "'></div>{/if}"), r.$wrapper.append(o);
                     var c = r.properties.trueFuncBody(), h = r.properties.falseFuncBody();
                     c && (i(c) ? r.$wrapper.find("." + f).append(c) : r.trigger("addFuncComponent", c, r.$wrapper.find("." + f))), h && (i(h) ? r.$wrapper.find("." + l).append(h) : r.trigger("addFuncComponent", h, r.$wrapper.find("." + l)));
                 } else if (n == "FOR") {
@@ -1564,8 +1571,8 @@ value: "FOR"
                     if (!r.properties.forFuncBody()) return;
                     r.$wrapper.empty();
                     var p = u + "-f";
-                    s == "FTL" ? o = "<#if " + r.properties.forFuncItem() + "??><#list " + r.properties.forFuncItem() + " as item><div class='" + p + "'></div>&lt;/#list>&lt;/#if>" : s == "Regular" && (o = "{#if " + r.properties.forFuncItem() + "}{#list " + r.properties.forFuncItem() + " as item}<div class='" + 
-p + "'></div>{/list}{/if}"), r.$wrapper.append(o);
+                    s == "FTL" ? o = "<#if " + r.properties.forFuncItem() + "??><#list " + r.properties.forFuncItem() + " as item><div class='" + 
+p + "'></div>&lt;/#list>&lt;/#if>" : s == "Regular" && (o = "{#if " + r.properties.forFuncItem() + "}{#list " + r.properties.forFuncItem() + " as item}<div class='" + p + "'></div>{/list}{/if}"), r.$wrapper.append(o);
                     var d = r.properties.forFuncBody();
                     d && (i(d) ? r.$wrapper.find("." + p).append(d) : r.trigger("addFuncComponent", r.properties.forFuncBody(), r.$wrapper.find("." + p)));
                 } else if (n == "CACHE") r.$wrapper.empty(); else if (n == "INCLUDE") {
@@ -1574,13 +1581,13 @@ p + "'></div>{/list}{/if}"), r.$wrapper.append(o);
                     if (v) {
                         var m = u + "-i";
                         o = "<div class='" + m + "'></div>", r.$wrapper.append(o), i(v) ? v.indexOf(".") >= 0 && s == "FTL" ? r.$wrapper.find("." + m).append('<#include "' + v + '"/>') : r.$wrapper.find("." + m).append(v) : r.trigger("addFuncComponent", v, r.$wrapper.find("." + m));
-                    } else e.append(t);
+                    } else e.append
+(t);
                 } else r.$wrapper.empty();
             });
         }
     });
-}), define("elements/image", [ "require", "core/factory", "knockout", "_" ], function(
-e) {
+}), define("elements/image", [ "require", "core/factory", "knockout", "_" ], function(e) {
     var t = e("core/factory"), n = e("knockout"), r = e("_");
     t.register("image", {
         type: "IMAGE",
@@ -1606,13 +1613,13 @@ e) {
                 classStr: {
                     label: "class",
                     ui: "textfield",
-                    text: this.properties.classStr
+                    
+text: this.properties.classStr
                 }
             };
         },
         onCreate: function(e) {
-            var t = document.createElement
-("img"), i = this, s = function(e, n) {
+            var t = document.createElement("img"), i = this, s = function(e, n) {
                 t.width = e, t.height = n, $(t).css({
                     width: e,
                     height: n
@@ -1627,11 +1634,11 @@ e) {
                 s(e[0].value(), e[1].value());
             }), n.computed({
                 read: function() {
-                    var e = i.uiConfig.borderRadius.items, n = i.properties.alt();
+                    var e = i.uiConfig.borderRadius.items, n = 
+i.properties.alt();
                     $(t).css({
                         "border-radius": r.map(e, function(e) {
-                            return e
-.value() + "px";
+                            return e.value() + "px";
                         }).join(" ")
                     }), $(t).attr({
                         alt: n
@@ -1651,14 +1658,14 @@ e) {
         return {
             name: "",
             $el: $("<div style='position:relative'></div>"),
-            xml: "",
+            
+xml: "",
             context: {},
             mainComponent: null
         };
     }, {
         start: function() {
-            return this.xml && 
-this.applyXML(this.xml), this.trigger("start"), this.$el;
+            return this.xml && this.applyXML(this.xml), this.trigger("start"), this.$el;
         },
         enable: function(e) {
             this.$el.show(), this.trigger("enable"), e && e();
@@ -1677,11 +1684,11 @@ this.applyXML(this.xml), this.trigger("start"), this.$el;
             n.disposeByDom(this.$el[0]), this.$el.remove();
         },
         loadingStart: function() {
-            this._$mask && this._$mask.addClass("loading").show();
+            this._$mask && 
+this._$mask.addClass("loading").show();
         },
         loadingEnd: function() {
-            this._$mask && this._$mask.removeClass("loading"
-).hide();
+            this._$mask && this._$mask.removeClass("loading").hide();
         },
         applyXML: function(e) {
             i.parse(e, this.$el[0]), r.applyBindings(this, this.$el[0]);
