@@ -3108,18 +3108,30 @@ define('meta/textfield',['require','./meta','knockout','_'],function (require) {
         template: '<input type="text" data-bind="attr:{placeholder:placeholder}, value:text"/>',
         afterRender: function () {
             var self = this;
-            this.$el.keydown(function (event) {
+            this.$el.blur(function (event) {
+                if (self.text().match(/[0-9]*[\+,\-][0-9]*/)) {
+                    //计算数值
+                    self.text(eval(self.text()));
+                }
+            });
+            this.$el.keyup(function (event) {
                 if (isNaN(+self.text())) {
-                    return;
+                    if (event.keyCode == 13) {
+                        //enter
+                        self.onEnterKey();
+                    }
                 } else {
                     // up = +  down=-
                     if (event.keyCode == 38) {
-                        self.value((+self.text()) + 1);
+                        self.text((+self.text()) + 1);
                     } else if (event.keyCode == 40) {
-                        self.value((+self.text()) - 1);
+                        self.text((+self.text()) - 1);
                     }
                 }
             });
+        },
+        onEnterKey: function () {
+            //imp in real case
         },
         onResize: function () {
             this.$el.find("input").width(this.width());
@@ -3381,6 +3393,7 @@ var Color = Clazz.derive({
     _h : ko.observable().extend({clamp:{min:0,max:360}}),
     _s : ko.observable().extend({clamp:{min:0,max:100}}),
     _v : ko.observable().extend({clamp:{min:0,max:100}}),
+    hexString : ko.observable(""),
     alpha : ko.observable(1).extend({numeric:2, clamp:{min:0, max:1}})
 }, function(){
 
@@ -3424,14 +3437,22 @@ var Color = Clazz.derive({
         this._b(rgb[2]);
     }
     //---------------string of hex
-    this.hexString = ko.computed({
+    ko.computed({
         read : function(){
             var string = this.hex().toString(16),
                 fill = [];
             for(var i = 0; i < 6-string.length; i++){
                 fill.push('0');
             }
-            return fill.join("")+string;
+            this.hexString(fill.join("")+string);
+        },
+        write : function(){}
+    }, this);
+
+    ko.computed({
+        read : function(){
+            var stringHex = this.hexString();
+            this.set("0x"+stringHex);
         },
         write : function(){}
     }, this);
@@ -3481,7 +3502,8 @@ Color.intToHsv = intToHsv;
 Color.hsvToInt = hsvToInt;
 
 return Color;
-});
+})
+;
 //====================================
 // Base class of all widget component
 // Widget is component mixed with meta 

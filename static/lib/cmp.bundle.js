@@ -197,24 +197,24 @@ redo: function() {
     };
     return r;
 }), define("modules/common/modal", [ "require", "qpf", "knockout" ], function(e) {
-    var t = e("qpf"), n = t.use("core/clazz"), r = t.use("container/window"), i = t.use("container/container"), s = t.use("container/inline"), o = t.use("meta/button"), u = t.use("meta/label"), a = e("knockout"), f = new r({
-        attributes: {
-            "class": "qpf-modal"
-        }
-    }), l = new i, c = new s, h = new o({
-        attributes: {
-            text: "\u786e \u5b9a"
-        }
-    }), p = new o({
-        attributes: {
-            text: "\u53d6 \u6d88"
-        }
-    });
-    f.add(l), f.add(c), c.add(h), c.add(p), f.render(), document.body.appendChild(f.$el[0]);
-    var d = $('<div class="qpf-mask"></div>');
-    document.body.appendChild(d[0]), f.$el.hide(
-), d.hide();
-    var v = n.derive(function() {
+    function l() {
+        var e = new r({
+            attributes: {
+                "class": "qpf-modal"
+            }
+        });
+        return e.body = new i, e.buttons = new s, e.applyButton = new o({
+            attributes: {
+                text: "\u786e \u5b9a"
+            }
+        }), e.cancelButton = new o({
+            attributes: {
+                text: "\u53d6 \u6d88"
+            }
+        }), e.add(e.body), e.add(e.buttons), e.buttons.add(e.applyButton), e.buttons.add(e.cancelButton), e.render(), document.body.appendChild(e.$el[0]), e.$mask = $('<div class="qpf-mask"></div>'), document.body.appendChild(e.$mask[0]), e.$el.hide(), e.$mask.hide(), f++, e;
+    
+}
+    var t = e("qpf"), n = t.use("core/clazz"), r = t.use("container/window"), i = t.use("container/container"), s = t.use("container/inline"), o = t.use("meta/button"), u = t.use("meta/label"), a = e("knockout"), f = 0, c = l(), h = n.derive(function() {
         return {
             title: "",
             body: null,
@@ -226,35 +226,36 @@ redo: function() {
             }
         };
     }, {
-        show: function() {
-            var e = this;
-            f.title(this.title), l.removeAll(), this.body && l.add(this.body), h.off("click"), p.off("click"), h.on("click", function() {
-                e.onApply(e.hide);
-            }), p.on("click", function() {
-                e.onCancel(e.hide);
-            }), f.$el.show(), d.show(), f.left(($(window).width() - f.$el.width()) / 2), f.top(($(window).height() - f.$el.height()) / 2 - 100);
+        show: function(e) {
+            var t = this;
+            e || (t.wind = l(), c = t.wind), c.title(this.title), c.body.removeAll(), this.body && c.body.add(this.body), c.applyButton.off("click"), c.cancelButton.off("click"), c.applyButton.on("click", function() {
+                t.onApply(t.hide);
+            }), c.cancelButton.on("click", function() {
+                t.onCancel(t.hide);
+            }), c.$el.show(), c.$mask.show(), c.left(($(window).width() - c.$el.width()) / 2), c.top(($(window).height(
+) - c.$el.height()) / 2 - 100);
         },
         hide: function() {
-            f.$el.hide(), d.hide();
+            var e = this;
+            e.wind ? (e.wind.$el.remove(), e.wind.$mask.remove()) : (c.$el.remove(), c.$mask.remove()), f--;
         }
     });
-    return v.popup = function(e, t, n, r, i) {
-        var s = new v({
+    return h.popup = function(e, t, n, r, i) {
+        var s = new h({
             title: e,
             body: t,
-            onApply: n || function(e) {
-                e();
-            
-},
-            onCancel: r || function(e) {
-                e();
+            onApply: function(e) {
+                n && n(), e.call(s);
+            },
+            onCancel: function(e) {
+                r && r(), e.call(s);
             }
         });
-        s.body.render(), s.show(), i && setTimeout(function() {
+        return s.body.render(), s.show(), i && (f > window.screen.availHeight / 79 / 1.5 && (f = 2), s.wind.$el.css("margin-top", (f - 4) * 85 + "px"), setTimeout(function() {
             s.hide();
-        }, +i);
-    }, v.confirm = function(e, t, n, r, i) {
-        var s = new v({
+        }, +i)), s;
+    }, h.confirm = function(e, t, n, r, i) {
+        var s = new h({
             title: e,
             body: new u({
                 attributes: {
@@ -262,21 +263,21 @@ redo: function() {
                 },
                 temporary: !0
             }),
-            onApply: n || function(e) {
-                e();
+            onApply: 
+function(e) {
+                n && n(), e.call(s);
             },
-            onCancel: r || function(e) {
-                e();
+            onCancel: function(e) {
+                r && r(), e.call(s);
             }
         });
-        s.body.render(), s.show(), i && setTimeout(function() {
+        return s.body.render(), s.show(), i && (f > window.screen.availHeight / 79 / 1.5 && (f = 2), s.wind.$el.css("margin-top", (f - 4) * 85 + "px"), setTimeout(function() {
             s.hide();
-        }, +i);
-    }, v;
+        }, +i)), s;
+    }, h;
 }), define("text!template/hover/hover.html", [], function() {
     return '<div class="e-hover-target">\r\n    <div class="e-hover-arrow"></div>\r\n    <div class="e-hover-arrow-border"></div>\r\n    <div class="e-hover-content"></div>\r\n</div>\r\n';
-}), define("text!template/hover/hover.css"
-, [], function() {
+}), define("text!template/hover/hover.css", [], function() {
     return ".e-hover-source:hover .e-hover-target {\r\n    display: block;\r\n}\r\n\r\n.e-hover-source:hover .e-hover-code {\r\n    display: block;\r\n}\r\n\r\n.e-hover-target {\r\n    display: none;\r\n    position: absolute;\r\n    left: 50%;\r\n    margin-top: -2px;\r\n    padding-top: 14px;\r\n    top: 100%;\r\n}\r\n\r\n.e-hover-code {\r\n    display: none;\r\n}\r\n\r\n.e-hover-arrow {\r\n    position: absolute;\r\n    top: 5px;\r\n    width: 1px;\r\n    height: 1px;\r\n    border: 9px solid #fff;\r\n    border-bottom-color: #ddd;\r\n    z-index: 3;\r\n    border-top-width: 0px;\r\n}\r\n\r\n.e-hover-arrow-border {\r\n    position: absolute;\r\n    width: 1px;\r\n    height: 1px;\r\n    top: 6px;\r\n    border: 9px solid transparent;\r\n    border-bottom-color: #fff;\r\n    border-top-width: 0px;\r\n    z-index: 3;\r\n}\r\n\r\n.e-hover-content {\r\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\r\n    padding: 15px 15px 15px;\r\n    background: #fff;\r\n    border: 1px solid #ddd;\r\n}\r\n"
 ;
 }), define("text!template/css/base.css", [], function() {
@@ -340,6 +341,7 @@ t.helper.Draggable, m = JSON.parse(e("text!template/animate/animate.json")), g =
                 typeStr: n.observable(""),
                 displayStr: n.observable(""),
                 width: n.observable(100),
+                minWidth: n.observable(0),
                 height: n.observable(100),
                 left: n.observable(0),
                 top: n.observable(0),
@@ -355,9 +357,9 @@ t.helper.Draggable, m = JSON.parse(e("text!template/animate/animate.json")), g =
                 background: e,
                 backgroundColor: n.observable(16777215),
                 backgroundAlpha: n.observable(1),
-                backgroundImageType: n.observable("none"),
                 
-backgroundGradientStops: n.observableArray([ {
+backgroundImageType: n.observable("none"),
+                backgroundGradientStops: n.observableArray([ {
                     percent: n.observable(0),
                     color: n.observable("rgba(255, 255, 255, 1)")
                 }, {
@@ -376,9 +378,9 @@ backgroundGradientStops: n.observableArray([ {
                 marginLeft: n.observable(0),
                 paddingTop: n.observable(0),
                 paddingRight: n.observable(0),
-                paddingBottom: n.observable(0),
-                paddingLeft: n.observable
-(0),
+                paddingBottom
+: n.observable(0),
+                paddingLeft: n.observable(0),
                 hasShadow: n.observable(!1),
                 shadowOffsetX: n.observable(0),
                 shadowOffsetY: n.observable(0),
@@ -399,9 +401,9 @@ backgroundGradientStops: n.observableArray([ {
                 dataAction: n.observable(""),
                 dataLabel: n.observable(""),
                 positionStr: n.observable("absolute"),
-                floatStr: n.observable(""),
-                eventName
-: n.observable(""),
+                
+floatStr: n.observable(""),
+                eventName: n.observable(""),
                 eventHandler: n.observable("")
             },
             onResize: function() {},
@@ -431,10 +433,10 @@ backgroundGradientStops: n.observableArray([ {
                 items: [ {
                     name: "left",
                     type: "spinner",
-                    value: u.left,
+                    value
+: u.left,
                     precision: 0,
-                    
-step: 1
+                    step: 1
                 }, {
                     name: "top",
                     type: "spinner",
@@ -465,10 +467,10 @@ step: 1
             },
             typeStr: {
                 label: "\u7c7b\u578b*",
-                ui: "combobox",
-                "class": "small",
-                field: "style"
+                ui: "combobox"
 ,
+                "class": "small",
+                field: "style",
                 items: [ {
                     text: "\u666e\u901a\u5143\u7d20",
                     value: "ELEMENT"
@@ -498,10 +500,10 @@ step: 1
                 }, {
                     text: "block",
                     value: "block"
-                }, {
+                
+}, {
                     text: "inline-block",
-                    
-value: "inline-block"
+                    value: "inline-block"
                 }, {
                     text: "none",
                     value: "none"
@@ -533,10 +535,10 @@ value: "inline-block"
                 items: [ {
                     name: "width",
                     type: "textfield",
-                    text: u.width,
+                    
+text: u.width,
                     value: u.width
-                
-}, {
+                }, {
                     name: "height",
                     type: "textfield",
                     text: u.height,
@@ -552,6 +554,12 @@ value: "inline-block"
                 step: 1,
                 precision: 0
             },
+            minWidth: {
+                label: "minWidth",
+                ui: "textfield",
+                field: "layout",
+                text: u.minWidth
+            },
             borderStyle: {
                 label: "\u8fb9\u6846\u7c7b\u578b",
                 ui: "combobox",
@@ -561,15 +569,15 @@ value: "inline-block"
                     text: "\u65e0",
                     value: ""
                 }, {
-                    text: "\u5b9e\u7ebf",
+                    text: "\u5b9e\u7ebf"
+,
                     value: "solid"
                 }, {
                     text: "\u95f4\u9694\u6a2a\u7ebf",
                     value: "dashed"
                 }, {
                     text: "\u70b9\u70b9\u70b9",
-                    
-value: "dotted"
+                    value: "dotted"
                 } ],
                 value: u.borderStyle
             },
@@ -594,7 +602,8 @@ value: "dotted"
                     min: 0,
                     max: 20
                 }, {
-                    name: "bottom",
+                    name
+: "bottom",
                     type: "slider",
                     value: u.borderBottom,
                     precision: 0,
@@ -602,8 +611,7 @@ value: "dotted"
                     min: 0,
                     max: 20
                 }, {
-                    
-name: "left",
+                    name: "left",
                     type: "slider",
                     value: u.borderLeft,
                     precision: 0,
@@ -627,7 +635,8 @@ name: "left",
                 checked: e
             },
             backgroundColor: {
-                label: "\u80cc\u666f\u8272",
+                label: "\u80cc\u666f\u8272"
+,
                 ui: "color",
                 field: "style",
                 color: u.backgroundColor,
@@ -635,8 +644,7 @@ name: "left",
                 visible: e
             },
             backgroundImageType: {
-                
-label: "\u80cc\u666f\u56fe\u7247",
+                label: "\u80cc\u666f\u56fe\u7247",
                 ui: "combobox",
                 "class": "small",
                 field: "style",
@@ -659,15 +667,15 @@ label: "\u80cc\u666f\u56fe\u7247",
                 ui: "textfield",
                 text: u.backgroundImageStr,
                 visible: s
-            },
+            
+},
             backgroundGradient: {
                 ui: "gradient",
                 field: "style",
                 stops: u.backgroundGradientStops,
                 angle: u.backgroundGradientAngle,
                 visible: i
-            
-},
+            },
             borderRadius: {
                 label: "\u5706\u89d2",
                 ui: "vector",
@@ -689,15 +697,15 @@ label: "\u80cc\u666f\u56fe\u7247",
                 }, {
                     name: "bottom-right",
                     type: "slider",
-                    value: u.borderBottomRightRadius,
+                    value: u.borderBottomRightRadius
+,
                     precision: 0,
                     step: 1,
                     min: 0
                 }, {
                     name: "bottom-left",
                     type: "slider",
-                    value: u.borderBottomLeftRadius
-,
+                    value: u.borderBottomLeftRadius,
                     precision: 0,
                     step: 1,
                     min: 0
@@ -722,15 +730,15 @@ label: "\u80cc\u666f\u56fe\u7247",
                     text: u.marginRight,
                     value: u.marginRight
                 }, {
-                    name: "bottom",
+                    
+name: "bottom",
                     type: "slider",
                     value: u.marginBottom,
                     precision: 0,
                     step: 1,
                     min: -20,
                     max: 50
-                
-}, {
+                }, {
                     name: "left",
                     type: "textfield",
                     text: u.marginLeft,
@@ -753,7 +761,8 @@ label: "\u80cc\u666f\u56fe\u7247",
                     value: u.paddingRight,
                     precision: 0,
                     step: 1,
-                    min: 0,
+                    min: 0
+,
                     max: 200
                 }, {
                     name: "bottom",
@@ -761,8 +770,7 @@ label: "\u80cc\u666f\u56fe\u7247",
                     value: u.paddingBottom,
                     precision: 0,
                     step: 1,
-                    
-min: 0,
+                    min: 0,
                     max: 200
                 }, {
                     name: "left",
@@ -787,7 +795,8 @@ min: 0,
                 value: u.shadowBlur,
                 visible: u.hasShadow
             },
-            shadowOffset: {
+            shadowOffset
+: {
                 ui: "vector",
                 field: "style",
                 items: [ {
@@ -795,8 +804,7 @@ min: 0,
                     type: "slider",
                     min: -50,
                     max: 50,
-                    
-precision: 0,
+                    precision: 0,
                     value: u.shadowOffsetX
                 }, {
                     name: "shadowOffsetY",
@@ -820,7 +828,8 @@ precision: 0,
                 ui: "spinner",
                 field: "style",
                 value: u.boxFontSize
-            },
+            
+},
             boxColor: {
                 label: "Box\u989c\u8272",
                 ui: "textfield",
@@ -828,8 +837,7 @@ precision: 0,
                 text: u.boxColor
             },
             href: {
-                label: "\u8d85\u94fe\u63a5"
-,
+                label: "\u8d85\u94fe\u63a5",
                 ui: "vector",
                 items: [ {
                     label: "\u65b0\u5f00\u9875\u9762",
@@ -853,15 +861,15 @@ precision: 0,
                 label: "overflow",
                 ui: "combobox",
                 "class": "small",
-                field: "layout",
+                
+field: "layout",
                 items: [ {
                     text: "\u9ed8\u8ba4",
                     value: "visiable"
                 }, {
                     text: "overflowX",
                     value: "overflowX"
-                
-}, {
+                }, {
                     text: "overflowY",
                     value: "overflowY"
                 }, {
@@ -887,7 +895,8 @@ precision: 0,
                 label: "HoverStr",
                 ui: "textarea",
                 text: u.hoverStr
-            },
+            
+},
             animateStr: {
                 label: "\u52a8\u753b",
                 ui: "combobox",
@@ -895,8 +904,7 @@ precision: 0,
                 items: y,
                 value: u.animateStr
             },
-            dataCate
-: {
+            dataCate: {
                 label: "dataCate",
                 ui: "textfield",
                 text: u.dataCate
@@ -923,7 +931,8 @@ precision: 0,
                 text: u.eventName
             },
             eventHandler: {
-                label: "\u64cd\u4f5c",
+                
+label: "\u64cd\u4f5c",
                 ui: "textfield",
                 field: "event",
                 text: u.eventHandler
@@ -932,8 +941,7 @@ precision: 0,
     }, {
         initialize: function(e) {
             function c(e) {
-                
-return e.indexOf("<") >= 0 || e.indexOf(".") >= 0;
+                return e.indexOf("<") >= 0 || e.indexOf(".") >= 0;
             }
             this.$wrapper.attr("data-cmp-eid", this.eid);
             var t = this, o = t.properties;
@@ -953,21 +961,22 @@ return e.indexOf("<") >= 0 || e.indexOf(".") >= 0;
             n.computed({
                 read: function() {
                     var e = o.left(), n = o.top();
-                    t.$wrapper.css({
+                    
+t.$wrapper.css({
                         left: e + "px",
                         top: n + "px"
                     }), l || t.onMove(e, n);
                 }
             }), n.computed({
                 read: function() {
-                    
-var e = o.width(), n = o.height();
+                    var e = o.width(), n = o.height();
                     t.resize(e, n), l || t.onResize(e, n), l = !1;
                 }
             }), n.computed({
                 read: function() {
                     t.$wrapper.css({
                         "z-index": t.properties.zIndex(),
+                        "min-width": t.properties.minWidth() + "px",
                         display: t.properties.displayStr()
                     });
                 }
@@ -979,15 +988,15 @@ var e = o.width(), n = o.height();
                     }) : t.$wrapper.removeAttr("id");
                 }
             }), n.computed({
-                read: function() {
+                
+read: function() {
                     var e = t.properties.targetUrl();
                     e ? r(t.$wrapper.find("a")[0]).attr({
                         href: e
                     }) : r(t.$wrapper.find("a")[0]).removeAttr("href");
                 }
             }), n.computed({
-                read: 
-function() {
+                read: function() {
                     var e = t.properties.boxClassStr(), n = t.properties.titleStr();
                     t.$wrapper.attr({
                         "class": e,
@@ -1001,15 +1010,15 @@ function() {
                         hoverStyle: e
                     }) : t.$wrapper.attr({
                         hoverStyle: e
-                    }) : t.type == "TEXT" ? r(t.$wrapper.find("span")[0]).removeAttr("hoverStyle") : t.$wrapper.removeAttr("hoverStyle");
+                    }) : t.type == "TEXT" ? r(t.$wrapper.find("span")[0]).removeAttr("hoverStyle") : t.$wrapper.removeAttr("hoverStyle"
+);
                 }
             }), n.computed({
                 read: function() {
                     var e = t.properties.newBlank(), n = t.properties.targetUrl();
                     n.length && (e ? r(t.$wrapper.find("a")[0]).attr({
                         target: "_blank"
-                    }) 
-: r(t.$wrapper.find("a")[0]).attr({
+                    }) : r(t.$wrapper.find("a")[0]).attr({
                         target: "_top"
                     }));
                 }
@@ -1028,7 +1037,8 @@ function() {
                         });
                         break;
                       case "overflowY":
-                        t.$wrapper.css({
+                        
+t.$wrapper.css({
                             "overflow-y": "hidden"
                         });
                         break;
@@ -1036,8 +1046,7 @@ function() {
                         t.$wrapper.css({
                             overflow: "hidden"
                         });
-                    
-}
+                    }
                 }
             }), n.computed({
                 read: function() {
@@ -1050,7 +1059,8 @@ function() {
                             return isNaN(+e.value()) ? e.value() : Math.round(e.value()) + "px";
                         }).join(" "),
                         padding: i.map(r, function(e) {
-                            return Math.round(e.value()) + "px";
+                            return Math.round
+(e.value()) + "px";
                         }).join(" ")
                     });
                 }
@@ -1059,8 +1069,7 @@ function() {
                     color: t.properties.boxColor(),
                     "font-size": t.properties.boxFontSize()
                 });
-            
-}), n.computed(function() {
+            }), n.computed(function() {
                 var e = t.properties.animateStr(), n = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
                 e && (t.$wrapper.hasClass("animated") || t.$wrapper.addClass("animated"), t.tempAniStr && t.tempAniStr != e && t.$wrapper.removeClass(t.tempAniStr), t.tempAniStr = e, t.$wrapper.addClass(e).one(n, function() {}));
             }), n.computed({
@@ -1068,14 +1077,14 @@ function() {
                     var e = t.properties.borderStyle(), n = t.properties.borderColor(), r = t.properties.borderAlpha(), o = s(n);
                     o._alpha = r;
                     var u = t.uiConfig.borderWidth.items;
-                    e ? (t.$wrapper.css({
+                    
+e ? (t.$wrapper.css({
                         "border-style": e
                     }), t.$wrapper.css({
                         "border-color": o.cssa()
                     }), t.$wrapper.css({
                         "border-width": i.map(u, function(e) {
-                            return Math.round
-(e.value()) + "px";
+                            return Math.round(e.value()) + "px";
                         }).join(" ")
                     })) : t.$wrapper.css({
                         border: ""
@@ -1090,15 +1099,15 @@ function() {
                         t.$wrapper.css({
                             "background-color": o.cssa()
                         });
-                        switch (t.properties.backgroundImageType()) {
+                        switch (t.properties.backgroundImageType()) 
+{
                           case "none":
                             t.$wrapper.css({
                                 "background-image": ""
                             });
                             break;
                           case "gradient":
-                            var a = t.properties.backgroundGradientStops
-(), f = t.properties.backgroundGradientAngle(), l = "linear-gradient(" + f + "deg, " + i.map(a, function(e) {
+                            var a = t.properties.backgroundGradientStops(), f = t.properties.backgroundGradientAngle(), l = "linear-gradient(" + f + "deg, " + i.map(a, function(e) {
                                 return s(e.color()).cssa() + " " + Math.round(e.percent() * 100) + "%";
                             }).join(", ") + ")";
                             t.$wrapper.css({
@@ -1109,7 +1118,8 @@ function() {
                             break;
                           case "file":
                             t.$wrapper.css({
-                                background: u
+                                
+background: u
                             });
                         }
                     } else t.$wrapper.css({
@@ -1118,16 +1128,15 @@ function() {
                 }
             }), n.computed({
                 read: function() {
-                    var e = t.properties.hover(), n = t.properties
-.hoverComponent();
+                    var e = t.properties.hover(), n = t.properties.hoverComponent();
                     e ? c(n) ? (t.$wrapper.find(".e-hover-code").remove(), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.append(r("<div></div>").append(r("<div></div>").addClass("e-hover-code").append(n)).html())) : (t.$wrapper.find(".e-hover-target").remove(), t.properties.boxClassStr().indexOf("e-hover-source") < 0 && t.properties.boxClassStr(t.properties.boxClassStr() + " e-hover-source"), t.$wrapper.css({
                         cursor: "pointer"
-                    }), t.$wrapper.append(f), n && t.trigger("addHoverComponent", n, t.$wrapper.find(".e-hover-content"))) : (t.$wrapper.removeClass("e-hover-source"), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.find(".e-hover-code").remove());
+                    }), t.$wrapper.append(f), n && t.trigger("addHoverComponent", n, t.$wrapper.find(".e-hover-content"))) : (t.$wrapper.removeClass("e-hover-source"), t.$wrapper.find(".e-hover-target"
+).remove(), t.$wrapper.find(".e-hover-code").remove());
                 }
             }), n.computed({
                 read: function() {
-                    var e = t.properties, n = Math.round(e.shadowOffsetX()) + "px", r = Math.round(e.shadowOffsetY()) + "px", i = Math.round(e.shadowBlur()) + "px", o = Math.round
-(e.shadowColor()), u = e.shadowColorAlpha(), a = s(o);
+                    var e = t.properties, n = Math.round(e.shadowOffsetX()) + "px", r = Math.round(e.shadowOffsetY()) + "px", i = Math.round(e.shadowBlur()) + "px", o = Math.round(e.shadowColor()), u = e.shadowColorAlpha(), a = s(o);
                     a._alpha = u, i && e.hasShadow() ? t.$wrapper.css({
                         "box-shadow": [ n, r, i, a.cssa() ].join(" ")
                     }) : t.$wrapper.css({
@@ -1142,14 +1151,14 @@ function() {
                     });
                 }
             }), n.computed({
-                read: function() {
+                
+read: function() {
                     t.type = t.properties.typeStr();
                 }
             }), n.computed({
                 read: function() {
                     var e = t.properties.eventName(), n = t.properties.eventHandler();
-                    e ? (t.tempEventName = e, t.$wrapper.attr
-("on-" + e, "{" + n + "}")) : (t.$wrapper.removeAttr("on-" + t.tempEventName), t.tempEventName = "");
+                    e ? (t.tempEventName = e, t.$wrapper.attr("on-" + e, "{" + n + "}")) : (t.$wrapper.removeAttr("on-" + t.tempEventName), t.tempEventName = "");
                 }
             }), n.computed({
                 read: function() {
@@ -1160,14 +1169,14 @@ function() {
                         "data-action": n
                     }), r && t.$wrapper.attr({
                         "data-label": r
-                    }), (e || n || r) && t.properties.boxClassStr().indexOf("ga-click") < 0 && t.properties.boxClassStr(t.properties.boxClassStr() + " ga-click");
+                    }), (e || n || r) && t.properties.boxClassStr().indexOf("ga-click") < 0 && t.properties.boxClassStr(t.properties.boxClassStr
+() + " ga-click");
                 }
             }), t.$wrapper.css({
                 position: "absolute"
             }), this.properties.boxClassStr("cmp-element cmp-" + this.type.toLowerCase()), this.onCreate(this.$wrapper), this.properties.id() || this.properties.id(x(this.type));
         },
-        
-syncPositionManually: function() {
+        syncPositionManually: function() {
             var e = parseInt(this.$wrapper.css("left")), t = parseInt(this.$wrapper.css("top"));
             this.properties.left(e), this.properties.top(t);
         },
@@ -1186,7 +1195,8 @@ syncPositionManually: function() {
             };
             return this.onExport(e), e;
         },
-        isContainer: function() {
+        
+isContainer: function() {
             return this.properties.id().indexOf("container") < 0 ? !1 : !0;
         },
         isCache: function() {
@@ -1194,15 +1204,15 @@ syncPositionManually: function() {
         },
         exportCache: function() {
             var e = "", t = "";
-            
-return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()).replace(/\_\_method\_\_/g, this.properties.requestType()) : e = p.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()), t = d.replace(/\_\_funcName\_\_/g, this.properties.requestName()).replace(/\_\_reqData\_\_/g, this.properties.requestParam()).replace(/\_\_cb\_\_/g, this.properties.onLoadFunc()), {
+            return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()).replace(/\_\_method\_\_/g, this.properties.requestType()) : e = p.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()), t = d.replace(/\_\_funcName\_\_/g, this.properties.requestName()).replace(/\_\_reqData\_\_/g, this.properties.requestParam()).replace(/\_\_cb\_\_/g, this.properties.onLoadFunc()), {
                 cacheItem: e,
                 cacheItemCall: t
             };
         },
         getLeft: function() {
             return this.properties.left();
-        },
+        
+},
         getTop: function() {
             return this.properties.top();
         },
@@ -1213,8 +1223,7 @@ return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, t
             this.properties.left(e);
         },
         setTop: function(e) {
-            this.properties.top
-(e);
+            this.properties.top(e);
         },
         setZ: function(e) {
             this.properties.zIndex(e);
@@ -1234,12 +1243,12 @@ return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, t
             r.each(e.children(), function(e, a) {
                 u = r(a).attr("class"), u && r(a).attr({
                     "class": i.removeCMPClass(u)
-                }), s = r(a).attr("style");
+                
+}), s = r(a).attr("style");
                 if (s) {
                     o = t + "_" + r(a).prop("tagName").toLowerCase() + k();
                     var f = w.exec(s);
-                    f && +f[1].split(",")[3] > 0 && (s = "background-color:rgb(" + f[1].split(",").slice(0, 3).join(",") + ");filter:alpha(opacity=" + +
-f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
+                    f && +f[1].split(",")[3] > 0 && (s = "background-color:rgb(" + f[1].split(",").slice(0, 3).join(",") + ");filter:alpha(opacity=" + +f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                     var l = r(a).attr("hoverstyle");
                     l && (n.push("." + o + ":hover{" + i.getCSS3String(l) + "}"), r(a).removeAttr("hoverstyle")), r(a).removeAttr("style"), r(a).addClass(o);
                 } else o = r(a).attr("class");
@@ -1254,43 +1263,39 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
             };
         },
         removeCMPClass: function(e) {
-            return e = r.trim(e), i.each(e.split(" "), function(t, n) {
+            return e = 
+r.trim(e), i.each(e.split(" "), function(t, n) {
                 if (t.indexOf("cmp") >= 0 || t.indexOf("qpf") >= 0) e = e.replace(t, "");
             }), e = e.replace(/\s+/g, " "), e;
         },
         getCSS3String: function(e) {
             if (!e) return;
             var t = e.split(":")[0];
-            return "box-shadow_"
-.indexOf(t) >= 0 ? (e = e.split(":")[1], e.indexOf(";") < 0 && (e += ";"), "-webkit-" + t + ":" + e + "-moz-" + t + ":" + e + "" + t + ":" + e + "") : e + ";";
+            return "box-shadow_".indexOf(t) >= 0 ? (e = e.split(":")[1], e.indexOf(";") < 0 && (e += ";"), "-webkit-" + t + ":" + e + "-moz-" + t + ":" + e + "" + t + ":" + e + "") : e + ";";
         },
         exportHTMLCSS: function() {
             this.$wrapper.find(".element-select-outline").remove();
             var e = "", t = this.type, n = this.properties.boxClassStr(), r = this.properties.hoverStr(), i = this.properties.titleStr(), s = this.properties.animateStr(), o = this.properties.rid(), a = "", f = "", h = this.$wrapper.html();
-            s != "none" ? (f += m.common, f += m.list[s], n = this.removeCMPClass(n) + " animated " + s) : n = this.removeCMPClass(n), h.indexOf("animated") >= 0 && u.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u5d4c\u5957\u4e2d\u542b\u6709\u52a8\u753b\uff0c\u8bf7\u4e0b\u8f7d<a style='color:#fff;' href='style/lib/animate.min.css' target='_blank'>animate.min.css</a>\u6837\u5f0f\u548c\u6eda\u52a8\u52a0\u8f7d\u52a8\u753b\u5904\u7406\u51fd\u6570<a style='color:#fff;' href='style/lib/animate.js' target='_blank'>animate.js</a>"
-, function(e) {
-                e();
-            }, function(e) {
-                e();
-            }), o && (a = " id='" + o + "'");
+            s != "none" ? (f += m.common, f += m.list[s], n = this.removeCMPClass(n) + " animated " + s) : n = this.removeCMPClass(n), h.indexOf("animated"
+) >= 0 && u.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u5d4c\u5957\u4e2d\u542b\u6709\u52a8\u753b\uff0c\u8bf7\u4e0b\u8f7d<a style='color:#fff;' href='style/lib/animate.min.css' target='_blank'>animate.min.css</a>\u6837\u5f0f\u548c\u6eda\u52a8\u52a0\u8f7d\u52a8\u753b\u5904\u7406\u51fd\u6570<a style='color:#fff;' href='style/lib/animate.js' target='_blank'>animate.js</a>"), o && (a = " id='" + o + "'");
             var p = {};
             !this.$wrapper.hasClass("e-hover-source") && !this.$wrapper.hasClass("cmp-func") && !this.$wrapper.find("a").attr("href") ? p = this.getHTMLCSS(this.$wrapper.find("a").html(), this.properties.id()) : p = this.getHTMLCSS(h, this.properties.id());
             if (this.type == "FUNC" && this.properties.funcType() == "IF" && this.properties.falseFuncBody().length < 1) e = p.html.replace(/{#else}.*{\/if}/g, "{/if}"), f = p.css; else {
                 e = "<div" + a + " class='" + this.properties.id() + " " + n + "'";
-                var d = this.properties.eventName(), v = this.properties.eventHandler();
+                var d = this.properties.eventName
+(), v = this.properties.eventHandler();
                 d && (e += " on-" + d + "={" + v + "}");
                 var g = this.properties.dataCate(), y = this.properties.dataAction(), b = this.properties.dataLabel();
-                g && (e += ' data-cate="' + g + '" '
-), y && (e += ' data-action="' + y + '" '), b && (e += ' data-label="' + b + '" '), i && (e += ' title="' + i + '" '), e += ">" + p.html + "</div>", f += p.css;
+                g && (e += ' data-cate="' + g + '" '), y && (e += ' data-action="' + y + '" '), b && (e += ' data-label="' + b + '" '), i && (e += ' title="' + i + '" '), e += ">" + p.html + "</div>", f += p.css;
                 var E = this.$wrapper.attr("style");
                 this.isContainer() && (E = E.replace("absolute", "relative"));
                 var S = w.exec(E);
                 S && +S[1].split(",")[3] > 0 && (E = "background-color:rgb(" + S[1].split(",").slice(0, 3).join(",") + ");filter:alpha(opacity=" + +S[1].split(",")[3] * 100 + ");" + E), f += "." + this.properties.id() + " {" + E + "}", r && (f += "." + this.properties.id() + ":hover {" + this.getCSS3String(r) + "}");
             }
-            if (h.indexOf("e-hover-source") >= 0 || h.indexOf("e-hover-code") >= 0) f += l;
+            if (h.indexOf("e-hover-source") >= 0 || h.indexOf("e-hover-code"
+) >= 0) f += l;
             if (h.indexOf("f-fl") >= 0 || h.indexOf("f-line") >= 0 || h.indexOf("f-2lines") >= 0 || h.indexOf("f-3lines") >= 0 || h.indexOf("f-4lines") >= 0) f += c;
-            return e = e.replace(/data-cmp-eid\=\"(\d*)\"/g, "").replace(/\s+\'/g, "'"
-), {
+            return e = e.replace(/data-cmp-eid\=\"(\d*)\"/g, "").replace(/\s+\'/g, "'"), {
                 html: e,
                 css: f
             };
@@ -1310,15 +1315,15 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
     return E;
 }), define("core/factory", [ "require", "./element", "ko.mapping", "_", "$" ], function(e) {
     var t = e("./element"), n = e("ko.mapping"), r = e("_"), i = e("$"), s = {}, o = {}, u = {
-        register: function(e, t) {
+        
+register: function(e, t) {
             s[e] = t;
         },
         create: function(e, r) {
             var i = new t;
             o[i.eid] = i;
             var u = s[e];
-            return i.initialize(u), r && (n.fromJS(r, {}, i.properties), delete i.properties
-.__ko_mapping__), i;
+            return i.initialize(u), r && (n.fromJS(r, {}, i.properties), delete i.properties.__ko_mapping__), i;
         },
         clone: function(e) {
             var t = e.type.toLowerCase(), r = n.toJS(e.properties), i = e.__original__ ? e.__original__.properties.id() : e.properties.id();
@@ -1340,16 +1345,25 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
         return function(t) {
             e[t] || (e[t] = 0);
             var n = t + "_\u590d\u5236";
-            return e[t] && (n += e[t]), e[t]++, n;
+            return e[t
+] && (n += e[t]), e[t]++, n;
         };
     }();
     return u;
+}), define("core/service", [ "require", "$", "modules/common/modal" ], function(e) {
+    var t = e("$"), n = e("modules/common/modal"), r = {
+        saveApi: function(e, r, i) {
+            t.post(e, r, function(e) {
+                typeof i == "function" ? i(e) : n.confirm("\u63d0\u793a", e.message || i, null, null, 3e3);
+            });
+        }
+    };
+    return r;
 }), define("elements/func", [ "require", "core/factory", "knockout" ], function(e) {
     var t = e("core/factory"), n = e("knockout");
     t.register("func", {
         type: "FUNC",
-        extendProperties
-: function() {
+        extendProperties: function() {
             return {
                 text: n.observable("\u51fd\u6570"),
                 funcType: n.observable("IF"),
@@ -1357,7 +1371,8 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                 ifFuncItem: n.observable(""),
                 trueFuncBody: n.observable(""),
                 falseFuncBody: n.observable(""),
-                forFuncItem: n.observable(""),
+                forFuncItem: n.
+observable(""),
                 forFuncBody: n.observable(""),
                 requestName: n.observable(""),
                 requestUrl: n.observable(""),
@@ -1374,8 +1389,7 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                     label: "\u51fd\u6570\u7c7b\u578b",
                     ui: "combobox",
                     "class": "small",
-                    field: "func"
-,
+                    field: "func",
                     items: [ {
                         text: "IF\u51fd\u6570",
                         value: "IF"
@@ -1385,7 +1399,8 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                     }, {
                         text: "Include\u51fd\u6570",
                         value: "INCLUDE"
-                    }, {
+                    
+}, {
                         text: "Cache\u51fd\u6570",
                         value: "CACHE"
                     } ],
@@ -1402,8 +1417,7 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                     }, {
                         text: "Regular\u6a21\u677f",
                         value: "Regular"
-                    
-}, {
+                    }, {
                         text: "JS\u51fd\u6570",
                         value: "JS"
                     } ],
@@ -1413,7 +1427,8 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                     label: "\u5305\u542b\u7ec4\u4ef6",
                     ui: "textarea",
                     field: "func",
-                    text: this.properties.includeBody,
+                    
+text: this.properties.includeBody,
                     visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "INCLUDE";
@@ -1429,8 +1444,7 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                         read: function() {
                             return e.properties.funcType() == "IF";
                         }
-                    
-})
+                    })
                 },
                 trueFuncBody: {
                     label: "IfTrue",
@@ -1439,7 +1453,8 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                     text: this.properties.trueFuncBody,
                     visible: n.computed({
                         read: function() {
-                            return e.properties.funcType() == "IF";
+                            return e.properties
+.funcType() == "IF";
                         }
                     })
                 },
@@ -1458,8 +1473,7 @@ f[1].split(",")[3] * 100 + ");" + s), n.push("." + o + "{" + s + "}");
                     label: "ForItem",
                     ui: "textfield",
                     field: "func",
-                    
-text: this.properties.forFuncItem,
+                    text: this.properties.forFuncItem,
                     visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "FOR";
@@ -1468,7 +1482,8 @@ text: this.properties.forFuncItem,
                 },
                 forFuncBody: {
                     label: "ForBody",
-                    ui: "textarea",
+                    
+ui: "textarea",
                     field: "func",
                     text: this.properties.forFuncBody,
                     visible: n.computed({
@@ -1484,8 +1499,7 @@ text: this.properties.forFuncItem,
                     text: this.properties.requestName,
                     visible: n.computed({
                         read: function() {
-                            return e
-.properties.funcType() == "CACHE";
+                            return e.properties.funcType() == "CACHE";
                         }
                     })
                 },
@@ -1494,7 +1508,8 @@ text: this.properties.forFuncItem,
                     ui: "textfield",
                     field: "func",
                     text: this.properties.requestUrl,
-                    visible: n.computed({
+                    visible
+: n.computed({
                         read: function() {
                             return e.properties.funcType() == "CACHE";
                         }
@@ -1513,8 +1528,7 @@ text: this.properties.forFuncItem,
                         value: "get"
                     }, {
                         text: "DWR",
-                        
-value: "dwr"
+                        value: "dwr"
                     } ],
                     value: this.properties.requestType,
                     visible: n.computed({
@@ -1523,7 +1537,8 @@ value: "dwr"
                         }
                     })
                 },
-                requestParam: {
+                
+requestParam: {
                     label: "\u8bf7\u6c42\u53c2\u6570",
                     ui: "textarea",
                     field: "func",
@@ -1539,8 +1554,7 @@ value: "dwr"
                     ui: "textarea",
                     field: "func",
                     text: this.properties.onLoadFunc,
-                    visible: n.computed
-({
+                    visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "CACHE";
                         }
@@ -1550,7 +1564,8 @@ value: "dwr"
         },
         onCreate: function(e) {
             function i(e) {
-                return e.indexOf("<") >= 0 || e.indexOf(".") >= 0;
+                return e.indexOf("<") >= 0 || e.indexOf(".") >= 0
+;
             }
             var t = $("<span></span>"), r = this;
             e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), n.computed(function() {
@@ -1561,28 +1576,27 @@ value: "dwr"
                     var a = r.properties.ifFuncItem();
                     if (!a) return;
                     r.$wrapper.empty();
-                    var f = u + "-t"
-, l = u + "-f";
+                    var f = u + "-t", l = u + "-f";
                     s == "FTL" ? o = "<#if " + a + "><div class='" + f + "'></div><#else><div class='" + l + "'></div>&lt;/#if>" : s == "Regular" && (o = "{#if " + a + "}<div class='" + f + "'></div>{#else}<div class='" + l + "'></div>{/if}"), r.$wrapper.append(o);
-                    var c = r.properties.trueFuncBody(), h = r.properties.falseFuncBody();
+                    var c = r.properties.trueFuncBody
+(), h = r.properties.falseFuncBody();
                     c && (i(c) ? r.$wrapper.find("." + f).append(c) : r.trigger("addFuncComponent", c, r.$wrapper.find("." + f))), h && (i(h) ? r.$wrapper.find("." + l).append(h) : r.trigger("addFuncComponent", h, r.$wrapper.find("." + l)));
                 } else if (n == "FOR") {
                     if (!r.properties.forFuncItem()) return;
                     if (!r.properties.forFuncBody()) return;
                     r.$wrapper.empty();
                     var p = u + "-f";
-                    s == "FTL" ? o = "<#if " + r.properties.forFuncItem() + "??><#list " + r.properties.forFuncItem() + " as item><div class='" + 
-p + "'></div>&lt;/#list>&lt;/#if>" : s == "Regular" && (o = "{#if " + r.properties.forFuncItem() + "}{#list " + r.properties.forFuncItem() + " as item}<div class='" + p + "'></div>{/list}{/if}"), r.$wrapper.append(o);
+                    s == "FTL" ? o = "<#if " + r.properties.forFuncItem() + "??><#list " + r.properties.forFuncItem() + " as item><div class='" + p + "'></div>&lt;/#list>&lt;/#if>" : s == "Regular" && (o = "{#if " + r.properties.forFuncItem() + "}{#list " + r.properties.forFuncItem() + " as item}<div class='" + p + "'></div>{/list}{/if}"), r.$wrapper.append(o);
                     var d = r.properties.forFuncBody();
-                    d && (i(d) ? r.$wrapper.find("." + p).append(d) : r.trigger("addFuncComponent", r.properties.forFuncBody(), r.$wrapper.find("." + p)));
+                    d && (i(d) ? r.$wrapper.find("." + p).append
+(d) : r.trigger("addFuncComponent", r.properties.forFuncBody(), r.$wrapper.find("." + p)));
                 } else if (n == "CACHE") r.$wrapper.empty(); else if (n == "INCLUDE") {
                     r.$wrapper.empty();
                     var v = r.properties.includeBody();
                     if (v) {
                         var m = u + "-i";
                         o = "<div class='" + m + "'></div>", r.$wrapper.append(o), i(v) ? v.indexOf(".") >= 0 && s == "FTL" ? r.$wrapper.find("." + m).append('<#include "' + v + '"/>') : r.$wrapper.find("." + m).append(v) : r.trigger("addFuncComponent", v, r.$wrapper.find("." + m));
-                    } else e.append
-(t);
+                    } else e.append(t);
                 } else r.$wrapper.empty();
             });
         }
@@ -1592,7 +1606,8 @@ p + "'></div>&lt;/#list>&lt;/#if>" : s == "Regular" && (o = "{#if " + r.properti
     t.register("image", {
         type: "IMAGE",
         extendProperties: function() {
-            return {
+            
+return {
                 src: n.observable(""),
                 alt: n.observable(""),
                 classStr: n.observable("")
@@ -1613,8 +1628,7 @@ p + "'></div>&lt;/#list>&lt;/#if>" : s == "Regular" && (o = "{#if " + r.properti
                 classStr: {
                     label: "class",
                     ui: "textfield",
-                    
-text: this.properties.classStr
+                    text: this.properties.classStr
                 }
             };
         },
@@ -1623,7 +1637,8 @@ text: this.properties.classStr
                 t.width = e, t.height = n, $(t).css({
                     width: e,
                     height: n
-                });
+                
+});
             }, o = i.properties.width(), u = i.properties.height();
             s(o, u), t.alt = i.properties.alt(), n.computed(function() {
                 t.onload = function() {
@@ -1634,8 +1649,7 @@ text: this.properties.classStr
                 s(e[0].value(), e[1].value());
             }), n.computed({
                 read: function() {
-                    var e = i.uiConfig.borderRadius.items, n = 
-i.properties.alt();
+                    var e = i.uiConfig.borderRadius.items, n = i.properties.alt();
                     $(t).css({
                         "border-radius": r.map(e, function(e) {
                             return e.value() + "px";
@@ -1644,7 +1658,8 @@ i.properties.alt();
                         alt: n
                     });
                 }
-            }), n.computed(function() {
+            
+}), n.computed(function() {
                 var e = i.properties.classStr();
                 e && $(t).addClass(e);
             }), e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t);
@@ -1658,8 +1673,7 @@ i.properties.alt();
         return {
             name: "",
             $el: $("<div style='position:relative'></div>"),
-            
-xml: "",
+            xml: "",
             context: {},
             mainComponent: null
         };
@@ -1669,7 +1683,8 @@ xml: "",
         },
         enable: function(e) {
             this.$el.show(), this.trigger("enable"), e && e();
-        },
+        
+},
         disable: function(e) {
             this.$el.hide(), this.trigger("disable"), e && e();
         },
@@ -1684,15 +1699,15 @@ xml: "",
             n.disposeByDom(this.$el[0]), this.$el.remove();
         },
         loadingStart: function() {
-            this._$mask && 
-this._$mask.addClass("loading").show();
+            this._$mask && this._$mask.addClass("loading").show();
         },
         loadingEnd: function() {
             this._$mask && this._$mask.removeClass("loading").hide();
         },
         applyXML: function(e) {
             i.parse(e, this.$el[0]), r.applyBindings(this, this.$el[0]);
-            var t = this.$el[0].firstChild;
+            var t = this.$el[0].firstChild
+;
             t && (this.mainComponent = n.getByDom(t));
         }
     });
@@ -1982,7 +1997,7 @@ s), s;
             typeof e == "string" && (e = r.getByEID(e)), r.remove(e), c.elementsList(u.filter(c.elementsList
 (), function(t) {
                 return t.target !== e;
-            })), c.selectedElements.remove(e), a.showProperties([]), c.trigger("remove", e);
+            })), c.selectedElements.remove(e), a.showProperties([]), c.trigger("remove", e), e.type == "UMI" && $(e.pointLine[0]).remove();
         },
         unexecute: function() {}
     }), i.register("removeselected", {
@@ -2009,26 +2024,26 @@ s), s;
         },
         unexecute: function() {}
     }), c;
-}), define("elements/umi", [ "require", "core/factory"
-, "knockout", "_", "../modules/hierarchy/index", "d3" ], function(e) {
-    var t = e("core/factory"), n = e("knockout"), r = e("_"), i = e("../modules/hierarchy/index"), s = e("d3"), o = [ "#61C5C9", "#CC9E82", "#4F8DB1", "#F9C63D", "#60ADD5", "#8EB93B", "#B31800", "#EB3F2F", "#D2F557" ], u = s.select("#drawArrow").append("svg").attr("width", parseInt(s.select("#drawArrow").attr("width"))).attr("height", parseInt(s.select("#drawArrow").attr("height"))), a = u.append("defs"), f = a.append("marker").attr("id", "arrow").attr("markerUnits", "strokeWidth").attr("markerWidth", "12").attr("markerHeight", "12").attr("viewBox", "0 0 12 12").attr("refX", "6").attr("refY", "6").attr("orient", "auto"), l = "M2,2 L10,6 L2,10 L6,6 L2,2";
+
+}), define("elements/umi", [ "require", "core/factory", "knockout", "_", "../modules/hierarchy/index", "d3" ], function(e) {
+    var t = e("core/factory"), n = e("knockout"), r = e("_"), i = e("../modules/hierarchy/index"), s = e("d3"), o = [ "#61C5C9", "#CC9E82", "#4F8DB1", "#F9C63D", "#60ADD5", "#8EB93B", "#B31800", "#EB3F2F", "#abcc39" ], u = s.select("#drawArrow").append("svg").attr("width", parseInt(s.select("#drawArrow").attr("width"))).attr("height", parseInt(s.select("#drawArrow").attr("height"))), a = u.append("defs"), f = a.append("marker").attr("id", "arrow").attr("markerUnits", "strokeWidth").attr("markerWidth", "12").attr("markerHeight", "12").attr("viewBox", "0 0 12 12").attr("refX", "6").attr("refY", "6").attr("orient", "auto"), l = "M2,2 L10,6 L2,10 L6,6 L2,2";
     f.append("path").attr("d", l).attr("fill", "#000"), t.register("umi", {
         type: "UMI",
         pointLine: "",
         extendProperties: function() {
             return {
-                text: n.observable("/home"),
-                modulePath: n.observable("home/index.html"
-),
-                parentModule: n.observable("umi-root")
+                hashPath: n.observable
+("/home"),
+                modulePath: n.observable("home/index.html"),
+                parentModule: n.observable("")
             };
         },
         extendUIConfig: function() {
             return {
-                text: {
+                hashPath: {
                     label: "HASH\u8def\u5f84",
                     ui: "textfield",
-                    text: this.properties.text
+                    text: this.properties.hashPath
                 },
                 modulePath: {
                     label: "\u6a21\u677f\u8def\u5f84",
@@ -2044,28 +2059,31 @@ s), s;
         },
         onCreate: function(e) {
             var t = $("<span style='line-height:normal;display:inline-block;width:100%;color:#fff;font-size:12px;'></span>"), a = this;
-            e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), a.properties.boxFontSize(0), 
-e.css("background-color") || e.css("background-color", o[parseInt(o.length * Math.random())]), a.properties.left(400 + parseInt(100 * Math.random())), a.properties.top(80 + parseInt(400 * Math.random())), n.computed(function() {
-                var e = a.properties.text(), n = a.properties.modulePath();
+            e.find("a").length ? $(
+e.find("a")[0]).append(t) : e.append(t), a.properties.boxFontSize(0), e.css("background-color") || e.css("background-color", o[parseInt(o.length * Math.random())]), a.properties.left(400 + parseInt(100 * Math.random())), a.properties.top(80 + parseInt(400 * Math.random())), n.computed(function() {
+                var e = a.properties.hashPath(), n = a.properties.modulePath();
                 t.html("<br/>" + e + "<br/><br/>\u6a21\u5757\u8def\u5f84\uff1a<br/>" + n);
             }), n.computed(function() {
                 u.attr("width") != parseInt(s.select("#drawArrow").attr("width")) && u.attr("width", parseInt(s.select("#drawArrow").attr("width"))), u.attr("height") != parseInt(s.select("#drawArrow").attr("height")) && u.attr("height", parseInt(s.select("#drawArrow").attr("height")));
                 var e = a.properties.parentModule();
                 e && r.each(i.elements(), function(t) {
                     if (t.properties.id() == e) {
-                        var n = t.properties.left() + parseInt(t.properties.width()), r = t.properties.top() + parseInt
-(t.properties.height() / 2), i = a.properties.left() - 5, s = a.properties.top() + parseInt(a.properties.height() / 2);
+                        var n = t.properties
+.left() + parseInt(t.properties.width()), r = t.properties.top() + parseInt(t.properties.height() / 2), i = a.properties.left() - 5, s = a.properties.top() + parseInt(a.properties.height() / 2);
                         return a.pointLine && a.pointLine.remove(), a.pointLine = u.append("line").attr("x1", n).attr("y1", r).attr("x2", i).attr("y2", s).attr("stroke", "red").attr("stroke-width", 2).attr("marker-end", "url(#arrow)"), !1;
                     }
                 });
             });
+        },
+        beforeRemove: function() {
+            this.pointLine.remove();
         }
     });
 }), define("text!modules/codeEditor/property.xml", [], function() {
-    return '<tab prefer="100%" maxTabWidth="300" minTabWidth="100" class="tabContent" onchange="@binding[_selectTab]">\r\n    <panel title="component.js">\r\n        <codeView name="component" classStr="component" codeStr="@binding[componentJS]"  style="height:100%"></codeView>\r\n    </panel>\r\n    <panel title="cache.js">\r\n        <codeView name="cache" classStr="cache" codeStr="@binding[cacheJS]" style="height:100%"></codeView>\r\n    </panel>\r\n</tab>\r\n';
-}), define("text!modules/component/component.xml"
-, [], function() {
-    return '<container id="Component">\r\n    <list id="ElementsList" dataSource="@binding[componentsList]" itemView="@binding[ElementView]" onselect="@binding[_selectComponents]"></list>\r\n</container>';
+    return '<tab prefer="100%" maxTabWidth="300" minTabWidth="100" class="tabContent" onchange="@binding[_selectTab]">\r\n    <list itemView="@binding[CodeItemView]" dataSource="@binding[codeArray]"></list>\r\n</tab>\r\n';
+}), define("text!modules/component/component.xml", [], function() {
+    return '<container id="Component">\r\n    <list id="ElementsList" dataSource="@binding[componentsList]" itemView="@binding[ElementView]" onselect="@binding[_selectComponents]"></list>\r\n</container>'
+;
 }), define("text!modules/component/component.html", [], function() {
     return '<div data-bind="text:id"></div>';
 }), define("modules/component/component", [ "require", "qpf", "knockout", "text!./component.html" ], function(e) {
@@ -2080,9 +2098,9 @@ e.css("background-color") || e.css("background-color", o[parseInt(o.length * Mat
         template: e("text!./component.html")
     });
     return r;
-}), define("modules/component/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./component.xml", "_", "../property/index", "modules/common/contextmenu", "../hierarchy/index", "modules/common/modal", "./component" 
-], function(e) {
-    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./component.xml"), u = e("_"), a = e("../property/index"), f = e("modules/common/contextmenu"), l = e("../hierarchy/index"), c = e("modules/common/modal"), h = e("./component"), p = "", d = new s({
+}), define("modules/component/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./component.xml", "_", "../property/index", "modules/common/contextmenu", "../hierarchy/index", "modules/common/modal", "./component" ], function(e) {
+    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./component.xml"), u = e("_"), a = e("../property/index"), f = e("modules/common/contextmenu"
+), l = e("../hierarchy/index"), c = e("modules/common/modal"), h = e("./component"), p = "", d = new s({
         name: "component",
         xml: o,
         componentsList: n.observableArray([]),
@@ -2093,13 +2111,13 @@ e.css("background-color") || e.css("background-color", o[parseInt(o.length * Mat
                 return e.target;
             }));
             var t = d.selectedComponents(), n = t[t.length - 1];
-            n && (l.elements().length ? c.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u5df2\u5b58\u5728\u6b63\u5728\u7f16\u8f91\u7ec4\u4ef6, \u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\uff01", function(e) {
-                l.removeAll(), d.trigger("selectComponent", n), n.viewport.backColor && 
-d.trigger("changeBackColor", n.viewport.backColor), e();
-            }, function(e) {
+            n && (l.elements().length ? c.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u5df2\u5b58\u5728\u6b63\u5728\u7f16\u8f91\u7ec4\u4ef6, \u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\uff01", function() {
+                l.removeAll(), d.trigger("selectComponent", n), n.viewport.backColor && d.trigger("changeBackColor", n.viewport.backColor);
+            }, function() {
                 d.selectedComponents([]);
-                var t = d.componentsList();
-                d.componentsList([]), d.componentsList(t), e();
+                var e = d.componentsList();
+                d.componentsList([]), d.componentsList
+(e);
             }) : d.trigger("selectComponent", n));
         },
         load: function(e) {
@@ -2108,16 +2126,13 @@ d.trigger("changeBackColor", n.viewport.backColor), e();
                 var n = u.find(p.split("_"), function(t) {
                     return t == e.meta.name;
                 });
-                n ? c.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u5df2\u5b58\u5728\u7ec4\u4ef6" + e.meta.name + ", \u70b9\u51fb\u786e\u5b9a\u66ff\u6362\u4e3a\u65b0\u7684\u7ec4\u4ef6", function(n) {
+                n ? c.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u5df2\u5b58\u5728\u7ec4\u4ef6" + e.meta.name + ", \u70b9\u51fb\u786e\u5b9a\u66ff\u6362\u4e3a\u65b0\u7684\u7ec4\u4ef6", function() {
                     u.each(t, function(t) {
                         t.id == e.meta.name && (t.target = e);
-                    }), n();
-                }, function(e) {
-                    e();
+                    });
                 }) : (t.push({
                     id: e.meta.name,
-                    
-target: e
+                    target: e
                 }), p += e.meta.name + "_");
             }), this.componentsList(t);
         },
@@ -2125,7 +2140,8 @@ target: e
             var t = d.componentsList(), n = {};
             return u.each(t, function(t, r) {
                 if (t.id == e) {
-                    n = t.target;
+                    n = 
+t.target;
                     return;
                 }
             }), n;
@@ -2144,15 +2160,15 @@ target: e
         }), f.bindTo(d.mainComponent.$el, function(e) {
             var t = $(e).parents(".qpf-ui-element"), n = [];
             return t.length ? (t[0].id == d.selectedComponents()[0].meta.name && (n = [ {
-                
-label: "\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60",
+                label: "\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60",
                 exec: function() {
                     d.trigger("save2pool", t.qpf("get")[0].target());
                 }
             }, {
                 label: "\u5bfc\u51faFTL\u5230\u76ee\u5f55",
                 exec: function() {
-                    d.trigger("saveFTL", t.qpf("get")[0].target());
+                    
+d.trigger("saveFTL", t.qpf("get")[0].target());
                 }
             }, {
                 label: "\u5bfc\u51faRUI\u5230\u76ee\u5f55",
@@ -2170,8 +2186,7 @@ label: "\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60",
                     i.execute("copyComponent", t.qpf("get")[0].target());
                 }
             }), n) : [ {
-                label: "\u7c98\u8d34"
-,
+                label: "\u7c98\u8d34",
                 exec: function() {
                     i.execute("pasteComponent");
                 }
@@ -2181,7 +2196,8 @@ label: "\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60",
                     d.trigger("newModule");
                 }
             }, {
-                label: "\u65b0\u5efaunit",
+                
+label: "\u65b0\u5efaunit",
                 exec: function() {
                     d.trigger("newUnit");
                 }
@@ -2205,66 +2221,68 @@ label: "\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60",
         }
     }), i.register("pasteComponent", {
         execute: function() {
-            
-var e = [];
+            var e = [];
             u.each(v, function(t) {
                 var n = t.meta.name, r = JSON.parse(JSON.stringify(t).replace(n + "-container", n + "_copied" + "-container"));
                 r.meta.name += "_copied", e.push(r);
             }), d.load(e);
         },
-        unexecute: function() {}
+        unexecute: function(
+) {}
     }), d;
 }), define("text!modules/codeEditor/property.html", [], function() {
-    return '<textarea  data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n<div class="editor-toolbar">\r\n    <button class="editor-close" >\u786e\u8ba4\u4fee\u6539</button>\r\n    <button class="editor-cancel" > \u53d6\u6d88 </button>\r\n</div>\r\n';
+    return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea  data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n    <div class="editor-toolbar">\r\n        <button class="editor-close" >\u786e\u8ba4\u4fee\u6539</button>\r\n        <button class="editor-cancel" > \u53d6\u6d88 </button>\r\n    </div>\r\n</panel>\r\n';
 }), define("modules/codeEditor/property", [ "require", "qpf", "knockout", "text!./property.html" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = t.use("container/container"), i = t.widget.Widget, s = i.derive(function() {
         return {
             codeStr: n.observable(""),
-            classStr: n.observable("")
+            classStr: n.observable(""),
+            titleStr: n.observable("")
         };
     }, {
-        
-type: "CODEVIEW",
+        type: "CODEVIEW",
         css: "codeview",
         template: e("text!./property.html")
     });
     return r.provideBinding("codeview", s), s;
-}), define("modules/codeEditor/index", [ "require", "qpf", "knockout", "../module", "text!./property.xml", "_", "modules/component/index", "codemirror", "codemirrorJS", "./property" ], function(e) {
+}), define("modules/codeEditor/index"
+, [ "require", "qpf", "knockout", "../module", "text!./property.xml", "_", "modules/component/index", "codemirror", "codemirrorJS", "./property" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = e("../module"), i = e("text!./property.xml"), s = e("_"), o = t.use("container/tab"), u = t.use("container/panel"), a = e("modules/component/index"), f = e("codemirror");
     e("codemirrorJS");
-    var l = e("./property"), c = new r({
+    var l = e("./property"), c = [], h = new r({
         name: "property",
         xml: i,
-        componentJS: n.observable(""),
-        cacheJS: n.observable(""),
+        CodeItemView: l,
+        codeArray: n.observableArray([]),
         _selectTab: function(e, t) {
             window.componentCodeEditor && componentCodeEditor.refresh(), window.cacheCodeEditor && cacheCodeEditor.refresh();
         },
-        showCode: function(e, t) {
-            this.componentJS(e), window.componentCodeEditor = 
-f.fromTextArea($("#editor .component")[0], {
-                lineNumbers: !0,
-                mode: "javascript",
-                tabSize: 4
-            }), componentCodeEditor.setOption("theme", "monokai"), setTimeout(function() {
-                componentCodeEditor.refresh();
-            }, 300), window.cacheCodeEditor = "", t ? ($($($(".tabContent")[0]).find(".qpf-tab-header").find(".qpf-tab-tabs li")[1]).show(), this.cacheJS(t), window.cacheCodeEditor = f.fromTextArea($("#editor .cache")[0], {
-                lineNumbers: !0,
-                mode: "javascript",
-                tabSize: 4
-            }), cacheCodeEditor.setOption("theme", "monokai"), setTimeout(function() {
-                cacheCodeEditor.refresh();
-            }, 300)) : $($($(".tabContent")[0]).find(".qpf-tab-header").find(".qpf-tab-tabs li")[1]).hide(), $("#editor").show();
-            var n = this;
+        showCode: function(e) {
+            c = [], s.each(e, function(t) {
+                e.push({
+                    titleStr: t.title,
+                    classStr: t.classStr,
+                    codeStr: t.code
+                });
+                var n = f.fromTextArea
+($("#editor ." + t.classStr)[0], {
+                    lineNumbers: !0,
+                    mode: "javascript",
+                    tabSize: 4
+                });
+                n.setOption("theme", "monokai"), setTimeout(function() {
+                    n.refresh();
+                }, 300), c.push(n);
+            }), $("#editor").show();
+            var t = this;
             $(".editor-close").click(function() {
-                $("#editor").is(":visible") && ($("#editor").hide(
-), a.selectedComponents()[0] && (componentCodeEditor && (a.selectedComponents()[0].meta.componentJS = componentCodeEditor.doc.getValue()), cacheCodeEditor && (a.selectedComponents()[0].meta.cacheJS = cacheCodeEditor.doc.getValue()), c.trigger("saveProject")), window.componentCodeEditor && componentCodeEditor.doc.setValue(""), window.cacheCodeEditor && cacheCodeEditor.doc.setValue(""));
+                $("#editor").is(":visible") && $("#editor").hide();
             }), $(".editor-cancel").click(function() {
-                $("#editor").is(":visible") && ($("#editor").hide(), window.componentCodeEditor && componentCodeEditor.doc.setValue(""), window.cacheCodeEditor && cacheCodeEditor.doc.setValue(""));
+                $("#editor").is(":visible") && $("#editor").hide();
             });
         }
     });
-    return c;
+    return h;
 }), define("modules/common/buttongroup", [ "require", "qpf", "knockout", "_" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = e("_"), i = t.container.Inline.derive(function() {
         return {
@@ -2273,9 +2291,9 @@ f.fromTextArea($("#editor .component")[0], {
     }, {
         type: "BUTTONGROUP",
         css: "button-group"
-    
-});
-    return t.Base.provideBinding("buttongroup", i), i;
+    });
+    return t
+.Base.provideBinding("buttongroup", i), i;
 }), define("modules/common/palette", [ "require", "qpf", "knockout" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = new t.widget.Palette;
     r.width(370);
@@ -2295,9 +2313,9 @@ f.fromTextArea($("#editor .component")[0], {
             alpha: n.observable(1)
         };
         return e._colorStr = n.computed(function() {
-            return i(e.color()).hex
-();
-        }), e;
+            return i(e.color()).hex();
+        }), 
+e;
     }, {
         type: "COLOR",
         css: "color",
@@ -2318,8 +2336,8 @@ f.fromTextArea($("#editor .component")[0], {
             s.hide(), s.off("change"), s.off("apply"), s.off("cancel");
         },
         _paletteApply: function(e, t) {
-            this.color(e), this.
-alpha(t), this._paletteCancel();
+            this.color(e), this.alpha(t), this._paletteCancel
+();
         }
     });
     return r.provideBinding("color", o), o;
@@ -2679,10 +2697,10 @@ this._paths[e], r = this.height(), i = this.sample();
                 var n = u.find(b.split("_"), function(t) {
                     return t == e.name;
                 });
-                n ? h.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u5df2\u5b58\u5728\u7ec4\u4ef6" + e.name + ", \u70b9\u51fb\u786e\u5b9a\u66ff\u6362\u4e3a\u65b0\u7684\u7ec4\u4ef6", function(n) {
+                n ? h.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u5df2\u5b58\u5728\u7ec4\u4ef6" + e.name + ", \u70b9\u51fb\u786e\u5b9a\u66ff\u6362\u4e3a\u65b0\u7684\u7ec4\u4ef6", function() {
                     u.each(t, function(t) {
                         if (t.id == e.name) return t.target = e, !1;
-                    }), n();
+                    });
                 }, null) : (t.push({
                     id: e.name,
                     img: e.img,
@@ -2716,12 +2734,12 @@ this._paths[e], r = this.height(), i = this.sample();
                 exec: function() {
                     var e = E.selectedPages(), t = e[e.length - 1];
                     t && (f.components().length ? 
-h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6", function(e) {
-                        f.clearComponents(), l.removeAll(), E.trigger("selectPage", t), e();
-                    }, function(e) {
+h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6", function() {
+                        f.clearComponents(), l.removeAll(), E.trigger("selectPage", t);
+                    }, function() {
                         E.selectedPages([]);
-                        var t = E.pagesList();
-                        E.pagesList([]), E.pagesList(t), e();
+                        var e = E.pagesList();
+                        E.pagesList([]), E.pagesList(e);
                     }) : E.trigger("selectPage", t));
                 }
             }, {
@@ -2733,8 +2751,8 @@ h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0
             }, {
                 label: "\u7f16\u8f91",
                 exec: function() {
-                    var e = t.qpf("get")[0].attributes.target, n = e.name, r = new v, i = new 
-m, s = new m, o = new m, u = new m, a = new m, f = new m;
+                    var e = t.qpf("get")[0].attributes.target, n = e.name, r = new v, i = new m, s = new m
+, o = new m, u = new m, a = new m, f = new m;
                     i.add(new g({
                         attributes: {
                             text: "\u7ec4\u4ef6\u63cf\u8ff0\uff1a"
@@ -2758,9 +2776,9 @@ m, s = new m, o = new m, u = new m, a = new m, f = new m;
                     s.add(c), o.add(new g({
                         attributes: {
                             text: "\u7ec4\u4ef6\u5730\u5740\uff1a"
-                        
-}
-                    }));
+                        }
+                    
+}));
                     var d = new p({
                         attributes: {
                             text: e.url || "\u7ec4\u4ef6\u5730\u5740"
@@ -2797,8 +2815,8 @@ m, s = new m, o = new m, u = new m, a = new m, f = new m;
                             text: e.ruiPath || "Regular\u7ec4\u4ef6\u5bfc\u51fa\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                         }
                     });
-                    f.add(w), r.add(i), r.add(s), r.add(o), r.add(u), r.add(a), r.add(f), h.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", r, function(e) {
-                        var t = {
+                    f.add(w), r.add(i), r.add(s), r.add(o), r.add(u), r.add(a), r.add(f), h.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", r, function() {
+                        var e = {
                             name: n,
                             desc: l.text(),
                             img: c.text(),
@@ -2809,7 +2827,7 @@ m, s = new m, o = new m, u = new m, a = new m, f = new m;
                             
 postUrl: "/api/" + n
                         };
-                        E.load([ t ]);
+                        E.load([ e ]);
                     });
                 }
             }, {
@@ -2827,38 +2845,39 @@ postUrl: "/api/" + n
                         attributes: {
                             text: w || "../example/index.cmpp"
                         }
+                    }), t = h.popup("\u8bf7\u8f93\u5165\u8fdc\u7a0b\u7ec4\u4ef6\u5730\u5740\uff1a", e, function() {
+                        e.text() && (w = e.text(), E.trigger("importProjectFromUrl", e.text()));
                     });
-                    h.popup("\u8bf7\u8f93\u5165\u8fdc\u7a0b\u7ec4\u4ef6\u5730\u5740\uff1a", e, function(t) {
-                        e.text() && (w = e.text(), E.trigger("importProjectFromUrl", e.text())), t();
-                    });
+                    e.onEnterKey = function() {
+                        e.$el.blur
+(), t.wind.applyButton.trigger("click");
+                    };
                 }
             }, {
-                label: "\u5bfc\u51fa\u7ec4\u4ef6\u6c60"
-,
+                label: "\u5bfc\u51fa\u7ec4\u4ef6\u6c60",
                 exec: function() {
                     var e = new p({
                         attributes: {
                             text: "\u7ec4\u4ef6\u6c60\u540d\u79f0"
                         }
                     });
-                    h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u540d\u79f0\uff1a", e, function(t) {
+                    h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u540d\u79f0\uff1a", e, function() {
                         if (e.text()) {
-                            var n = new Blob([ JSON.stringify(E.pages(), null, 2) ], {
+                            var t = new Blob([ JSON.stringify(E.pages(), null, 2) ], {
                                 type: "text/plain;charset=utf-8"
                             });
-                            saveAs(n, e.text() + ".cmpp");
+                            saveAs(t, e.text() + ".cmpp");
                         }
-                        t();
                     });
                 }
             }, {
                 label: "\u4fdd\u5b58\u7ec4\u4ef6\u6c60",
                 exec: function() {
                     if (w) {
-                        var e = w.substring(w.lastIndexOf("/") + 1, w.indexOf("cmpp") - 1);
+                        var e = 
+w.substring(w.lastIndexOf("/") + 1, w.indexOf("cmpp") - 1);
                         $.post("/api/" + e, {
-                            
-ext: '{"name":"' + e + '", "url":"' + w + '"}',
+                            ext: '{"name":"' + e + '", "url":"' + w + '"}',
                             cmpData: JSON.stringify(E.pages())
                         }, function(e) {
                             h.confirm("\u63d0\u793a", e.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
@@ -2869,19 +2888,18 @@ ext: '{"name":"' + e + '", "url":"' + w + '"}',
                                 text: "../example/index.cmpp"
                             }
                         });
-                        h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u5730\u5740\uff1a", t, function(e) {
+                        h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u5730\u5740\uff1a", t, function() {
                             if (t.text()) {
                                 w = t.text();
-                                var n = w.substring(w.lastIndexOf("/"), w.indexOf("cmpp") - 1);
-                                $.post("/api/" + n, {
-                                    ext: '{"name":"' + n + '", "url":"' + w + '"}',
-                                    cmpData: JSON
-.stringify(E.pages(), null, 2)
+                                var e = w.substring(w.lastIndexOf("/"), w.indexOf("cmpp") - 1);
+                                $.post("/api/" + e, 
+{
+                                    ext: '{"name":"' + e + '", "url":"' + w + '"}',
+                                    cmpData: JSON.stringify(E.pages(), null, 2)
                                 }, function(e) {
                                     h.confirm("\u63d0\u793a", e.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
                                 });
                             }
-                            e();
                         });
                     }
                 }
@@ -2901,7 +2919,18 @@ ext: '{"name":"' + e + '", "url":"' + w + '"}',
     return '[\n  {\n    "meta": {\n      "date": "2016-12-24",\n      "name": "c-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 600\n    },\n    "elements": [\n      {\n        "eid": 1,\n        "type": "ELEMENT",\n        "properties": {\n          "id": "c-example-container",\n          "width": 400,\n          "height": 100,\n          "left": 0,\n          "top": 0,\n          "zIndex": 0,\n          "color": "#ffffff",\n          "border": true,\n          "borderColor": 5617961,\n          "background": false,\n          "backgroundColor": 16777215,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "classStr": "cmp-element cmp-element",\n          "include": "",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
 ;
 }), define("text!template/page/p-example.cmp", [], function() {
-    return '[\n  {\n    "meta": {\n      "date": "2017-3-8",\n      "name": "p-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 600\n    },\n    "elements": [\n      {\n        "eid": 1,\n        "type": "UMI",\n        "properties": {\n          "id": "umi-root",\n          "rid": "",\n          "width": "200",\n          "height": 100,\n          "left": 94,\n          "top": 194,\n          "zIndex": 0,\n          "boxColor": "#000000",\n          "borderStyle": "",\n          "borderTop": 0,\n          "borderRight": 0,\n          "borderBottom": 0,\n          "borderLeft": 0,\n          "borderColor": 5617961,\n          "borderAlpha": 1,\n          "background": true,\n          "backgroundColor": 3914264,\n          "backgroundAlpha": 1,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "backgroundImageStr": "",\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "marginTop": 0,\n          "marginRight": 0,\n          "marginBottom": 0,\n          "marginLeft": 0,\n          "paddingTop": 0,\n          "paddingRight": 0,\n          "paddingBottom": 0,\n          "paddingLeft": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "shadowColorAlpha": 1,\n          "boxFontSize": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "boxClassStr": "cmp-element cmp-umi",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": "",\n          "hoverStr": "",\n          "animateStr": "none",\n          "dataCate": "",\n          "dataAction": "",\n          "dataLabel": "",\n          "positionStr": "absolute",\n          "floatStr": "",\n          "text": "/",\n          "modulePath": "common/commonutil.html",\n          "parentModule": "",\n          "color": "#ffffff",\n          "border": true,\n          "classStr": "cmp-element cmp-element",\n          "include": ""\n        }\n      },\n      {\n        "eid": 2,\n        "type": "UMI",\n        "properties": {\n          "id": "rewrite-404",\n          "rid": "",\n          "width": 100,\n          "height": 100,\n          "left": 143,\n          "top": 51,\n          "zIndex": 0,\n          "boxColor": "#000000",\n          "borderStyle": "",\n          "borderTop": 0,\n          "borderRight": 0,\n          "borderBottom": 0,\n          "borderLeft": 0,\n          "borderColor": 5617961,\n          "borderAlpha": 1,\n          "background": true,\n          "backgroundColor": 13455472,\n          "backgroundAlpha": 1,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "backgroundImageStr": "",\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "marginTop": 0,\n          "marginRight": 0,\n          "marginBottom": 0,\n          "marginLeft": 0,\n          "paddingTop": 0,\n          "paddingRight": 0,\n          "paddingBottom": 0,\n          "paddingLeft": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "shadowColorAlpha": 1,\n          "boxFontSize": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "boxClassStr": "cmp-element cmp-umi",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": "",\n          "hoverStr": "",\n          "animateStr": "none",\n          "dataCate": "",\n          "dataAction": "",\n          "dataLabel": "",\n          "positionStr": "absolute",\n          "floatStr": "",\n          "text": "404",\n          "modulePath": "/home/course",\n          "parentModule": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
+    return '[\n  {\n    "meta": {\n      "date": "2017-3-8",\n      "name": "p-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 800\n    },\n    "elements": [\n       {\n        "eid": 1,\n        "type": "ELEMENT",\n        "properties": {\n          "id": "p-example-container",\n          "width": 400,\n          "height": 100,\n          "left": 0,\n          "top": 0,\n          "zIndex": 0,\n          "color": "#ffffff",\n          "border": true,\n          "borderColor": 5617961,\n          "background": false,\n          "backgroundColor": 16777215,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "classStr": "cmp-element cmp-element",\n          "include": "",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": ""\n        }\n      },\n      {\n        "eid": 1,\n        "type": "UMI",\n        "properties": {\n          "id": "umi-root",\n          "rid": "",\n          "width": "200",\n          "height": 100,\n          "left": 94,\n          "top": 194,\n          "zIndex": 0,\n          "boxColor": "#000000",\n          "borderStyle": "",\n          "borderTop": 0,\n          "borderRight": 0,\n          "borderBottom": 0,\n          "borderLeft": 0,\n          "borderColor": 5617961,\n          "borderAlpha": 1,\n          "background": true,\n          "backgroundColor": 3914264,\n          "backgroundAlpha": 1,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "backgroundImageStr": "",\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "marginTop": 0,\n          "marginRight": 0,\n          "marginBottom": 0,\n          "marginLeft": 0,\n          "paddingTop": 0,\n          "paddingRight": 0,\n          "paddingBottom": 0,\n          "paddingLeft": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "shadowColorAlpha": 1,\n          "boxFontSize": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "boxClassStr": "cmp-element cmp-umi",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": "",\n          "hoverStr": "",\n          "animateStr": "none",\n          "dataCate": "",\n          "dataAction": "",\n          "dataLabel": "",\n          "positionStr": "absolute",\n          "floatStr": "",\n          "hashPath": "/",\n          "modulePath": "common/commonutil.html",\n          "parentModule": "",\n          "color": "#ffffff",\n          "border": true,\n          "classStr": "cmp-element cmp-element",\n          "include": ""\n        }\n      },\n      {\n        "eid": 2,\n        "type": "UMI",\n        "properties": {\n          "id": "rewrite-404",\n          "rid": "",\n          "width": 100,\n          "height": 100,\n          "left": 143,\n          "top": 51,\n          "zIndex": 0,\n          "boxColor": "#000000",\n          "borderStyle": "",\n          "borderTop": 0,\n          "borderRight": 0,\n          "borderBottom": 0,\n          "borderLeft": 0,\n          "borderColor": 5617961,\n          "borderAlpha": 1,\n          "background": true,\n          "backgroundColor": 13455472,\n          "backgroundAlpha": 1,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "backgroundImageStr": "",\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "marginTop": 0,\n          "marginRight": 0,\n          "marginBottom": 0,\n          "marginLeft": 0,\n          "paddingTop": 0,\n          "paddingRight": 0,\n          "paddingBottom": 0,\n          "paddingLeft": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "shadowColorAlpha": 1,\n          "boxFontSize": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "boxClassStr": "cmp-element cmp-umi",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": "",\n          "hoverStr": "",\n          "animateStr": "none",\n          "dataCate": "",\n          "dataAction": "",\n          "dataLabel": "",\n          "positionStr": "absolute",\n          "floatStr": "",\n          "hashPath": "404",\n          "modulePath": "/home/course",\n          "parentModule": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
+;
+}), define("text!template/page/page.html", [], function() {
+    return '<#assign pageName="home">\r\n<#include "common/head.ftl">\r\n<@head title="\u4e2d\u56fd\u5927\u5b66MOOC(\u6155\u8bfe)_\u6700\u597d\u7684\u5728\u7ebf\u8bfe\u7a0b\u5b66\u4e60\u5e73\u53f0"\r\n       keywords="\u4e2d\u56fd\u5927\u5b66MOOC,MOOC,\u6155\u8bfe,\u5728\u7ebf\u5b66\u4e60,\u5728\u7ebf\u6559\u80b2,\u5927\u89c4\u6a21\u5f00\u653e\u5f0f\u5728\u7ebf\u8bfe\u7a0b,\u7f51\u7edc\u516c\u5f00\u8bfe,\u89c6\u9891\u516c\u5f00\u8bfe,\u5927\u5b66\u516c\u5f00\u8bfe,\u5927\u5b66mooc, icourse163,\u6155\u8bfe\u7f51, MOOC\u5b66\u9662"\r\n       description="\u4e2d\u56fd\u5927\u5b66MOOC(\u6155\u8bfe) \u662f\u7231\u8bfe\u7a0b\u7f51\u643a\u624b\u4e91\u8bfe\u5802\u6253\u9020\u7684\u5728\u7ebf\u5b66\u4e60\u5e73\u53f0\uff0c\u6bcf\u4e00\u4e2a\u6709\u63d0\u5347\u613f\u671b\u7684\u4eba\uff0c\u90fd\u53ef\u4ee5\u5728\u8fd9\u91cc\u5b66\u4e60\u4e2d\u56fd\u6700\u597d\u7684\u5927\u5b66\u8bfe\u7a0b\uff0c\u5b66\u5b8c\u8fd8\u80fd\u83b7\u5f97\u8ba4\u8bc1\u8bc1\u4e66\u3002\u4e2d\u56fd\u5927\u5b66MOOC\u662f\u56fd\u5185\u6700\u597d\u7684\u4e2d\u6587MOOC\u5b66\u4e60\u5e73\u53f0\uff0c\u62e5\u6709\u6765\u81ea\u4e8e39\u6240985\u9ad8\u6821\u7684\u9876\u7ea7\u8bfe\u7a0b\uff0c\u6700\u597d\u6700\u5168\u7684\u5927\u5b66\u8bfe\u7a0b\uff0c\u4e0e\u540d\u5e08\u96f6\u8ddd\u79bb\u3002">\r\n</@head>\r\n<!-- @STYLE -->\r\n<link type="text/css" rel="stylesheet" href="/src/css/web/regularUI.css"/>\r\n<link type="text/css" rel="stylesheet" href="/src/css/web/style.css"/>\r\n<link type="text/css" rel="stylesheet" href="/src/css/__pageCSSPath__.css"/>\r\n<body>\r\n    <!-- \u9876\u90e8\u5bfc\u822a\u680f -->\r\n    <#include "nav/nav.ftl">\r\n    __html__\r\n    <!-- \u5e95\u90e8\u5de5\u5177\u680f  -->\r\n    <#include \'common/footer.ftl\' >\r\n    <!-- @NOPARSE -->\r\n    <script>\r\n    </script>\r\n    <!-- /@NOPARSE -->\r\n   \r\n    <!-- @DEFINE -->\r\n    <script src="${nejRoot}"></script>\r\n    <script>\r\n        NEJ.define([\r\n            \'pro/__pageFilePath__\',\r\n            \'util/dispatcher/dispatcher\'\r\n        ],function(_page,_p){\r\n           \r\n            _page._$allocate();\r\n            window.dispatcher = _p._$startup({\r\n                // \u89c4\u5219\u914d\u7f6e\r\n                rules:{\r\n                    rewrite:{\r\n                        // \u91cd\u5199\u89c4\u5219\u914d\u7f6e\r\n                        \'404\': \'__404Path__\'\r\n                    }\r\n                },\r\n                // \u6a21\u5757\u914d\u7f6e\r\n                modules: __module__\r\n            });\r\n            \r\n        });\r\n    </script>\r\n</body>\r\n</html>\r\n'
+;
+}), define("text!template/page/module.html", [], function() {
+    return '<meta charset="utf-8"/>\r\n\r\n<textarea name="txt" id="j-__pName__-body">\r\n    <div id="j-__pName__-content"></div>\r\n</textarea>\r\n\r\n<!-- @TEMPLATE -->\r\n<textarea name="js" data-src="/src/javascript/__jsName__.js"></textarea>\r\n<!-- /@TEMPLATE -->\r\n';
+}), define("text!template/page/page.js", [], function() {
+    return "/*\r\n * __pDesc__\u9875\u9762\r\n *  @path pro/__path0__/pages/__path1__/__pName__\r\n */\r\nNEJ.define([\r\n    'base/klass',\r\n    'pro/common/page'\r\n], function (k,\r\n    _$$Page,\r\n    p, pro) {\r\n    /**\r\n     * \u9875\u9762\u6a21\u5757\u5b9e\u73b0\u7c7b\r\n     *\r\n     * @class   _$$page\r\n     * @extends pro/common/module._$$page\r\n     * @param  {Object} options - \u6a21\u5757\u8f93\u5165\u53c2\u6570\r\n     */\r\n    p._$$page = k._$klass();\r\n    pro = p._$$page._$extend(_$$Page);\r\n\r\n    /**\r\n     * \u6a21\u5757\u521d\u59cb\u5316\r\n     * @private\r\n     * @param  {Object} options - \u8f93\u5165\u53c2\u6570\u4fe1\u606f\r\n     * @return {Void}\r\n     */\r\n    pro.__init = function (options) {\r\n        this.__super(options);\r\n\r\n    };\r\n\r\n    /**\r\n     * \u6a21\u5757\u91cd\u7f6e\u903b\u8f91\r\n     * @private\r\n     * @param  {Object} options - \u8f93\u5165\u53c2\u6570\u4fe1\u606f\r\n     * @return {Void}\r\n     */\r\n    pro.__reset = function (options) {\r\n        this.__super(options);\r\n    };\r\n    /**\r\n     * \u6a21\u5757\u9500\u6bc1\u903b\u8f91\r\n     * @private\r\n     * @return {Void}\r\n     */\r\n    pro.__destroy = function () {\r\n        this.__super();\r\n    };\r\n\r\n    return p._$$page;\r\n});\r\n"
+;
+}), define("text!template/page/module.js", [], function() {
+    return "/*\r\n * __pDesc__\u6a21\u5757\r\n * @path   __path0__/module/__path1__/__pName__\r\n * ------------------------------------------\r\n */\r\nNEJ.define([\r\n    'base/klass',\r\n    'pro/common/module',\r\n    'base/element',\r\n    'base/util'\r\n], function (\r\n    _klass,\r\n    _module,\r\n    _element,\r\n    _util,\r\n    _p, _pro) {\r\n\r\n    var g = window,\r\n        e = NEJ.P('nej.e'),\r\n        v = NEJ.P('nej.v');\r\n\r\n    /**\r\n     * \u9875\u9762\u6a21\u5757\u5b9e\u73b0\u7c7b\r\n     *\r\n     * @class   _$$Module\r\n     * @extends pro/common/module._$$Module\r\n     * @param  {Object} options - \u6a21\u5757\u8f93\u5165\u53c2\u6570\r\n     */\r\n    _p._$$Module = _klass._$klass();\r\n    _pro = _p._$$Module._$extend(_module._$$Module);\r\n\r\n    /**\r\n     * \u83b7\u5f97\u6a21\u5757\u7684\u7ed3\u6784\r\n     * @return {String}\r\n     */\r\n    _pro.__getStructure = function () {\r\n        return {\r\n            body: 'j-__pName__-body',\r\n            parent: 'j-__pName__-parent'\r\n        }\r\n    };\r\n\r\n    /**\r\n     * \u6a21\u5757\u7684\u521d\u59cb\u5316\u548c\u529f\u80fd\u70b9\r\n     * @return {String}\r\n     */\r\n    _pro.__buildFuncPoints = function () {\r\n        this.__super();\r\n    };\r\n\r\n\r\n    /**\r\n     * \u663e\u793a\u6a21\u5757\r\n     * @param {Object} _options \u6a21\u5757\u914d\u7f6e\u53c2\u6570\r\n     * @return {Void}\r\n     */\r\n    _pro.__onShow = function (_options) {\r\n\r\n        this.__super(_options);\r\n\r\n        \r\n\r\n    };\r\n\r\n    /**\r\n     * \u63a5\u53d7\u5230\u6d88\u606f\u89e6\u53d1\u4e8b\u4ef6\uff0c\u5b50\u7c7b\u5b9e\u73b0\u5177\u4f53\u903b\u8f91\r\n     * @param  {Object} arg0 - \u4e8b\u4ef6\u5bf9\u8c61\r\n     * @return {Void}\r\n     */\r\n    _pro.__onMessage = function (_action) {\r\n\r\n    };\r\n\r\n    /**\r\n     * \u5237\u65b0\u6a21\u5757\r\n     * @param {Object} _options \u6a21\u5757\u914d\u7f6e\u53c2\u6570\r\n     * @return {Void}\r\n     */\r\n    _pro.__onRefresh = function (_options) {\r\n\r\n        this.__super(_options);\r\n        \r\n    };\r\n\r\n    /**\r\n     * \u9690\u85cf\u6a21\u5757\r\n     * @return {Void}\r\n     */\r\n    _pro.__onHide = function () {\r\n        this.__super();\r\n\r\n    };\r\n\r\n    //\u52a0\u8f7d\u6b64\u6a21\u5757\r\n    g.dispatcher._$loaded(\"__modulePath__\", _p._$$Module);\r\n});\r\n"
 ;
 }), define("modules/viewport/viewport", [ "require", "qpf", "knockout", "core/command", "modules/common/contextmenu" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = t.use("meta/meta"), i = e("core/command"), s = e("modules/common/contextmenu"), o = r.derive(function() {
@@ -2993,7 +3022,7 @@ e, t) {
         name: "viewport",
         xml: s,
         viewportWidth: n.observable(1440),
-        viewportHeight: n.observable(600),
+        viewportHeight: n.observable(800),
         viewportScale: n.observable(1),
         backColor: n.observable("#fff")
     }), h = {
@@ -3206,29 +3235,35 @@ e) {
                 if (t.isContainer()) return o = t.exportHTMLCSS(), e = o.html, r.push(o.css), i = t.getName(), !1;
             }), e = n(e);
             var f;
-            return e.find("a").length && (f = e.find("a")), t.each(s.elements(), function(t) {
-                t.isCache() ? 
-(o = t.exportCache(), u += o.cacheItem, a += o.cacheItemCall) : t.isContainer() || (o = t.exportHTMLCSS(), f ? f.append(o.html) : e.append(o.html), r.push(o.css));
+            e.find("a").length && (f = e.find("a"));
+            var l;
+            return t.each(s.elements(), function(t) 
+{
+                t.isCache() ? (o = t.exportCache(), u += o.cacheItem, a += o.cacheItemCall) : t.type == "UMI" ? (l = l || {
+                    modules: {},
+                    "404": "/"
+                }, t.properties.id() == "rewrite-404" ? l[404] = t.properties.modulePath() : l.modules[t.properties.hashPath()] = t.properties.modulePath()) : t.isContainer() || (o = t.exportHTMLCSS(), f ? f.append(o.html) : e.append(o.html), r.push(o.css));
             }), {
                 html: n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&amp\;/g, "&").replace(/\&quot\;/g, "'"),
                 css: r.join(" "),
                 name: i,
                 cache: u,
-                cacheCall: a
+                cacheCall: a,
+                umi: l
             };
         },
         exportMacro: function() {
             var e = "<div class='m-body-container'></div>", r = [], i = "example";
             t.each(s.elements(), function(t) {
                 if (t.isContainer()) {
-                    e = t.exportHTMLCSS().html, r.push(t.exportHTMLCSS().css), i = t.getName();
+                    
+e = t.exportHTMLCSS().html, r.push(t.exportHTMLCSS().css), i = t.getName();
                     return;
                 }
             }), e = n(e), t.each(s.elements(), function(t) {
                 t.isContainer() || (e.append(t.exportHTMLCSS().html), r.push(t.exportHTMLCSS().css));
             });
-            
-var o = n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\$\{/g, "${" + i.replace(/\-/g, "_") + ".");
+            var o = n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\$\{/g, "${" + i.replace(/\-/g, "_") + ".");
             return {
                 html: "<#macro " + i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                 css: r.join(" "),
@@ -3242,14 +3277,14 @@ var o = n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\
                     e = t.getTop(), n = t.getLeft(), r = t.getZ(), t.setTop(0), t.setLeft(0);
                     return;
                 }
-            }), t.each(s.elements(), function(t) {
+            }), t.each(s.elements
+(), function(t) {
                 t.isContainer() || (t.setTop(t.getTop() - e), t.setLeft(t.getLeft() - n), t.setZ(t.getZ() + r + 1));
             });
         }
     };
 }), define("modules/toolbar/toolbargroup", [ "require", "qpf", "knockout", "_" ], function(e) {
-    var t = e("qpf"), n = e("knockout"), r = 
-e("_"), i = t.container.Inline.derive(function() {
+    var t = e("qpf"), n = e("knockout"), r = e("_"), i = t.container.Inline.derive(function() {
         return {};
     }, {
         type: "TOOLBARGROUP",
@@ -3428,121 +3463,137 @@ n,
         }
     });
 }), define("modules/toolbar/index", [ "require", "qpf", "knockout", "../module", "text!./toolbar.xml", "text!template/module/m-example.cmp"
-, "text!template/unit/u-example.cmp", "text!template/cache/c-example.cmp", "text!template/page/p-example.cmp", "core/command", "$", "project/project", "../hierarchy/index", "modules/component/index", "modules/page/index", "../viewport/index", "../codeEditor/index", "modules/common/modal", "./toolbargroup", "text!template/rui/component.js", "text!template/cache/cache.js", "text!template/rui/component.js", "text!template/cache/cache.js", "elements/image", "elements/text", "elements/func", "elements/umi" ], function(e) {
-    function N(e) {
+, "text!template/unit/u-example.cmp", "text!template/cache/c-example.cmp", "text!template/page/p-example.cmp", "text!template/page/page.html", "text!template/page/module.html", "text!template/page/page.js", "text!template/page/module.js", "core/command", "core/service", "$", "project/project", "../hierarchy/index", "modules/component/index", "modules/page/index", "../viewport/index", "../codeEditor/index", "modules/common/modal", "./toolbargroup", "text!template/rui/component.js", "text!template/cache/cache.js", "text!template/rui/component.js", "text!template/cache/cache.js", "elements/image", "elements/text", "elements/func", "elements/umi" ], function(e) {
+    function O(e) {
         var t = e.target.files[0];
-        t && t.type.match(/image/) && (T.onload = function(e) {
-            T.onload = null, f.execute("create", "image", {
+        t && t.type.match(/image/) && (A.onload = function(e) {
+            A.onload = null, p.execute("create", "image", {
                 src: e.target.result
             });
-        }, T.readAsDataURL(t));
+        }, A.readAsDataURL(t));
     }
-    function C(e) {
+    function M(e) {
         var t = e.target.files[0];
-        t && t.name.substr(-3) === "cmp" ? (T.onload = function(e) {
-            T.onload = null;
-            var t = c.import(JSON.parse(e.target.result
-));
-        }, T.readAsText(t)) : t && t.name.substr(-4) === "cmpp" && (T.onload = function(e) {
-            T.onload = null;
-            var t = c.importPage(JSON.parse(e.target.result));
-        }, T.readAsText(t));
+        
+t && t.name.substr(-3) === "cmp" ? (A.onload = function(e) {
+            A.onload = null;
+            var t = m.import(JSON.parse(e.target.result));
+        }, A.readAsText(t)) : t && t.name.substr(-4) === "cmpp" && (A.onload = function(e) {
+            A.onload = null;
+            var t = m.importPage(JSON.parse(e.target.result));
+        }, A.readAsText(t));
     }
-    var t = e("qpf"), n = e("knockout"), r = e("../module"), i = e("text!./toolbar.xml"), s = e("text!template/module/m-example.cmp"), o = e("text!template/unit/u-example.cmp"), u = e("text!template/cache/c-example.cmp"), a = e("text!template/page/p-example.cmp"), f = e("core/command"), l = e("$"), c = e("project/project"), h = e("../hierarchy/index"), p = e("modules/component/index"), d = e("modules/page/index"), v = e("../viewport/index"), m = e("../codeEditor/index"), g = e("modules/common/modal"), y = t.use("meta/textfield"), b = t.use("container/vbox"), w = t.use("container/container"), E = t.use("container/inline"), S = t.use("meta/label");
+    var t = e("qpf"), n = e("knockout"), r = e("../module"), i = e("text!./toolbar.xml"), s = e("text!template/module/m-example.cmp"), o = e("text!template/unit/u-example.cmp"), u = e("text!template/cache/c-example.cmp"), a = e("text!template/page/p-example.cmp"), f = e("text!template/page/page.html"), l = e("text!template/page/module.html"), c = e("text!template/page/page.js"), h = e("text!template/page/module.js"), p = e("core/command"), d = e("core/service"), v = e("$"), m = e("project/project"), g = e("../hierarchy/index"), y = e("modules/component/index"), b = e("modules/page/index"), w = e("../viewport/index"), E = e("../codeEditor/index"
+), S = e("modules/common/modal"), x = t.use("meta/textfield"), T = t.use("container/vbox"), N = t.use("container/container"), C = t.use("container/inline"), k = t.use("meta/label");
     e("./toolbargroup");
-    var x = new r({
+    var L = new r({
         name: "toolbar",
         xml: i,
         createElement: function() {
-            
-f.execute("create");
+            p.execute("create");
         },
         createImage: function() {
-            f.execute("create", "image", {
+            p.execute("create", "image", {
                 src: "style/images/read.png"
             });
         },
         createText: function() {
-            f.execute("create", "text");
+            p.execute("create", "text");
         },
         createFunction: function() {
-            f.execute("create", "func");
+            p.execute("create", "func");
         },
         createModule: function() {
-            f.execute("create", "umi");
+            var e = g.selectedElements(), t = e[e.length - 1], n = "umi-root";
+            t && (n = t.properties.id()), p.execute("create", "umi", {
+                parentModule: n
+            });
         },
         showCode: function(t, n) {
-            if (t && t.length > 0 || n && n.length > 0) m.showCode(t, n); else if (p.selectedComponents()[0] && p.selectedComponents()[0].meta.componentJS) m.showCode(p.selectedComponents()[0].meta.componentJS, p.selectedComponents()[0].meta.cacheJS); else if (h.elementsList().length > 0) {
-                var r = e("text!template/rui/component.js"), i = e("text!template/cache/cache.js"), s = c.exportHTMLCSS(), o = s.name;
-                r = r.replace(/\_\_componentName\_\_/g, o.toLowerCase()), o = o.replace(/m\-/g, "M"
-).replace(/u\-/g, "U").replace(/c\-/g, "C"), r = r.replace(/\_\_componentNameCap\_\_/g, o);
+            if (t && t.length > 0 || n && n.length > 0
+) E.showCode(t, n); else if (y.selectedComponents()[0] && y.selectedComponents()[0].meta.componentJS) E.showCode(y.selectedComponents()[0].meta.componentJS, y.selectedComponents()[0].meta.cacheJS); else if (g.elementsList().length > 0) {
+                var r = e("text!template/rui/component.js"), i = e("text!template/cache/cache.js"), s = m.exportHTMLCSS(), o = s.name;
+                r = r.replace(/\_\_componentName\_\_/g, o.toLowerCase()), o = o.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g, "C"), r = r.replace(/\_\_componentNameCap\_\_/g, o);
                 var u = s.cache, a = s.cacheCall;
-                u ? i = i.replace(/\_\_cache\_\_/g, o).replace(/\_\_content\_\_/g, u) : i = "", a ? (a = a.replace(/\_\_cacheName\_\_/g, o), r = r.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + o + "Cache").replace(/\_\_cacheCall\_\_/g, a)) : r = r.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, ""), m.showCode(r, i);
-            } else m.showCode("", "");
+                u ? i = i.replace(/\_\_cache\_\_/g, o).replace(/\_\_content\_\_/g, u) : i = "", a ? (a = a.replace(/\_\_cacheName\_\_/g, o), r = r.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + o + "Cache").replace(/\_\_cacheCall\_\_/g, a)) : r = r.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, ""), E.showCode
+(r, i);
+            } else E.showCode("", "");
         },
         zoomIn: function() {
-            var e = v.viewportScale();
-            v.viewportScale(Math.min(Math.max(e + .1, .2), 1.5));
+            var e = w.viewportScale();
+            w.viewportScale(Math.min(Math.max(e + .1, .2), 1.5));
         },
         zoomOut: function() {
-            var e = v.viewportScale();
-            v.viewportScale(Math.min(Math.max(e - .1, .2), 1.5));
+            var e = w.viewportScale();
+            w.viewportScale(Math.min(Math.max(e - .1, .2), 1.5));
         },
         viewportScale: n.computed(function() {
-            return Math.floor(v.viewportScale() * 100) + "%";
-        
-}),
-        viewportWidth: v.viewportWidth,
-        viewportHeight: v.viewportHeight,
+            return Math.floor(w.viewportScale() * 100) + "%";
+        }),
+        viewportWidth: w.viewportWidth,
+        viewportHeight: w.viewportHeight,
         exportProject: function() {
-            var e = c.export(!1, p.selectedComponents()[0]), t = new Blob([ JSON.stringify(e.result, null, 2) ], {
+            var e = m.export(!1, y.selectedComponents()[0]), t = new Blob([ JSON.stringify(e.result, null, 2) ], {
                 type: "text/plain;charset=utf-8"
             });
             saveAs(t, e.name + ".cmp");
         },
         saveProject: function() {
-            var e = c.export(!0, p.selectedComponents()[0]);
-            e.result[0].elements.length > 0 && c.import(e.result);
+            var e = m.export(!0, y.selectedComponents()[0]);
+            e.result[0].elements.length > 0 && m.import(e.result);
         },
-        importProject: function() {
-            var e = l("<input type='file' />");
-            e[0].addEventListener("change", C), e.click();
+        importProject
+: function() {
+            var e = v("<input type='file' />");
+            e[0].addEventListener("change", M), e.click();
         },
         expandProp: function() {
-            +l(".propContent").css("width").replace("px", "") ? l(".propContent").css("width", 0) : l(".propContent").css("width", 280);
+            +v(".propContent").css("width").replace("px", "") ? v(".propContent").css("width", 0) : v(".propContent").css("width", 280);
         },
         newPage: function() {
-            h.removeAll(), c.loadComponent(JSON.parse(a)[0]);
+            g.removeAll(), m.loadComponent(JSON.parse(a)[0]);
         },
         newModule: function() {
-            
-h.removeAll(), c.loadComponent(JSON.parse(s)[0]);
+            g.removeAll(), m.loadComponent(JSON.parse(s)[0]);
         },
         newUnit: function() {
-            h.removeAll(), c.loadComponent(JSON.parse(o)[0]);
+            g.removeAll(), m.loadComponent(JSON.parse(o)[0]);
         },
         newCache: function() {
-            h.removeAll(), c.loadComponent(JSON.parse(u)[0]);
+            g.removeAll(), m.loadComponent(JSON.parse(u)[0]);
         },
         changeBack: function() {
-            var e = v.backColor();
-            e == "#fff" ? v.backColor("#9a9a9a") : v.backColor("#fff");
+            var e = w.backColor();
+            e == "#fff" ? w.backColor("#9a9a9a") : w.backColor("#fff");
+        },
+        generatePageHtml: function(e, t, n) {
+            var r = e.umi, i = t || "";
+            return f.replace("__404Path__"
+, r[404]).replace("__module__", JSON.stringify(r.modules)).replace("__html__", e.html).replace(/\_\_pageFilePath\_\_/g, i.split("/")[0] + "/pages/" + i.split("/")[1] + "/" + e.name).replace(/\_\_pageCSSPath\_\_/g, (n || "") + e.name);
         },
         exportFTL: function() {
-            var e = c.exportHTMLCSS(), t = new Blob([ e.html ], {
-                type: "text/plain;charset=utf-8"
-            });
-            saveAs(t, e.name + ".ftl");
+            var e = m.exportHTMLCSS();
+            if (e.umi) {
+                var t = new Blob([ this.generatePageHtml(e) ], {
+                    type: "text/plain;charset=utf-8"
+                });
+                saveAs(t, e.name + ".ftl");
+            } else {
+                var t = new Blob([ e.html ], {
+                    type: "text/plain;charset=utf-8"
+                });
+                saveAs(t, e.name + ".ftl");
+            }
             var t = new Blob([ e.css ], {
                 type: "text/plain;charset=utf-8"
             });
             saveAs(t, "_" + e.name + ".scss");
         },
         exportRUI: function() {
-            var t = e("text!template/rui/component.js"), n = e("text!template/cache/cache.js"), r = c.exportHTMLCSS(), i = r.html;
+            var t = e("text!template/rui/component.js"), n = e("text!template/cache/cache.js"
+), r = m.exportHTMLCSS(), i = r.html;
             i = i.replace(/\$\{/g, "{");
-            
-var s = new Blob([ i ], {
+            var s = new Blob([ i ], {
                 type: "text/plain;charset=utf-8"
             });
             saveAs(s, "component.html");
@@ -3550,7 +3601,7 @@ var s = new Blob([ i ], {
                 type: "text/plain;charset=utf-8"
             });
             saveAs(s, "component.css");
-            var o = p.selectedComponents()[0];
+            var o = y.selectedComponents()[0];
             if (o && o.meta.componentJS) {
                 var u = r.cache;
                 if (u && o.cacheJS) {
@@ -3565,8 +3616,8 @@ var s = new Blob([ i ], {
                 saveAs(s, "component.js");
             } else {
                 var a = r.name;
-                t = t.replace(/\_\_componentName\_\_/g, a.toLowerCase()), a = a.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g
-, "C"), t = t.replace(/\_\_componentNameCap\_\_/g, a);
+                t = t.replace(/\_\_componentName\_\_/g
+, a.toLowerCase()), a = a.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g, "C"), t = t.replace(/\_\_componentNameCap\_\_/g, a);
                 var u = r.cache, f = r.cacheCall;
                 if (u) {
                     n = n.replace(/\_\_cache\_\_/g, a).replace(/\_\_content\_\_/g, u);
@@ -3582,10 +3633,10 @@ var s = new Blob([ i ], {
                 saveAs(s, "component.js");
             }
         },
-        exportHTML: function() {
-            var e = c.exportHTMLCSS(), t = new Blob([ e.html ], {
-                
-type: "text/plain;charset=utf-8"
+        exportHTML: function(
+) {
+            var e = m.exportHTMLCSS(), t = new Blob([ e.html ], {
+                type: "text/plain;charset=utf-8"
             });
             saveAs(t, e.name + ".html");
             var t = new Blob([ e.css ], {
@@ -3594,7 +3645,7 @@ type: "text/plain;charset=utf-8"
             saveAs(t, e.name + ".css");
         },
         exportMac: function() {
-            var e = c.exportMacro(), t = new Blob([ e.html ], {
+            var e = m.exportMacro(), t = new Blob([ e.html ], {
                 type: "text/plain;charset=utf-8"
             });
             saveAs(t, e.name + ".ftl");
@@ -3604,180 +3655,185 @@ type: "text/plain;charset=utf-8"
             saveAs(t, "_" + e.name + ".scss");
         },
         alignProcess: function() {
-            c.alignProcess();
+            m.alignProcess();
         }
     });
-    m.on("saveProject", function() {
-        x.saveProject();
-    }), p.on("importProject", function() {
-        x.importProject();
-    }), p.on("newModule", function() {
-        x.newModule();
-    }), p.on("newUnit", function() {
-        x.newUnit();
-    }), p.on("saveFTL", function(e) {
-        if (d.
-pages().length < 1) g.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
-            var t = e.meta.name, n = _.find(d.pages(), function(e) {
+    E.on("saveProject", function() {
+        L.saveProject();
+    }), y.on("importProject", function() {
+        L.importProject();
+    }), y.on("newModule", function() {
+        L.newModule();
+    }), y.on("newUnit", 
+function() {
+        L.newUnit();
+    }), y.on("saveFTL", function(e) {
+        if (b.pages().length < 1) S.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
+            var t = e.meta.name, n = _.find(b.pages(), function(e) {
                 return e.name == t;
             });
             if (n && n.ftlPath.indexOf("/") > 0) {
-                var r = c.exportHTMLCSS();
-                l.post("/api/" + t, {
+                var r = m.exportHTMLCSS(), i = r.html;
+                if (r.umi) {
+                    var s = n.ftlPath.substr(n.ftlPath.indexOf("views") + 6), o = n.cssPath.substr(n.ftlPath.indexOf("scss") + 5), i = L.generatePageHtml(r, s, o), u = r.name.replace(/p\-/g, "P"), a = s.split("/")[0], f = s.split("/")[1], p = n.ftlPath.substring(0, n.ftlPath.indexOf("views")) + "javascript/", v = n.ftlPath.substring(0, n.ftlPath.indexOf("views")) + "html/";
+                    c = c.replace("__path0__", a).replace("__path1__", f).replace("__pName__", u).replace("__pDesc__"
+, n.desc), d.saveApi("/api/" + t, {
+                        ext: '{"name":"' + t + '", "url":"' + (p + a + "/pages/" + f + "/" + u + ".js") + '"}',
+                        cmpData: c
+                    }, "pageJS\u4fdd\u5b58\u6210\u529f");
+                    var g = r.umi.modules;
+                    if (Object.keys(g).length) for (var y in g) if (g[y] != "common/commonutil.html") {
+                        var w = y.substr(y.lastIndexOf("/") + 1), E = h.replace("__path0__", a).replace("__path1__", f).replace(/\_\_pName\_\_/g, w).replace("__pDesc__", n.desc).replace("__modulePath__", y);
+                        d.saveApi("/api/" + t, {
+                            ext: '{"name":"' + t + '", "url":"' + (p + a + "/module/" + f + "/" + w + ".js") + '"}',
+                            cmpData: E
+                        }, "moduleJS\u4fdd\u5b58\u6210\u529f");
+                        var x = l.replace(/\_\_pName\_\_/g, w).replace("__jsName__", a + "/module/" + f + "/" + w);
+                        
+d.saveApi("/api/" + t, {
+                            ext: '{"name":"' + t + '", "url":"' + (v + a + "/" + f + "/" + w + ".html") + '"}',
+                            cmpData: x
+                        }, "moduleHTML\u4fdd\u5b58\u6210\u529f");
+                    }
+                }
+                d.saveApi("/api/" + t, {
                     ext: '{"name":"' + t + '", "url":"' + (n.ftlPath + r.name + ".ftl") + '"}',
-                    cmpData: r.html
-                }, function(e) {
-                    g.confirm("\u63d0\u793a", e.message || "FTL\u4fdd\u5b58\u6210\u529f", null, null, 1e3);
-                }), l.post("/api/" + t, {
+                    cmpData: i
+                }, "FTL\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + t, {
                     ext: '{"name":"' + t + '", "url":"' + (n.cssPath + "_" + r.name + ".scss") + '"}',
                     cmpData: r.css
-                }, function(e) {
-                    g.confirm("\u63d0\u793a", e.message || "CSS\u4fdd\u5b58\u6210\u529f", null, null
-, 1e3);
-                });
-            } else g.confirm("\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199FTL/CSS\u8def\u5f84", _date.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
+                }, "CSS\u4fdd\u5b58\u6210\u529f");
+            } else S.confirm("\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199FTL/CSS\u8def\u5f84", _date.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
         }
-    }), p.on("editorJS", function(e) {
-        e.meta.componentJS || e.meta.cacheJ ? x.showCode(e.meta.componentJS, e.meta.cacheJS) : x.showCode("", "");
-    }), p.on("saveRUI", function(e) {
-        if (d.pages().length < 1) g.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
-            g.confirm("\u63d0\u793a", "\u6b63\u5728\u4fdd\u5b58\u7ec4\u4ef6\u6587\u4ef6...", null, null, 3e3);
-            var t = e.meta.name, n = _.find(d.pages(), function(e) {
+    }), y.on("editorJS", function(e) {
+        e.meta.componentJS || e.meta.cacheJ ? L.showCode
+(e.meta.componentJS, e.meta.cacheJS) : L.showCode("", "");
+    }), y.on("saveRUI", function(e) {
+        if (b.pages().length < 1) S.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
+            S.confirm("\u63d0\u793a", "\u6b63\u5728\u4fdd\u5b58\u7ec4\u4ef6\u6587\u4ef6...", null, null, 1500);
+            var t = e.meta.name, n = _.find(b.pages(), function(e) {
                 return e.name == t;
             });
             if (n && n.ruiPath.indexOf("/") > 0) {
-                var r = c.exportHTMLCSS(), i = r.html;
-                i = i.replace(/\$\{/g, "{"), l.post("/api/" + t, {
-                    
-ext: '{"name":"' + t + '", "url":"' + (n.ruiPath + "component.html") + '"}',
+                var r = m.exportHTMLCSS(), i = r.html;
+                i = i.replace(/\$\{/g, "{"), d.saveApi("/api/" + t, {
+                    ext: '{"name":"' + t + '", "url":"' + (n.ruiPath + "component.html") + '"}',
                     cmpData: i
-                }, function(e) {
-                    g.confirm("\u63d0\u793a", "component.html\u4fdd\u5b58\u6210\u529f", null, null, 2e3);
-                }), l.post("/api/" + t, {
+                }, "component.html\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + t, {
                     ext: '{"name":"' + t + '", "url":"' + (n.ruiPath + "component.css") + '"}',
-                    cmpData: r.css
-                }, function(e) {
-                    g.confirm("\u63d0\u793a", "component.css\u4fdd\u5b58\u6210\u529f", null, null, 1e3);
-                });
-                var s = p.selectedComponents()[0];
+                    
+cmpData: r.css
+                }, "component.css\u4fdd\u5b58\u6210\u529f");
+                var s = y.selectedComponents()[0];
                 if (s && s.meta.componentJS) {
                     var o = r.cache;
-                    o && s.meta.cacheJS && l.post("/api/" + t, {
+                    o && s.meta.cacheJS && d.saveApi("/api/" + t, {
                         ext: '{"name":"' + t + '", "url":"' + (n.ruiPath + "cache.js") + '"}',
                         cmpData: s.meta.cacheJS
-                    }, function(e) {
-                        g.confirm("\u63d0\u793a"
-, "cache.js\u4fdd\u5b58\u6210\u529f", null, null, 1e3);
-                    }), l.post("/api/" + t, {
+                    }, "cache.js\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + t, {
                         ext: '{"name":"' + t + '", "url":"' + (n.ruiPath + "component.js") + '"}',
                         cmpData: s.meta.componentJS
-                    }, function(e) {
-                        g.confirm("\u63d0\u793a", "component.js\u4fdd\u5b58\u6210\u529f", null, null, 1e3);
-                    });
+                    }, "component.js\u4fdd\u5b58\u6210\u529f");
                 }
-            } else g.confirm("\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199RUI\u8def\u5f84", _date.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
+            } else S.confirm("\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199RUI\u8def\u5f84", _date.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
         }
-    }), p.on("save2pool", function(e) {
-        var t = e.meta.name, n = _.find(d.pages(), function(e) {
+    }), y.on("save2pool", function(e) {
+        var t = e.meta.name, n = _
+.find(b.pages(), function(e) {
             return e.name == t;
-        }), r = c.export(!1, p.selectedComponents()[0]);
-        if (n) l.post(n.postUrl, {
+        }), r = m.export(!1, y.selectedComponents()[0]);
+        if (n) d.saveApi(n.postUrl, {
             ext: JSON.stringify(n),
             cmpData: JSON.stringify(r.result)
-        }, function(e) {
-            g.confirm("\u63d0\u793a", 
-e.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
-        }); else {
-            var i = new w, s = new E, o = new E, u = new E, a = new E, f = new E, h = new E;
-            s.add(new S({
+        }, "\u64cd\u4f5c\u6210\u529f"); else {
+            var i = new N, s = new C, o = new C, u = new C, a = new C, f = new C, l = new C;
+            s.add(new k({
                 attributes: {
                     text: "\u7ec4\u4ef6\u63cf\u8ff0\uff1a"
                 }
             }));
-            var v = new y({
+            var c = new x({
                 attributes: {
                     text: "\u7ec4\u4ef6\u63cf\u8ff0"
                 }
             });
-            s.add(v), o.add(new S({
+            s.add(c), o.add(new k({
                 attributes: {
                     text: "\u7f29\u7565\u56fe\u7247\uff1a"
                 }
             }));
-            var m = new y({
+            var h = new x({
                 attributes: {
                     text: "\u7ec4\u4ef6\u5730\u5740\u524d\u7f00/" + t + "/example.png"
                 }
-            });
-            o.add(m), u.add(new S({
+            
+});
+            o.add(h), u.add(new k({
                 attributes: {
                     text: "\u7ec4\u4ef6\u5730\u5740\uff1a"
                 }
             }));
-            var b = new y({
-                
-attributes: {
+            var p = new x({
+                attributes: {
                     text: "\u7ec4\u4ef6\u5730\u5740\u524d\u7f00/" + t + "/" + t + ".cmp"
                 }
             });
-            u.add(b), a.add(new S({
+            u.add(p), a.add(new k({
                 attributes: {
                     text: "FTL\u5730\u5740\uff1a"
                 }
             }));
-            var x = new y({
+            var v = new x({
                 attributes: {
                     text: "FTL\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                 }
             });
-            a.add(x), f.add(new S({
+            a.add(v), f.add(new k({
                 attributes: {
                     text: "CSS\u5730\u5740\uff1a"
                 }
             }));
-            var T = new y({
+            var g = new x({
                 attributes: {
                     text: "CSS\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                 }
-            });
-            f.add(T), h.add(new S({
+            
+});
+            f.add(g), l.add(new k({
                 attributes: {
                     text: "RUI\u5730\u5740\uff1a"
                 }
             }));
-            var N = new y({
-                attributes
-: {
+            var w = new x({
+                attributes: {
                     text: "Regular\u7ec4\u4ef6\u5bfc\u51fa\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                 }
             });
-            h.add(N), i.add(s), i.add(o), i.add(u), i.add(a), i.add(f), i.add(h), g.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", i, function(e) {
-                var n = {
+            l.add(w), i.add(s), i.add(o), i.add(u), i.add(a), i.add(f), i.add(l), S.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", i, function() {
+                var e = {
                     name: t,
-                    desc: v.text(),
-                    img: m.text(),
-                    url: b.text(),
-                    ftlPath: x.text(),
-                    cssPath: T.text(),
-                    ruiPath: N.text(),
+                    desc: c.text(),
+                    img: h.text(),
+                    url: p.text(),
+                    ftlPath: v.text(),
+                    cssPath: g.text(),
+                    ruiPath: w.text(),
                     postUrl: "/api/" + t
                 };
-                d.load([ n ]), l.post(n.postUrl, {
-                    ext: JSON.stringify(n),
-                    cmpData: JSON.stringify(r.result)
-                }, function(e) {
-                    g.confirm("\u63d0\u793a", e.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
-                }), e();
+                b.load([ e ]), d.saveApi(e.postUrl, {
+                    ext: JSON.stringify(e),
+                    cmpData: JSON.stringify(r.result
+)
+                }, "\u64cd\u4f5c\u6210\u529f");
             });
         }
-    }), d.on("importProject"
-, function() {
-        x.importProject();
-    }), d.on("importProjectFromUrl", function(e) {
-        l.get(e, function(e) {
-            c.importPage(JSON.parse(e));
+    }), b.on("importProject", function() {
+        L.importProject();
+    }), b.on("importProjectFromUrl", function(e) {
+        v.get(e, function(e) {
+            m.importPage(JSON.parse(e));
         });
     });
-    var T = new FileReader;
-    return e("elements/image"), e("elements/text"), e("elements/func"), e("elements/umi"), x;
+    var A = new FileReader;
+    return e("elements/image"), e("elements/text"), e("elements/func"), e("elements/umi"), L;
 });;
