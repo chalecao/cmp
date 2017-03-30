@@ -1317,7 +1317,7 @@ y + '" '), b && (e += ' data-label="' + b + '" '), i && (e += ' title="' + i + '
         clone: function(e) {
             var t = e.type.toLowerCase
 (), r = n.toJS(e.properties), i = e.__original__ ? e.__original__.properties.id() : e.properties.id();
-            r.id = a(i), r.left += 10, r.top += 10;
+            r.id = a(i), r.left = parseInt(r.left) + 10, r.top = parseInt(r.top) + 10;
             var s = u.create(t, r);
             return s.__original__ = e.__original__ || e, s;
         },
@@ -1345,11 +1345,11 @@ y + '" '), b && (e += ' data-label="' + b + '" '), i && (e += ' title="' + i + '
             $(document.body).keydown(function(s) {
                 s.ctrlKey == e && s.altKey == t && s.shiftKey == n && s.key == r && i();
             });
-        }
+        
+}
     };
     return e;
-}), define
-("core/service", [ "require", "$", "modules/common/modal" ], function(e) {
+}), define("core/service", [ "require", "$", "modules/common/modal" ], function(e) {
     var t = e("$"), n = e("modules/common/modal"), r = {
         saveApi: function(e, r, i) {
             t.post(e, r, function(e) {
@@ -1371,9 +1371,9 @@ y + '" '), b && (e += ' data-label="' + b + '" '), i && (e += ' title="' + i + '
                 trueFuncBody: n.observable(""),
                 falseFuncBody: n.observable(""),
                 forFuncItem: n.observable(""),
-                forFuncBody: n.observable(""),
-                
-requestName: n.observable(""),
+                forFuncBody
+: n.observable(""),
+                requestName: n.observable(""),
                 requestUrl: n.observable(""),
                 requestType: n.observable("post"),
                 requestParam: n.observable("{}"),
@@ -1399,9 +1399,9 @@ requestName: n.observable(""),
                         text: "Include\u51fd\u6570",
                         value: "INCLUDE"
                     }, {
-                        text: "Cache\u51fd\u6570",
                         
-value: "CACHE"
+text: "Cache\u51fd\u6570",
+                        value: "CACHE"
                     } ],
                     value: this.properties.funcType
                 },
@@ -1426,9 +1426,9 @@ value: "CACHE"
                     label: "\u5305\u542b\u7ec4\u4ef6",
                     ui: "textarea",
                     field: "func",
-                    text: this.properties.includeBody,
-                    visible: n.computed
-({
+                    text: this.properties
+.includeBody,
+                    visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "INCLUDE";
                         }
@@ -1452,11 +1452,11 @@ value: "CACHE"
                     text: this.properties.trueFuncBody,
                     visible: n.computed({
                         read: function() {
-                            return e.properties.funcType() == "IF";
+                            return e.properties.funcType() == "IF"
+;
                         }
                     })
-                
-},
+                },
                 falseFuncBody: {
                     label: "IfFalse",
                     ui: "textarea",
@@ -1481,10 +1481,10 @@ value: "CACHE"
                 },
                 forFuncBody: {
                     label: "ForBody",
-                    ui: "textarea",
+                    ui: "textarea"
+,
                     field: "func",
-                    
-text: this.properties.forFuncBody,
+                    text: this.properties.forFuncBody,
                     visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "FOR";
@@ -1507,10 +1507,10 @@ text: this.properties.forFuncBody,
                     ui: "textfield",
                     field: "func",
                     text: this.properties.requestUrl,
-                    visible: n.computed({
+                    visible: n.computed
+({
                         read: function() {
-                            
-return e.properties.funcType() == "CACHE";
+                            return e.properties.funcType() == "CACHE";
                         }
                     })
                 },
@@ -1536,9 +1536,9 @@ return e.properties.funcType() == "CACHE";
                         }
                     })
                 },
-                requestParam: {
-                    label: "\u8bf7\u6c42\u53c2\u6570"
-,
+                
+requestParam: {
+                    label: "\u8bf7\u6c42\u53c2\u6570",
                     ui: "textarea",
                     field: "func",
                     text: this.properties.requestParam,
@@ -1563,10 +1563,10 @@ return e.properties.funcType() == "CACHE";
         },
         onCreate: function(e) {
             function i(e) {
-                return e.indexOf("<") >= 0 || e.indexOf(".") >= 0;
-            }
-            var t = $("<span></span>"), r = this
+                return e.indexOf("<") >= 0 || e.indexOf(".") >= 0
 ;
+            }
+            var t = $("<span></span>"), r = this;
             e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), n.computed(function() {
                 var n = r.properties.funcType(), s = r.properties.funcLanguage();
                 n == "CACHE" && r.properties.funcLanguage("JS"), t.html(n + "\u51fd\u6570<br/>" + r.properties.funcLanguage() + "\u6a21\u677f/\u8bed\u8a00");
@@ -1577,9 +1577,9 @@ return e.properties.funcType() == "CACHE";
                     r.$wrapper.empty();
                     var f = u + "-t", l = u + "-f";
                     s == "FTL" ? o = "<#if " + a + "><div class='" + f + "'></div><#else><div class='" + l + "'></div>&lt;/#if>" : s == "Regular" && (o = "{#if " + a + "}<div class='" + f + "'></div>{#else}<div class='" + l + "'></div>{/if}"), r.$wrapper.append(o);
-                    var c = r.properties.trueFuncBody(), h = r.properties.falseFuncBody();
-                    c && 
-(i(c) ? r.$wrapper.find("." + f).append(c) : r.trigger("addFuncComponent", c, r.$wrapper.find("." + f))), h && (i(h) ? r.$wrapper.find("." + l).append(h) : r.trigger("addFuncComponent", h, r.$wrapper.find("." + l)));
+                    var c = r.properties.trueFuncBody
+(), h = r.properties.falseFuncBody();
+                    c && (i(c) ? r.$wrapper.find("." + f).append(c) : r.trigger("addFuncComponent", c, r.$wrapper.find("." + f))), h && (i(h) ? r.$wrapper.find("." + l).append(h) : r.trigger("addFuncComponent", h, r.$wrapper.find("." + l)));
                 } else if (n == "FOR") {
                     if (!r.properties.forFuncItem()) return;
                     if (!r.properties.forFuncBody()) return;
@@ -1587,8 +1587,8 @@ return e.properties.funcType() == "CACHE";
                     var p = u + "-f";
                     s == "FTL" ? o = "<#if " + r.properties.forFuncItem() + "??><#list " + r.properties.forFuncItem() + " as item><div class='" + p + "'></div>&lt;/#list>&lt;/#if>" : s == "Regular" && (o = "{#if " + r.properties.forFuncItem() + "}{#list " + r.properties.forFuncItem() + " as item}<div class='" + p + "'></div>{/list}{/if}"), r.$wrapper.append(o);
                     var d = r.properties.forFuncBody();
-                    d && (i(d) ? r.$wrapper.find("." + p).append(d) : r.trigger("addFuncComponent", r.properties.forFuncBody
-(), r.$wrapper.find("." + p)));
+                    d && (i(d) ? r.$wrapper.find("." + p).append
+(d) : r.trigger("addFuncComponent", r.properties.forFuncBody(), r.$wrapper.find("." + p)));
                 } else if (n == "CACHE") r.$wrapper.empty(), r.$wrapper.css({
                     color: "#fff",
                     background: "#56278f"
@@ -1604,9 +1604,9 @@ return e.properties.funcType() == "CACHE";
         }
     });
 }), define("elements/image", [ "require", "core/factory", "knockout", "_" ], function(e) {
-    var t = e("core/factory"), n = e("knockout"), r = e("_");
-    t.register("image"
-, {
+    var t = e("core/factory"
+), n = e("knockout"), r = e("_");
+    t.register("image", {
         type: "IMAGE",
         extendProperties: function() {
             return {
@@ -1635,9 +1635,9 @@ return e.properties.funcType() == "CACHE";
             };
         },
         onCreate: function(e) {
-            var t = document.createElement("img"), i = this, s = function(e, n) {
-                t.width = e, t.height = n, $(t)
-.css({
+            var t = document.createElement("img"), i = this, s = function(
+e, n) {
+                t.width = e, t.height = n, $(t).css({
                     width: e,
                     height: n
                 });
@@ -1655,9 +1655,9 @@ return e.properties.funcType() == "CACHE";
                     $(t).css({
                         "border-radius": r.map(e, function(e) {
                             return e.value() + "px";
-                        }).join(" ")
-                    }), $(t)
-.attr({
+                        
+}).join(" ")
+                    }), $(t).attr({
                         alt: n
                     });
                 }
@@ -1681,10 +1681,10 @@ return e.properties.funcType() == "CACHE";
         };
     }, {
         start: function() {
-            return this.xml && this.applyXML(this.xml), this.trigger("start"), this.$el;
+            return this.xml && this.applyXML(this.xml), this.trigger
+("start"), this.$el;
         },
-        
-enable: function(e) {
+        enable: function(e) {
             this.$el.show(), this.trigger("enable"), e && e();
         },
         disable: function(e) {
@@ -1706,9 +1706,9 @@ enable: function(e) {
         loadingEnd: function() {
             this._$mask && this._$mask.removeClass("loading").hide();
         },
-        applyXML: function(e) {
-            i.parse
-(e, this.$el[0]), r.applyBindings(this, this.$el[0]);
+        applyXML
+: function(e) {
+            i.parse(e, this.$el[0]), r.applyBindings(this, this.$el[0]);
             var t = this.$el[0].firstChild;
             t && (this.mainComponent = n.getByDom(t));
         }
@@ -2614,14 +2614,15 @@ shadow: "0 -2 2 #333"
     var t = e("qpf"), n = t.use("meta/button"), r = t.use("meta/meta"), i = e("knockout"), s = n.derive(function() {
         return {
             $el: $("<div></div>"),
-            icon: i.observable("")
+            icon: i.observable(""),
+            title: i.observable("")
         };
     }, {
         type: "ICONBUTTON",
         css: _.union("icon-button", n.prototype.css),
-        template: '<div class="qpf-icon" data-bind="css:icon"></div>'
-    
-});
+        template
+: '<div class="qpf-icon" data-bind="css:icon, attr{title:title}"></div>'
+    });
     return r.provideBinding("iconbutton", s), s;
 }), define("modules/common/listTab", [ "require", "qpf", "./listitem", "knockout" ], function(e) {
     var t = e("qpf"), n = e("./listitem"), r = t.use("container/container"), i = e("knockout"), s = r.derive(function() {
@@ -3202,7 +3203,7 @@ $("#cmd").slideUp();
     });
     return g;
 }), define("text!modules/toolbar/toolbar.xml", [], function() {
-    return '<inline id="Toolbar">\r\n    <toolbargroup>\r\n        <button text="eHtml" onclick="@binding[exportHTML]"></button>\r\n        <button text="eRUI" onclick="@binding[exportRUI]"></button>\r\n        <button text="eFTL" onclick="@binding[exportFTL]"></button>\r\n        <!--<button text="eMac" onclick="@binding[exportMac]"></button>-->\r\n        <button text="align" onclick="@binding[alignProcess]"></button>\r\n        <button text="newP" onclick="@binding[newPage]"></button>\r\n        <button text="newM" onclick="@binding[newModule]"></button>\r\n        <button text="newU" onclick="@binding[newUnit]"></button>\r\n        <button text="newC" onclick="@binding[newCache]"></button>\r\n        <button text="export" onclick="@binding[exportProject]"></button>\r\n        <iconbutton icon="save" title="saveProject" onclick="@binding[saveProject]"></iconbutton>\r\n        <iconbutton icon="load" title="importProject" onclick="@binding[importProject]"></iconbutton>\r\n    </toolbargroup>\r\n    <meta class="divider"></meta>\r\n    <toolbargroup>\r\n        <iconbutton icon="element" onclick="@binding[createElement]"></iconbutton>\r\n        <iconbutton icon="image" onclick="@binding[createImage]"></iconbutton>\r\n        <iconbutton icon="text" onclick="@binding[createText]"></iconbutton>\r\n        <iconbutton icon="function" onclick="@binding[createFunction]"></iconbutton>\r\n        <iconbutton icon="module" onclick="@binding[createModule]"></iconbutton>\r\n        <iconbutton icon="embed" onclick="@binding[showCode]"></iconbutton>\r\n        <iconbutton icon="shell" onclick="@binding[showCmd]"></iconbutton>\r\n    </toolbargroup>\r\n    \r\n    <meta class="divider" ></meta>\r\n    <toolbargroup  style="float:right">\r\n        <iconbutton icon="shuffle" onclick="@binding[expandProp]"></iconbutton>\r\n        <iconbutton icon="changeBack" onclick="@binding[changeBack]"></iconbutton>\r\n    </toolbargroup>\r\n    <meta class="divider" ></meta>\r\n    <toolbargroup class="viewport-size" style="float:right">\r\n        <spinner value="@binding[viewportWidth]" min="0" width="100"></spinner>\r\n        <spinner value="@binding[viewportHeight]" min="0" width="100"></spinner>\r\n    </toolbargroup>\r\n    <meta class="divider"></meta>\r\n    <toolbargroup style="float:right">\r\n        <iconbutton icon="zoom-in" onclick="@binding[zoomIn]"></iconbutton>\r\n        <iconbutton icon="zoom-out" onclick="@binding[zoomOut]"></iconbutton>\r\n        <label text="@binding[viewportScale]" class="viewport-scale"></label>\r\n    </toolbargroup>\r\n    \r\n    \r\n</inline>\r\n'
+    return '<inline id="Toolbar">\r\n    <toolbargroup>\r\n        <button text="eHtml" onclick="@binding[exportHTML]"></button>\r\n        <button text="eRUI" onclick="@binding[exportRUI]"></button>\r\n        <button text="eFTL" onclick="@binding[exportFTL]"></button>\r\n        <!--<button text="eMac" onclick="@binding[exportMac]"></button>-->\r\n        <button text="align" onclick="@binding[alignProcess]"></button>\r\n        <button text="newP" onclick="@binding[newPage]"></button>\r\n        <button text="newM" onclick="@binding[newModule]"></button>\r\n        <button text="newU" onclick="@binding[newUnit]"></button>\r\n        <button text="newC" onclick="@binding[newCache]"></button>\r\n        <button text="export" onclick="@binding[exportProject]"></button>\r\n        <iconbutton icon="save" title="\u4fdd\u5b58\u6a21\u578b" onclick="@binding[saveProject]"></iconbutton>\r\n        <iconbutton icon="load" title="\u5bfc\u5165\u6a21\u578b" onclick="@binding[importProject]"></iconbutton>\r\n    </toolbargroup>\r\n    <meta class="divider"></meta>\r\n    <toolbargroup>\r\n        <iconbutton icon="element" title="\u521b\u5efa\u5143\u7d20" onclick="@binding[createElement]"></iconbutton>\r\n        <iconbutton icon="image" title="\u521b\u5efa\u56fe\u7247" onclick="@binding[createImage]"></iconbutton>\r\n        <iconbutton icon="text" title="\u521b\u5efa\u6587\u672c" onclick="@binding[createText]"></iconbutton>\r\n        <iconbutton icon="function" title="\u521b\u5efa\u51fd\u6570" onclick="@binding[createFunction]"></iconbutton>\r\n        <iconbutton icon="module" title="\u521b\u5efa\u6a21\u5757" onclick="@binding[createModule]"></iconbutton>\r\n        <iconbutton icon="embed" title="\u7f16\u8f91\u4ee3\u7801" onclick="@binding[showCode]"></iconbutton>\r\n        <iconbutton icon="shell" title="\u8fdc\u7a0b\u63a7\u5236\u53f0" onclick="@binding[showCmd]"></iconbutton>\r\n    </toolbargroup>\r\n    \r\n    <meta class="divider" ></meta>\r\n    <toolbargroup  style="float:right">\r\n        <iconbutton icon="shuffle" title="\u5207\u6362\u5c5e\u6027\u5c55\u793a" onclick="@binding[expandProp]"></iconbutton>\r\n        <iconbutton icon="changeBack" title="\u5207\u6362\u80cc\u666f" onclick="@binding[changeBack]"></iconbutton>\r\n    </toolbargroup>\r\n    <meta class="divider" ></meta>\r\n    <toolbargroup class="viewport-size" style="float:right">\r\n        <spinner value="@binding[viewportWidth]" min="0" width="100"></spinner>\r\n        <spinner value="@binding[viewportHeight]" min="0" width="100"></spinner>\r\n    </toolbargroup>\r\n    <meta class="divider"></meta>\r\n    <toolbargroup style="float:right">\r\n        <iconbutton  icon="zoom-in" title="\u653e\u5927" onclick="@binding[zoomIn]"></iconbutton>\r\n        <iconbutton  icon="zoom-out" title="\u7f29\u5c0f" onclick="@binding[zoomOut]"></iconbutton>\r\n        <label text="@binding[viewportScale]" class="viewport-scale"></label>\r\n    </toolbargroup>\r\n    \r\n    \r\n</inline>\r\n'
 ;
 }), define("text!template/module/m-example.cmp", [], function() {
     return '[\n  {\n    "meta": {\n      "date": "2016-12-24",\n      "name": "m-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 600\n    },\n    "elements": [\n      {\n        "eid": 1,\n        "type": "ELEMENT",\n        "properties": {\n          "id": "m-example-container",\n          "width": 400,\n          "height": 100,\n          "left": 0,\n          "top": 0,\n          "zIndex": 0,\n          "color": "#ffffff",\n          "border": true,\n          "borderColor": 5617961,\n          "background": false,\n          "backgroundColor": 16777215,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "classStr": "cmp-element cmp-element",\n          "include": "",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
@@ -3325,7 +3326,7 @@ e + ")",
         name: "viewport",
         xml: s,
         viewportWidth: n.observable(1440),
-        viewportHeight: n.observable(800),
+        viewportHeight: n.observable(900),
         viewportScale: n.observable(1),
         backColor: n.observable("#fff")
     }), h = {
@@ -3926,7 +3927,7 @@ y.removeAll(), g.loadComponent(JSON.parse(s)[0]);
         },
         changeBack: function() {
             var e = E.backColor();
-            e == "#fff" ? E.backColor("#9a9a9a") : e == "#9a9a9a" && E.backColor("#fff");
+            e == "#fff" ? E.backColor("#9a9a9a") : E.backColor("#fff");
         },
         generatePageHtml: function(e, t, n) {
             var r = e.umi, i = t || "", s = e.name.replace(/p\-/g, "P");

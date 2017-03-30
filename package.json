@@ -1,6 +1,6 @@
 {
   "name": "cmps",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "contributors": [
     {
       "name": "Chale Cao",
@@ -27,6 +27,6 @@
     "url": "https://github.com/chalecao/cmp.git"
   },
   "engines": {
-    "nodne": ">=0.4.0"
+    "node": ">=0.4.0"
   }
 }
