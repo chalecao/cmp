@@ -1,6 +1,7 @@
 {
     "name": "cmp",
-    "description": "",
+    "version": "1.1.0",
+    "description": "cmp means core mapping pages. you can use it as a tool.",
     "main": "",
     "authors": [
         "ch19900606@gmail.com"

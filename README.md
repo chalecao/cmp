@@ -58,6 +58,25 @@ cmps ./cmp -p 8088 -s false
 
 ## release
 
+### release 1.1.0
+1）在和其他前端同事讨论的时候，发现了一些问题，于是我主要是代码和设计稿如何同步的问题。如何把生成的HTML和CSS再导回来。目前是无法实现的，因为数据模型导出到HTML和CSS是一个单向的过程。但是我多做了一点工作是先把代码编辑器集成了进来，这样在导出模块之前，至少可以先编辑模块的JS代码逻辑，而不需要导出之后再回到项目中编辑逻辑代码。
+
+2) 增加了杀手锏功能，远程SHELL控制台，默认是在启动CMPS的根目录，当你打开某个模块的时候，默认切到模块的根目录，你可以执行远程命令，可以打包、编译CSS等。
+
+3）增加了SPA单页系统模块设计功能，可以直接设计页面的模块构成，一键生成单页系统所需页面以及模块的代码。生成的模块目录结构是根据用户所指定的组件池的FTL、CSS、RUI三个路径共同决定的，这三个路径中需要包含src目录。生成的页面和模块文件都会放在src目录下，给个简单的示例：
+```
+{
+    "name": "p-teacherPage",
+    "desc": "老师官方主页",
+    "img": "../home/p-teacherPage/example.png",
+    "url": "../home/p-teacherPage/p-teacherPage.cmp",
+    "ftlPath": "C:/work/edu-mooc-2.0/src/views/web/teacherPage/",
+    "cssPath": "C:/work/edu-mooc-2.0/src/scss/web/page/",
+    "ruiPath": "C:/work/edu-mooc-2.0/src/javascript/web/module/teacherPage/",
+    "postUrl": "/api/p-teacherPage"
+}
+```
+
 ### release 1.0.0
 更新了許多，算是一個里程碑的版本。
 

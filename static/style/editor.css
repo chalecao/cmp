@@ -1,4 +1,4 @@
-#editor {
+#editor, #cmd {
     position: fixed;
     top: 0;
     right: 0;
@@ -19,6 +19,17 @@
 
 #editor .CodeMirror {
     height: 100%;
+    width: 100%;
+    position: absolute;
+    font-size: 14px;
+    /*background-color: rgba(0, 0, 0, 0.95);*/
+    line-height: 22px;
+}
+
+#cmd .CodeMirror {
+    height: 100%;
+    width: 100%;
+    position: absolute;
     font-size: 14px;
     /*background-color: rgba(0, 0, 0, 0.95);*/
     line-height: 22px;

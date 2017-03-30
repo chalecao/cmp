@@ -23,6 +23,7 @@
         config();
         
         require(["app", "modules/common/histogram",
+            "modules/common/listTab",
             "modules/common/list",
             "modules/common/modal",
             "modules/common/region",
@@ -47,7 +48,14 @@
                 emage: "lib/emage",
                 d3: "lib/d3",
                 codemirror: "lib/codemirror/codemirror",
-                codemirrorJS: "lib/codemirror/mode/javascript",
+                javascript: "lib/codemirror/mode/javascript",
+                htmlmixed: "lib/codemirror/mode/htmlmixed",
+                searchcursor: "lib/codemirror/mode/searchcursor",
+                matchbrackets: "lib/codemirror/mode/matchbrackets",
+                css: "lib/codemirror/mode/css",
+                xml: "lib/codemirror/mode/xml",
+                closebrackets: "lib/codemirror/mode/closebrackets",
+                sublime: "lib/codemirror/mode/sublime",
                 knockout: "lib/knockout",
                 'ko.mapping': 'lib/ko.mapping',
                 // Use jquery temporary, zepto's bind does not support context

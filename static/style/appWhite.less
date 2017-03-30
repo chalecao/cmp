@@ -37,7 +37,7 @@
  }
  
  #CMP {
-     font-family: "黑体";
+     font-family: "Microsoft YaHei","黑体" !important;
      -webkit-user-select: none;
      -moz-user-select: none;
      user-select: none;
@@ -173,6 +173,9 @@
              &.function {
                  background-image: url(images/function.svg);
              }
+             &.shell {
+                 background-image: url(images/keyboard.svg);
+             }
              &.module {
                  background-image: url(images/stack.svg);
              }
@@ -228,13 +231,17 @@
      position: relative;
      overflow: scroll;
      #ViewportMain {
-         background-image: -webkit-linear-gradient(rgb(200, 200, 200) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgb(200, 200, 200) 1px, transparent 1px), -webkit-linear-gradient(rgba(200, 200, 200, .3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(200, 200, 200, .3) 1px, transparent 1px);
-         background-image: -moz-linear-gradient(rgb(200, 200, 200) 1px, transparent 1px), -moz-linear-gradient(0deg, rgb(200, 200, 200) 1px, transparent 1px), -moz-linear-gradient(rgba(200, 200, 200, .3) 1px, transparent 1px), -moz-linear-gradient(0deg, rgba(200, 200, 200, .3) 1px, transparent 1px);
+        //----网格背景
+        //  background-image: -webkit-linear-gradient(rgb(200, 200, 200) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgb(200, 200, 200) 1px, transparent 1px), -webkit-linear-gradient(rgba(200, 200, 200, .3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(200, 200, 200, .3) 1px, transparent 1px);
+        //  background-image: -moz-linear-gradient(rgb(200, 200, 200) 1px, transparent 1px), -moz-linear-gradient(0deg, rgb(200, 200, 200) 1px, transparent 1px), -moz-linear-gradient(rgba(200, 200, 200, .3) 1px, transparent 1px), -moz-linear-gradient(0deg, rgba(200, 200, 200, .3) 1px, transparent 1px);
+        // background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+        //----
+        background-image: -webkit-linear-gradient(rgba(200, 200, 200, 0.3) 1px, transparent 1px), -webkit-linear-gradient(0deg, rgba(200, 200, 200, 0.3) 1px, transparent 1px);
          // background-image: linear-gradient(rgb(200, 200, 200) 1px, transparent 1px),
          // linear-gradient(0deg, rgb(200, 200, 200) 1px, transparent 1px),
          // linear-gradient(rgba(200,200,200,.3) 1px, transparent 1px),
          // linear-gradient(0deg, rgba(200,200,200,.3) 1px, transparent 1px);
-         background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+         background-size: 40px 40px, 40px 40px, 20px 20px, 20px 20px;
          background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
          position: absolute;
          -webkit-transform-origin: 0% 0%;
@@ -393,6 +400,7 @@
      .qpf-ui-list {
          overflow-y: auto;
          overflow-x: hidden;
+         
      }
  }
  

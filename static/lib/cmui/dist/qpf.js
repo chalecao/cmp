@@ -3108,12 +3108,7 @@ define('meta/textfield',['require','./meta','knockout','_'],function (require) {
         template: '<input type="text" data-bind="attr:{placeholder:placeholder}, value:text"/>',
         afterRender: function () {
             var self = this;
-            this.$el.blur(function (event) {
-                if (self.text().match(/[0-9]*[\+,\-][0-9]*/)) {
-                    //计算数值
-                    self.text(eval(self.text()));
-                }
-            });
+
             this.$el.keyup(function (event) {
                 if (isNaN(+self.text())) {
                     if (event.keyCode == 13) {
@@ -3129,6 +3124,16 @@ define('meta/textfield',['require','./meta','knockout','_'],function (require) {
                     }
                 }
             });
+            ko.computed({
+                read: function () {
+                    var _txt = self.text() + "";
+                    if (/^[1-9]\d*[\+,\-][1-9]\d*$/.test(_txt)) {
+                        //计算数值
+                        self.text(eval(_txt));
+                    }
+                },
+                write: function () {}
+            }, this);
         },
         onEnterKey: function () {
             //imp in real case
