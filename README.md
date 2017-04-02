@@ -1,13 +1,16 @@
 ## CMP = Core Mapping Pages
 it's a tool to generate pages, but not limit to page. it can also generate component(UI), module, cache and so on.you can easily make static page with this tool without typing any HTML code or css code or JavaScript code. 
 
-CMP是一个用于制作网页的工具，你可以用它来制作静态网页，也可以制作网页片段比如一个组件，一个UI，或者一个模块，甚至是一个包含数据请求的模块，它能根据你的需求灵活的实现任何事情。
+CMP是一个用于制作网页的工具，你可以用它来制作静态网页，也可以制作网页片段比如一个组件，一个UI，或者一个模块，甚至是一个包含数据请求的模块，它能根据你的需求灵活的实现任何事情。目前已经集成模块设计功能，设计模块之后可以一键导出模块所有代码。目前生成组件时支持自动导出测试用例，关于数据mock正在开发中。
+其他特点：
+1）在线代码与测试用例编辑功能
+2）远程SHELL控制台功能
 
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_overview.png" />
 
 试用地址: https://chalecao.github.io/cmp/static/
 
-[官网及使用手册](https://chalecao.github.io/cmp_manual/)：https://chalecao.github.io/cmp_manual/
+[官网及使用手册](http://cmp.fed123.com/)：http://cmp.fed123.com/
 
 ## 本地使用
 首先你需要安装cmp，由于cmp和linux 中cmp命令冲突，天噜啦！所以发布的包名改为cmps。执行以下命令：
@@ -35,6 +38,7 @@ cmps ./cmp -p 8088 -s false
 3. 模块或者组件UI如果是导出regular，默认导出三个文件，component.js component.html component.css
 4. UI导出FTL则默认导出依据container提取的name.ftl和name.scss
 5. Cache默认导出 component.js component.html component.css 和cache.js ,其中component.js中会自动注入cache请求，可以作为主UI在页面中使用，通过页面的page.js来支配。
+6. 模块类型默认
 
 ## 规范
 1. 支持组件通过函数来嵌套，但是不建议嵌套太深层次（嵌套2-3层可以，层次太深不利于维护），如果需要，建议拆分成子UI来做。
@@ -55,6 +59,9 @@ cmps ./cmp -p 8088 -s false
 4. 支持Regular 组件导出，导出文件为component.js component.html component.scss
 5. 支持通过函数实现组件嵌套，实现复杂页面。
 6. 添加动画函数支持，所有组件都可以添加动画，导出时会智能导出动画相关的css内容。（注意如果嵌套的组件中含有动画，则需要手动下载animate.min.css文件，引入到项目中）
+7. 远程控制台功能，可以直接执行远程脚本
+8. 在线代码编辑功能，支持编辑组件和模块代码，支持编辑测试用例数据
+9. 可视化方式绘制模块的组件关系图，模块时序图（开发中）
 
 ## release
 
