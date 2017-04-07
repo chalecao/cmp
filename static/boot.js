@@ -21,7 +21,7 @@
     //========================
     function boot() {
         config();
-        
+
         require(["app", "modules/common/histogram",
             "modules/common/listTab",
             "modules/common/list",
@@ -32,12 +32,14 @@
             "modules/common/toggleiconbutton",
             "modules/common/nativehtml",
             "modules/common/textArea",
+            "modules/common/codeArea",
             "modules/common/gradient",
             "modules/common/color"
         ], function (app) {
             app.start();
         })
     }
+
     function config() {
         requirejs.config({
             paths: {
@@ -47,20 +49,12 @@
                 // qpf: "lib/qpf",
                 emage: "lib/emage",
                 d3: "lib/d3",
-                codemirror: "lib/codemirror/codemirror",
-                javascript: "lib/codemirror/mode/javascript",
-                htmlmixed: "lib/codemirror/mode/htmlmixed",
-                searchcursor: "lib/codemirror/mode/searchcursor",
-                matchbrackets: "lib/codemirror/mode/matchbrackets",
-                css: "lib/codemirror/mode/css",
-                xml: "lib/codemirror/mode/xml",
-                closebrackets: "lib/codemirror/mode/closebrackets",
-                sublime: "lib/codemirror/mode/sublime",
                 knockout: "lib/knockout",
                 'ko.mapping': 'lib/ko.mapping',
                 // Use jquery temporary, zepto's bind does not support context
                 "$": "lib/jquery",
-                "_": "lib/underscore"
+                "_": "lib/underscore",
+                'sequence': "lib/sequence-diagram-min"
             },
             shim: {
                 '$': {

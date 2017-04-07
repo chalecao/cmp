@@ -7,10 +7,65 @@
     <link rel="stylesheet" type="text/less" href="style/qpf/baseWhite.less">
     <link rel="stylesheet" type="text/less" href="style/appWhite.less">
     <link rel="stylesheet" href="style/editor.css">
-    <link rel="stylesheet" href="style/codemirror.css">
+
     <link rel="stylesheet" href="style/monokai.css">
     <link rel="stylesheet" href="style/twilight.css">
     <script type="text/javascript" src="lib/less.js"></script>
+    <script type="text/javascript" src="lib/webfont.js"></script>
+    <script type="text/javascript" src="lib/snap.min.js"></script>
+    <!--codemirror-->
+    <link rel="stylesheet" href="lib/codeMirror/lib/codemirror.css">
+    <link rel="stylesheet" href="lib/codeMirror/addon/dialog/dialog.css">
+    <link rel="stylesheet" href="lib/codeMirror/addon/search/matchesonscrollbar.css">
+    <link rel="stylesheet" href="lib/codeMirror/addon/hint/show-hint.css">
+    <style type="text/css">
+        .CodeMirror-focused .cm-matchhighlight {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFklEQVQI12NgYGBgkKzc8x9CMDAwAAAmhwSbidEoSQAAAABJRU5ErkJggg==);
+            background-position: bottom;
+            background-repeat: repeat-x;
+        }
+
+        .cm-matchhighlight {
+            background-color: #f44336
+        }
+
+        .CodeMirror-selection-highlight-scrollbar {
+            background-color: #f44336
+        }
+
+    </style>
+    <script src="lib/codeMirror/lib/codemirror.js"></script>
+    <!--comment-->
+    <script src="lib/codeMirror/addon/comment/comment.js"></script>
+    <script src="lib/codeMirror/addon/comment/continuecomment.js"></script>
+    <!--search-->
+    <script src="lib/codeMirror/mode/xml/xml.js"></script>
+    <script src="lib/codeMirror/addon/dialog/dialog.js"></script>
+    <script src="lib/codeMirror/addon/search/searchcursor.js"></script>
+    <script src="lib/codeMirror/addon/search/search.js"></script>
+    <script src="lib/codeMirror/addon/scroll/annotatescrollbar.js"></script>
+    <script src="lib/codeMirror/addon/search/matchesonscrollbar.js"></script>
+    <script src="lib/codeMirror/addon/search/jump-to-line.js"></script>
+    <!--sublime-->
+    <script src="lib/codeMirror/addon/search/searchcursor.js"></script>
+    <script src="lib/codeMirror/keymap/sublime.js"></script>
+    <!--js htmlmixed-->
+    <script src="lib/codeMirror/addon/selection/selection-pointer.js"></script>
+    <script src="lib/codeMirror/mode/xml/xml.js"></script>
+    <script src="lib/codeMirror/mode/javascript/javascript.js"></script>
+    <script src="lib/codeMirror/mode/css/css.js"></script>
+    <script src="lib/codeMirror/mode/htmlmixed/htmlmixed.js"></script>
+
+    <script src="lib/codeMirror/addon/selection/active-line.js"></script>
+    <script src="lib/codeMirror/addon/edit/closebrackets.js"></script>
+    <script src="lib/codeMirror/addon/edit/closetag.js"></script>
+    <!--match highlight-->
+    <!--<script src="lib/codeMirror/addon/scroll/annotatescrollbar.js"></script>-->
+    <!--<script src="lib/codeMirror/addon/search/matchesonscrollbar.js"></script>-->
+    <!--<script src="lib/codeMirror/addon/search/searchcursor.js"></script>-->
+    <script src="lib/codeMirror/addon/search/match-highlighter.js"></script>
+
+
     <script type="text/javascript" src="lib/LAB.js"></script>
     <script type="text/javascript" src="boot.js"></script>
 </head>

@@ -10,7 +10,7 @@ CMP是一个用于制作网页的工具，你可以用它来制作静态网页�
 
 试用地址: https://chalecao.github.io/cmp/static/
 
-[官网及使用手册](http://cmp.fed123.com/)：http://cmp.fed123.com/
+官网及使用手册：[http://cmp.fed123.com/](http://cmp.fed123.com/)
 
 ## 本地使用
 首先你需要安装cmp，由于cmp和linux 中cmp命令冲突，天噜啦！所以发布的包名改为cmps。执行以下命令：

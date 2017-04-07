@@ -177,7 +177,10 @@
                  background-image: url(images/keyboard.svg);
              }
              &.module {
-                 background-image: url(images/stack.svg);
+                 background-image: url(images/tree.svg);
+             }
+             &.timeline {
+                 background-image: url(images/tab.svg);
              }
              &.embed {
                  background-image: url(images/embed.svg);
@@ -251,28 +254,28 @@
          -moz-transition: -moz-transform 0.4s ease-out;
          transition: transform 0.4s ease-out;
      }
-     // .qpf-viewport-ruler-h{
-     //     background-image : -webkit-linear-gradient(0deg, #645D5D 1px, transparent 1px);
-     //     background-size: 100px 20px;
-     //     background-position: -1px -1px;
-     //     background-color:rgba(0, 0, 0, 0.79);
-     //     position: absolute;
-     //     height:20px;
-     //     left:0px;
-     //     right:0px;
-     //     top:-20px;
-     // }
-     // .qpf-viewport-ruler-v{
-     //     background-image : -webkit-linear-gradient(rgb(200, 200, 200) 1px, transparent 1px);
-     //     background-size: 20px 100px;
-     //     background-position: -1px -1px;
-     //     background-color:rgba(0, 0, 0, 0.79);
-     //     position: absolute;
-     //     width:20px;
-     //     left:-20px;
-     //     bottom:0px;
-     //     top:0px;
-     // }
+    //  .qpf-viewport-ruler-h{
+    //      background-image : -webkit-linear-gradient(0deg, #645D5D 1px, transparent 1px);
+    //      background-size: 100px 20px;
+    //      background-position: -1px -1px;
+    //      background-color:rgba(0, 0, 0, 0.79);
+    //      position: absolute;
+    //      height:20px;
+    //      left:0px;
+    //      right:0px;
+    //      top:-20px;
+    //  }
+    //  .qpf-viewport-ruler-v{
+    //      background-image : -webkit-linear-gradient(rgb(200, 200, 200) 1px, transparent 1px);
+    //      background-size: 20px 100px;
+    //      background-position: -1px -1px;
+    //      background-color:rgba(0, 0, 0, 0.79);
+    //      position: absolute;
+    //      width:20px;
+    //      left:-20px;
+    //      bottom:0px;
+    //      top:0px;
+    //  }
      .element-select-outline {
          position: absolute;
          left: 0px;
@@ -459,7 +462,41 @@
      left: 0px !important;
  }
  
+ .mainContent .switchDesign{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 999;
+    opacity: 0.8;
+    span{
+        background: #009688;
+        color: #fff;
+        padding: 5px;
+        cursor: pointer;
+        &.cur{
+            background: #00695C;
+        }
+    }
+ }
+ .mainContent{
+    .cmp-umi, .cmp-cache{
+        display: none;
+    }
+    #drawArrow{
+        display: none;
+    }
+    #drawDiagram{
+        opacity: 0;
+    }
+    // 隐藏timeline元素
+    .cmp-timeline{
+        display: none !important;
+    }
+ }
  #Viewport {
      width: auto !important;
      background: #191919;
  }
+.f-fr{
+    float: right;
+}
