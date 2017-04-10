@@ -13,10 +13,10 @@
     "builds": "coffee --compile --output lib/ lib/"
   },
   "dependencies": {
+    "coffee-script": "^1.12.3",
     "glob": "^7.1.1",
     "journey": "^0.4.0-pre-3",
-    "opts": "^1.2.6",
-    "coffee-script": "^1.12.3"
+    "opts": "^1.2.6"
   },
   "bin": {
     "cmps": "./bin/cmp.js"

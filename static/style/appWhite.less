@@ -1,5 +1,4 @@
  @import "./lib/animate.min.less";
- @import "./lib/hover.less";
  @import "./qpf/css-vendor.less";
  ::-webkit-scrollbar {
      height: 6px;
@@ -348,6 +347,7 @@
          overflow-y: auto;
          overflow-x: hidden;
      }
+     
      .qpf-ui-property {
          padding: 6px 3px;
          border-top: 1px solid #444;
@@ -355,10 +355,10 @@
          position: relative;
          .qpf-property-left {
              width: 60px;
-             text-align: right;
+             text-align: center;
              position: absolute;
-             top: 50%;
-             margin-top: -8px;
+            //  top: 50%;
+            //  margin-top: -8px;
          }
          .qpf-property-right {
              margin-left: 70px;
@@ -463,9 +463,10 @@
  }
  
  .mainContent .switchDesign{
+    width: 60px;
     position: absolute;
-    right: 8px;
-    top: 8px;
+    right: 20px;
+    top: 3px;
     z-index: 999;
     opacity: 0.8;
     span{
@@ -473,6 +474,10 @@
         color: #fff;
         padding: 5px;
         cursor: pointer;
+        margin: 1px 0px;
+        display: inline-block;
+        width: 60px;
+        text-align: center;
         &.cur{
             background: #00695C;
         }
@@ -492,6 +497,27 @@
     .cmp-timeline{
         display: none !important;
     }
+    .cmp-func{
+        text-align: left;
+        &:before{
+            background: #8BC34A;
+            content: '';
+            height: 20px;
+            width: 100%;
+            position: absolute;
+            left: 0px;
+            z-index: -1;
+        }
+        &:after{
+            background: #8BC34A;
+            content: '';
+            height: 20px;
+            width: 100%;
+            position: absolute;
+            left: 0px;
+            z-index: -1;
+        }
+    }
  }
  #Viewport {
      width: auto !important;
@@ -499,4 +525,14 @@
  }
 .f-fr{
     float: right;
+}
+.f-dn, .cmp-dn{
+    display: none;
+}
+.CodeMirror-lint-tooltip {
+    z-index: 999 !important;
+}
+.dataModal{
+    overflow-y: auto;
+    overflow-x: hidden;
 }
