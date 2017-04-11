@@ -7,6 +7,14 @@ CMP是一个用于制作网页的工具，你可以用它来制作静态网页�
 2）远程SHELL控制台功能
 
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_overview.png" />
+ 模块设计UMI图：
+<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_umi.png" />
+ 组件设计时序图：
+<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_timeline.png" />
+ 数据mock，实时预览，也可以保存数据到测试用例中，也可以从测试用例中加载数据：
+<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_mock.png" />
+ 在线代码编辑：
+<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_editor.png" />
 
 试用地址: https://chalecao.github.io/cmp/static/
 
@@ -64,6 +72,13 @@ cmps ./cmp -p 8088 -s false
 9. 可视化方式绘制模块的组件关系图，模块时序图（开发中）
 
 ## release
+
+### release 2.0.0
+1）新增mock数据，导出组件测试用例的功能，实时监控组件的mock data数据，用户可以自己模拟数据，也可以将模拟数据保存在测试用例中。
+2）新增模块UMI设计功能，每个UMI对应于模块中的一个hash节点界面，主要用于单页系统的设计。
+3）新增组件时序图组件，用户可以在设计阶段绘制组件逻辑时序图。
+4）函数组件增加else节点，最多可以增加两个else节点。
+
 
 ### release 1.1.0
 1）在和其他前端同事讨论的时候，发现了一些问题，于是我主要是代码和设计稿如何同步的问题。如何把生成的HTML和CSS再导回来。目前是无法实现的，因为数据模型导出到HTML和CSS是一个单向的过程。但是我多做了一点工作是先把代码编辑器集成了进来，这样在导出模块之前，至少可以先编辑模块的JS代码逻辑，而不需要导出之后再回到项目中编辑逻辑代码。

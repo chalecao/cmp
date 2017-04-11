@@ -1,9 +1,9 @@
  @import "./lib/animate.min.less";
  @import "./qpf/css-vendor.less";
  ::-webkit-scrollbar {
-     height: 6px;
-     width: 6px;
-     background: rgba(200, 180, 180, 0.5);
+     height: 4px;
+     width: 4px;
+     background: #fff;
      transition: all 0.3s ease-in-out;
      border-radius: 5px;
  }
@@ -13,15 +13,15 @@
  }
  
  ::-webkit-scrollbar-thumb {
-     width: 6px;
+     width: 4px;
      min-height: 15px;
-     background: rgba(0, 0, 0, 0.2) !important;
+     background: #aaa !important;
      transition: all 0.3s ease-in-out;
      border-radius: 5px;
  }
  
  ::-webkit-scrollbar-thumb:hover {
-     background: rgba(0, 0, 0, 0.5) !important;
+     background: #aaa !important;
  }
  
  body {
@@ -527,7 +527,7 @@
     float: right;
 }
 .f-dn, .cmp-dn{
-    display: none;
+    display: none !important;
 }
 .CodeMirror-lint-tooltip {
     z-index: 999 !important;
@@ -535,4 +535,5 @@
 .dataModal{
     overflow-y: auto;
     overflow-x: hidden;
+    margin-left: 5px;
 }

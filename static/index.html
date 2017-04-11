@@ -15,7 +15,7 @@
     <script type="text/javascript" src="lib/regular.js"></script>
     <script type="text/javascript" src="lib/less.js"></script>
     <script type="text/javascript" src="lib/webfont.js"></script>
-    <script type="text/javascript" src="lib/snap.min.js"></script>
+
     <!--codemirror-->
     <link rel="stylesheet" href="lib/codeMirror/lib/codemirror.css">
     <link rel="stylesheet" href="lib/codeMirror/addon/dialog/dialog.css">
@@ -76,8 +76,12 @@
     <script src="lib/codeMirror/addon/lint/javascript-lint.js"></script>
     <script src="lib/codeMirror/addon/lint/json-lint.js"></script>
     <script src="lib/codeMirror/addon/lint/css-lint.js"></script>
-
-
+    <!--svg绘制-->
+    <script type="text/javascript" src="lib/snap.min.js"></script>
+    <script>
+        window.require = {};
+        window.process = {};
+    </script>
     <script type="text/javascript" src="lib/LAB.js"></script>
     <script type="text/javascript" src="boot.js"></script>
 </head>

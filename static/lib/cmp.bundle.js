@@ -1738,7 +1738,7 @@ append(t) : e.append(t);
         extendUIConfig: function() {
             return {
                 timelineCode: {
-                    label: "",
+                    label: "\u65f6\u5e8f\u56fe",
                     ui: "codearea",
                     field: "timeline",
                     text: this.properties.timelineCode
@@ -1752,8 +1752,8 @@ append(t) : e.append(t);
         },
         onCreate: function(e) {
             var t = this;
-            t.properties.width
-(800), t.properties.height(600), n.computed(function() {
+            
+t.properties.width(800), t.properties.height(600), n.computed(function() {
                 t.refreshDiagram("");
                 var e = t.properties.timelineCode();
                 t.refreshDiagram(e);
@@ -1778,8 +1778,8 @@ append(t) : e.append(t);
         enable: function(e) {
             this.$el.show(), this.trigger("enable"), e && e();
         },
-        disable: function(
-e) {
+        
+disable: function(e) {
             this.$el.hide(), this.trigger("disable"), e && e();
         },
         setContext: function(e) {
@@ -1801,8 +1801,8 @@ e) {
         applyXML: function(e) {
             i.parse(e, this.$el[0]), r.applyBindings(this, this.$el[0]);
             var t = this.$el[0].firstChild;
-            t && (this
-.mainComponent = n.getByDom(t));
+            
+t && (this.mainComponent = n.getByDom(t));
         }
     });
     return a;
@@ -1917,80 +1917,95 @@ s.omit(e, "label", "ui", "field", "visible"), i = {
             }), this.dataProperties(t);
         },
         detect: function() {
-            var e = this, t = $(".qpf-viewport-elements-container").html();
-            t = t.substr(t.indexOf("cmp-element")).replace(/\&amp\;/g, "&").replace(/\&gt\;/g, ">").replace(/\&lt\;/g, "<").replace(/\&quot\;/g, '"');
+            var e = this;
+            e.dataValue = {};
+            var t = $(".qpf-viewport-elements-container").html();
+            t = t.substr(t.indexOf("cmp-element")).replace(/\&amp\;/g, "&").replace(/\&gt\;/g, ">").replace(/\&lt\;/g, "<").replace(/\&quot\;/g, '"').replace(/\n/g, "").replace(/hoverstyle\=\"[\s\S]*?\"/g, "");
             var r = new RegExp("{([\\s\\S]+?)}", "igm"), i = t.match(r);
-            i.forEach(function(e, t, n) {
-                e = e.replace(/\{/g, "").replace(/\}/g, "").replace(/\#/g, "").replace(/if/g, "").replace(/list/g
-, "").replace(/else/g, "").replace(/\//g, ""), n[t] = e;
-            });
-            var s = i.filter(function(e) {
-                return e && e.indexOf(";") < 0;
-            }), o = {}, a = [];
-            $.each(s, function(t, r) {
-                var i = r.replace(/\".*?\"/g, " ").replace(/\'.*?\'/g, " ").replace(/\&/g, " ").replace(/\>/g, " ").replace(/\?/g, " ").replace(/\"/g, " ").replace(/\'/g, " ").replace(/\:/g, " ").replace(/\!/g, " ").replace(/\(/g, " ").replace(/\)/g, " ").replace(/\[/g, " ").replace(/\]/g, " ").replace(/\|/g, " ").replace(/\=/g, " ").replace(/\.length/g, " ").replace(/\$event/g, " ").trim();
-                i.indexOf(" as ") > 0 && a.push({
-                    seq: i.split(" as ")[0].trim(),
-                    item: i.split(" as ")[1].trim()
-                }), i = i.replace(/as.*/g, " ");
-                var s = i.split(" ").filter(function(e) {
-                    return e.trim().length && e.trim() != "f-dn" && isNaN(+e);
-                }), u = "";
-                
-$.each(s, function(t, r) {
-                    u = "", r.indexOf(".") > 0 && (u = r.split(".")[1], r = r.split(".")[0]);
-                    if (r == "this") return !0;
-                    if (!o[r]) {
-                        e.dataValue[r] = n.observable("");
-                        if (u) {
-                            var i = {};
-                            i[u] = "", e.dataValue[r](JSON.stringify(i));
-                        }
-                        o[r] = {
-                            label: r,
-                            field: "data",
-                            ui: "textfield",
-                            text: e.dataValue[r]
-                        };
-                    } else if (u) {
-                        o[r].ui = "textarea";
-                        var s = e.dataValue[r](), a = {};
-                        s.length > 1 && (a = JSON.parse(s)), a[u] = "", e.dataValue[r](JSON.stringify(a).replace(/\,/g, ",\n"));
-                    }
+            if (i) {
+                i.forEach(function(
+e, t, n) {
+                    e = e.replace(/\{/g, "").replace(/\}/g, "").replace(/\#/g, "").replace(/if/g, "").replace(/list/g, "").replace(/else/g, "").replace(/\//g, ""), n[t] = e;
                 });
-            }), $.each
-(a, function(t, r) {
-                var i = [];
-                e.dataValue[r.seq] = n.observable(""), i.push(e.dataValue[r.item]()), e.dataValue[r.seq](JSON.stringify(i)), o[r.seq] = {
-                    label: r.seq,
+                var s = i.filter(function(e) {
+                    return e && e.indexOf(";") < 0;
+                }), o = {}, a = [];
+                $.each(s, function(t, r) {
+                    var i = r.replace(/\".*?\"/g, " ").replace(/\'.*?\'/g, " ").replace(/\&/g, " ").replace(/\>/g, " ").replace(/\?/g, " ").replace(/\"/g, " ").replace(/\'/g, " ").replace(/\:/g, " ").replace(/\!/g, " ").replace(/\(/g, " ").replace(/\)/g, " ").replace(/\[/g, " ").replace(/\]/g, " ").replace(/\|/g, " ").replace(/\=/g, " ").replace(/\.length/g, " ").replace(/\$event/g, " ").trim();
+                    i.indexOf(" as ") > 0 && a.push({
+                        seq: i.split(" as ")[0].trim(),
+                        item: i.split(" as ")[1].trim()
+                    }), i = i.replace(/as.*/g, " ");
+                    
+var s = i.split(" ").filter(function(e) {
+                        return e.trim().length && e.trim() != "f-dn" && isNaN(+e);
+                    }), u = "";
+                    $.each(s, function(t, r) {
+                        u = "", r.indexOf(".") > 0 && (u = r.split(".")[1], r = r.split(".")[0]);
+                        if (r == "this") return !0;
+                        if (!o[r]) {
+                            e.dataValue[r] = n.observable("");
+                            if (u) {
+                                var i = {};
+                                i[u] = "", e.dataValue[r](JSON.stringify(i));
+                            }
+                            o[r] = {
+                                label: r,
+                                field: "data",
+                                ui: "textfield",
+                                text: e.dataValue[r]
+                            };
+                        } else if (u) {
+                            o[r].ui = "textarea";
+                            
+var s = e.dataValue[r](), a = {};
+                            s.length > 1 && (a = JSON.parse(s)), a[u] = "", e.dataValue[r](JSON.stringify(a).replace(/\,/g, ",\n"));
+                        }
+                    });
+                }), $.each(a, function(t, r) {
+                    var i = [];
+                    e.dataValue[r.seq] = n.observable(""), i.push(JSON.parse(e.dataValue[r.item]())), e.dataValue[r.seq](JSON.stringify(i).replace(/\,/g, ",\n")), o[r.seq] = {
+                        label: r.seq,
+                        field: "data",
+                        ui: "textarea",
+                        text: e.dataValue[r.seq]
+                    }, delete o[r.item], delete e.dataValue[r.item];
+                });
+                var f = [];
+                for (var l in o) f.push(o[l]);
+                f.push({
+                    label: "- Dispaly with mock data",
                     field: "data",
-                    ui: "textarea",
-                    text: e.dataValue[r.seq]
-                }, delete o[r.item], delete e.dataValue[r.item];
-            });
-            var f = [];
-            for (var l in o) f.push(o[l]);
-            f.push({
-                label: "Dispaly with mock data",
-                field: "data",
-                ui: "button",
-                text: "Click && MockPage"
-            }), f.push({
-                label: "save in caseIns",
-                field: "data",
-                ui: "button",
-                text: "Save in Test Case"
-            }), e.showProperties(f), $($(".dataModal button")[0]).click(function() {
-                $(".switchDesign .mock").trigger("click");
-            }), $($(".dataModal button"
-)[1]).click(function() {
-                u.trigger("save2test");
-            });
+                    ui: "button",
+                    text: "Click && MockPage"
+                
+}), f.push({
+                    label: "- save in caseIns",
+                    field: "data",
+                    ui: "button",
+                    text: "Save in Test Case"
+                }), f.push({
+                    label: "- get case in caseIns",
+                    field: "data",
+                    ui: "button",
+                    text: "Get Data"
+                }), e.showProperties(f), $($(".dataModal button")[0]).click(function() {
+                    $(".switchDesign .mock").trigger("click");
+                }), $($(".dataModal button")[1]).click(function() {
+                    u.trigger("save2test");
+                }), $($(".dataModal button")[2]).click(function() {
+                    u.trigger("getTestData");
+                });
+            }
+        },
+        setDataValue: function(e) {
+            for (var t in e) self.dataValue[t](e[t]);
         },
         getDataValue: function() {
             var e = this, t = {};
             for (var n in e.dataValue) try {
-                t[n] = JSON.parse(e.dataValue[n]());
+                
+t[n] = JSON.parse(e.dataValue[n]());
             } catch (r) {
                 t[n] = e.dataValue[n]();
             }
@@ -2004,13 +2019,13 @@ $.each(s, function(t, r) {
             });
             $("#drawMockView").empty(), (new i({
                 data: t
-            })).$inject
-("#drawMockView");
+            })).$inject("#drawMockView"), $("#drawMockView .element-select-outline").remove(), $("#drawMockView .cmp-umi").remove();
         },
         PropertyItemView: o
     });
     return u;
-}), define("modules/common/listitem", [ "require", "qpf", "knockout" ], function(e) {
+}), define("modules/common/listitem", [ "require", "qpf"
+, "knockout" ], function(e) {
     var t = e("qpf"), n = t.use("meta/meta"), r = e("knockout"), i = n.derive(function() {
         return {
             title: r.observable(""),
@@ -2033,9 +2048,9 @@ $.each(s, function(t, r) {
         template: '<div class="icon" data-bind="css:icon"></div>                    <div class="title" data-bind="html:title"></div>'
     });
     return i;
-}), define("modules/common/list", [ "require", "qpf", "./listitem"
-, "knockout" ], function(e) {
-    var t = e("qpf"), n = e("./listitem"), r = t.use("container/container"), i = e("knockout"), s = r.derive(function() {
+}), define("modules/common/list", [ "require", "qpf", "./listitem", "knockout" ], function(e) {
+    var t = e("qpf"), n = e("./listitem"), r = t.use("container/container"), i = e("knockout"), s = r.
+derive(function() {
         return {
             dataSource: i.observableArray([]),
             itemView: i.observable(n),
@@ -2052,11 +2067,11 @@ $.each(s, function(t, r) {
             var e = _.clone(this.dataSource()), t = this;
             this.dataSource.subscribe(function(t) {
                 this._update(e, t), e = _.clone(t), _.each(e, function(e, t) {
-                    i.utils.unwrapObservable(e.selected
-) && this.selected(t);
+                    i.utils.unwrapObservable(e.selected) && this.selected(t);
                 }, this);
             }, this), this.selected.subscribe(function(e) {
-                this._unSelectAll(), _.each(e, function(e) {
+                this.
+_unSelectAll(), _.each(e, function(e) {
                     var t = this.children()[e];
                     t && t.$el.addClass("selected");
                 }, this), t.trigger("select", this._getSelectedData());
@@ -2075,11 +2090,11 @@ $.each(s, function(t, r) {
             var n = this.children(), r = this.itemView(), s = [], o = i.utils.compareArrays(e, t), u = [];
             _.each(o, function(t) {
                 if (t.status === "retained") {
-                    
-var i = e.indexOf(t.value);
+                    var i = e.indexOf(t.value);
                     s[i] = n[i];
                 } else if (t.status === "added") {
-                    var o = new r({
+                    
+var o = new r({
                         attributes: t.value
                     });
                     s[t.index] = o, n.splice(t.index, 0, o), u.push(o);
@@ -2103,11 +2118,11 @@ var i = e.indexOf(t.value);
         };
     }, {
         type: "CONTEXTMENUITEM",
-        css
-: "context-menu-item",
+        css: "context-menu-item",
         template: "<div data-bind='html:label'></div>",
         initialize: function() {
-            var e = this;
+            var e = 
+this;
             this.$el.click(function() {
                 var t = e.exec();
                 t && t(), s.hide();
@@ -2134,10 +2149,10 @@ var i = e.indexOf(t.value);
     }, s.$el.blur(function() {
         s.hide();
     }), s.hide(), document.body.appendChild(s.$el[0]), s.render(), s;
-}), define("text!modules/hierarchy/element.html"
-, [], function() {
+}), define("text!modules/hierarchy/element.html", [], function() {
     return '<div data-bind="attr: { class: typeStr},text:id"></div>\r\n';
-}), define("modules/hierarchy/element", [ "require", "qpf", "knockout", "text!./element.html" ], function(e) {
+}), define("modules/hierarchy/element"
+, [ "require", "qpf", "knockout", "text!./element.html" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = t.meta.Meta.derive(function() {
         return {
             id: n.observable(""),
@@ -2151,8 +2166,8 @@ var i = e.indexOf(t.value);
     });
     return r;
 }), define("modules/hierarchy/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./hierarchy.xml", "_", "../property/index", "../dataMock/index", "modules/common/contextmenu", "modules/common/modal", "./element" ], function(e) {
-    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./hierarchy.xml"), u = e("_"), a = e("../property/index"), f = e("../dataMock/index"
-), l = e("modules/common/contextmenu"), c = e("modules/common/modal"), h = t.use("meta/textfield"), p = t.use("container/container"), d = t.use("container/inline"), v = t.use("meta/label"), m = e("./element"), g = new s({
+    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./hierarchy.xml"), u = e("_"), a = e("../property/index"), f = e("../dataMock/index"), l = e("modules/common/contextmenu"), c = e("modules/common/modal"), h = t.use("meta/textfield"), p = t.use("container/container"
+), d = t.use("container/inline"), v = t.use("meta/label"), m = e("./element"), g = new s({
         name: "hierarchy",
         xml: o,
         elementsList: n.observableArray([]),
@@ -2175,12 +2190,12 @@ var i = e.indexOf(t.value);
                 return {
                     id: e.properties.id,
                     typeStr: e.type.toLowerCase(),
-                    
-target: e
+                    target: e
                 };
             })), u.each(e, function(e) {
                 g.trigger("create", e);
-            }), f.detect();
+            }), 
+f.detect();
         },
         loadElement: function(e) {
             var t = u.find(this.elementsList(), function(t) {
@@ -2201,11 +2216,11 @@ target: e
             return u.map(g.elementsList(), function(e) {
                 return e.target;
             });
-        
-},
+        },
         deferEvaluation: !0
     }), g.on("start", function() {
-        g.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(e) {
+        g.mainComponent.$el.delegate(".qpf-ui-element"
+, "dblclick", function(e) {
             g.trigger("focus", $(this).qpf("get")[0].target());
         }), l.bindTo(g.mainComponent.$el, function(e) {
             var t = $(e).parents(".qpf-ui-element");
@@ -2227,10 +2242,10 @@ target: e
                     });
                 }
             } ] : [ {
-                
-label: "\u7c98\u8d34",
+                label: "\u7c98\u8d34",
                 exec: function() {
-                    var e = i.execute("paste");
+                    var e = i.execute("paste"
+);
                 }
             } ];
         });
@@ -2250,10 +2265,10 @@ label: "\u7c98\u8d34",
             g.elementsList.push({
                 id: n.properties.id,
                 target: n
-            
-}), g.trigger("create", n), g.selectedElements([ n ]);
+            }), g.trigger("create", n), g.selectedElements([ n ]);
         },
-        unexecute: function(e, t) {}
+        unexecute: function(
+e, t) {}
     }), i.register("remove", {
         execute: function(e) {
             typeof e == "string" && (e = r.getByEID(e)), r.remove(e), g.elementsList(u.filter(g.elementsList(), function(t) {
@@ -2276,10 +2291,10 @@ label: "\u7c98\u8d34",
         execute: function() {
             function e(e) {
                 var t = [];
-                return u.each(y, function(
-n) {
+                return u.each(y, function(n) {
                     var i = r.clone(n);
-                    e >= 0 ? g.elementsList.splice(e, 0, {
+                    e >= 0 ? g.elementsList
+.splice(e, 0, {
                         target: i,
                         id: i.properties.id
                     }) : g.elementsList.push({
@@ -2304,21 +2319,21 @@ n) {
                 e(t);
             }, function() {
                 e(-1);
-            
-});
+            });
         },
         unexecute: function() {}
     }), g;
-}), define("elements/umi", [ "require", "core/factory", "knockout", "_", "../modules/hierarchy/index", "d3" ], function(e) {
+}), define("elements/umi"
+, [ "require", "core/factory", "knockout", "_", "../modules/hierarchy/index", "d3" ], function(e) {
     var t = e("core/factory"), n = e("knockout"), r = e("_"), i = e("../modules/hierarchy/index"), s = e("d3"), o = [ "#61C5C9", "#CC9E82", "#4F8DB1", "#F9C63D", "#60ADD5", "#8EB93B", "#B31800", "#EB3F2F", "#abcc39" ], u = s.select("#drawArrow").append("svg").attr("width", parseInt(s.select("#drawArrow").attr("width"))).attr("height", parseInt(s.select("#drawArrow").attr("height"))), a = u.append("defs"), f = a.append("marker").attr("id", "arrow").attr("markerUnits", "strokeWidth").attr("markerWidth", "12").attr("markerHeight", "12").attr("viewBox", "0 0 12 12").attr("refX", "6").attr("refY", "6").attr("orient", "auto"), l = "M2,2 L10,6 L2,10 L6,6 L2,2";
     f.append("path").attr("d", l).attr("fill", "#000"), t.register("umi", {
         type: "UMI",
         pointLine: "",
-        extendProperties: function(
-) {
+        extendProperties: function() {
             return {
                 hashPath: n.observable("/home"),
-                modulePath: n.observable("home/index.html"),
+                
+modulePath: n.observable("home/index.html"),
                 parentModule: n.observable(""),
                 moduleJS: n.observable(""),
                 moduleHTML: n.observable("")
@@ -2344,33 +2359,33 @@ n) {
             };
         },
         onCreate: function(e) {
-            var t = 
-$("<span style='line-height:normal;display:inline-block;width:100%;color:#fff;font-size:12px;'></span>"), a = this;
+            var t = $("<span style='line-height:normal;display:inline-block;width:100%;color:#fff;font-size:12px;'></span>"
+), a = this;
             e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), a.properties.boxFontSize(0), e.css("background-color") || e.css("background-color", o[parseInt(o.length * Math.random())]), a.properties.left(400 + parseInt(100 * Math.random())), a.properties.top(80 + parseInt(400 * Math.random())), n.computed(function() {
                 var e = a.properties.hashPath(), n = a.properties.modulePath();
                 t.html("<br/>" + e + "<br/><br/>" + (a.properties.titleStr() || "\u6a21\u5757\u8def\u5f84") + "\uff1a<br/>" + n);
             }), n.computed(function() {
                 u.attr("width") != parseInt(s.select("#drawArrow").attr("width")) && u.attr("width", parseInt(s.select("#drawArrow").attr("width"))), u.attr("height") != parseInt(s.select("#drawArrow").attr("height")) && u.attr("height", parseInt(s.select("#drawArrow").attr("height")));
-                
-var e = a.properties.parentModule();
+                var e = a.properties.parentModule();
                 if (e) {
-                    var t = r.find(i.elements(), function(t) {
+                    var t = r.find(i.elements
+(), function(t) {
                         return t.properties.id() == e;
                     });
                     if (t) {
                         var n = +t.properties.left() + parseInt(t.properties.width()), o = +t.properties.top() + parseInt(t.properties.height() / 2), f = +a.properties.left() - 5, l = +a.properties.top() + parseInt(a.properties.height() / 2);
                         a.pointLine && a.pointLine.remove(), $("line[x1=" + n + "][y1=" + o + "][x2=" + f + "][y2=" + l + "]").remove(), a.pointLine = u.append("line").attr("x1", n).attr("y1", o).attr("x2", f).attr("y2", l).attr("stroke", "red").attr("stroke-width", 2).attr("marker-end", "url(#arrow)");
-                    }
-                }
+                    } else a.pointLine && a.pointLine.remove();
+                } else a.pointLine && a.pointLine.remove();
             });
         },
         beforeRemove: function() {
             this.pointLine.remove();
         }
     });
-}), define("text!modules/component/component.xml", [], function(
-) {
-    return '<container id="Component">\r\n    <list id="ElementsList" dataSource="@binding[componentsList]" itemView="@binding[ElementView]" onselect="@binding[_selectComponents]"></list>\r\n</container>';
+}), define("text!modules/component/component.xml", [], function() {
+    return '<container id="Component">\r\n    <list id="ElementsList" dataSource="@binding[componentsList]" itemView="@binding[ElementView]" onselect="@binding[_selectComponents]"></list>\r\n</container>'
+;
 }), define("text!modules/component/component.html", [], function() {
     return '<div data-bind="text:id"></div>';
 }), define("modules/component/component", [ "require", "qpf", "knockout", "text!./component.html" ], function(e) {
@@ -2385,9 +2400,9 @@ var e = a.properties.parentModule();
         template: e("text!./component.html")
     });
     return r;
-}), define("modules/component/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./component.xml", "_", "../property/index", "modules/common/contextmenu", "../hierarchy/index", "modules/common/modal", "./component" ], function(
-e) {
-    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./component.xml"), u = e("_"), a = e("../property/index"), f = e("modules/common/contextmenu"), l = e("../hierarchy/index"), c = e("modules/common/modal"), h = e("./component"), p = "", d = new s({
+}), define("modules/component/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./component.xml", "_", "../property/index", "modules/common/contextmenu", "../hierarchy/index", "modules/common/modal", "./component" ], function(e) {
+    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./component.xml"), u = e("_"), a = e("../property/index"), f = e("modules/common/contextmenu"
+), l = e("../hierarchy/index"), c = e("modules/common/modal"), h = e("./component"), p = "", d = new s({
         name: "component",
         xml: o,
         componentsList: n.observableArray([]),
@@ -2399,12 +2414,12 @@ e) {
             }));
             var t = d.selectedComponents(), n = t[t.length - 1];
             n && (l.elements().length ? c.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u5df2\u5b58\u5728\u6b63\u5728\u7f16\u8f91\u7ec4\u4ef6, \u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\uff01", function() {
-                l.removeAll(), d.trigger("selectComponent", n), n.viewport.backColor && d.trigger
-("changeBackColor", n.viewport.backColor);
+                l.removeAll(), d.trigger("selectComponent", n), n.viewport.backColor && d.trigger("changeBackColor", n.viewport.backColor);
             }, function() {
                 d.selectedComponents([]);
                 var e = d.componentsList();
-                d.componentsList([]), d.componentsList(e);
+                d.componentsList([]), d.componentsList
+(e);
             }) : d.trigger("selectComponent", n));
         },
         load: function(e) {
@@ -2418,14 +2433,14 @@ e) {
                         t.id == e.meta.name && (t.target = e);
                     }), r.meta.name == e.meta.name && d.selectedComponents([ e ]);
                 }) : (t.push({
-                    id: e.meta
-.name,
+                    id: e.meta.name,
                     target: e
                 }), p += e.meta.name + "_");
             }), this.componentsList(t);
         },
         getTarget: function(e) {
-            var t = d.componentsList(), n = {};
+            var t = d.componentsList(), n = 
+{};
             return u.each(t, function(t, r) {
                 if (t.id == e) {
                     n = t.target;
@@ -2446,12 +2461,12 @@ e) {
             d.trigger("focus", $(this).qpf("get")[0].target());
         }), f.bindTo(d.mainComponent.$el, function(e) {
             var t = $(e).parents(".qpf-ui-element"), n = [];
-            return t.length ? (t[0].id == d.selectedComponents()[0].meta.name && 
-(n = [ {
+            return t.length ? (t[0].id == d.selectedComponents()[0].meta.name && (n = [ {
                 label: "\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60",
                 exec: function() {
                     d.trigger("save2pool", t.qpf("get")[0].target());
-                    var e = $(t[0]);
+                    var e = 
+$(t[0]);
                     e.css("color", "#ffeb3b"), $(".mainContent").click(function() {
                         e.css("color", "");
                     }), $(".tabContent").click(function() {
@@ -2467,13 +2482,13 @@ e) {
                         d.trigger("saveFTL", t.qpf("get")[0].target(), !0);
                     }, function() {
                         d.trigger("saveFTL", t.qpf("get")[0].target(), !1);
-                    
-});
+                    });
                 }
             }, {
                 label: "\u5bfc\u51faRUI\u5230\u76ee\u5f55",
                 exec: function() {
-                    c.confirm("\u63d0\u793a", "\u662f\u5426\u5f3a\u5236\u66f4\u65b0JS\u4ee3\u7801?", function() {
+                    c.confirm("\u63d0\u793a", "\u662f\u5426\u5f3a\u5236\u66f4\u65b0JS\u4ee3\u7801?"
+, function() {
                         d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
                     }, function() {
                         d.trigger("saveRUI", t.qpf("get")[0].target(), !1);
@@ -2492,15 +2507,15 @@ e) {
             } ]), n.push({
                 label: "\u590d\u5236",
                 exec: function() {
-                    i.execute
-("copyComponent", t.qpf("get")[0].target());
+                    i.execute("copyComponent", t.qpf("get")[0].target());
                 }
             }), n) : [ {
                 label: "\u7c98\u8d34",
                 exec: function() {
                     i.execute("pasteComponent");
                 }
-            }, {
+            
+}, {
                 label: "\u65b0\u5efamodule",
                 exec: function() {
                     d.trigger("newModule");
@@ -2525,15 +2540,15 @@ e) {
     });
     var v = [];
     return i.register("copyComponent", {
-        execute: function(
-e) {
+        execute: function(e) {
             v = [ e ];
         }
     }), i.register("pasteComponent", {
         execute: function() {
             var e = [];
             u.each(v, function(t) {
-                var n = t.meta.name, r = JSON.parse(JSON.stringify(t).replace(n + "-container", n + "_copied" + "-container"));
+                var n = t.meta.name, r = JSON.parse(JSON.stringify
+(t).replace(n + "-container", n + "_copied" + "-container"));
                 r.meta.name += "_copied", e.push(r);
             }), d.load(e);
         },
@@ -2542,15 +2557,15 @@ e) {
 }), define("text!modules/codeEditor/property.html", [], function() {
     return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n</panel>\r\n<div class="editor-toolbar">\r\n    <button class="editor-close">\u786e\u8ba4\u4fee\u6539</button>\r\n    <button class="editor-cancel"> \u53d6\u6d88 </button>\r\n</div>';
 }), define("modules/codeEditor/property", [ "require", "qpf", "knockout", "text!./property.html" ], function(e) {
-    var t = e("qpf"), n = e("knockout"), r = t.use("container/container"
-), i = t.widget.Widget, s = i.derive(function() {
+    var t = e("qpf"), n = e("knockout"), r = t.use("container/container"), i = t.widget.Widget, s = i.derive(function() {
         return {
             codeStr: n.observable(""),
             classStr: n.observable(""),
             titleStr: n.observable("")
         };
     }, {
-        type: "CODEVIEW",
+        type: "CODEVIEW"
+,
         css: "codeview",
         template: e("text!./property.html")
     });
@@ -2567,15 +2582,15 @@ e) {
         }, 100), CodeMirror.Pass;
     }
     function d(e) {
-        
-return p(e, function() {
+        return p(e, function() {
             var t = e.getCursor();
             return e.getRange(CodeMirror.Pos(t.line, t.ch - 1), t) == "<";
         });
     }
     function v(e) {
         return p(e, function() {
-            var t = e.getTokenAt(e.getCursor());
+            var t = 
+e.getTokenAt(e.getCursor());
             if (t.type != "string" || !!/['"]/.test(t.string.charAt(t.string.length - 1)) && t.string.length != 1) {
                 var n = CodeMirror.innerMode(e.getMode(), t.state).state;
                 return n.tagName;
@@ -2591,8 +2606,7 @@ return p(e, function() {
         },
         children: []
     }, h = {
-        "!top"
-: [ "top" ],
+        "!top": [ "top" ],
         "!attrs": {
             id: null,
             "class": [ "A", "B", "C" ]
@@ -2601,7 +2615,8 @@ return p(e, function() {
             attrs: {
                 lang: [ "en", "de", "fr", "nl" ],
                 freeform: null
-            },
+            
+},
             children: [ "animal", "plant" ]
         },
         animal: {
@@ -2632,14 +2647,14 @@ return p(e, function() {
         codeArray: n.observableArray([]),
         showCode: function(e, t) {
             if (e.length < 1) {
-                l.confirm("\u63d0\u793a"
-, "\u6ca1\u6709\u4ee3\u7801\u54e6\uff01", null, null, 1e3);
+                l.confirm("\u63d0\u793a", "\u6ca1\u6709\u4ee3\u7801\u54e6\uff01", null, null, 1e3);
                 return;
             }
             var n = this;
             a = [], n.codeArray([]), i.each(e, function(e) {
                 n.codeArray.push({
-                    titleStr: e.titleStr,
+                    
+titleStr: e.titleStr,
                     classStr: e.classStr,
                     codeStr: e.codeStr
                 });
@@ -2657,14 +2672,14 @@ return p(e, function() {
                     },
                     mode: /^.*(FTL)|(HTML).*$/.test(e.classStr) ? "htmlmixed" : "javascript",
                     tabSize: 4,
-                    
-indentUnit: 4,
+                    indentUnit: 4,
                     keyMap: "sublime",
                     gutters: [ "CodeMirror-lint-markers" ],
                     lint: !0,
                     autofocus: !0
                 });
-                t.setOption("theme", "monokai"), setTimeout(function() {
+                t.setOption("theme", "monokai"
+), setTimeout(function() {
                     t.refresh();
                 }, 100), a.push(t);
             });
@@ -2681,14 +2696,14 @@ indentUnit: 4,
                         e[n].codeStr = t.doc.getValue();
                     }), t(e);
                 }
-            }), $("#editor .editor-cancel"
-).click(function() {
+            }), $("#editor .editor-cancel").click(function() {
                 $("#editor").is(":visible") && $("#editor").slideUp();
             });
         }
     });
     return m;
-}), define("modules/common/buttongroup", [ "require", "qpf", "knockout", "_" ], function(e) {
+}), define("modules/common/buttongroup", [ "require", "qpf", "knockout", "_" ], 
+function(e) {
     var t = e("qpf"), n = e("knockout"), r = e("_"), i = t.container.Inline.derive(function() {
         return {
             action: n.observable("button")
@@ -2709,11 +2724,11 @@ indentUnit: 4,
         type: "CODEAREA",
         css: "codearea",
         template: '<textarea rows="5" cols="24" data-bind="value:text"/>',
-        onResize
-: function() {
+        onResize: function() {
             this.$el.find("textarea").width(this.width()), n.prototype.onResize.call(this);
             var e = this;
-            this.$el.parent().parent().css("margin-left", "0"), this.$el.parent().parent().css("margin-right", "0"), this.$el.parent().parent().css("margin-top", "20px"), this.$el.css("width", "100%");
+            this.$el.parent().parent().css("margin-left", "0"), this.$el.parent().parent
+().css("margin-right", "0"), this.$el.parent().parent().css("margin-top", "20px"), this.$el.css("width", "100%");
             var t = this._cm = CodeMirror.fromTextArea(this.$el.find("textarea")[0], {
                 lineNumbers: !1,
                 styleActiveLine: !0,
@@ -2729,15 +2744,15 @@ indentUnit: 4,
         }
     });
     return n.provideBinding("codearea", s), s;
-}), define("modules/common/palette", [ "require", "qpf", "knockout" ], function(
-e) {
+}), define("modules/common/palette", [ "require", "qpf", "knockout" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = new t.widget.Palette;
     r.width(370);
     var i = new t.container.Window({
         left: n.observable(300),
         top: n.observable(100)
     });
-    return i.$el.hide(), i.title("\u8c03\u8272\u5668"), i.id("Palette"), i.add(r), document.body.appendChild(i.$el[0]), i.render(), r.show = function() {
+    return i.$el.hide
+(), i.title("\u8c03\u8272\u5668"), i.id("Palette"), i.add(r), document.body.appendChild(i.$el[0]), i.render(), r.show = function() {
         i.$el.show();
     }, r.hide = function() {
         i.$el.hide();
@@ -2754,9 +2769,9 @@ e) {
     }, {
         type: "COLOR",
         css: "color",
-        template: '<div data-bind="text:_colorStr" class="qpf-color-hex"></div>                    <div class="qpf-color-preview" data-bind="style:{backgroundColor:_colorStr()}"></div>                    <div data-bind="text:alpha" class="qpf-color-hex"></div>'
-,
-        initialize: function() {
+        template: '<div data-bind="text:_colorStr" class="qpf-color-hex"></div>                    <div class="qpf-color-preview" data-bind="style:{backgroundColor:_colorStr()}"></div>                    <div data-bind="text:alpha" class="qpf-color-hex"></div>',
+        initialize: function(
+) {
             var e = this;
             this.$el.click(function() {
                 e.showPalette();
@@ -2777,9 +2792,9 @@ e) {
     });
     return r.provideBinding("color", o), o;
 }), define("modules/common/gradient", [ "require", "qpf", "knockout", "$", "_", "onecolor", "./palette" ], function(e) {
-    var t = e("qpf"), n = e("knockout"), r = e("$"), i = e("_"), s = e("onecolor"), o = e("./palette"), u = t.widget.Widget
-.derive(function() {
-        return {
+    var t = e("qpf"), n = e("knockout"), r = e("$"), i = e("_"), s = e("onecolor"), o = e("./palette"), u = t.widget.Widget.derive(function() {
+        
+return {
             stops: n.observableArray([]),
             angle: n.observable(180),
             _percentString: function(e) {
@@ -2796,9 +2811,9 @@ e) {
                 e._updateGradientPreview();
             });
         },
-        afterRender: 
-function() {
-            this._$gradientPreview = this.$el.find(".qpf-gradient-preview"), this._$stopsContainer = this.$el.find(".qpf-gradient-stops"), this._updateGradientPreview();
+        afterRender: function() {
+            this
+._$gradientPreview = this.$el.find(".qpf-gradient-preview"), this._$stopsContainer = this.$el.find(".qpf-gradient-stops"), this._updateGradientPreview();
             var e = this, t = this.stops();
             this.$el.find(".qpf-gradient-stop").each(function(n) {
                 e._onAddStop(this, t[n]);
@@ -2817,8 +2832,8 @@ function() {
         _onAddStop: function(e, n) {
             var i = this, s = new t.helper.Draggable({
                 axis: "x",
-                
-container: this.$el.find(".qpf-gradient-stops")
+                container: this.$el.find(".qpf-gradient-stops"
+)
             });
             s.add(e), s.on("drag", function(t) {
                 this._dragHandler(e, n);
@@ -2840,8 +2855,8 @@ container: this.$el.find(".qpf-gradient-stops")
         },
         _paletteChange: function(e) {
             var t = s(e).cssa();
-            
-n.isObservable(this.stop.color) ? this.stop.color(t) : this.stop.color = t, this._updateGradientPreview();
+            n.isObservable(this.stop.color) ? this
+.stop.color(t) : this.stop.color = t, this._updateGradientPreview();
         },
         _paletteCancel: function() {
             o.hide(), o.off("change"), o.off("apply"), o.off("cancel");
@@ -2865,9 +2880,9 @@ n.isObservable(this.stop.color) ? this.stop.color(t) : this.stop.color = t, this
                         globalAlpha: .4,
                         shadow: "0 -2 2 #333"
                     })
-                
-}),
-                green: new i.renderable.Path({
+                }),
+                green
+: new i.renderable.Path({
                     stroke: !1,
                     style: new i.Style({
                         fill: "green",
@@ -2894,8 +2909,8 @@ n.isObservable(this.stop.color) ? this.stop.color(t) : this.stop.color = t, this
                     fill: !1,
                     style: new i.Style({
                         stroke: "#009500",
-                        
-globalAlpha: .7
+                        globalAlpha
+: .7
                     })
                 }),
                 blueStroke: new i.renderable.Path({
@@ -2921,8 +2936,8 @@ globalAlpha: .7
             if (!this.image) return;
             this._histogram.image = this.image, this._histogram.update();
         },
-        refresh
-: function() {
+        refresh: function(
+) {
             if (!this.image) return;
             histogramArray = this.getNormalizedHistogram(), this.updatePath("red", histogramArray.red), this.updatePath("green", histogramArray.green), this.updatePath("blue", histogramArray.blue), this._stage.render(this._scene);
         },
@@ -2940,9 +2955,9 @@ globalAlpha: .7
         updatePath: function(e, t) {
             var n = this._paths[e], r = this.height(), i = this.sample();
             for (var s = i; s < 257; s += i) n.segments[s / i].point[1] = (1 - t[s - 1]) * r;
-            n.smooth
-(1);
-        },
+            n.smooth(1);
+        
+},
         getNormalizedHistogram: function() {
             function e(e) {
                 var t = [];
@@ -3848,8 +3863,8 @@ o && (n[r] = o);
             }
             if (!e) return;
             e && (n(".mainContent").find(".switchDesign").length || (n(".mainContent").append("<div class='switchDesign'><span class='page'>\u9875\u9762\u8bbe\u8ba1</span><span class='mock'>Mock</span><span class='umi'>UMI\u7ed3\u6784</span><span class='timeline'>\u65f6\u5e8f\u56fe</span></div>"), n(".switchDesign span").click(function(e) {
-                n(".switchDesign span").removeClass("cur"), n(this).addClass("cur"), n(this).hasClass("umi") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").show(), n("#drawArrow").show(), n("#drawDiagram").css("opacity", 0)), n(this).hasClass("page") && (n(".cmp-element").removeClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity", 0)), n(this).hasClass("mock") && (n
-(".cmp-element").removeClass("cmp-dn"), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity", 0), a.showMockView(), n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").show()), n(this).hasClass("timeline") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n("#drawArrow").hide(), n(".cmp-umi").hide(), n("#drawDiagram").css("opacity", 1));
+                n(".switchDesign span").removeClass("cur"), n(this).addClass("cur"), n(this).hasClass("umi") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").show(), n(".cmp-umi").removeClass("cmp-dn"), n("#drawArrow").show(), n("#drawDiagram").css("opacity", 0)), n(this).hasClass("page") && (n(".cmp-element").removeClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity"
+, 0)), n(this).hasClass("mock") && (n(".cmp-element").removeClass("cmp-dn"), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity", 0), a.showMockView(), n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").show()), n(this).hasClass("timeline") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n("#drawArrow").hide(), n(".cmp-umi").hide(), n("#drawDiagram").css("opacity", 1));
             })));
             var l = [];
             t.each(e.elements, function(e) {
@@ -3864,8 +3879,8 @@ o && (n[r] = o);
                         var t = r.create(e.type.toLowerCase(), {
                             id: e.properties.id
                         });
-                        (e.properties.funcType == "IF" || 
-e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("addFuncComponent", a), t.import(e), l.push(t);
+                        
+(e.properties.funcType == "IF" || e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("addFuncComponent", a), t.import(e), l.push(t);
                     });
                     var c, h = t.find(l, function(e) {
                         return e.isContainer();
@@ -3878,8 +3893,8 @@ e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("a
                         left: Math.floor(+h.properties.width() / 2 + 15) - 10
                     }), n.parent().find(".e-hover-arrow-border").css({
                         left: Math.floor(+h.properties.width() / 2 + 15) - 10
-                    })) : s == "left" && (n.parent().find(".e-hover-arrow").addClass("left"), n.parent().find(".e-hover-arrow").css
-({
+                    })) : s == "left" && (n.parent().find(".e-hover-arrow").addClass("left"), n
+.parent().find(".e-hover-arrow").css({
                         cssText: "top:" + (Math.floor(+h.properties.height() / 2 + 15) - 10) + "px !important"
                     }), n.parent().find(".e-hover-arrow-border").addClass("left"), n.parent().find(".e-hover-arrow-border").css({
                         cssText: "top:" + (Math.floor(+h.properties.height() / 2 + 15) - 10) + "px !important"
@@ -3893,9 +3908,9 @@ e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("a
                     });
                     if (f) {
                         u = f.elements;
-                        var l = [];
                         
-t.each(u, function(e) {
+var l = [];
+                        t.each(u, function(e) {
                             var t = r.create(e.type.toLowerCase(), {
                                 id: e.properties.id
                             });
@@ -3907,9 +3922,9 @@ t.each(u, function(e) {
                     });
                     h && (h.$wrapper.css({
                         position: "relative"
-                    }), h.$wrapper.find("a").attr("href") ? c = h.$wrapper.find("a") : (h.$wrapper.find("a").children().length < 1 ? h.$wrapper.find("a").remove() : h.$wrapper.html(h.$wrapper.find("a").html()), c = h.$wrapper), i.getViewPort().addElement(h, n), t.each(l, function(e, t) {
-                        
-e.isContainer() || (e.$wrapper.find("a").attr("href") || (e.$wrapper.find("a").children().length < 1 ? e.$wrapper.find("a").remove() : e.properties.hoverComponent() || e.$wrapper.html(e.$wrapper.find("a").html())), i.getViewPort().addElement(e, c));
+                    }), h.$wrapper.find("a").attr("href") ? c = h.$wrapper.find("a") : (h.$wrapper.find("a").children().length < 1 ? h.$wrapper.find("a").remove() : h.$wrapper.html(h.$wrapper.find("a").html()), c = h.$wrapper), i.getViewPort().addElement(h, n), t.each(l, function(
+e, t) {
+                        e.isContainer() || (e.$wrapper.find("a").attr("href") || (e.$wrapper.find("a").children().length < 1 ? e.$wrapper.find("a").remove() : e.properties.hoverComponent() || e.$wrapper.html(e.$wrapper.find("a").html())), i.getViewPort().addElement(e, c));
                     }));
                 }
                 u(e.properties);
@@ -3926,8 +3941,8 @@ e.isContainer() || (e.$wrapper.find("a").attr("href") || (e.$wrapper.find("a").c
                 });
             }
             function v(n) {
-                n.properties.trueFuncBody && !e && (_json = o.getTarget
-(n.properties.trueFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
+                n.properties.trueFuncBody && !
+e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
                 }))), n.properties.falseFuncBody && !e && (_json = o.getTarget(n.properties.falseFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
@@ -3935,8 +3950,8 @@ e.isContainer() || (e.$wrapper.find("a").attr("href") || (e.$wrapper.find("a").c
                     v(e);
                 }))), n.properties.elseIfFuncBody2 && !e && (_json = o.getTarget(n.properties.elseIfFuncBody2), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
-                }))), n.properties.forFuncBody && !e && (_json = o.getTarget(n.properties.forFuncBody), Object
-.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
+                }))), n.properties.forFuncBody && !e && (_json = o.getTarget(n.properties
+.forFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
                 }))), n.properties.includeBody && !e && (_json = o.getTarget(n.properties.includeBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
@@ -3950,8 +3965,8 @@ e.isContainer() || (e.$wrapper.find("a").attr("href") || (e.$wrapper.find("a").c
             l && l.getName().length ? u = l.getName() : u = s.elements()[0].getName();
             var c = {
                 meta: {
-                    date: r.getFullYear() + "-" + (r.getMonth() + 1) + "-" + 
-r.getDate(),
+                    date: r.getFullYear() + "-" + 
+(r.getMonth() + 1) + "-" + r.getDate(),
                     name: u
                 },
                 viewport: {
@@ -3968,9 +3983,9 @@ r.getDate(),
                 var n = e.export(), r = "";
                 v(n), c.elements.push(t.omit(n, "assets")), t.each(n.assets, function(e, n) {
                     t.each(e, function(e, t) {
-                        c.assets[n] || (c.assets[n] = {}), c.assets[n][t] = e;
-                    
-});
+                        c.assets[n] || (c.assets[n] = {}), c.assets
+[n][t] = e;
+                    });
                 });
             }), p.push(c), {
                 result: p,
@@ -3985,8 +4000,8 @@ r.getDate(),
                     c(e);
                 }))), e.properties.elseIfFuncBody && !isSave && (f = o.getTarget(e.properties.elseIfFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
-                }))), e.properties.elseIfFuncBody2 && !isSave && (f = o.getTarget(e.properties.elseIfFuncBody2
-), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
+                }))), e.properties.elseIfFuncBody2 && !isSave && (f = o.getTarget
+(e.properties.elseIfFuncBody2), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
                 }))), e.properties.forFuncBody && !isSave && (f = o.getTarget(e.properties.forFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
@@ -3998,9 +4013,9 @@ r.getDate(),
             }
             var n = "example", r = new Date;
             e.getName().length && (n = e.getName());
-            var s = {
-                meta: 
+            var s = 
 {
+                meta: {
                     date: r.getFullYear() + "-" + (r.getMonth() + 1) + "-" + r.getDate(),
                     name: n
                 },
@@ -4022,8 +4037,8 @@ r.getDate(),
             };
         },
         exportHTMLCSS: function() {
-            var e = "<div class='m-body-container'></div>", r = [], i = "example", o = {}, u = "", a = "", 
-f = t.find(s.elements(), function(e) {
+            var e = "<div class='m-body-container'></div>", r = [], i = "example", 
+o = {}, u = "", a = "", f = t.find(s.elements(), function(e) {
                 return e.isContainer();
             });
             f && (o = f.exportHTMLCSS(), e = o.html, r.push(o.css), i = f.getName()), e = n(e);
@@ -4037,8 +4052,8 @@ f = t.find(s.elements(), function(e) {
                     "404": "/"
                 }, t.properties.id() == "rewrite-404" ? c[404] = t.properties.modulePath() : (c.modules[t.properties.hashPath()] = t.properties.modulePath(), c.parentM[t.properties.hashPath()] = t.properties.parentModule())) : t.isContainer() || (o = t.exportHTMLCSS(), l ? l.append(o.html) : e.append(o.html), r.push(o.css)));
             }), {
-                html: n("<div></div>").append(e).html().replace(/\&lt\;/g
-, "<").replace(/\&gt\;/g, ">").replace(/\&amp\;/g, "&").replace(/\&quot\;/g, "'"),
+                html: n("<div></div>").append(e).
+html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&amp\;/g, "&").replace(/\&quot\;/g, "'"),
                 css: r.join(" "),
                 name: i,
                 cache: u,
@@ -4058,8 +4073,8 @@ f = t.find(s.elements(), function(e) {
             });
             var o = n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\$\{/g, "${" + i.replace(/\-/g, "_") + ".");
             return {
-                html: "<#macro " + i.replace(/\-/g, "_"
-) + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
+                html: "<#macro " + 
+i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                 css: r.join(" "),
                 name: i
             };
@@ -4083,9 +4098,9 @@ f = t.find(s.elements(), function(e) {
         type: "TOOLBARGROUP",
         css: "toolbar-group"
     });
-    return t.container.Container.provideBinding("toolbargroup", i), i;
-}), 
-define("text!template/rui/component.js", [], function() {
+    return t.container.Container.provideBinding("toolbargroup"
+, i), i;
+}), define("text!template/rui/component.js", [], function() {
     return "/**\r\n * __componentNameCap__ \u7ec4\u4ef6\u5b9e\u73b0\u6587\u4ef6\r\n *\r\n * @module   __componentNameCap__\r\n */\r\nNEJ.define([\r\n    'text!./component.html',\r\n    'text!./component.css',\r\n    'pool/component-base/src/base',\r\n    'pool/component-base/src/util',\r\n    'base/element',\r\n    'base/event'\r\n    __cacheJS__\r\n], function(\r\n    html,\r\n    css,\r\n    Component,\r\n    util,\r\n    e,\r\n    v\r\n    __cacheName__\r\n) {\r\n\r\n    /**\r\n     * __componentNameCap__ \u7ec4\u4ef6\r\n     *\r\n     * @class   module:__componentNameCap__\r\n     * @extends module:pool/component-base/src/base.Component\r\n     *\r\n     * @param {Object} options      - \u7ec4\u4ef6\u6784\u9020\u53c2\u6570\r\n     * @param {Object} options.data - \u4e0e\u89c6\u56fe\u5173\u8054\u7684\u6570\u636e\u6a21\u578b\r\n     */\r\n    var __componentNameCap__ = Component.$extends({\r\n        name: '__componentName__',\r\n        css: css,\r\n        template: html,\r\n        /**\r\n         * \u6a21\u677f\u7f16\u8bd1\u524d\u7528\u6765\u521d\u59cb\u5316\u53c2\u6570\r\n         *\r\n         * @protected\r\n         * @method  module:__componentNameCap__#config\r\n         * @returns {void}\r\n         */\r\n        config: function() {\r\n            // FIXME \u8bbe\u7f6e\u7ec4\u4ef6\u914d\u7f6e\u4fe1\u606f\u7684\u9ed8\u8ba4\u503c\r\n            util.extend(this, {\r\n\r\n            });\r\n            // FIXME \u8bbe\u7f6e\u7ec4\u4ef6\u89c6\u56fe\u6a21\u578b\u7684\u9ed8\u8ba4\u503c\r\n            util.extend(this.data, {\r\n\r\n            });\r\n\r\n            this.supr();\r\n            // TODO\r\n        },\r\n\r\n        /**\r\n         * \u6a21\u677f\u7f16\u8bd1\u4e4b\u540e(\u5373\u6d3b\u52a8dom\u5df2\u7ecf\u4ea7\u751f)\u5904\u7406\u903b\u8f91\uff0c\u53ef\u4ee5\u5728\u8fd9\u91cc\u5904\u7406\u4e00\u4e9b\u4e0edom\u76f8\u5173\u7684\u903b\u8f91\r\n         *\r\n         * @protected\r\n         * @method  module:__componentNameCap__#init\r\n         * @returns {void}\r\n         */\r\n        init: function() {\r\n            // TODO\r\n            this.supr();\r\n\r\n            __cacheCall__\r\n\r\n        },\r\n\r\n        /**\r\n         * \u7ec4\u4ef6\u9500\u6bc1\u7b56\u7565\uff0c\u5982\u679c\u6709\u4f7f\u7528\u7b2c\u4e09\u65b9\u7ec4\u4ef6\u52a1\u5fc5\u5728\u6b64\u5148\u9500\u6bc1\u7b2c\u4e09\u65b9\u7ec4\u4ef6\u518d\u9500\u6bc1\u81ea\u5df1\r\n         *\r\n         * @protected\r\n         * @method  module:__componentNameCap__#destroy\r\n         * @returns {void}\r\n         */\r\n        destroy: function() {\r\n            // TODO\r\n            this.supr();\r\n        }\r\n    });\r\n\r\n    return __componentNameCap__;\r\n});\r\n"
 ;
 }), define("text!template/cache/cache.js", [], function() {
@@ -4610,7 +4625,7 @@ saveAs(t, e.name + ".css");
     }), w.on("editorJS", function(
 e) {
         var t = w.selectedComponents()[0];
-        t.meta.componentJS || t.meta.cacheJS ? D.showCodeEditor(t.meta.componentJS, t.meta.cacheJS, t.meta.testCaseApi, t.meta.testCaseEvt, t.meta.testCaseIns) : t.meta.pageFTL || t.meta.pageJS || t.meta.pageCacheJS ? D.showFTLCodeEditor(t.meta.pageFTL, t.meta.pageJS, t.meta.pageCacheJS) : D.showCodeEditor("", "");
+        t.meta.pageFTL || t.meta.pageJS || t.meta.pageCacheJS ? D.showFTLCodeEditor(t.meta.pageFTL, t.meta.pageJS, t.meta.pageCacheJS) : t.meta.componentJS || t.meta.cacheJS ? D.showCodeEditor(t.meta.componentJS, t.meta.cacheJS, t.meta.testCaseApi, t.meta.testCaseEvt, t.meta.testCaseIns) : D.showCodeEditor("", "");
     }), w.on("enterShell", function(e) {
         D.showCmd();
     }), w.on("saveRUI", function(t, n) {
@@ -4676,7 +4691,13 @@ f + "Cache").replace(/\_\_cacheCall\_\_/g, h)) : l = l.replace(/\_\_cacheJS\_\_/
             n && (
 r = JSON.parse(n[1])), r.push({
                 data: N.getDataValue()
-            }), e.meta.testCaseIns = e.meta.testCaseIns.replace(/(return ).*?\](\;)/g, "$1" + JSON.stringify(r) + "$2");
+            }), e.meta.testCaseIns = e.meta.testCaseIns.replace(/(return ).*?\](\;)/g, "$1" + JSON.stringify(r) + "$2"), C.confirm("\u63d0\u793a", "\u6210\u529f\u4fdd\u5b58\u5230caseIns\u4e2d,\u53ef\u4ee5\u7f16\u8f91JS\u67e5\u770b", null, null, 1e3);
+        }
+    }), N.on("getTestData", function() {
+        var e = w.selectedComponents()[0];
+        if (e && e.meta.testCaseIns) {
+            var t = /return (.*?\])\;/g, n = t.exec(e.meta.testCaseIns), r = [];
+            n && (r = JSON.parse(n[1]), r.length && N.setDataValue(r[Math.floor(Math.random() * r.length)]));
         }
     }), w.on("save2pool", function(e) {
         var t = e.meta.name, n = _.find(E.pages(), function(e) {
@@ -4685,7 +4706,8 @@ r = JSON.parse(n[1])), r.push({
         if (n) d.saveApi(n.postUrl, {
             ext: JSON.stringify(n),
             cmpData: JSON.stringify(r.result)
-        }, "\u64cd\u4f5c\u6210\u529f"); else {
+        }, "\u64cd\u4f5c\u6210\u529f"
+); else {
             var i = new A, s = new O, o = new O, u = new O, a = new O, f = new O, l = new O;
             s.add(new M({
                 attributes: {
@@ -4698,8 +4720,7 @@ r = JSON.parse(n[1])), r.push({
                 }
             });
             s.add(c), o.add(new M({
-                
-attributes: {
+                attributes: {
                     text: "\u7f29\u7565\u56fe\u7247\uff1a"
                 }
             }));
@@ -4715,7 +4736,8 @@ attributes: {
             }));
             var p = new k({
                 attributes: {
-                    text: "\u7ec4\u4ef6\u5730\u5740\u524d\u7f00/" + t + "/" + t + ".cmp"
+                    text: "\u7ec4\u4ef6\u5730\u5740\u524d\u7f00/" + 
+t + "/" + t + ".cmp"
                 }
             });
             u.add(p), a.add(new M({
@@ -4729,8 +4751,7 @@ attributes: {
                 }
             });
             a.add(v), f.add(new M({
-                
-attributes: {
+                attributes: {
                     text: "CSS\u5730\u5740\uff1a"
                 }
             }));
@@ -4747,7 +4768,8 @@ attributes: {
             var g = new k({
                 attributes: {
                     placeholder: "Regular\u7ec4\u4ef6\u5bfc\u51fa\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
-                }
+                
+}
             });
             l.add(g), i.add(s), i.add(o), i.add(u), i.add(a), i.add(f), i.add(l), C.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", i, function() {
                 var e = {
@@ -4756,8 +4778,7 @@ attributes: {
                     img: h.text(),
                     url: p.text(),
                     ftlPath: v.text(),
-                    
-cssPath: m.text(),
+                    cssPath: m.text(),
                     ruiPath: g.text(),
                     postUrl: "/api/" + t
                 };
@@ -4775,7 +4796,8 @@ cssPath: m.text(),
         });
     });
     var P = new FileReader;
-    return v.registerKey(!1, !0, !1, "c", function() {
+    return v
+.registerKey(!1, !0, !1, "c", function() {
         g("#cmd").css("display") == "none" ? D.showCmd() : g("#cmd").slideUp();
     }), e("elements/image"), e("elements/text"), e("elements/func"), e("elements/umi"), e("elements/timeline"), D;
 });;
