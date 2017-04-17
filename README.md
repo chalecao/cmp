@@ -13,9 +13,9 @@ CMP是一个用于制作网页的工具，你可以用它来制作静态网页�
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_timeline.png" />
  数据mock，实时预览，也可以保存数据到测试用例中，也可以从测试用例中加载数据：
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_mock.png" />
-<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/mock.png" />
+<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/mock.jpg" />
 浏览器中跑测试用例：
-<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/test.png" />
+<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/test.jpg" />
  在线代码编辑：
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_editor.png" />
 
