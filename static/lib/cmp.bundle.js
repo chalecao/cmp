@@ -404,15 +404,15 @@ t.helper.Draggable, m = JSON.parse(e("text!template/animate/animate.json")), g =
                 overflow: n.observable(!1),
                 hover: n.observable(""),
                 hoverComponent: n.observable(""),
-                hoverStr: n.observable("/* css, & for current class */"),
+                hoverStr: n.observable("/* css style */"),
                 titleStr: n.observable(""),
                 animateStr: n.observable("none"),
                 dataCate: n.observable(""),
                 dataAction: n.observable(""),
                 dataLabel: n.observable(""),
-                positionStr: n.observable("absolute"
-),
-                floatStr: n.observable(""),
+                positionStr: n.observable("absolute"),
+                
+floatStr: n.observable(""),
                 eventName: n.observable(""),
                 eventHandler: n.observable("")
             },
@@ -443,8 +443,8 @@ t.helper.Draggable, m = JSON.parse(e("text!template/animate/animate.json")), g =
                 items: [ {
                     name: "left",
                     type: "textfield",
-                    
-value: u.left,
+                    value
+: u.left,
                     text: u.left
                 }, {
                     name: "top",
@@ -477,8 +477,8 @@ value: u.left,
                 label: "\u7c7b\u578b*",
                 ui: "combobox",
                 "class": "small",
-                
-field: "style",
+                field
+: "style",
                 items: [ {
                     text: "\u666e\u901a\u5143\u7d20",
                     value: "ELEMENT"
@@ -886,6 +886,9 @@ label: "\u65b0\u5f00\u9875\u9762",
                     text: "\u4e0b\u65b9Hover",
                     value: "bottom"
                 }, {
+                    text: "\u4e0b\u53f3\u65b9Hover",
+                    value: "bottom-right"
+                }, {
                     text: "\u5de6\u8fb9Hover",
                     value: "left"
                 } ],
@@ -897,12 +900,12 @@ label: "\u65b0\u5f00\u9875\u9762",
                 field: "layout",
                 text: u.hoverComponent,
                 visible: u.hover
-            },
+            
+},
             hoverStr: {
                 label: "HoverStr",
                 ui: "codearea",
-                text
-: u.hoverStr
+                text: u.hoverStr
             },
             animateStr: {
                 label: "\u52a8\u753b",
@@ -933,12 +936,12 @@ label: "\u65b0\u5f00\u9875\u9762",
             },
             eventName: {
                 label: "on-",
-                ui: "textfield",
+                
+ui: "textfield",
                 field: "event",
                 text: u.eventName
             },
-            
-eventHandler: {
+            eventHandler: {
                 label: "\u64cd\u4f5c",
                 ui: "textfield",
                 field: "event",
@@ -963,12 +966,12 @@ eventHandler: {
                     a && i.extend(this.uiConfig, a);
                 }
             }
-            e && i.extend(t, i.omit(e, "properties"));
+            e && i.extend(t, i.omit(e, "properties"))
+;
             var l = !0;
             n.computed({
                 read: function() {
-                    var e = 
-o.left(), n = o.top();
+                    var e = o.left(), n = o.top();
                     t.$wrapper.css({
                         left: e + "px",
                         top: n + "px"
@@ -991,10 +994,10 @@ o.left(), n = o.top();
                 read: function() {
                     var e = t.properties.rid();
                     e ? t.$wrapper.attr({
-                        id: t.properties.rid()
+                        
+id: t.properties.rid()
                     }) : t.$wrapper.removeAttr("id");
-                
-}
+                }
             }), n.computed({
                 read: function() {
                     var e = t.properties.targetUrl();
@@ -1016,9 +1019,9 @@ o.left(), n = o.top();
                     e ? t.type == "TEXT" ? r(t.$wrapper.find("span")[0]).attr({
                         hoverStyle: e
                     }) : t.$wrapper.attr({
-                        hoverStyle: e
-                    }) : t.type == "TEXT" ? r(t.$wrapper.find("span")[0]).removeAttr("hoverStyle"
-) : t.$wrapper.removeAttr("hoverStyle");
+                        hoverStyle
+: e
+                    }) : t.type == "TEXT" ? r(t.$wrapper.find("span")[0]).removeAttr("hoverStyle") : t.$wrapper.removeAttr("hoverStyle");
                 }
             }), n.computed({
                 read: function() {
@@ -1040,11 +1043,11 @@ o.left(), n = o.top();
                         break;
                       case "overflowX":
                         t.$wrapper.css({
-                            "overflow-x": "hidden"
+                            "overflow-x"
+: "hidden"
                         });
                         break;
-                      
-case "overflowY":
+                      case "overflowY":
                         t.$wrapper.css({
                             "overflow-y": "hidden"
                         });
@@ -1064,10 +1067,10 @@ case "overflowY":
                         }).join(" "),
                         margin: i.map(n, function(e) {
                             return isNaN(+e.value()) ? e.value() : Math.round(e.value()) + "px";
-                        }).join(" "),
+                        
+}).join(" "),
                         padding: i.map(r, function(e) {
-                            
-return Math.round(e.value()) + "px";
+                            return Math.round(e.value()) + "px";
                         }).join(" ")
                     });
                 }
@@ -1081,10 +1084,10 @@ return Math.round(e.value()) + "px";
                 e && (t.$wrapper.hasClass("animated") || t.$wrapper.addClass("animated"), t.tempAniStr && t.tempAniStr != e && t.$wrapper.removeClass(t.tempAniStr), t.tempAniStr = e, t.$wrapper.addClass(e).one(n, function() {}));
             }), n.computed({
                 read: function() {
-                    var e = t.properties.borderStyle(), n = t.properties.borderColor(), r = t.properties.borderAlpha(), o = s(n);
+                    var e = t.properties.borderStyle(), n = t.properties.borderColor(), r = t.properties.borderAlpha
+(), o = s(n);
                     o._alpha = r;
-                    var u = t.uiConfig.borderWidth
-.items;
+                    var u = t.uiConfig.borderWidth.items;
                     e ? (t.$wrapper.css({
                         "border-style": e
                     }), t.$wrapper.css({
@@ -1104,10 +1107,10 @@ return Math.round(e.value()) + "px";
                     var u = t.properties.backgroundImageStr();
                     if (e) {
                         t.$wrapper.css({
-                            "background-color": o.cssa()
+                            "background-color"
+: o.cssa()
                         });
-                        switch (t.properties
-.backgroundImageType()) {
+                        switch (t.properties.backgroundImageType()) {
                           case "none":
                             t.$wrapper.css({
                                 "background-image": ""
@@ -1123,10 +1126,10 @@ return Math.round(e.value()) + "px";
                                 "background-image": l
                             });
                             break;
-                          case "file":
+                          
+case "file":
                             t.$wrapper.css({
-                                
-background: "url('" + u + "')"
+                                background: "url('" + u + "')"
                             });
                         }
                     } else t.$wrapper.css({
@@ -1140,8 +1143,8 @@ background: "url('" + u + "')"
                         cursor: "auto"
                     })) : (t.$wrapper.find(".e-hover-target").remove(), t.properties.boxClassStr().indexOf("e-hover-source") < 0 && t.properties.boxClassStr(t.properties.boxClassStr() + " e-hover-source"), t.$wrapper.css({
                         cursor: "pointer"
-                    }), t.$wrapper.append(f), e == "left" && t.$wrapper.find(".e-hover-target"
-).addClass("left"), n && t.trigger("addHoverComponent", n, t.$wrapper.find(".e-hover-content"), e)) : (t.$wrapper.removeClass("e-hover-source"), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.find(".e-hover-code").remove());
+                    
+}), t.$wrapper.append(f), e == "left" && t.$wrapper.find(".e-hover-target").addClass("left"), n && t.trigger("addHoverComponent", n, t.$wrapper.find(".e-hover-content"), e)) : (t.$wrapper.removeClass("e-hover-source"), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.find(".e-hover-code").remove());
                 }
             }), n.computed({
                 read: function() {
@@ -1154,9 +1157,9 @@ background: "url('" + u + "')"
                 }
             }), n.computed({
                 read: function() {
-                    t.properties.positionStr() != "relative" && t.properties.floatStr(""), t.$wrapper.css({
-                        
-position: t.properties.positionStr(),
+                    t.properties.positionStr() != "relative" && 
+t.properties.floatStr(""), t.$wrapper.css({
+                        position: t.properties.positionStr(),
                         "float": t.properties.floatStr()
                     });
                 }
@@ -1175,10 +1178,10 @@ position: t.properties.positionStr(),
                     e && t.$wrapper.attr({
                         "data-cate": e
                     }), n && t.$wrapper.attr({
-                        "data-action": n
+                        "data-action"
+: n
                     }), r && t.$wrapper.attr({
-                        "data-label"
-: r
+                        "data-label": r
                     }), (e || n || r) && t.properties.boxClassStr().indexOf("ga-click") < 0 && t.properties.boxClassStr(t.properties.boxClassStr() + " ga-click");
                 }
             }), t.$wrapper.css({
@@ -1195,10 +1198,10 @@ position: t.properties.positionStr(),
         rasterize: function() {},
         "export": function() {
             var e = {
-                eid: this.eid,
+                
+eid: this.eid,
                 type: this.type,
-                properties
-: o.toJS(this.properties),
+                properties: o.toJS(this.properties),
                 assets: {
                     images: {}
                 }
@@ -1213,8 +1216,8 @@ position: t.properties.positionStr(),
         },
         exportCache: function() {
             var e = "", t = "";
-            return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()).replace(/\_\_method\_\_/g, this.properties.requestType()) : e = p.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()), t = d.replace(/\_\_funcName\_\_/g, this.properties.requestName()).replace(/\_\_reqData\_\_/g, this.properties.requestParam()).replace(/\_\_cb\_\_/g, this.properties.onLoadFunc
-()), {
+            return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()).replace(/\_\_method\_\_/g, this.properties.requestType()) : e = p.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()), t = d.replace(/\_\_funcName\_\_/g, this.properties.requestName()).replace(/\_\_reqData\_\_/g, this
+.properties.requestParam()).replace(/\_\_cb\_\_/g, this.properties.onLoadFunc()), {
                 cacheItem: e,
                 cacheItemCall: t
             };
@@ -1247,9 +1250,9 @@ position: t.properties.positionStr(),
             return this.isContainer() ? e.substring(0, e.indexOf("container") - 1) : e;
         },
         getCss: function(e, t, n) {
-            if (e.children().length < 1) return;
-            var i = this, s = "", o = t, u = ""
-;
+            if (
+e.children().length < 1) return;
+            var i = this, s = "", o = t, u = "";
             r.each(e.children(), function(e, a) {
                 u = r(a).attr("class"), u && r(a).attr({
                     "class": i.removeCMPClass(u)
@@ -1262,11 +1265,11 @@ position: t.properties.positionStr(),
                     l && (l.indexOf("&") >= 0 ? n.push(l.replace(/\&/g, "." + o)) : n.push("." + o + ":hover{" + i.getCSS3String(l) + "}"), r(a).removeAttr("hoverstyle")), r(a).removeAttr("style"), r(a).addClass(o);
                 } else o = r(a).attr("class");
                 i.getCss(r(a), t, n);
-            });
+            
+});
         },
         getHTMLCSS: function(e, t) {
-            var n = 
-r("<div></div>").append(e), i = [];
+            var n = r("<div></div>").append(e), i = [];
             return this.getCss(n, t, i), {
                 html: n.html(),
                 css: i.join("")
@@ -1283,25 +1286,25 @@ r("<div></div>").append(e), i = [];
         exportHTMLCSS: function() {
             this.$wrapper.find(".element-select-outline").remove();
             var e = "", t = this.type, n = this.properties.boxClassStr(), r = this.properties.hoverStr(), i = this.properties.titleStr(), s = this.properties.animateStr(), o = this.properties.rid(), a = "", f = "", h = this.$wrapper.html();
-            s != "none" ? (f += m.common, f += m.list[s], n = this.removeCMPClass(n) + " animated " + s) : n = this.removeCMPClass(n), h.indexOf("animated") >= 0 && 
-u.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u5d4c\u5957\u4e2d\u542b\u6709\u52a8\u753b\uff0c\u8bf7\u4e0b\u8f7d<a style='color:#fff;' href='style/lib/animate.min.css' target='_blank'>animate.min.css</a>\u6837\u5f0f\u548c\u6eda\u52a8\u52a0\u8f7d\u52a8\u753b\u5904\u7406\u51fd\u6570<a style='color:#fff;' href='style/lib/animate.js' target='_blank'>animate.js</a>"), o && (a = " id='" + o + "'");
+            s != "none" ? (f += m.common, f += m.list[s], n = this.removeCMPClass(n) + " animated " + 
+s) : n = this.removeCMPClass(n), h.indexOf("animated") >= 0 && u.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u5d4c\u5957\u4e2d\u542b\u6709\u52a8\u753b\uff0c\u8bf7\u4e0b\u8f7d<a style='color:#fff;' href='style/lib/animate.min.css' target='_blank'>animate.min.css</a>\u6837\u5f0f\u548c\u6eda\u52a8\u52a0\u8f7d\u52a8\u753b\u5904\u7406\u51fd\u6570<a style='color:#fff;' href='style/lib/animate.js' target='_blank'>animate.js</a>"), o && (a = " id='" + o + "'");
             var p = {};
             !this.$wrapper.hasClass("e-hover-source") && !this.$wrapper.hasClass("cmp-func") && !this.$wrapper.find("a").attr("href") ? p = this.getHTMLCSS(this.$wrapper.find("a").html(), this.properties.id()) : p = this.getHTMLCSS(h, this.properties.id());
             if (this.type == "FUNC" && this.properties.funcType() == "CACHE") e = "", f = ""; else {
                 e = "<div" + a + " class='" + this.properties.id() + " " + n + "'";
-                var d = this.properties.eventName(), v = this.properties.eventHandler();
+                var d = this.properties.eventName(), v = this.properties.eventHandler
+();
                 d && (e += " on-" + d + "={" + v + "}");
-                
-var g = this.properties.dataCate(), y = this.properties.dataAction(), b = this.properties.dataLabel();
+                var g = this.properties.dataCate(), y = this.properties.dataAction(), b = this.properties.dataLabel();
                 g && (e += ' data-cate="' + g + '" '), y && (e += ' data-action="' + y + '" '), b && (e += ' data-label="' + b + '" '), i && (e += ' title="' + i + '" '), e += ">" + p.html + "</div>", f += p.css;
                 var E = this.$wrapper.attr("style");
                 this.isContainer() && (E = E.replace("absolute", "relative"));
                 var S = w.exec(E);
                 S && +S[1].split(",")[3] > 0 && (E = "background-color:rgb(" + S[1].split(",").slice(0, 3).join(",") + ");filter:alpha(opacity=" + +S[1].split(",")[3] * 100 + ");" + E), f += "." + this.properties.id() + " {" + E + "}", r && (r.indexOf("&") >= 0 ? f += r.replace(/\&/g, "." + this.properties.id()) : f += "." + this.properties.id() + ":hover {" + this.getCSS3String(r) + "}");
             }
-            if (h.indexOf("e-hover-target") >= 0 || h.indexOf("e-hover-code") >= 0) f += l;
-            return /.*f-.?line.*/g
-.test(h) && (f += c), e = e.replace(/data-cmp-eid\=\"(\d*)\"/g, "").replace(/\s+\'/g, "'"), {
+            if (h.indexOf("e-hover-target"
+) >= 0 || h.indexOf("e-hover-code") >= 0) f += l;
+            return /.*f-.?line.*/g.test(h) && (f += c), e = e.replace(/data-cmp-eid\=\"(\d*)\"/g, "").replace(/\s+\'/g, "'"), {
                 html: e,
                 css: f
             };
@@ -1324,11 +1327,11 @@ var g = this.properties.dataCate(), y = this.properties.dataAction(), b = this.p
         register: function(e, t) {
             s[e] = t;
         },
-        create: function(e, r) {
+        create: function(e
+, r) {
             var i = new t;
             o[i.eid] = i;
-            var u = s[e]
-;
+            var u = s[e];
             return i.initialize(u), r && (n.fromJS(r, {}, i.properties), delete i.properties.__ko_mapping__), i;
         },
         clone: function(e) {
@@ -1354,9 +1357,9 @@ var g = this.properties.dataCate(), y = this.properties.dataAction(), b = this.p
             return e[t] && (n += e[t]), e[t]++, n;
         };
     }();
-    return u;
-}), define("core/service", [ "require", "$", "modules/common/modal" ], function(
-e) {
+    
+return u;
+}), define("core/service", [ "require", "$", "modules/common/modal" ], function(e) {
     var t = e("$"), n = e("modules/common/modal"), r = {
         saveApi: function(e, r, i) {
             t.post(e, r, function(e) {
@@ -1378,10 +1381,10 @@ e) {
                 trueFuncBody: n.observable(""),
                 elseIfSwitch: n.observable(!1),
                 elseIfFuncItem: n.observable(""),
-                elseIfFuncBody: n.observable(""),
+                elseIfFuncBody: n.observable
+(""),
                 elseIfSwitch2: n.observable(!1),
-                elseIfFuncItem2
-: n.observable(""),
+                elseIfFuncItem2: n.observable(""),
                 elseIfFuncBody2: n.observable(""),
                 falseFuncBody: n.observable(""),
                 forFuncItem: n.observable(""),
@@ -1405,10 +1408,10 @@ e) {
                     items: [ {
                         text: "IF\u51fd\u6570",
                         value: "IF"
-                    }, {
+                    
+}, {
                         text: "FOR\u51fd\u6570",
-                        
-value: "FOR"
+                        value: "FOR"
                     }, {
                         text: "Include\u51fd\u6570",
                         value: "INCLUDE"
@@ -1433,10 +1436,10 @@ value: "FOR"
                         text: "JS\u51fd\u6570",
                         value: "JS"
                     } ],
-                    value: this.properties.funcLanguage
+                    
+value: this.properties.funcLanguage
                 },
-                includeBody
-: {
+                includeBody: {
                     label: "\u5305\u542b\u7ec4\u4ef6",
                     ui: "textarea",
                     field: "func",
@@ -1460,10 +1463,10 @@ value: "FOR"
                 },
                 trueFuncBody: {
                     label: "IfTrue",
-                    ui: "textarea",
+                    ui: "textarea"
+,
                     field: "func",
-                    text: this.properties
-.trueFuncBody,
+                    text: this.properties.trueFuncBody,
                     visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "IF";
@@ -1487,9 +1490,9 @@ value: "FOR"
                     field: "func",
                     text: this.properties.elseIfFuncBody,
                     visible: n.computed({
-                        read: function() {
-                            return e.properties.elseIfSwitch
-();
+                        
+read: function() {
+                            return e.properties.elseIfSwitch();
                         }
                     })
                 },
@@ -1515,10 +1518,10 @@ value: "FOR"
                         }
                     })
                 },
-                falseFuncBody: {
+                
+falseFuncBody: {
                     label: "IfFalse",
-                    
-ui: "textarea",
+                    ui: "textarea",
                     field: "func",
                     text: this.properties.falseFuncBody,
                     visible: n.computed({
@@ -1542,10 +1545,10 @@ ui: "textarea",
                     label: "ForBody",
                     ui: "textarea",
                     field: "func",
-                    text: this.properties.forFuncBody,
+                    text: this.properties
+.forFuncBody,
                     visible: n.computed({
-                        
-read: function() {
+                        read: function() {
                             return e.properties.funcType() == "FOR";
                         }
                     })
@@ -1568,10 +1571,10 @@ read: function() {
                     text: this.properties.requestUrl,
                     visible: n.computed({
                         read: function() {
-                            return e.properties.funcType() == "CACHE";
+                            return e
+.properties.funcType() == "CACHE";
                         }
-                    
-})
+                    })
                 },
                 requestType: {
                     label: "\u8bf7\u6c42\u7c7b\u578b",
@@ -1597,10 +1600,10 @@ read: function() {
                 },
                 requestParam: {
                     label: "\u8bf7\u6c42\u53c2\u6570",
-                    ui: "textarea",
-                    field: "func",
                     
-text: this.properties.requestParam,
+ui: "textarea",
+                    field: "func",
+                    text: this.properties.requestParam,
                     visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "CACHE";
@@ -1625,8 +1628,8 @@ text: this.properties.requestParam,
                 return e.indexOf("<") >= 0 || e.indexOf(".") >= 0;
             }
             var t = $("<span></span>"), r = this;
-            e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), n.computed(function(
-) {
+            e.find("a"
+).length ? $(e.find("a")[0]).append(t) : e.append(t), n.computed(function() {
                 var n = r.properties.funcType(), s = r.properties.funcLanguage();
                 n == "CACHE" && r.properties.funcLanguage("JS"), t.html(n + "\u51fd\u6570<br/>" + r.properties.funcLanguage() + "\u6a21\u677f/\u8bed\u8a00");
                 var o = "", u = r.properties.id().substr(2);
@@ -1635,11 +1638,11 @@ text: this.properties.requestParam,
                     if (!a) return;
                     r.$wrapper.empty();
                     var p = u + "-t", d = u + "-f", v = u + "-elf", m = u + "-elf2", g = r.properties.trueFuncBody(), y = r.properties.falseFuncBody(), b = r.properties.elseIfFuncBody(), w = r.properties.elseIfFuncBody2();
-                    s == "FTL" ? (o = "<#if " + a + "><div class='" + p + "'></div>", f && b && (o += "<#elseif " + c + "><div class='" + v + "'></div>"), l && w && (o += "<#elseif " + 
-h + "><div class='" + m + "'></div>"), o += "<#else><div class='" + d + "'></div>&lt;/#if>") : s == "Regular" && (o = "{#if " + a + "}<div class='" + p + "'></div>", f && b && (o += "{#elseif " + c + "}<div class='" + v + "'></div>"), l && w && (o += "{#elseif " + h + "}<div class='" + m + "'></div>"), o += "{#else}<div class='" + d + "'></div>{/if}"), r.$wrapper.append(o), g ? i(g) ? r.$wrapper.find("." + p).append(g) : r.trigger("addFuncComponent", g, r.$wrapper.find("." + p)) : r.$wrapper.find("." + p).remove(), b ? i(b) ? r.$wrapper.find("." + v).append(b) : r.trigger("addFuncComponent", b, r.$wrapper.find("." + v)) : r.$wrapper.find("." + v).remove(), w ? i(w) ? r.$wrapper.find("." + m).append(w) : r.trigger("addFuncComponent", w, r.$wrapper.find("." + m)) : r.$wrapper.find("." + m).remove(), y ? i(y) ? r.$wrapper.find("." + d).append(y) : r.trigger("addFuncComponent", y, r.$wrapper.find("." + d)) : r.$wrapper.find("." + d).remove();
+                    s == "FTL" ? (o = "<#if " + a + "><div class='" + p + "'></div>", f && b && (
+o += "<#elseif " + c + "><div class='" + v + "'></div>"), l && w && (o += "<#elseif " + h + "><div class='" + m + "'></div>"), o += "<#else><div class='" + d + "'></div>&lt;/#if>") : s == "Regular" && (o = "{#if " + a + "}<div class='" + p + "'></div>", f && b && (o += "{#elseif " + c + "}<div class='" + v + "'></div>"), l && w && (o += "{#elseif " + h + "}<div class='" + m + "'></div>"), o += "{#else}<div class='" + d + "'></div>{/if}"), r.$wrapper.append(o), g ? i(g) ? r.$wrapper.find("." + p).append(g) : r.trigger("addFuncComponent", g, r.$wrapper.find("." + p)) : r.$wrapper.find("." + p).remove(), b ? i(b) ? r.$wrapper.find("." + v).append(b) : r.trigger("addFuncComponent", b, r.$wrapper.find("." + v)) : r.$wrapper.find("." + v).remove(), w ? i(w) ? r.$wrapper.find("." + m).append(w) : r.trigger("addFuncComponent", w, r.$wrapper.find("." + m)) : r.$wrapper.find("." + m).remove(), y ? i(y) ? r.$wrapper.find("." + d).append(y) : r.trigger("addFuncComponent", y, r.$wrapper.find("." + d
+)) : r.$wrapper.find("." + d).remove();
                 } else if (n == "FOR") {
-                    
-if (!r.properties.forFuncItem()) return;
+                    if (!r.properties.forFuncItem()) return;
                     if (!r.properties.forFuncBody()) return;
                     r.$wrapper.empty();
                     var E = u + "-f";
@@ -1649,8 +1652,8 @@ if (!r.properties.forFuncItem()) return;
                 } else if (n == "CACHE") r.$wrapper.empty(), r.$wrapper.css({
                     color: "#fff",
                     background: "#56278f"
-                }), r.$wrapper.append("CACHE"), r.$wrapper.addClass("cmp-umi"); else if (n == "INCLUDE"
-) {
+                
+}), r.$wrapper.append("CACHE"), r.$wrapper.addClass("cmp-umi"); else if (n == "INCLUDE") {
                     r.$wrapper.empty();
                     var x = r.properties.includeBody();
                     if (x) {
@@ -1669,11 +1672,11 @@ if (!r.properties.forFuncItem()) return;
             return {
                 src: n.observable(""),
                 alt: n.observable(""),
-                classStr: n.observable("")
+                
+classStr: n.observable("")
             };
         },
-        extendUIConfig
-: function() {
+        extendUIConfig: function() {
             return {
                 text: {
                     label: "\u56fe\u7247\u5730\u5740",
@@ -1699,9 +1702,9 @@ if (!r.properties.forFuncItem()) return;
                     height: n
                 });
             }, o = i.properties.width(), u = i.properties.height();
-            s(o, u), t.alt = i.properties.alt(), n.computed(function() {
-                t.onload = function(
-) {
+            s(o, u), t.alt = 
+i.properties.alt(), n.computed(function() {
+                t.onload = function() {
                     var e = t.width, n = t.height;
                     i.properties.width() || i.properties.width(e), i.properties.height() || i.properties.height(n), s(i.properties.width(), i.properties.height()), t.onload = null;
                 }, t.src = i.properties.src();
@@ -1720,9 +1723,9 @@ if (!r.properties.forFuncItem()) return;
                 }
             }), n.computed(function() {
                 var e = i.properties.classStr();
-                e && $(t).addClass(e);
-            }), e.find("a").length ? $(e.find("a")[0]).
-append(t) : e.append(t);
+                
+e && $(t).addClass(e);
+            }), e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t);
         },
         onExport: function(e) {}
     });
@@ -1749,11 +1752,11 @@ append(t) : e.append(t);
             $("#drawDiagram").text(e), $("#drawDiagram").sequenceDiagram({
                 theme: "simple"
             });
-        },
+        
+},
         onCreate: function(e) {
             var t = this;
-            
-t.properties.width(800), t.properties.height(600), n.computed(function() {
+            t.properties.width(800), t.properties.height(600), n.computed(function() {
                 t.refreshDiagram("");
                 var e = t.properties.timelineCode();
                 t.refreshDiagram(e);
@@ -1776,10 +1779,10 @@ t.properties.width(800), t.properties.height(600), n.computed(function() {
             return this.xml && this.applyXML(this.xml), this.trigger("start"), this.$el;
         },
         enable: function(e) {
-            this.$el.show(), this.trigger("enable"), e && e();
+            
+this.$el.show(), this.trigger("enable"), e && e();
         },
-        
-disable: function(e) {
+        disable: function(e) {
             this.$el.hide(), this.trigger("disable"), e && e();
         },
         setContext: function(e) {
@@ -1799,10 +1802,10 @@ disable: function(e) {
             this._$mask && this._$mask.removeClass("loading").hide();
         },
         applyXML: function(e) {
-            i.parse(e, this.$el[0]), r.applyBindings(this, this.$el[0]);
+            i.parse(e, this.$el[0]), r.applyBindings
+(this, this.$el[0]);
             var t = this.$el[0].firstChild;
-            
-t && (this.mainComponent = n.getByDom(t));
+            t && (this.mainComponent = n.getByDom(t));
         }
     });
     return a;
@@ -1931,16 +1934,17 @@ e, t, n) {
                     return e && e.indexOf(";") < 0;
                 }), o = {}, a = [];
                 $.each(s, function(t, r) {
-                    var i = r.replace(/\".*?\"/g, " ").replace(/\'.*?\'/g, " ").replace(/\&/g, " ").replace(/\>/g, " ").replace(/\?/g, " ").replace(/\"/g, " ").replace(/\'/g, " ").replace(/\:/g, " ").replace(/\!/g, " ").replace(/\(/g, " ").replace(/\)/g, " ").replace(/\[/g, " ").replace(/\]/g, " ").replace(/\|/g, " ").replace(/\=/g, " ").replace(/\.length/g, " ").replace(/\$event/g, " ").trim();
+                    var i = r.replace(/\".*?\"/g, " ").replace(/\'.*?\'/g, " ").replace(/\&/g, " ").replace(/\>/g, " ").replace(/\?/g, " ").replace(/\"/g, " ").replace(/\'/g, " ").replace(/\:/g, " ").replace(/\!/g, " ").replace(/\(/g, " ").replace(/\)/g, " ").replace(/\[/g, " ").replace(/\]/g, " ").replace(/\|/g, " ").replace(/\=/g, " ").replace(/\,/g, " ").replace(/\.length/g, " ").replace(/\$event/g, " ").trim();
                     i.indexOf(" as ") > 0 && a.push({
                         seq: i.split(" as ")[0].trim(),
                         item: i.split(" as ")[1].trim()
-                    }), i = i.replace(/as.*/g, " ");
-                    
-var s = i.split(" ").filter(function(e) {
+                    }), i = i.replace
+(/as.*/g, " ");
+                    var s = i.split(" ").filter(function(e) {
                         return e.trim().length && e.trim() != "f-dn" && isNaN(+e);
                     }), u = "";
                     $.each(s, function(t, r) {
+                        if (r[0] == "." || r.indexOf("_index") > 0) return !0;
                         u = "", r.indexOf(".") > 0 && (u = r.split(".")[1], r = r.split(".")[0]);
                         if (r == "this") return !0;
                         if (!o[r]) {
@@ -1954,32 +1958,32 @@ var s = i.split(" ").filter(function(e) {
                                 field: "data",
                                 ui: "textfield",
                                 text: e.dataValue[r]
-                            };
+                            
+};
                         } else if (u) {
                             o[r].ui = "textarea";
-                            
-var s = e.dataValue[r](), a = {};
+                            var s = e.dataValue[r](), a = {};
                             s.length > 1 && (a = JSON.parse(s)), a[u] = "", e.dataValue[r](JSON.stringify(a).replace(/\,/g, ",\n"));
                         }
                     });
                 }), $.each(a, function(t, r) {
                     var i = [];
-                    e.dataValue[r.seq] = n.observable(""), i.push(JSON.parse(e.dataValue[r.item]())), e.dataValue[r.seq](JSON.stringify(i).replace(/\,/g, ",\n")), o[r.seq] = {
+                    e.dataValue[r.seq] = n.observable(""), e.dataValue[r.item] && (i.push(JSON.parse(e.dataValue[r.item]())), e.dataValue[r.seq](JSON.stringify(i).replace(/\,/g, ",\n")), o[r.seq] = {
                         label: r.seq,
                         field: "data",
                         ui: "textarea",
                         text: e.dataValue[r.seq]
-                    }, delete o[r.item], delete e.dataValue[r.item];
+                    }, delete o[r.item], delete e.dataValue[r.item]);
                 });
                 var f = [];
                 for (var l in o) f.push(o[l]);
                 f.push({
-                    label: "- Dispaly with mock data",
+                    label: "- Dispaly with mock data"
+,
                     field: "data",
                     ui: "button",
                     text: "Click && MockPage"
-                
-}), f.push({
+                }), f.push({
                     label: "- save in caseIns",
                     field: "data",
                     ui: "button",
@@ -1989,43 +1993,58 @@ var s = e.dataValue[r](), a = {};
                     field: "data",
                     ui: "button",
                     text: "Get Data"
+                }), f.push({
+                    label: "- show the test result",
+                    field: "data",
+                    ui: "button",
+                    text: "Show Test"
                 }), e.showProperties(f), $($(".dataModal button")[0]).click(function() {
-                    $(".switchDesign .mock").trigger("click");
+                    $(".switchDesign .mock").trigger("click"), u.showMockViewIframe();
                 }), $($(".dataModal button")[1]).click(function() {
                     u.trigger("save2test");
-                }), $($(".dataModal button")[2]).click(function() {
+                }), $($(".dataModal button"
+)[2]).click(function() {
                     u.trigger("getTestData");
+                }), $($(".dataModal button")[3]).click(function() {
+                    $(".switchDesign .mock").trigger("click"), u.trigger("showTestResult");
                 });
             }
         },
         setDataValue: function(e) {
-            for (var t in e) self.dataValue[t](e[t]);
+            for (var t in e) u.dataValue[t](JSON.stringify(e[t]).replace(/\,/g, ",\n"));
         },
         getDataValue: function() {
             var e = this, t = {};
             for (var n in e.dataValue) try {
-                
-t[n] = JSON.parse(e.dataValue[n]());
+                t[n] = JSON.parse(e.dataValue[n]());
             } catch (r) {
                 t[n] = e.dataValue[n]();
             }
             return t;
         },
-        showMockView: function() {
-            var e = this, t = e.getDataValue(), n = $(".qpf-viewport-elements-container").html();
-            n = n.substr(n.indexOf("<div data-cmp-eid"));
-            var r = n.replace(/\n/g, "").replace(/\&amp\;/g, "&").replace(/\&gt\;/g, ">").replace(/\&lt\;/g, "<").replace(/\&quot\;/g, "'").replace(/hoverstyle\=\"[\s\S]*?\"/g, "").replace(/cmp\-element/g, "").replace(/cmp\-func/g, "").replace(/data\-cmp\-eid\=\".*?\"/g, ""), i = Regular.extend({
-                template: r
+        addCss: function(e) {
+            var t = document.createElement("style");
+            t.type = "text/css", t.id = "tempStyle", t.styleSheet ? t.styleSheet.cssText = e : t.innerHTML = e, document.getElementsByTagName("head")[0].appendChild(t);
+        },
+        showMockViewIframe: function() {
+            
+var e = this, t = e.getDataValue();
+            u.trigger("refreshExample", t);
+        },
+        showMockView: function(e, t, n) {
+            var r = this, i = r.getDataValue();
+            n = n.replace(/\{\s?this\.[\s\S]*?\}/g, "");
+            var s = Regular.extend({
+                template: n
             });
-            $("#drawMockView").empty(), (new i({
-                data: t
+            $("#tempStyle").remove(), u.addCss(t), $("#drawMockView").empty(), (new s({
+                data: i
             })).$inject("#drawMockView"), $("#drawMockView .element-select-outline").remove(), $("#drawMockView .cmp-umi").remove();
         },
         PropertyItemView: o
     });
     return u;
-}), define("modules/common/listitem", [ "require", "qpf"
-, "knockout" ], function(e) {
+}), define("modules/common/listitem", [ "require", "qpf", "knockout" ], function(e) {
     var t = e("qpf"), n = t.use("meta/meta"), r = e("knockout"), i = n.derive(function() {
         return {
             title: r.observable(""),
@@ -2035,7 +2054,8 @@ t[n] = JSON.parse(e.dataValue[n]());
     }, {
         type: "LISTITEM",
         css: "list-item",
-        initialize: function() {
+        
+initialize: function() {
             this.$el.mousedown(function(e) {
                 e.preventDefault();
             });
@@ -2049,8 +2069,7 @@ t[n] = JSON.parse(e.dataValue[n]());
     });
     return i;
 }), define("modules/common/list", [ "require", "qpf", "./listitem", "knockout" ], function(e) {
-    var t = e("qpf"), n = e("./listitem"), r = t.use("container/container"), i = e("knockout"), s = r.
-derive(function() {
+    var t = e("qpf"), n = e("./listitem"), r = t.use("container/container"), i = e("knockout"), s = r.derive(function() {
         return {
             dataSource: i.observableArray([]),
             itemView: i.observable(n),
@@ -2061,7 +2080,8 @@ derive(function() {
     }, {
         type: "LIST",
         css: "list",
-        template: '<div data-bind="foreach:children" >                        <div class="qpf-container-item">                            <div data-bind="qpf_view:$data"></div>                        </div>                    </div>',
+        template: '<div data-bind="foreach:children" >                        <div class="qpf-container-item">                            <div data-bind="qpf_view:$data"></div>                        </div>                    </div>'
+,
         eventsProvided: _.union(r.prototype.eventsProvided, "select"),
         initialize: function() {
             var e = _.clone(this.dataSource()), t = this;
@@ -2070,8 +2090,7 @@ derive(function() {
                     i.utils.unwrapObservable(e.selected) && this.selected(t);
                 }, this);
             }, this), this.selected.subscribe(function(e) {
-                this.
-_unSelectAll(), _.each(e, function(e) {
+                this._unSelectAll(), _.each(e, function(e) {
                     var t = this.children()[e];
                     t && t.$el.addClass("selected");
                 }, this), t.trigger("select", this._getSelectedData());
@@ -2081,7 +2100,8 @@ _unSelectAll(), _.each(e, function(e) {
             }), this._update([], e);
         },
         _getSelectedData: function() {
-            var e = this.dataSource(), t = _.map(this.selected(), function(t) {
+            var e = this.dataSource(), t = _.map
+(this.selected(), function(t) {
                 return e[t];
             }, this);
             return t;
@@ -2093,8 +2113,7 @@ _unSelectAll(), _.each(e, function(e) {
                     var i = e.indexOf(t.value);
                     s[i] = n[i];
                 } else if (t.status === "added") {
-                    
-var o = new r({
+                    var o = new r({
                         attributes: t.value
                     });
                     s[t.index] = o, n.splice(t.index, 0, o), u.push(o);
@@ -2109,7 +2128,8 @@ var o = new r({
             }, this);
         }
     });
-    return r.provideBinding("list", s), s;
+    return r.provideBinding("list", 
+s), s;
 }), define("modules/common/contextmenu", [ "require", "qpf", "knockout", "./list" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = e("./list"), i = t.meta.Meta.derive(function() {
         return {
@@ -2121,8 +2141,7 @@ var o = new r({
         css: "context-menu-item",
         template: "<div data-bind='html:label'></div>",
         initialize: function() {
-            var e = 
-this;
+            var e = this;
             this.$el.click(function() {
                 var t = e.exec();
                 t && t(), s.hide();
@@ -2141,7 +2160,8 @@ this;
         }), s.dataSource(e), s.$el.focus();
     }, s.hide = function() {
         s.$el.hide();
-    }, s.bindTo = function(e, t) {
+    
+}, s.bindTo = function(e, t) {
         var n = function(e) {
             e.preventDefault(), s.show(typeof t == "function" ? t(e.target) : t, e.pageX, e.pageY);
         };
@@ -2151,8 +2171,7 @@ this;
     }), s.hide(), document.body.appendChild(s.$el[0]), s.render(), s;
 }), define("text!modules/hierarchy/element.html", [], function() {
     return '<div data-bind="attr: { class: typeStr},text:id"></div>\r\n';
-}), define("modules/hierarchy/element"
-, [ "require", "qpf", "knockout", "text!./element.html" ], function(e) {
+}), define("modules/hierarchy/element", [ "require", "qpf", "knockout", "text!./element.html" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = t.meta.Meta.derive(function() {
         return {
             id: n.observable(""),
@@ -2165,9 +2184,9 @@ this;
         template: e("text!./element.html")
     });
     return r;
-}), define("modules/hierarchy/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./hierarchy.xml", "_", "../property/index", "../dataMock/index", "modules/common/contextmenu", "modules/common/modal", "./element" ], function(e) {
-    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./hierarchy.xml"), u = e("_"), a = e("../property/index"), f = e("../dataMock/index"), l = e("modules/common/contextmenu"), c = e("modules/common/modal"), h = t.use("meta/textfield"), p = t.use("container/container"
-), d = t.use("container/inline"), v = t.use("meta/label"), m = e("./element"), g = new s({
+}), define("modules/hierarchy/index", [ "require", "qpf", "knockout", "core/factory", "core/command"
+, "../module", "text!./hierarchy.xml", "_", "../property/index", "../dataMock/index", "modules/common/contextmenu", "modules/common/modal", "./element" ], function(e) {
+    var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./hierarchy.xml"), u = e("_"), a = e("../property/index"), f = e("../dataMock/index"), l = e("modules/common/contextmenu"), c = e("modules/common/modal"), h = t.use("meta/textfield"), p = t.use("container/container"), d = t.use("container/inline"), v = t.use("meta/label"), m = e("./element"), g = new s({
         name: "hierarchy",
         xml: o,
         elementsList: n.observableArray([]),
@@ -2180,7 +2199,8 @@ this;
         },
         selectElementsByEID: function(e) {
             var t = [];
-            return u.each(e, function(e) {
+            return u.each
+(e, function(e) {
                 var n = r.getByEID(e);
                 n && t.push(n);
             }), g.selectedElements(t), t;
@@ -2194,19 +2214,29 @@ this;
                 };
             })), u.each(e, function(e) {
                 g.trigger("create", e);
-            }), 
-f.detect();
+            }), f.detect();
+        },
+        refreshList: function() {
+            var e = g.elements();
+            this.removeAll(), this.elementsList(u.map(e, function(e) {
+                return {
+                    id: e.properties.id,
+                    typeStr: e.type.toLowerCase(),
+                    target: e
+                };
+            })), u.each(e, function(e) {
+                g.trigger("create", e);
+            });
         },
         loadElement: function(e) {
-            var t = u.find(this.elementsList(), function(t) {
+            var t = u.find
+(this.elementsList(), function(t) {
                 return t.id() == e.properties.id;
             });
             t ? (t.target.properties.moduleHTML(e.properties.moduleHTML), t.target.properties.moduleJS(e.properties.moduleJS)) : g.trigger("create", e);
         },
         removeAll: function() {
-            u.each(this.elementsList(), function(e) {
-                i.execute("remove", e.target);
-            }), $("#drawArrow svg line").remove(), $("#drawDiagram").empty(), $("#drawArrow").hide(), $("#drawDiagram").css("opacity", 0);
+            $(".qpf-viewport-elements-container .cmp-element").remove(), $("#drawArrow svg line").remove(), $("#drawDiagram").empty(), $("#drawArrow").hide(), $("#drawDiagram").css("opacity", 0);
         }
     });
     g.editModule = function(e) {
@@ -2219,10 +2249,10 @@ f.detect();
         },
         deferEvaluation: !0
     }), g.on("start", function() {
-        g.mainComponent.$el.delegate(".qpf-ui-element"
-, "dblclick", function(e) {
+        g.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(e) {
             g.trigger("focus", $(this).qpf("get")[0].target());
-        }), l.bindTo(g.mainComponent.$el, function(e) {
+        }), l.bindTo(g.mainComponent
+.$el, function(e) {
             var t = $(e).parents(".qpf-ui-element");
             return t.length ? [ {
                 label: "\u5220\u9664",
@@ -2244,13 +2274,13 @@ f.detect();
             } ] : [ {
                 label: "\u7c98\u8d34",
                 exec: function() {
-                    var e = i.execute("paste"
-);
+                    var e = i.execute("paste");
                 }
             } ];
         });
     }), n.computed(function() {
-        var e = g.selectedElements(), t = e[e.length - 1];
+        var e = g.selectedElements(), t = e[e.
+length - 1];
         if (t) {
             a.showProperties(t.uiConfig);
             var n = 0;
@@ -2267,13 +2297,13 @@ f.detect();
                 target: n
             }), g.trigger("create", n), g.selectedElements([ n ]);
         },
-        unexecute: function(
-e, t) {}
+        unexecute: function(e, t) {}
     }), i.register("remove", {
         execute: function(e) {
-            typeof e == "string" && (e = r.getByEID(e)), r.remove(e), g.elementsList(u.filter(g.elementsList(), function(t) {
-                return t.target !== e;
-            })), g.selectedElements.remove(e), a.showProperties([]), g.trigger("remove", e), e.type == "UMI" && $(e.pointLine[0]).remove();
+            typeof e == "string" && (e = r.getByEID(e)), 
+r.remove(e), g.selectedElements.remove(e), g.elementsList.remove(function(t) {
+                return t.id() == e.properties.id();
+            }), g.refreshList(), a.showProperties([]), g.trigger("remove", e), e.type == "UMI" && $(e.pointLine[0]).remove();
         },
         unexecute: function() {}
     }), i.register("removeselected", {
@@ -2293,11 +2323,11 @@ e, t) {}
                 var t = [];
                 return u.each(y, function(n) {
                     var i = r.clone(n);
-                    e >= 0 ? g.elementsList
-.splice(e, 0, {
+                    e >= 0 ? g.elementsList.splice(e, 0, {
                         target: i,
                         id: i.properties.id
-                    }) : g.elementsList.push({
+                    }) 
+: g.elementsList.push({
                         target: i,
                         id: i.properties.id
                     }), g.trigger("create", i), t.push(i);
@@ -2323,19 +2353,19 @@ e, t) {}
         },
         unexecute: function() {}
     }), g;
-}), define("elements/umi"
-, [ "require", "core/factory", "knockout", "_", "../modules/hierarchy/index", "d3" ], function(e) {
-    var t = e("core/factory"), n = e("knockout"), r = e("_"), i = e("../modules/hierarchy/index"), s = e("d3"), o = [ "#61C5C9", "#CC9E82", "#4F8DB1", "#F9C63D", "#60ADD5", "#8EB93B", "#B31800", "#EB3F2F", "#abcc39" ], u = s.select("#drawArrow").append("svg").attr("width", parseInt(s.select("#drawArrow").attr("width"))).attr("height", parseInt(s.select("#drawArrow").attr("height"))), a = u.append("defs"), f = a.append("marker").attr("id", "arrow").attr("markerUnits", "strokeWidth").attr("markerWidth", "12").attr("markerHeight", "12").attr("viewBox", "0 0 12 12").attr("refX", "6").attr("refY", "6").attr("orient", "auto"), l = "M2,2 L10,6 L2,10 L6,6 L2,2";
+}), define("elements/umi", [ "require", "core/factory", "knockout", "_", "../modules/hierarchy/index", "d3" ], function(e) {
+    var t = 
+e("core/factory"), n = e("knockout"), r = e("_"), i = e("../modules/hierarchy/index"), s = e("d3"), o = [ "#61C5C9", "#CC9E82", "#4F8DB1", "#F9C63D", "#60ADD5", "#8EB93B", "#B31800", "#EB3F2F", "#abcc39" ], u = s.select("#drawArrow").append("svg").attr("width", parseInt(s.select("#drawArrow").attr("width"))).attr("height", parseInt(s.select("#drawArrow").attr("height"))), a = u.append("defs"), f = a.append("marker").attr("id", "arrow").attr("markerUnits", "strokeWidth").attr("markerWidth", "12").attr("markerHeight", "12").attr("viewBox", "0 0 12 12").attr("refX", "6").attr("refY", "6").attr("orient", "auto"), l = "M2,2 L10,6 L2,10 L6,6 L2,2";
     f.append("path").attr("d", l).attr("fill", "#000"), t.register("umi", {
         type: "UMI",
         pointLine: "",
         extendProperties: function() {
             return {
                 hashPath: n.observable("/home"),
-                
-modulePath: n.observable("home/index.html"),
+                modulePath: n.observable("home/index.html"),
                 parentModule: n.observable(""),
-                moduleJS: n.observable(""),
+                
+moduleJS: n.observable(""),
                 moduleHTML: n.observable("")
             };
         },
@@ -2359,19 +2389,19 @@ modulePath: n.observable("home/index.html"),
             };
         },
         onCreate: function(e) {
-            var t = $("<span style='line-height:normal;display:inline-block;width:100%;color:#fff;font-size:12px;'></span>"
-), a = this;
-            e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), a.properties.boxFontSize(0), e.css("background-color") || e.css("background-color", o[parseInt(o.length * Math.random())]), a.properties.left(400 + parseInt(100 * Math.random())), a.properties.top(80 + parseInt(400 * Math.random())), n.computed(function() {
+            var t = $("<span style='line-height:normal;display:inline-block;width:100%;color:#fff;font-size:12px;'></span>"), a = this;
+            e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), a.properties
+.boxFontSize(0), e.css("background-color") || e.css("background-color", o[parseInt(o.length * Math.random())]), a.properties.left(400 + parseInt(100 * Math.random())), a.properties.top(80 + parseInt(400 * Math.random())), n.computed(function() {
                 var e = a.properties.hashPath(), n = a.properties.modulePath();
                 t.html("<br/>" + e + "<br/><br/>" + (a.properties.titleStr() || "\u6a21\u5757\u8def\u5f84") + "\uff1a<br/>" + n);
             }), n.computed(function() {
                 u.attr("width") != parseInt(s.select("#drawArrow").attr("width")) && u.attr("width", parseInt(s.select("#drawArrow").attr("width"))), u.attr("height") != parseInt(s.select("#drawArrow").attr("height")) && u.attr("height", parseInt(s.select("#drawArrow").attr("height")));
                 var e = a.properties.parentModule();
                 if (e) {
-                    var t = r.find(i.elements
-(), function(t) {
+                    var t = r.find(i.elements(), function(t) {
                         return t.properties.id() == e;
-                    });
+                    }
+);
                     if (t) {
                         var n = +t.properties.left() + parseInt(t.properties.width()), o = +t.properties.top() + parseInt(t.properties.height() / 2), f = +a.properties.left() - 5, l = +a.properties.top() + parseInt(a.properties.height() / 2);
                         a.pointLine && a.pointLine.remove(), $("line[x1=" + n + "][y1=" + o + "][x2=" + f + "][y2=" + l + "]").remove(), a.pointLine = u.append("line").attr("x1", n).attr("y1", o).attr("x2", f).attr("y2", l).attr("stroke", "red").attr("stroke-width", 2).attr("marker-end", "url(#arrow)");
@@ -2457,17 +2487,15 @@ modulePath: n.observable("home/index.html"),
             return e.target;
         });
     }, d.on("start", function() {
-        d.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(e) {
-            d.trigger("focus", $(this).qpf("get")[0].target());
-        }), f.bindTo(d.mainComponent.$el, function(e) {
+        d.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(e) {}), f.bindTo(d.mainComponent.$el, function(e) {
             var t = $(e).parents(".qpf-ui-element"), n = [];
             return t.length ? (t[0].id == d.selectedComponents()[0].meta.name && (n = [ {
                 label: "\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60",
                 exec: function() {
                     d.trigger("save2pool", t.qpf("get")[0].target());
-                    var e = 
-$(t[0]);
-                    e.css("color", "#ffeb3b"), $(".mainContent").click(function() {
+                    var e = $(t[0]);
+                    e.css("color", "#ffeb3b"), $(".mainContent"
+).click(function() {
                         e.css("color", "");
                     }), $(".tabContent").click(function() {
                         e.css("color", "");
@@ -2487,15 +2515,30 @@ $(t[0]);
             }, {
                 label: "\u5bfc\u51faRUI\u5230\u76ee\u5f55",
                 exec: function() {
-                    c.confirm("\u63d0\u793a", "\u662f\u5426\u5f3a\u5236\u66f4\u65b0JS\u4ee3\u7801?"
-, function() {
-                        d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
+                    c.confirm("\u63d0\u793a", "\u662f\u5426\u5f3a\u5236\u66f4\u65b0JS\u4ee3\u7801?", function() {
+                        
+d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
                     }, function() {
                         d.trigger("saveRUI", t.qpf("get")[0].target(), !1);
                     });
                 }
             }, {
-                label: "\u7f16\u8f91\u7ec4\u4ef6JS",
+                label: "\u5bfc\u51fa\u901a\u7528\u6a21\u5757",
+                exec: function() {
+                    c.confirm("\u63d0\u793a", "\u662f\u5426\u5f3a\u5236\u66f4\u65b0JS\u4ee3\u7801?", function() {}, function() {});
+                }
+            }, {
+                label: "\u5bfc\u51fa\u901a\u7528\u7ec4\u4ef6",
+                exec: function() {
+                    c.confirm("\u63d0\u793a", "\u662f\u5426\u5f3a\u5236\u66f4\u65b0JS\u4ee3\u7801?", function() {
+                        d.trigger("saveRUINew", t.qpf("get")[0].target(), !0);
+                    }, function() {
+                        d.trigger("saveRUINew", t.qpf("get")[0].target(), !1);
+                    });
+                }
+            }, {
+                label: "\u7f16\u8f91\u7ec4\u4ef6JS"
+,
                 exec: function() {
                     d.trigger("editorJS", t.qpf("get")[0].target());
                 }
@@ -2514,8 +2557,7 @@ $(t[0]);
                 exec: function() {
                     i.execute("pasteComponent");
                 }
-            
-}, {
+            }, {
                 label: "\u65b0\u5efamodule",
                 exec: function() {
                     d.trigger("newModule");
@@ -2525,7 +2567,8 @@ $(t[0]);
                 exec: function() {
                     d.trigger("newUnit");
                 }
-            }, {
+            
+}, {
                 label: "\u5bfc\u5165\u7ec4\u4ef6",
                 exec: function() {
                     d.trigger("importProject");
@@ -2547,15 +2590,15 @@ $(t[0]);
         execute: function() {
             var e = [];
             u.each(v, function(t) {
-                var n = t.meta.name, r = JSON.parse(JSON.stringify
-(t).replace(n + "-container", n + "_copied" + "-container"));
+                var n = t.meta.name, r = JSON.parse(JSON.stringify(t).replace(n + "-container", n + "_copied" + "-container"));
                 r.meta.name += "_copied", e.push(r);
             }), d.load(e);
         },
         unexecute: function() {}
     }), d;
 }), define("text!modules/codeEditor/property.html", [], function() {
-    return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n</panel>\r\n<div class="editor-toolbar">\r\n    <button class="editor-close">\u786e\u8ba4\u4fee\u6539</button>\r\n    <button class="editor-cancel"> \u53d6\u6d88 </button>\r\n</div>';
+    return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n</panel>\r\n<div class="editor-toolbar">\r\n    <button class="editor-close">\u786e\u8ba4\u4fee\u6539</button>\r\n    <button class="editor-cancel"> \u53d6\u6d88(alt+c) </button>\r\n</div>\r\n'
+;
 }), define("modules/codeEditor/property", [ "require", "qpf", "knockout", "text!./property.html" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = t.use("container/container"), i = t.widget.Widget, s = i.derive(function() {
         return {
@@ -2564,8 +2607,7 @@ $(t[0]);
             titleStr: n.observable("")
         };
     }, {
-        type: "CODEVIEW"
-,
+        type: "CODEVIEW",
         css: "codeview",
         template: e("text!./property.html")
     });
@@ -2575,7 +2617,8 @@ $(t[0]);
 }), define("modules/codeEditor/index", [ "require", "qpf", "knockout", "../module", "_", "modules/component/index", "./property", "text!./property.xml", "modules/common/modal" ], function(e) {
     function p(e, t) {
         var n = e.getCursor();
-        return (!t || t()) && setTimeout(function() {
+        return (!t || t()) && setTimeout
+(function() {
             e.state.completionActive || e.showHint({
                 completeSingle: !1
             });
@@ -2589,8 +2632,7 @@ $(t[0]);
     }
     function v(e) {
         return p(e, function() {
-            var t = 
-e.getTokenAt(e.getCursor());
+            var t = e.getTokenAt(e.getCursor());
             if (t.type != "string" || !!/['"]/.test(t.string.charAt(t.string.length - 1)) && t.string.length != 1) {
                 var n = CodeMirror.innerMode(e.getMode(), t.state).state;
                 return n.tagName;
@@ -2600,7 +2642,8 @@ e.getTokenAt(e.getCursor());
     }
     var t = e("qpf"), n = e("knockout"), r = e("../module"), i = e("_"), s = t.use("container/panel"), o = e("modules/component/index"), u = e("./property"), a = [], f = e("text!./property.xml"), l = e("modules/common/modal"), c = {
         attrs: {
-            color: [ "red", "green", "blue", "purple", "white", "black", "yellow" ],
+            color: [ "red", "green"
+, "blue", "purple", "white", "black", "yellow" ],
             size: [ "large", "medium", "small" ],
             description: null
         },
@@ -2615,8 +2658,7 @@ e.getTokenAt(e.getCursor());
             attrs: {
                 lang: [ "en", "de", "fr", "nl" ],
                 freeform: null
-            
-},
+            },
             children: [ "animal", "plant" ]
         },
         animal: {
@@ -2641,7 +2683,8 @@ e.getTokenAt(e.getCursor());
         stem: c,
         flowers: c
     }, m = new r({
-        name: "property",
+        name: "property"
+,
         xml: f,
         CodeItemView: u,
         codeArray: n.observableArray([]),
@@ -2653,8 +2696,7 @@ e.getTokenAt(e.getCursor());
             var n = this;
             a = [], n.codeArray([]), i.each(e, function(e) {
                 n.codeArray.push({
-                    
-titleStr: e.titleStr,
+                    titleStr: e.titleStr,
                     classStr: e.classStr,
                     codeStr: e.codeStr
                 });
@@ -2668,7 +2710,8 @@ titleStr: e.titleStr,
                         annotateScrollbar: !0
                     },
                     matchTags: {
-                        bothTags: !0
+                        
+bothTags: !0
                     },
                     mode: /^.*(FTL)|(HTML).*$/.test(e.classStr) ? "htmlmixed" : "javascript",
                     tabSize: 4,
@@ -2678,8 +2721,7 @@ titleStr: e.titleStr,
                     lint: !0,
                     autofocus: !0
                 });
-                t.setOption("theme", "monokai"
-), setTimeout(function() {
+                t.setOption("theme", "monokai"), setTimeout(function() {
                     t.refresh();
                 }, 100), a.push(t);
             });
@@ -2691,7 +2733,8 @@ titleStr: e.titleStr,
             $("#editor .editor-close").click(function() {
                 if ($("#editor").is(":visible")) {
                     $("#editor").hide();
-                    var e = n.codeArray();
+                    var e = n.codeArray
+();
                     i.each(a, function(t, n) {
                         e[n].codeStr = t.doc.getValue();
                     }), t(e);
@@ -2702,8 +2745,7 @@ titleStr: e.titleStr,
         }
     });
     return m;
-}), define("modules/common/buttongroup", [ "require", "qpf", "knockout", "_" ], 
-function(e) {
+}), define("modules/common/buttongroup", [ "require", "qpf", "knockout", "_" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = e("_"), i = t.container.Inline.derive(function() {
         return {
             action: n.observable("button")
@@ -2718,7 +2760,8 @@ function(e) {
         return {
             tag: "div",
             text: r.observable(""),
-            placeholder: r.observable("")
+            
+placeholder: r.observable("")
         };
     }, {
         type: "CODEAREA",
@@ -2727,8 +2770,7 @@ function(e) {
         onResize: function() {
             this.$el.find("textarea").width(this.width()), n.prototype.onResize.call(this);
             var e = this;
-            this.$el.parent().parent().css("margin-left", "0"), this.$el.parent().parent
-().css("margin-right", "0"), this.$el.parent().parent().css("margin-top", "20px"), this.$el.css("width", "100%");
+            this.$el.parent().parent().css("margin-left", "0"), this.$el.parent().parent().css("margin-right", "0"), this.$el.parent().parent().css("margin-top", "20px"), this.$el.css("width", "100%");
             var t = this._cm = CodeMirror.fromTextArea(this.$el.find("textarea")[0], {
                 lineNumbers: !1,
                 styleActiveLine: !0,
@@ -2739,7 +2781,8 @@ function(e) {
                 tabSize: 4
             });
             t.setOption("theme", "monokai"), t.doc.setCursor(t.doc.lastLine() + 1), e.text(e.text() + " "), t.on("keyup", function(t, n) {
-                e.text(t.doc.getValue());
+                
+e.text(t.doc.getValue());
             });
         }
     });
@@ -2751,8 +2794,7 @@ function(e) {
         left: n.observable(300),
         top: n.observable(100)
     });
-    return i.$el.hide
-(), i.title("\u8c03\u8272\u5668"), i.id("Palette"), i.add(r), document.body.appendChild(i.$el[0]), i.render(), r.show = function() {
+    return i.$el.hide(), i.title("\u8c03\u8272\u5668"), i.id("Palette"), i.add(r), document.body.appendChild(i.$el[0]), i.render(), r.show = function() {
         i.$el.show();
     }, r.hide = function() {
         i.$el.hide();
@@ -2763,15 +2805,15 @@ function(e) {
             color: n.observable(16777215),
             alpha: n.observable(1)
         };
-        return e._colorStr = n.computed(function() {
+        return e._colorStr = n.computed(
+function() {
             return i(e.color()).hex();
         }), e;
     }, {
         type: "COLOR",
         css: "color",
         template: '<div data-bind="text:_colorStr" class="qpf-color-hex"></div>                    <div class="qpf-color-preview" data-bind="style:{backgroundColor:_colorStr()}"></div>                    <div data-bind="text:alpha" class="qpf-color-hex"></div>',
-        initialize: function(
-) {
+        initialize: function() {
             var e = this;
             this.$el.click(function() {
                 e.showPalette();
@@ -2786,15 +2828,15 @@ function(e) {
         _paletteCancel: function() {
             s.hide(), s.off("change"), s.off("apply"), s.off("cancel");
         },
-        _paletteApply: function(e, t) {
+        _paletteApply: function(
+e, t) {
             this.color(e), this.alpha(t), this._paletteCancel();
         }
     });
     return r.provideBinding("color", o), o;
 }), define("modules/common/gradient", [ "require", "qpf", "knockout", "$", "_", "onecolor", "./palette" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = e("$"), i = e("_"), s = e("onecolor"), o = e("./palette"), u = t.widget.Widget.derive(function() {
-        
-return {
+        return {
             stops: n.observableArray([]),
             angle: n.observable(180),
             _percentString: function(e) {
@@ -2804,7 +2846,8 @@ return {
     }, {
         type: "GRADIENT",
         css: "gradient",
-        template: '<div class="qpf-gradient-preview"></div>                    <div class="qpf-gradient-stops" data-bind="foreach:{data : stops, afterRender : _onAddStop.bind($data)}">                        <div class="qpf-gradient-stop" data-bind="style:{left:$parent._percentString(percent)}">                            <div class="qpf-gradient-stop-inner"></div>                        </div>                    </div>                    <div class="qpf-gradient-angle></div>',
+        template: '<div class="qpf-gradient-preview"></div>                    <div class="qpf-gradient-stops" data-bind="foreach:{data : stops, afterRender : _onAddStop.bind($data)}">                        <div class="qpf-gradient-stop" data-bind="style:{left:$parent._percentString(percent)}">                            <div class="qpf-gradient-stop-inner"></div>                        </div>                    </div>                    <div class="qpf-gradient-angle></div>'
+,
         initialize: function() {
             var e = this;
             this.stops.subscribe(function(t) {
@@ -2812,8 +2855,7 @@ return {
             });
         },
         afterRender: function() {
-            this
-._$gradientPreview = this.$el.find(".qpf-gradient-preview"), this._$stopsContainer = this.$el.find(".qpf-gradient-stops"), this._updateGradientPreview();
+            this._$gradientPreview = this.$el.find(".qpf-gradient-preview"), this._$stopsContainer = this.$el.find(".qpf-gradient-stops"), this._updateGradientPreview();
             var e = this, t = this.stops();
             this.$el.find(".qpf-gradient-stop").each(function(n) {
                 e._onAddStop(this, t[n]);
@@ -2826,14 +2868,14 @@ return {
             this._$gradientPreview.css({
                 "background-image": "-webkit-" + e,
                 "background-image": "-moz-" + e,
-                "background-image": e
+                "background-image"
+: e
             });
         },
         _onAddStop: function(e, n) {
             var i = this, s = new t.helper.Draggable({
                 axis: "x",
-                container: this.$el.find(".qpf-gradient-stops"
-)
+                container: this.$el.find(".qpf-gradient-stops")
             });
             s.add(e), s.on("drag", function(t) {
                 this._dragHandler(e, n);
@@ -2850,13 +2892,13 @@ return {
                 stop: e,
                 _updateGradientPreview: this._updateGradientPreview.bind(this)
             }), o.on("cancel", this._paletteCancel, this), o.on("apply", this._paletteApply, this);
-            var t = n.utils.unwrapObservable(e.color);
+            var t = n.utils.unwrapObservable
+(e.color);
             o.set(parseInt(s(t).hex().substr(1), 16));
         },
         _paletteChange: function(e) {
             var t = s(e).cssa();
-            n.isObservable(this.stop.color) ? this
-.stop.color(t) : this.stop.color = t, this._updateGradientPreview();
+            n.isObservable(this.stop.color) ? this.stop.color(t) : this.stop.color = t, this._updateGradientPreview();
         },
         _paletteCancel: function() {
             o.hide(), o.off("change"), o.off("apply"), o.off("cancel");
@@ -2875,14 +2917,14 @@ return {
             _paths: {
                 red: new i.renderable.Path({
                     stroke: !1,
-                    style: new i.Style({
+                    style: new 
+i.Style({
                         fill: "red",
                         globalAlpha: .4,
                         shadow: "0 -2 2 #333"
                     })
                 }),
-                green
-: new i.renderable.Path({
+                green: new i.renderable.Path({
                     stroke: !1,
                     style: new i.Style({
                         fill: "green",
@@ -2905,12 +2947,12 @@ return {
                         globalAlpha: .7
                     })
                 }),
-                greenStroke: new i.renderable.Path({
+                
+greenStroke: new i.renderable.Path({
                     fill: !1,
                     style: new i.Style({
                         stroke: "#009500",
-                        globalAlpha
-: .7
+                        globalAlpha: .7
                     })
                 }),
                 blueStroke: new i.renderable.Path({
@@ -2931,13 +2973,13 @@ return {
         initialize: function() {
             this._scene.add(this._paths.red), this._scene.add(this._paths.green), this._scene.add(this._paths.blue), this._scene.add(this._paths.redStroke), this._scene.add(this._paths.greenStroke), this._scene.add(this._paths.blueStroke), this._histogram.downSample = 1 / 8;
         },
-        template: "",
+        template
+: "",
         update: function() {
             if (!this.image) return;
             this._histogram.image = this.image, this._histogram.update();
         },
-        refresh: function(
-) {
+        refresh: function() {
             if (!this.image) return;
             histogramArray = this.getNormalizedHistogram(), this.updatePath("red", histogramArray.red), this.updatePath("green", histogramArray.green), this.updatePath("blue", histogramArray.blue), this._stage.render(this._scene);
         },
@@ -2953,11 +2995,11 @@ return {
             t.pushPoints([ [ this.$el.width(), n ], [ 0, n ] ]), this._paths[e + "Stroke"].segments = t.segments;
         },
         updatePath: function(e, t) {
-            var n = this._paths[e], r = this.height(), i = this.sample();
+            var n = 
+this._paths[e], r = this.height(), i = this.sample();
             for (var s = i; s < 257; s += i) n.segments[s / i].point[1] = (1 - t[s - 1]) * r;
             n.smooth(1);
-        
-},
+        },
         getNormalizedHistogram: function() {
             function e(e) {
                 var t = [];
@@ -2979,11 +3021,11 @@ return {
         }
     });
     return s.provideBinding("histogram", o), o;
-}), define("modules/common/iconbutton", [ "require", "qpf", "knockout" ], function(e) {
+}), define("modules/common/iconbutton", [ "require"
+, "qpf", "knockout" ], function(e) {
     var t = e("qpf"), n = t.use("meta/button"), r = t.use("meta/meta"), i = e("knockout"), s = n.derive(function() {
         return {
-            
-$el: $("<div></div>"),
+            $el: $("<div></div>"),
             icon: i.observable(""),
             title: i.observable("")
         };
@@ -3002,22 +3044,22 @@ $el: $("<div></div>"),
             multipleSelect: !1,
             dragSort: !1,
             actived: i.observable(0),
-            maxTabWidth: 150,
+            
+maxTabWidth: 150,
             minTabWidth: 50
         };
         return e.actived.subscribe(function(e) {
             this._active(e);
         }, this), e;
     }, {
-        type: "LISTTAB"
-,
+        type: "LISTTAB",
         css: "list-tab qpf-ui-tab",
         template: '<div class="qpf-tab-header">                        <ul class="qpf-tab-tabs" data-bind="foreach:children">                            <li data-bind="click:$parent.actived.bind($data, $index())">                                <a data-bind="html:$data.titleStr">adasd</a>                            </li>                        </ul>                        <div class="qpf-tab-tools"></div>                    </div>                    <div class="qpf-tab-body">                        <div data-bind="foreach:children" >                            <div class="qpf-container-item">                                <div data-bind="qpf_view:$data"></div>                            </div>                        </div>                    </div>',
-        eventsProvided: _.union(r.prototype.eventsProvided, "select"),
+        eventsProvided
+: _.union(r.prototype.eventsProvided, "select"),
         initialize: function() {
             var e = _.clone(this.dataSource()), t = this;
-            this.dataSource.subscribe(function(
-t) {
+            this.dataSource.subscribe(function(t) {
                 this._update(e, t), e = _.clone(t), _.each(e, function(e, t) {
                     i.utils.unwrapObservable(e.selected) && this.selected(t);
                 }, this);
@@ -3034,12 +3076,12 @@ t) {
             return t;
         },
         _update: function(e, t) {
-            var n = this.children(), r = this.itemView(), s = [], o = i.utils.compareArrays(e, t), u = [];
+            var n = this.children(), r = this.itemView(), s = [
+], o = i.utils.compareArrays(e, t), u = [];
             _.each(o, function(t) {
                 if (t.status === "retained") {
                     var i = e.indexOf(t.value);
-                    
-s[i] = n[i];
+                    s[i] = n[i];
                 } else if (t.status === "added") {
                     var o = new r({
                         attributes: t.value
@@ -3062,12 +3104,12 @@ s[i] = n[i];
         },
         _active: function(e) {
             this._unActiveAll();
-            var t = this.children()[e];
+            
+var t = this.children()[e];
             t && t.$el.css("display", "block"), this.$el.find(".qpf-tab-header>.qpf-tab-tabs>li").removeClass("actived").eq(e).addClass("actived");
         }
     });
-    
-return r.provideBinding("listtab", s), s;
+    return r.provideBinding("listtab", s), s;
 }), define("modules/common/nativehtml", [ "require", "qpf", "knockout", "_" ], function(e) {
     var t = e("qpf"), n = t.use("meta/meta"), r = e("knockout"), i = t.use("core/xmlparser"), s = e("_"), o = n.derive(function() {
         return {
@@ -3087,9 +3129,9 @@ return r.provideBinding("listtab", s), s;
             html: n
         };
     }), o;
-}), define("modules/common/region", [ "require", "qpf", "knockout", "_", "../router" ], function(e) {
-    var t = e("qpf"), n = t.use("meta/meta"), r = t.use("base"), i = e("knockout"), s = e("_"), o = e("../router"), u = r.derive(function(
-) {
+}), define("modules/common/region", [ "require"
+, "qpf", "knockout", "_", "../router" ], function(e) {
+    var t = e("qpf"), n = t.use("meta/meta"), r = t.use("base"), i = e("knockout"), s = e("_"), o = e("../router"), u = r.derive(function() {
         return {
             controller: {},
             _moduleCache: {},
@@ -3112,12 +3154,12 @@ return r.provideBinding("listtab", s), s;
             }), n || t();
         },
         leaveModule: function(e) {
-            var t = this._moduleCache[e], n = Array.prototype.pop.call(arguments);
+            
+var t = this._moduleCache[e], n = Array.prototype.pop.call(arguments);
             t && t.disable(n);
         },
         enterModule: function(t, n) {
-            var r = {}, i = this
-, o = Array.prototype.pop.call(arguments), u = Array.prototype.slice.call(arguments, 2);
+            var r = {}, i = this, o = Array.prototype.pop.call(arguments), u = Array.prototype.slice.call(arguments, 2);
             n && s.each(u, function(e, t) {
                 var i = n[t];
                 i && (r[i] = e);
@@ -3131,12 +3173,12 @@ return r.provideBinding("listtab", s), s;
             }), o();
         },
         onResize: function() {
-            this._currentModule && this._currentModule.mainComponent && (this._currentModule.mainComponent.width(this.$el.width()), this._currentModule.mainComponent.height(this.$el.height())), r.prototype.onResize.call(this);
+            this._currentModule && this._currentModule.mainComponent && (this._currentModule.mainComponent.width(this
+.$el.width()), this._currentModule.mainComponent.height(this.$el.height())), r.prototype.onResize.call(this);
         }
     });
     return n.provideBinding("region", u), u;
-}), define
-("modules/common/textArea", [ "require", "qpf", "knockout", "_" ], function(e) {
+}), define("modules/common/textArea", [ "require", "qpf", "knockout", "_" ], function(e) {
     var t = e("qpf"), n = t.use("meta/meta"), r = e("knockout"), i = e("_"), s = n.derive(function() {
         return {
             tag: "div",
@@ -3155,14 +3197,14 @@ return r.provideBinding("listtab", s), s;
 }), define("modules/common/togglebutton", [ "require", "qpf", "knockout" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = t.meta.Button.derive(function() {
         return {
-            actived: n.observable(!1)
+            
+actived: n.observable(!1)
         };
     }, {
         type: "TOGGLEBUTTON",
         css: [ "button", "toggle-button" ],
         initialize: function() {
-            var e = 
-this;
+            var e = this;
             n.computed(function() {
                 this.actived() ? e.$el.addClass("active") : e.$el.removeClass("active");
             });
@@ -3184,10 +3226,10 @@ this;
             });
         }
     });
-    return t.Base.provideBinding("toggleiconbutton", i), i;
+    return t.Base
+.provideBinding("toggleiconbutton", i), i;
 }), define("text!modules/page/element.html", [], function() {
-    return '<div data-bind="text:id"></div>\r\n<div class="qpf-page-desc" data-bind="text:desc"></div>\r\n<img class="qpf-page-img" data-bind="attr: { src: img}">\r\n'
-;
+    return '<div data-bind="text:id"></div>\r\n<div class="qpf-page-desc" data-bind="text:desc"></div>\r\n<img class="qpf-page-img" data-bind="attr: { src: img}">\r\n';
 }), define("modules/page/element", [ "require", "qpf", "knockout", "text!./element.html" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = t.meta.Meta.derive(function() {
         return {
@@ -3204,8 +3246,8 @@ this;
     return r;
 }), define("text!modules/page/page.xml", [], function() {
     return '<container id="Page">\r\n    <list id="PagesList" dataSource="@binding[pagesList]" itemView="@binding[ElementView]" onselect="@binding[_selectPages]"></list>\r\n</container>';
-}), define("modules/page/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./page.xml", "_", "../property/index", "../component/index", "../hierarchy/index", "modules/common/contextmenu", "modules/common/modal", "./element" ], function(e) 
-{
+}), define
+("modules/page/index", [ "require", "qpf", "knockout", "core/factory", "core/command", "../module", "text!./page.xml", "_", "../property/index", "../component/index", "../hierarchy/index", "modules/common/contextmenu", "modules/common/modal", "./element" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = e("core/factory"), i = e("core/command"), s = e("../module"), o = e("text!./page.xml"), u = e("_"), a = e("../property/index"), f = e("../component/index"), l = e("../hierarchy/index"), c = e("modules/common/contextmenu"), h = e("modules/common/modal"), p = t.use("meta/textfield"), d = t.use("container/vbox"), v = t.use("container/container"), m = t.use("container/inline"), g = t.use("meta/label"), y = e("./element"), b = "", w = "", E = new s({
         name: "page",
         xml: o,
@@ -3213,7 +3255,8 @@ this;
         selectedPages: n.observableArray([]),
         ElementView: y,
         _selectPages: function(e) {
-            E.selectedPages(u.map(e, function(e) {
+            E.selectedPages(u.map(e, function(e) 
+{
                 return e.target;
             }));
         },
@@ -3222,8 +3265,7 @@ this;
             u.map(e, function(e) {
                 var n = u.find(b.split("_"), function(t) {
                     return t == e.name;
-                
-});
+                });
                 n ? h.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u5df2\u5b58\u5728\u7ec4\u4ef6" + e.name + ", \u70b9\u51fb\u786e\u5b9a\u66ff\u6362\u4e3a\u65b0\u7684\u7ec4\u4ef6", function() {
                     u.each(t, function(t) {
                         if (t.id == e.name) return t.target = e, !1;
@@ -3239,7 +3281,8 @@ this;
         getTarget: function(e) {
             var t = E.pagesList(), n = {};
             return u.each(t, function(t, r) {
-                if (t.id == e) {
+                
+if (t.id == e) {
                     n = t.target;
                     return;
                 }
@@ -3250,8 +3293,7 @@ this;
         return u.map(E.pagesList(), function(e) {
             return e.target;
         });
-    }, E.savePool = 
-function() {
+    }, E.savePool = function() {
         if (w) {
             var e = w.substring(w.lastIndexOf("/") + 1, w.indexOf("cmpp") - 1);
             $.post("/api/" + e, {
@@ -3268,35 +3310,38 @@ function() {
             });
             h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u5730\u5740\uff1a", t, function() {
                 if (t.text()) {
-                    w = t.text();
+                    w = t.text()
+;
                     var e = w.substring(w.lastIndexOf("/"), w.indexOf("cmpp") - 1);
                     $.post("/api/" + e, {
                         ext: '{"name":"' + e + '", "url":"' + w + '"}',
                         cmpData: JSON.stringify(E.pages(), null, 2)
-                    
-}, function(e) {
+                    }, function(e) {
                         h.confirm("\u63d0\u793a", e.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
                     });
                 }
             });
         }
     }, E.on("start", function() {
-        E.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(e) {
-            E.trigger("focus", $(this).qpf("get")[0].target());
-        }), c.bindTo(E.mainComponent.$el, function(e) {
-            var t = $(e).parents(".qpf-ui-element");
-            return t.length ? [ {
+        function e() {
+            var e = E.selectedPages(), t = e[e.length - 1];
+            t && (f.components().length ? h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6", function() {
+                f.clearComponents(), l.removeAll(), E.trigger("selectPage", t);
+            }, function() {
+                E.selectedPages([]);
+                
+var e = E.pagesList();
+                E.pagesList([]), E.pagesList(e);
+            }) : E.trigger("selectPage", t));
+        }
+        E.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(t) {
+            e();
+        }), c.bindTo(E.mainComponent.$el, function(t) {
+            var n = $(t).parents(".qpf-ui-element");
+            return n.length ? [ {
                 label: "\u52a0\u8f7d\u9009\u4e2d\u7ec4\u4ef6",
                 exec: function() {
-                    var e = E.selectedPages(), t = e[e.length - 1];
-                    t && (f.components().length ? h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6", function() {
-                        f.clearComponents(), l.removeAll(), E.trigger
-("selectPage", t);
-                    }, function() {
-                        E.selectedPages([]);
-                        var e = E.pagesList();
-                        E.pagesList([]), E.pagesList(e);
-                    }) : E.trigger("selectPage", t));
+                    e();
                 }
             }, {
                 label: "\u63d2\u5165\u9009\u4e2d\u7ec4\u4ef6",
@@ -3307,96 +3352,109 @@ function() {
             }, {
                 label: "\u7f16\u8f91",
                 exec: function() {
-                    var e = t.qpf("get")[0].attributes.target, n = e.name, r = new v, i = new m, s = new m, o = new m, u = new m, a = new m, f = new m;
+                    var e = n.qpf("get")[0].attributes.target, t = e.name, r = new v, i = new m, s = new m, o = new m, u = new m, a = new m, f = new 
+m, l = new m;
                     i.add(new g({
                         attributes: {
                             text: "\u7ec4\u4ef6\u63cf\u8ff0\uff1a"
                         }
                     }));
-                    var l = new p({
-                        
-attributes: {
+                    var c = new p({
+                        attributes: {
                             text: e.desc,
                             placeholder: "\u7ec4\u4ef6\u63cf\u8ff0"
                         }
                     });
-                    i.add(l), s.add(new g({
+                    i.add(c), s.add(new g({
                         attributes: {
                             text: "\u7f29\u7565\u56fe\u7247\uff1a"
                         }
                     }));
-                    var c = new p({
+                    var d = new p({
                         attributes: {
                             text: e.img,
                             placeholder: "\u7f29\u7565\u56fe\u7247"
                         }
                     });
-                    s.add(c), o.add(new g({
+                    s.add(d), o.add(new g({
                         attributes: {
                             text: "\u7ec4\u4ef6\u5730\u5740\uff1a"
-                        }
+                        
+}
                     }));
-                    var d = new p({
+                    var y = new p({
                         attributes: {
                             text: e.url,
                             placeholder: "\u7ec4\u4ef6\u5730\u5740"
-                        
-}
+                        }
                     });
-                    o.add(d), u.add(new g({
+                    o.add(y), u.add(new g({
                         attributes: {
                             text: "FTL\u5730\u5740\uff1a"
                         }
                     }));
-                    var y = new p({
+                    var b = new p({
                         attributes: {
                             text: e.ftlPath,
                             placeholder: "FTL\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                         }
                     });
-                    u.add(y), a.add(new g({
+                    u.add(b), a.add(new g({
                         attributes: {
                             text: "CSS\u5730\u5740\uff1a"
                         }
                     }));
-                    var b = new p({
+                    var w = new p({
                         attributes: {
-                            text: e.cssPath,
+                            
+text: e.cssPath,
                             placeholder: "CSS\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                         }
                     });
-                    a.add(b), f.add(new g({
-                        
-attributes: {
+                    a.add(w), f.add(new g({
+                        attributes: {
                             text: "RUI\u5730\u5740\uff1a"
                         }
                     }));
-                    var w = new p({
+                    var S = new p({
                         attributes: {
                             text: e.ruiPath,
                             placeholder: "Regular\u7ec4\u4ef6\u5bfc\u51fa\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                         }
                     });
-                    f.add(w), r.add(i), r.add(s), r.add(o), r.add(u), r.add(a), r.add(f), h.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", r, function() {
+                    f.add(S), l.add(new g({
+                        attributes: {
+                            text: "LIB\u5730\u5740\uff1a"
+                        }
+                    }));
+                    var x = new p({
+                        attributes: {
+                            text: e.libPath,
+                            placeholder
+: "\u6240\u4f9d\u8d56\u7684\u7ec4\u4ef6\u6c60lib\u5730\u5740('/src/javascript/lib/')"
+                        }
+                    });
+                    l.add(x), r.add(i), r.add(s), r.add(o), r.add(u), r.add(a), r.add(f), r.add(l), h.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", r, function() {
                         var e = {
-                            name: n,
-                            desc: l.text(),
-                            img: c.text(),
-                            url: d.text(),
-                            ftlPath: y.text(),
-                            cssPath: b.text(),
-                            ruiPath: w.text(),
-                            postUrl: "/api/" + n
+                            name: t,
+                            desc: c.text(),
+                            img: d.text(),
+                            url: y.text(),
+                            ftlPath: b.text(),
+                            cssPath: w.text(),
+                            ruiPath: S.text(),
+                            libPath: x.text(),
+                            postUrl: "/api/" + t
                         };
-                        
-E.load([ e ]);
+                        E.load([ e ]);
                     });
                 }
             }, {
                 label: "\u5220\u9664",
                 exec: function() {}
             }, {
-                label: "\u52a0\u8f7d\u9009\u4e2d\u7ec4\u4ef6\u5907\u4efd",
+                label: "\u52a0\u8f7d\u9009\u4e2d\u7ec4\u4ef6\u5907\u4efd"
+,
                 exec: function() {
                     var e = E.selectedPages(), t = e[e.length - 1];
                     t && (t.urlBackup = t.url + "_backup", f.components().length ? h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6", function() {
@@ -3408,13 +3466,13 @@ E.load([ e ]);
                     }) : E.trigger("selectPage", t));
                 }
             } ] : [ {
-                
-label: "\u52a0\u8f7d\u672c\u5730\u7ec4\u4ef6",
+                label: "\u52a0\u8f7d\u672c\u5730\u7ec4\u4ef6",
                 exec: function() {
                     E.trigger("importProject");
                 }
             }, {
-                label: "\u52a0\u8f7d\u8fdc\u7a0b\u7ec4\u4ef6",
+                label: "\u52a0\u8f7d\u8fdc\u7a0b\u7ec4\u4ef6"
+,
                 exec: function() {
                     var e = new p({
                         attributes: {
@@ -3431,12 +3489,12 @@ label: "\u52a0\u8f7d\u672c\u5730\u7ec4\u4ef6",
                 label: "\u5bfc\u51fa\u7ec4\u4ef6\u6c60",
                 exec: function() {
                     var e = new p({
-                        attributes
-: {
+                        attributes: {
                             placeholder: "\u7ec4\u4ef6\u6c60\u540d\u79f0"
                         }
                     });
-                    h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u540d\u79f0\uff1a", e, function() {
+                    h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u540d\u79f0\uff1a", e, function(
+) {
                         if (e.text()) {
                             var t = new Blob([ JSON.stringify(E.pages(), null, 2) ], {
                                 type: "text/plain;charset=utf-8"
@@ -3454,7 +3512,7 @@ label: "\u52a0\u8f7d\u672c\u5730\u7ec4\u4ef6",
         });
     }), E;
 }), define("text!modules/shellCmd/property.html", [], function() {
-    return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n</panel>\r\n<div class="editor-toolbar">\r\n    <button class="editor-new"> \u65b0\u589e </button>\r\n    <button class="editor-cancel"> \u6536\u8d77(alt+c) </button>\r\n    <button class="editor-close" data-bind="attr: { index: index}"> \u5173\u95ed </button>\r\n</div>\r\n'
+    return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n</panel>\r\n<div class="editor-toolbar">\r\n    <button class="editor-new"> \u65b0\u589e </button>\r\n    <button class="editor-cancel"> \u6536\u8d77(alt+s) </button>\r\n    <button class="editor-close" data-bind="attr: { index: index}"> \u5173\u95ed </button>\r\n</div>\r\n'
 ;
 }), define("modules/shellCmd/property", [ "require", "qpf", "knockout", "text!./property.html" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = t.use("container/container"), i = t.widget.Widget, s = i.derive(function() {
@@ -3595,10 +3653,10 @@ o.indexOf(":") > 0 ? s = o : o == ".." ? s += "/../" : o != "." && (s[s.length -
     return '<inline id="Toolbar">\r\n    <toolbargroup>\r\n        <button text="eHtml" onclick="@binding[exportHTML]"></button>\r\n        <button text="eRUI" onclick="@binding[exportRUI]"></button>\r\n        <button text="eFTL" onclick="@binding[exportFTL]"></button>\r\n        <!--<button text="eMac" onclick="@binding[exportMac]"></button>-->\r\n        <button text="align" onclick="@binding[alignProcess]"></button>\r\n        <button text="newP" onclick="@binding[newPage]"></button>\r\n        <button text="newM" onclick="@binding[newModule]"></button>\r\n        <button text="newU" onclick="@binding[newUnit]"></button>\r\n        <button text="newC" onclick="@binding[newCache]"></button>\r\n        <button text="export" onclick="@binding[exportProject]"></button>\r\n        <iconbutton icon="save" title="\u4fdd\u5b58\u6a21\u578b" onclick="@binding[saveProject]"></iconbutton>\r\n        <iconbutton icon="load" title="\u5bfc\u5165\u6a21\u578b" onclick="@binding[importProject]"></iconbutton>\r\n    </toolbargroup>\r\n    <meta class="divider"></meta>\r\n    <toolbargroup>\r\n        <iconbutton icon="element" title="\u521b\u5efa\u5143\u7d20" onclick="@binding[createElement]"></iconbutton>\r\n        <iconbutton icon="image" title="\u521b\u5efa\u56fe\u7247" onclick="@binding[createImage]"></iconbutton>\r\n        <iconbutton icon="text" title="\u521b\u5efa\u6587\u672c" onclick="@binding[createText]"></iconbutton>\r\n        <iconbutton icon="function" title="\u521b\u5efa\u51fd\u6570" onclick="@binding[createFunction]"></iconbutton>\r\n        <iconbutton icon="module" title="\u521b\u5efa\u6a21\u5757" onclick="@binding[createModule]"></iconbutton>\r\n        <iconbutton icon="timeline" title="\u521b\u5efa\u65f6\u5e8f\u56fe" onclick="@binding[createTimeline]"></iconbutton>\r\n        <!--<iconbutton icon="embed" title="\u7f16\u8f91\u4ee3\u7801" onclick="@binding[showCode]"></iconbutton>-->\r\n        <iconbutton icon="shell" title="\u8fdc\u7a0b\u63a7\u5236\u53f0" onclick="@binding[showCmd]"></iconbutton>\r\n    </toolbargroup>\r\n    \r\n    <meta class="divider" ></meta>\r\n    <toolbargroup  style="float:right">\r\n        <iconbutton icon="shuffle" title="\u5207\u6362\u5c5e\u6027\u5c55\u793a" onclick="@binding[expandProp]"></iconbutton>\r\n        <iconbutton icon="changeBack" title="\u5207\u6362\u80cc\u666f" onclick="@binding[changeBack]"></iconbutton>\r\n    </toolbargroup>\r\n    <meta class="divider" ></meta>\r\n    <toolbargroup class="viewport-size" style="float:right">\r\n        <spinner value="@binding[viewportWidth]" min="0" width="100"></spinner>\r\n        <spinner value="@binding[viewportHeight]" min="0" width="100"></spinner>\r\n    </toolbargroup>\r\n    <meta class="divider"></meta>\r\n    <toolbargroup style="float:right">\r\n        <!--title \u8981\u653e\u5728 icon\u540e\u9762\uff0c\u5426\u5219\u4f1a\u62a5\u9519-->\r\n        <iconbutton  icon="zoom-in" title="\u653e\u5927" onclick="@binding[zoomIn]"></iconbutton>\r\n        <iconbutton  icon="zoom-out" title="\u7f29\u5c0f" onclick="@binding[zoomOut]"></iconbutton>\r\n        <label text="@binding[viewportScale]" class="viewport-scale"></label>\r\n    </toolbargroup>\r\n    \r\n    \r\n</inline>\r\n'
 ;
 }), define("text!template/module/m-example.cmp", [], function() {
-    return '[\n  {\n    "meta": {\n      "date": "2016-12-24",\n      "name": "m-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 600\n    },\n    "elements": [\n      {\n        "eid": 1,\n        "type": "ELEMENT",\n        "properties": {\n          "id": "m-example-container",\n          "width": 400,\n          "height": 100,\n          "left": 0,\n          "top": 0,\n          "zIndex": 0,\n          "color": "#ffffff",\n          "border": true,\n          "borderColor": 5617961,\n          "background": false,\n          "backgroundColor": 16777215,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "classStr": "cmp-element cmp-element",\n          "include": "",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
+    return '[\n  {\n    "meta": {\n      "date": "2016-12-24",\n      "name": "m-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 800\n    },\n    "elements": [\n      {\n        "eid": 1,\n        "type": "ELEMENT",\n        "properties": {\n          "id": "m-example-container",\n          "width": 400,\n          "height": 100,\n          "left": 0,\n          "top": 0,\n          "zIndex": 0,\n          "color": "#ffffff",\n          "border": true,\n          "borderColor": 5617961,\n          "background": false,\n          "backgroundColor": 16777215,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "classStr": "cmp-element cmp-element",\n          "include": "",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
 ;
 }), define("text!template/unit/u-example.cmp", [], function() {
-    return '[\n  {\n    "meta": {\n      "date": "2016-12-24",\n      "name": "u-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 600\n    },\n    "elements": [\n      {\n        "eid": 1,\n        "type": "ELEMENT",\n        "properties": {\n          "id": "u-example-container",\n          "width": 400,\n          "height": 100,\n          "left": 0,\n          "top": 0,\n          "zIndex": 0,\n          "color": "#ffffff",\n          "border": true,\n          "borderColor": 5617961,\n          "background": false,\n          "backgroundColor": 16777215,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "classStr": "cmp-element cmp-element",\n          "include": "",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
+    return '[\n  {\n    "meta": {\n      "date": "2016-12-24",\n      "name": "u-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 800\n    },\n    "elements": [\n      {\n        "eid": 1,\n        "type": "ELEMENT",\n        "properties": {\n          "id": "u-example-container",\n          "width": 400,\n          "height": 100,\n          "left": 0,\n          "top": 0,\n          "zIndex": 0,\n          "color": "#ffffff",\n          "border": true,\n          "borderColor": 5617961,\n          "background": false,\n          "backgroundColor": 16777215,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "classStr": "cmp-element cmp-element",\n          "include": "",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
 ;
 }), define("text!template/cache/c-example.cmp", [], function() {
     return '[\n  {\n    "meta": {\n      "date": "2016-12-24",\n      "name": "c-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 600\n    },\n    "elements": [\n      {\n        "eid": 1,\n        "type": "ELEMENT",\n        "properties": {\n          "id": "c-example-container",\n          "width": 400,\n          "height": 100,\n          "left": 0,\n          "top": 0,\n          "zIndex": 0,\n          "color": "#ffffff",\n          "border": true,\n          "borderColor": 5617961,\n          "background": false,\n          "backgroundColor": 16777215,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "classStr": "cmp-element cmp-element",\n          "include": "",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
@@ -3635,15 +3693,15 @@ o.indexOf(":") > 0 ? s = o : o == ".." ? s += "/../" : o != "." && (s[s.length -
     return '/**\r\n * Test component instance case and UI case.UIAct & UITrigger & UIResult used in UI Test\u3002\r\n * staticInsApi: if the component has static api to generate it\'s instance, this is the static api name.\r\n * UIAct: UI test description. \r\n * UITrigger: UITrigger for animate UI operation, UITrigger[0] for element selector, UITrigger[1] for event name. \r\n * UIResult: UIResult to checkout the result after act. UIResult[\'hasClass\'] is to check has specific className or not, UIResult[\'hasClass\'] is two level array, the item is a small array which has 3 elements, item[0] is the element selector, item[1] means has or hasn\'t, 1 for has, 0 for hasn\'t. item[2] is the className. UIResult[\'hasStyle\'] is the same, but the item[2] has the style name and the corresponding style value. \r\n ** example:\r\n * {\r\n *     "staticInsApi": "static api name, if not ,leave it blank",\r\n *     "data": {\r\n *     },\r\n *     "UIAct":"has pager or click close icon",\r\n *     "UITrigger": [".u-st-cert", "click"],\r\n *     "UIResult": { \r\n *          "hasClass": [[".u-st-cert", 1, "f-dn"],[".u-st-cert", 1, "f-dn"]],\r\n *          "hasStyle": [[".u-st-cert", 0, "color:red"],[".u-st-cert", 1, "color:red"]],\r\n *      },\r\n *     "expPro": {\r\n *         "title": "",\r\n *         "content": ""\r\n *     },\r\n *     "expCpt": {\r\n *         "title": ""\r\n *     }\r\n * }\r\n *\r\n */\r\nNEJ.define([], function () {\r\n    return [];\r\n});\r\n'
 ;
 }), define("text!template/test/test.html", [], function() {
-    return '<html>\r\n\r\n<head>\r\n    <meta charset="utf-8">\r\n    <title>Unit Test - Selector</title>\r\n    <link href="__libDir__mocha/mocha.css" rel="stylesheet" />\r\n</head>\r\n\r\n<body>\r\n    <div id="mocha"></div>\r\n\r\n    <script src="__libDir__chai/chai.js"></script>\r\n    <script src="__libDir__mocha/mocha.js"></script>\r\n    <script>\r\n        mocha.setup(\'bdd\');\r\n\r\n    </script>\r\n\r\n    <script src="__libDir__regularjs/dist/regular.js"></script>\r\n    <script src="__libDir__nej/src/define.js?pool=__libDir__"></script>\r\n    <script src="test.js"></script>\r\n</body>\r\n\r\n</html>\r\n';
+    return '<html>\r\n\r\n<head>\r\n    <meta charset="utf-8">\r\n    <title>Unit Test - Selector</title>\r\n    <link href="__libDir__mocha/mocha.css" rel="stylesheet" />\r\n</head>\r\n\r\n<body>\r\n\r\n    <div id="mocha"></div>\r\n\r\n    <script src="__libDir__chai/chai.js"></script>\r\n    <script src="__libDir__mocha/mocha.js"></script>\r\n    <script>\r\n        mocha.setup(\'bdd\');\r\n\r\n    </script>\r\n\r\n    <script src="__libDir__regularjs/dist/regular.js"></script>\r\n    <script src="__libDir__nej/src/define.js?pool=__libDir__"></script>\r\n    <script src="test.js"></script>\r\n</body>\r\n\r\n</html>\r\n';
 }), define("text!template/test/test.js", [], function() {
-    return "/**\r\n * Entry for Unit Test\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    './testInsCase.spec.js',\r\n    './testInsUICase.spec.js'\r\n], function () {\r\n    mocha.run();\r\n});\r\n";
+    return "/**\r\n * Entry for Unit Test\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    './testInsCase.spec.js',\r\n    './testInsUICase.spec.js'\r\n\r\n], function () {\r\n    mocha.run();\r\n});\r\n";
 }), define("text!template/test/testInsCase.spec.js"
 , [], function() {
-    return "/**\r\n * Unit Test for __componentName__\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    'base/util',\r\n    '../component.js',\r\n    './caseIns.js',\r\n    './caseApi.js',\r\n    './caseEvt.js'\r\n], function (\r\n    u,\r\n    Component,\r\n    insCases,\r\n    apiCases,\r\n    evtCases\r\n) {\r\n    // use expect style BDD\r\n    var expect = chai.expect;\r\n    var ut = {};\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u5e38\u89c4\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} def - \u9ed8\u8ba4\u5c5e\u6027\u4fe1\u606f\r\n     * @param   {Object} ret - \u5f85\u9a8c\u8bc1\u7ed3\u679c\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.setupProChecker = function (def, ret) {\r\n        ret = u._$merge({}, def, ret);\r\n        return function (expect, inst) {\r\n            u._$forIn(ret, function (value, key) {\r\n                expect(inst.data[key]).to.eql(value, key);\r\n            });\r\n        };\r\n    };\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u8ba1\u7b97\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} def - \u9ed8\u8ba4\u5c5e\u6027\u4fe1\u606f\r\n     * @param   {Object} ret - \u5f85\u9a8c\u8bc1\u7ed3\u679c\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.setupComputedChecker = function (def, ret) {\r\n        ret = u._$merge({}, def, ret);\r\n        return function (expect, inst) {\r\n            u._$forIn(ret, function (value, key) {\r\n                expect(inst.$get(key)).to.eql(value, key);\r\n            });\r\n        };\r\n    }\r\n\r\n    // define ALL test\r\n    describe('Unit Test for component __componentName__', function () {\r\n        // define instance test\r\n        describe('Unit Test for New Instance', function () {\r\n            // FIXME set default value config\r\n            var defPro = {},\r\n                defCpt = {};\r\n            // instance Base\r\n            var caseName = \"shoule be ok for new instance with data\";\r\n            u._$forEach(insCases, function (item) {\r\n                if (item.staticInsApi && item.staticInsApi.length) {\r\n                    caseName = \"shoule be ok for static new instance api\" + item.staticInsApi;\r\n                }\r\n                it(caseName, function () {\r\n                    var inst = \"\";\r\n                    // static instance or not\r\n                    if (item.staticInsApi && item.staticInsApi.length) {\r\n                        Component[staticInsApi]({\r\n                            data: item.data\r\n                        });\r\n                    } else {\r\n                        inst = new Component({\r\n                            data: item.data\r\n                        });\r\n                    }\r\n\r\n                    expect(inst).to.be.an.instanceof(Component);\r\n                    // check property\r\n                    ut.setupProChecker(defPro, item.expPro)(expect, inst);\r\n                    // check computed property\r\n                    ut.setupComputedChecker(defCpt, item.expCpt)(expect, inst);\r\n                });\r\n\r\n            });\r\n        });\r\n\r\n        // define API test\r\n        describe('Unit Test for Used API', function () {\r\n            var caseName = \"shoule be ok for instance API \";\r\n            u._$forEach(apiCases, function (item) {\r\n                if (item.api.length) {\r\n                    it(caseName + item.api, function () {\r\n                        var inst = new Component({\r\n                            data: item.data\r\n                        });\r\n                        inst[item.api].apply(inst, item.params || []);\r\n                        ut.setupProChecker(defPro, item.expPro)(expect, inst);\r\n                        ut.setupComputedChecker(defCpt, item.expCpt)(expect, inst);\r\n                    });\r\n                }\r\n            });\r\n        });\r\n\r\n        // define Event test\r\n        describe('Unit Test for Event', function () {\r\n            var caseName = \"shoule be ok for instance event on \";\r\n            if (item.targetEvt) {\r\n                u._$forEach(evtCases, function (item) {\r\n                    it(caseName + item.targetEvt, function (done) {\r\n                        var inst = new Component({\r\n                            data: item.data\r\n                        });\r\n                        inst.$on(item.targetEvt, function (event) {\r\n                            expect(event).to.eql(item.expEvt);\r\n                            done();\r\n                        });\r\n                        var method = item.trigger.shift();\r\n                        inst[method].apply(inst, item.trigger);\r\n                    });\r\n                });\r\n            }\r\n        });\r\n    });\r\n});\r\n"
+    return "/**\r\n * Unit Test for __componentName__\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    'base/util',\r\n    '../component.js',\r\n    './caseIns.js',\r\n    './caseApi.js',\r\n    './caseEvt.js'\r\n], function (\r\n    u,\r\n    Component,\r\n    insCases,\r\n    apiCases,\r\n    evtCases\r\n) {\r\n    // use expect style BDD\r\n    var expect = chai.expect;\r\n    var ut = {};\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u5e38\u89c4\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} def - \u9ed8\u8ba4\u5c5e\u6027\u4fe1\u606f\r\n     * @param   {Object} ret - \u5f85\u9a8c\u8bc1\u7ed3\u679c\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.setupProChecker = function (def, ret) {\r\n        ret = u._$merge({}, def, ret);\r\n        return function (expect, inst) {\r\n            u._$forIn(ret, function (value, key) {\r\n                expect(inst.data[key]).to.eql(value, key);\r\n            });\r\n        };\r\n    };\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u8ba1\u7b97\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} def - \u9ed8\u8ba4\u5c5e\u6027\u4fe1\u606f\r\n     * @param   {Object} ret - \u5f85\u9a8c\u8bc1\u7ed3\u679c\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.setupComputedChecker = function (def, ret) {\r\n        ret = u._$merge({}, def, ret);\r\n        return function (expect, inst) {\r\n            u._$forIn(ret, function (value, key) {\r\n                expect(inst.$get(key)).to.eql(value, key);\r\n            });\r\n        };\r\n    }\r\n\r\n    // define ALL test\r\n    describe('Unit Test for component __componentName__', function () {\r\n        // define instance test\r\n        describe('Unit Test for New Instance', function () {\r\n            // FIXME set default value config\r\n            var defPro = {},\r\n                defCpt = {};\r\n            // instance Base\r\n            var caseName = \"shoule be ok for new instance with data\";\r\n            u._$forEach(insCases, function (item) {\r\n                if (item.staticInsApi && item.staticInsApi.length) {\r\n                    caseName = \"shoule be ok for static new instance api\" + item.staticInsApi;\r\n                }\r\n                it(caseName, function () {\r\n                    var inst = \"\";\r\n                    // static instance or not\r\n                    if (item.staticInsApi && item.staticInsApi.length) {\r\n                        Component[staticInsApi]({\r\n                            data: item.data\r\n                        });\r\n                    } else {\r\n                        inst = new Component({\r\n                            data: item.data\r\n                        });\r\n                    }\r\n\r\n                    expect(inst).to.be.an.instanceof(Component);\r\n                    // check property\r\n                    ut.setupProChecker(defPro, item.expPro)(expect, inst);\r\n                    // check computed property\r\n                    ut.setupComputedChecker(defCpt, item.expCpt)(expect, inst);\r\n                });\r\n\r\n            });\r\n        });\r\n\r\n        // define API test\r\n        describe('Unit Test for Used API', function () {\r\n            var caseName = \"shoule be ok for instance API \";\r\n            u._$forEach(apiCases, function (item) {\r\n                if (item.api && item.api.length) {\r\n                    it(caseName + item.api, function () {\r\n                        var inst = new Component({\r\n                            data: item.data\r\n                        });\r\n                        inst[item.api].apply(inst, item.params || []);\r\n                        ut.setupProChecker(defPro, item.expPro)(expect, inst);\r\n                        ut.setupComputedChecker(defCpt, item.expCpt)(expect, inst);\r\n                    });\r\n                }\r\n            });\r\n        });\r\n\r\n        // define Event test\r\n        describe('Unit Test for Event', function () {\r\n            var caseName = \"shoule be ok for instance event on \";\r\n\r\n            u._$forEach(evtCases, function (item) {\r\n                if (item.targetEvt) {\r\n                    it(caseName + item.targetEvt, function (done) {\r\n                        var inst = new Component({\r\n                            data: item.data\r\n                        });\r\n                        inst.$on(item.targetEvt, function (event) {\r\n                            expect(event).to.eql(item.expEvt);\r\n                            done();\r\n                        });\r\n                        var method = item.trigger.shift();\r\n                        inst[method].apply(inst, item.trigger);\r\n                    });\r\n                }\r\n            });\r\n        });\r\n    });\r\n});\r\n"
 ;
 }), define("text!template/test/testInsUICase.spec.js", [], function() {
-    return '/**\r\n * Unit UI Test for __componentName__\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    \'base/element\',\r\n    \'base/event\',\r\n    \'base/util\',\r\n    \'../component.js\',\r\n    \'./caseIns.js\'\r\n], function (\r\n    e,\r\n    v,\r\n    u,\r\n    Component,\r\n    insCases\r\n) {\r\n    // use expect style BDD\r\n    var expect = chai.expect;\r\n    var ut = {};\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u5e38\u89c4\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} parent - \u7236\u5143\u7d20\r\n     * @param   {Object} sel - \u9009\u62e9\u5668\uff0c\u652f\u6301class\u548cid\uff0c\u683c\u5f0f\u5206\u522b\u4e3a.class \u6216 #id\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.getElement = function (parent, sel) {\r\n        sel = sel.trim();\r\n        if ("." === sel[0]) {\r\n            return e._$getByClassName(parent, sel.substr(1)) && e._$getByClassName(parent, sel.substr(1))[0];\r\n        }\r\n        if ("#" === sel[0]) {\r\n            return e._$get(sel.substr(1));\r\n        }\r\n        return null;\r\n    };\r\n    // define component test\r\n    describe(\'Unit UI Test - __componentName__\', function () {\r\n        // define API test\r\n        describe(\'Unit UI Test for user Operation\', function () {\r\n            var caseName = "shoule act right when ";\r\n            var inst = new Component({\r\n                data: item.data\r\n            }).$inject(document.body);\r\n\r\n            u._$forEach(insCases, function (item) {\r\n                if (item.UIAct.length) {\r\n                    it(caseName + item.UIAct, function () {\r\n                        //animate action\r\n                        if (item.UITrigger.length) {\r\n                            var selector = item.UITrigger.shift();\r\n                            var element = ut.getElement(inst.parentNode, selector);\r\n                            if (element) {\r\n                                v._$dispatchEvent(element, item.UITrigger);\r\n                            }\r\n                        }\r\n                        //checkout result, may be has animate action, so delay a while.\r\n                        setTimeout(function () {\r\n                            // check class\r\n                            if (item.UIResult && item.UIResult["hasClass"] && item.UIResult["hasClass"].length) {\r\n                                var classCheckor = item.UIResult["hasClass"];\r\n                                u._$forEach(classCheckor, function (item) {\r\n                                    var selector = item.shift();\r\n                                    var hasOrNot = item.shift();\r\n                                    var element = ut.getElement(inst.parentNode, selector);\r\n                                    if (element) {\r\n                                        if (hasOrNot > 0) {\r\n                                            expect(e._$hasClassName(element, item)).to.be.true;\r\n                                        } else {\r\n                                            expect(e._$hasClassName(element, item)).to.be.false;\r\n                                        }\r\n                                    }\r\n\r\n                                });\r\n                            }\r\n                            // check style\r\n                            if (item.UIResult && item.UIResult["hasStyle"] && item.UIResult["hasStyle"].length) {\r\n                                var styleCheckor = item.UIResult["hasStyle"];\r\n                                u._$forEach(styleCheckor, function (item) {\r\n                                    var selector = item.shift();\r\n                                    var hasOrNot = item.shift();\r\n                                    var element = ut.getElement(inst.parentNode, selector);\r\n                                    if (element) {\r\n                                        if (hasOrNot > 0) {\r\n                                            expect(e._$getStyle(element, item.split(":")[0])).to.eq(item.split(":")[1]);\r\n                                        } else {\r\n                                            expect(e._$getStyle(element, item.split(":")[0])).to.not.eq(item.split(":")[1]);\r\n                                        }\r\n                                    }\r\n\r\n                                });\r\n                            }\r\n\r\n                        }, 100);\r\n\r\n                    });\r\n                }\r\n            });\r\n        });\r\n    });\r\n});\r\n'
+    return '/**\r\n * Unit UI Test for __componentName__\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    \'base/element\',\r\n    \'base/event\',\r\n    \'base/util\',\r\n    \'../ui.js\',\r\n    \'./caseIns.js\'\r\n], function (\r\n    e,\r\n    v,\r\n    u,\r\n    Component,\r\n    insCases\r\n) {\r\n    // use expect style BDD\r\n    var expect = chai.expect;\r\n    var ut = {};\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u5e38\u89c4\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} parent - \u7236\u5143\u7d20\r\n     * @param   {Object} sel - \u9009\u62e9\u5668\uff0c\u652f\u6301class\u548cid\uff0c\u683c\u5f0f\u5206\u522b\u4e3a.class \u6216 #id\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.getElement = function (parent, sel) {\r\n        sel = sel.trim();\r\n        if ("." === sel[0]) {\r\n            return e._$getByClassName(parent, sel.substr(1)) && e._$getByClassName(parent, sel.substr(1))[0];\r\n        }\r\n        if ("#" === sel[0]) {\r\n            return e._$get(sel.substr(1));\r\n        }\r\n        return null;\r\n    };\r\n    // define component test\r\n    describe(\'Unit UI Test - __componentName__\', function () {\r\n        // define API test\r\n        describe(\'Unit UI Test for user Operation\', function () {\r\n            var caseName = "shoule act right when ";\r\n            u._$forEach(insCases, function (item) {\r\n                if (item.UIAct && item.UIAct.length) {\r\n                    var inst = new Component({\r\n                        data: item.data\r\n                    }).$inject(document.body);\r\n                    it(caseName + item.UIAct, function (done) {\r\n                        //animate action\r\n                        if (item.UITrigger && item.UITrigger.length) {\r\n                            var selector = item.UITrigger.shift();\r\n                            var element = ut.getElement(inst.parentNode, selector);\r\n                            if (element) {\r\n                                v._$dispatchEvent(element, item.UITrigger[0]);\r\n                            }\r\n                        }\r\n                        //checkout result, may be has animate action, so delay a while.\r\n                        // setTimeout(function () {\r\n                        // check class\r\n                        if (item.UIResult && item.UIResult["hasClass"] && item.UIResult["hasClass"].length) {\r\n                            var classCheckor = item.UIResult["hasClass"];\r\n                            u._$forEach(classCheckor, function (item) {\r\n                                var selector = item.shift();\r\n                                var hasOrNot = item.shift();\r\n                                var element = ut.getElement(inst.parentNode, selector);\r\n                                if (element) {\r\n                                    setTimeout(function () {\r\n                                        if (hasOrNot > 0) {\r\n                                            expect(e._$hasClassName(element, item)).to.be.true;\r\n                                        } else {\r\n                                            expect(e._$hasClassName(element, item)).to.be.false;\r\n                                        }\r\n                                        done();\r\n                                    }, 100);\r\n                                }\r\n\r\n                            });\r\n                        }\r\n                        // check style\uff0cuse math.ceil to handle the animation case\r\n                        if (item.UIResult && item.UIResult["hasStyle"] && item.UIResult["hasStyle"].length) {\r\n                            var styleCheckor = item.UIResult["hasStyle"];\r\n                            u._$forEach(styleCheckor, function (item) {\r\n                                var selector = item.shift();\r\n                                var hasOrNot = item.shift();\r\n                                var element = ut.getElement(inst.parentNode, selector);\r\n                                if (element) {\r\n                                    setTimeout(function () {\r\n                                        if (hasOrNot > 0) {\r\n                                            expect("" + Math.ceil(e._$getStyle(element, item[0].split(":")[0]))).to.eq(item[0].split(":")[1]);\r\n                                        } else {\r\n                                            expect("" + Math.ceil(e._$getStyle(element, item[0].split(":")[0]))).to.not.eq(item[0].split(":")[1]);\r\n                                        }\r\n                                        done();\r\n                                    }, 100);\r\n\r\n                                }\r\n\r\n                            });\r\n                        }\r\n\r\n                        // }, 100);\r\n\r\n                    });\r\n                }\r\n            });\r\n        });\r\n    });\r\n});\r\n'
 ;
 }), define("util/exportFile", [ "core/service", "text!template/test/caseApi.js", "text!template/test/caseEvt.js", "text!template/test/caseIns.js", "text!template/test/test.html", "text!template/test/test.js", "text!template/test/testInsCase.spec.js", "text!template/test/testInsUICase.spec.js" ], function() {
     var e = require("core/service"), t = require("text!template/test/caseApi.js"), n = require("text!template/test/caseEvt.js"), r = require("text!template/test/caseIns.js"), i = require("text!template/test/test.html"), s = require("text!template/test/test.js"), o = require("text!template/test/testInsCase.spec.js"), u = require("text!template/test/testInsUICase.spec.js"), a = {
@@ -3652,15 +3710,15 @@ o.indexOf(":") > 0 ? s = o : o == ".." ? s += "/../" : o != "." && (s[s.length -
                 caseApi_js: t,
                 caseEvt_js: n,
                 caseIns_js: r,
-                test_html: i.replace(/\_\_libDir\_\_/g, "/src/javascript/lib/"),
+                test_html: i.replace(/\_\_libDir\_\_/g, f.libPath),
                 test_js: s,
-                testInsCase_spec_js: o.replace
-(/\_\_componentName\_\_/g, a),
+                testInsCase_spec_js: o.replace(/\_\_componentName\_\_/g
+, a),
                 testInsUICase_spec_js: u.replace(/\_\_componentName\_\_/g, a)
             };
             l(t, n, r);
             for (var h in c) e.saveApi("/api/" + a, {
-                ext: '{"name":"' + a + '", "url":"' + (f + "test/" + h.replace(/\_/g, ".")) + '"}',
+                ext: '{"name":"' + a + '", "url":"' + (f.ruiPath + "test/" + h.replace(/\_/g, ".")) + '"}',
                 cmpData: c[h]
             }, h + "\u4fdd\u5b58\u6210\u529f");
         }
@@ -3830,8 +3888,7 @@ $lc: $('<div class="resize-control lc"></div>'),
         return i && i.data;
     }
     var t = e("_"), n = e("$"), r = e("core/factory"), i = e("modules/viewport/index"), s = e("modules/hierarchy/index"
-), o = e("modules/component/index"), u = e("modules/page/index"), a = e("modules/dataMock/index");
-    return {
+), o = e("modules/component/index"), u = e("modules/page/index"), a = e("modules/dataMock/index"), l = {
         "import": function(e) {
             e instanceof Array ? o.load(e) : o.load([ e ]);
             var t = this;
@@ -3863,24 +3920,24 @@ o && (n[r] = o);
             }
             if (!e) return;
             e && (n(".mainContent").find(".switchDesign").length || (n(".mainContent").append("<div class='switchDesign'><span class='page'>\u9875\u9762\u8bbe\u8ba1</span><span class='mock'>Mock</span><span class='umi'>UMI\u7ed3\u6784</span><span class='timeline'>\u65f6\u5e8f\u56fe</span></div>"), n(".switchDesign span").click(function(e) {
-                n(".switchDesign span").removeClass("cur"), n(this).addClass("cur"), n(this).hasClass("umi") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").show(), n(".cmp-umi").removeClass("cmp-dn"), n("#drawArrow").show(), n("#drawDiagram").css("opacity", 0)), n(this).hasClass("page") && (n(".cmp-element").removeClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity"
-, 0)), n(this).hasClass("mock") && (n(".cmp-element").removeClass("cmp-dn"), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity", 0), a.showMockView(), n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").show()), n(this).hasClass("timeline") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n("#drawArrow").hide(), n(".cmp-umi").hide(), n("#drawDiagram").css("opacity", 1));
+                n(".switchDesign span").removeClass("cur"), n(this).addClass("cur"), n("#tempStyle").remove(), n(this).hasClass("umi") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").show(), n(".cmp-umi").removeClass("cmp-dn"), n("#drawArrow").show(), n("#drawDiagram").css("opacity", 0)), n(this).hasClass("page") && (n(".cmp-element").removeClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram"
+).css("opacity", 0)), n(this).hasClass("mock") && (n(".cmp-element").removeClass("cmp-dn"), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity", 0), n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").show()), n(this).hasClass("timeline") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n("#drawArrow").hide(), n(".cmp-umi").hide(), n("#drawDiagram").css("opacity", 1));
             })));
-            var l = [];
+            var a = [];
             t.each(e.elements, function(e) {
                 function s(e, n, s) {
-                    var u = [], f = t.find(o.components(), function(t) {
+                    var u = [], a = t.find(o.components(), function(t) {
                         return t["meta"]["name"] == e;
                     });
-                    if (!f) return;
-                    u = f.elements;
+                    if (!a) return;
+                    u = a.elements;
                     var l = [];
                     t.each(u, function(e) {
                         var t = r.create(e.type.toLowerCase(), {
                             id: e.properties.id
                         });
                         
-(e.properties.funcType == "IF" || e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("addFuncComponent", a), t.import(e), l.push(t);
+(e.properties.funcType == "IF" || e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("addFuncComponent", f), t.import(e), l.push(t);
                     });
                     var c, h = t.find(l, function(e) {
                         return e.isContainer();
@@ -3893,37 +3950,43 @@ o && (n[r] = o);
                         left: Math.floor(+h.properties.width() / 2 + 15) - 10
                     }), n.parent().find(".e-hover-arrow-border").css({
                         left: Math.floor(+h.properties.width() / 2 + 15) - 10
-                    })) : s == "left" && (n.parent().find(".e-hover-arrow").addClass("left"), n
-.parent().find(".e-hover-arrow").css({
+                    })) : s == "bottom-right" ? (n.parent().css({
+                        cssText
+: "left:auto !important;right:0;"
+                    }), n.parent().find(".e-hover-arrow").css({
+                        right: Math.floor(+n.parent().parent().width() / 2) - 10
+                    }), n.parent().find(".e-hover-arrow-border").css({
+                        right: Math.floor(+n.parent().parent().width() / 2) - 10
+                    })) : s == "left" && (n.parent().find(".e-hover-arrow").addClass("left"), n.parent().find(".e-hover-arrow").css({
                         cssText: "top:" + (Math.floor(+h.properties.height() / 2 + 15) - 10) + "px !important"
                     }), n.parent().find(".e-hover-arrow-border").addClass("left"), n.parent().find(".e-hover-arrow-border").css({
                         cssText: "top:" + (Math.floor(+h.properties.height() / 2 + 15) - 10) + "px !important"
                     })), t.each(l, function(e, t) {
-                        e.isContainer() || (!e.$wrapper.hasClass("e-hover-source") && !e.$wrapper.hasClass("cmp-func") && !e.$wrapper.find("a").attr("href") && e.$wrapper.html(e.$wrapper.find("a").html()), i.getViewPort().addElement(e, c));
+                        e.isContainer() || (!e.$wrapper.hasClass("e-hover-source") && !e.$wrapper.hasClass("cmp-func") && !e.$wrapper
+.find("a").attr("href") && e.$wrapper.html(e.$wrapper.find("a").html()), i.getViewPort().addElement(e, c));
                     });
                 }
-                function a(e, n) {
-                    var u = [], e = e, n = n, f = t.find(o.components(), function(t) {
+                function f(e, n) {
+                    var u = [], e = e, n = n, a = t.find(o.components(), function(t) {
                         return t["meta"]["name"] == e;
                     });
-                    if (f) {
-                        u = f.elements;
-                        
-var l = [];
+                    if (a) {
+                        u = a.elements;
+                        var l = [];
                         t.each(u, function(e) {
                             var t = r.create(e.type.toLowerCase(), {
                                 id: e.properties.id
                             });
-                            (e.properties.funcType == "IF" || e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("addFuncComponent", a), e.properties.hoverComponent && t.on("addHoverComponent", s), t.import(e), l.push(t);
+                            (e.properties.funcType == "IF" || e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("addFuncComponent", f), e.properties.hoverComponent && t.on("addHoverComponent", s), t.import(e), l.push(t);
                         });
                     }
-                    var c, h = t.find(l, function(e) {
+                    var c, h = t.find(l, function(
+e) {
                         return e.isContainer();
                     });
                     h && (h.$wrapper.css({
                         position: "relative"
-                    }), h.$wrapper.find("a").attr("href") ? c = h.$wrapper.find("a") : (h.$wrapper.find("a").children().length < 1 ? h.$wrapper.find("a").remove() : h.$wrapper.html(h.$wrapper.find("a").html()), c = h.$wrapper), i.getViewPort().addElement(h, n), t.each(l, function(
-e, t) {
+                    }), h.$wrapper.find("a").attr("href") ? c = h.$wrapper.find("a") : (h.$wrapper.find("a").children().length < 1 ? h.$wrapper.find("a").remove() : h.$wrapper.html(h.$wrapper.find("a").html()), c = h.$wrapper), i.getViewPort().addElement(h, n), t.each(l, function(e, t) {
                         e.isContainer() || (e.$wrapper.find("a").attr("href") || (e.$wrapper.find("a").children().length < 1 ? e.$wrapper.find("a").remove() : e.properties.hoverComponent() || e.$wrapper.html(e.$wrapper.find("a").html())), i.getViewPort().addElement(e, c));
                     }));
                 }
@@ -3931,8 +3994,9 @@ e, t) {
                 var n = r.create(e.type.toLowerCase(), {
                     id: e.properties.id
                 });
-                e.properties.hoverComponent && n.on("addHoverComponent", s), n.on("addFuncComponent", a), n.import(e), l.push(n);
-            }), s.load(l), i.viewportWidth(e.viewport.width), i.viewportHeight(e.viewport.height), i.backColor(e.viewport.backColor);
+                e.properties.hoverComponent && n.on("addHoverComponent", s), n.on
+("addFuncComponent", f), n.import(e), a.push(n);
+            }), s.load(a), i.viewportWidth(e.viewport.width), i.viewportHeight(e.viewport.height), i.backColor(e.viewport.backColor);
         },
         "export": function(e, n) {
             function h(e, n) {
@@ -3941,21 +4005,21 @@ e, t) {
                 });
             }
             function v(n) {
-                n.properties.trueFuncBody && !
-e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
+                n.properties.trueFuncBody && !e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
                 }))), n.properties.falseFuncBody && !e && (_json = o.getTarget(n.properties.falseFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
-                }))), n.properties.elseIfFuncBody && !e && (_json = o.getTarget(n.properties.elseIfFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
+                }))), n.properties.elseIfFuncBody && !e && (_json = o.getTarget(n.properties.elseIfFuncBody), Object
+.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
                 }))), n.properties.elseIfFuncBody2 && !e && (_json = o.getTarget(n.properties.elseIfFuncBody2), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
-                }))), n.properties.forFuncBody && !e && (_json = o.getTarget(n.properties
-.forFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
+                }))), n.properties.forFuncBody && !e && (_json = o.getTarget(n.properties.forFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
                 }))), n.properties.includeBody && !e && (_json = o.getTarget(n.properties.includeBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
-                }))), n.properties.hoverComponent && !e && (_json = o.getTarget(n.properties.hoverComponent), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
+                }))), n.properties.hoverComponent && !e && (_json = o.getTarget(n.properties.hoverComponent), Object.keys(_json).length && (h(p, _json.meta
+.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
                 })));
             }
@@ -3965,8 +4029,7 @@ e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length 
             l && l.getName().length ? u = l.getName() : u = s.elements()[0].getName();
             var c = {
                 meta: {
-                    date: r.getFullYear() + "-" + 
-(r.getMonth() + 1) + "-" + r.getDate(),
+                    date: r.getFullYear() + "-" + (r.getMonth() + 1) + "-" + r.getDate(),
                     name: u
                 },
                 viewport: {
@@ -3977,14 +4040,14 @@ e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length 
                 elements: [],
                 assets: {}
             };
-            n && (c.meta.componentJS = n.meta.componentJS, c.meta.cacheJS = n.meta.cacheJS, c.meta.pageFTL = n.meta.pageFTL, c.meta.pageJS = n.meta.pageJS, c.meta.pageCacheJS = n.meta.pageCacheJS, c.meta.testCaseApi = n.meta.testCaseApi, c.meta.testCaseEvt = n.meta.testCaseEvt, c.meta.testCaseIns = n.meta.testCaseIns);
+            n && (c.meta.componentJS = n.meta.componentJS, c.meta.cacheJS = n.meta.cacheJS, c.meta.pageFTL = n.meta.pageFTL, c.meta.pageJS = n.meta.pageJS, c.meta.uiJS = n.meta.uiJS, c.meta.pageCacheJS = 
+n.meta.pageCacheJS, c.meta.testCaseApi = n.meta.testCaseApi, c.meta.testCaseEvt = n.meta.testCaseEvt, c.meta.testCaseIns = n.meta.testCaseIns);
             var p = [], d = this;
             return t.each(s.elements(), function(e) {
                 var n = e.export(), r = "";
                 v(n), c.elements.push(t.omit(n, "assets")), t.each(n.assets, function(e, n) {
                     t.each(e, function(e, t) {
-                        c.assets[n] || (c.assets[n] = {}), c.assets
-[n][t] = e;
+                        c.assets[n] || (c.assets[n] = {}), c.assets[n][t] = e;
                     });
                 });
             }), p.push(c), {
@@ -3996,16 +4059,17 @@ e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length 
             function c(e) {
                 e.properties.trueFuncBody && !isSave && (f = o.getTarget(e.properties.trueFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
-                }))), e.properties.falseFuncBody && !isSave && (f = o.getTarget(e.properties.falseFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
+                }))), e.properties.falseFuncBody && !isSave && (
+f = o.getTarget(e.properties.falseFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
                 }))), e.properties.elseIfFuncBody && !isSave && (f = o.getTarget(e.properties.elseIfFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
-                }))), e.properties.elseIfFuncBody2 && !isSave && (f = o.getTarget
-(e.properties.elseIfFuncBody2), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
+                }))), e.properties.elseIfFuncBody2 && !isSave && (f = o.getTarget(e.properties.elseIfFuncBody2), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
                 }))), e.properties.forFuncBody && !isSave && (f = o.getTarget(e.properties.forFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
-                }))), e.properties.includeBody && !isSave && (f = o.getTarget(e.properties.includeBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
+                }))), e.properties.includeBody && !isSave && (f = o.getTarget(e.properties.includeBody), Object.keys(f).length && 
+(isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
                 }))), e.properties.hoverComponent && !isSave && (f = o.getTarget(e.properties.hoverComponent), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
@@ -4013,8 +4077,7 @@ e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length 
             }
             var n = "example", r = new Date;
             e.getName().length && (n = e.getName());
-            var s = 
-{
+            var s = {
                 meta: {
                     date: r.getFullYear() + "-" + (r.getMonth() + 1) + "-" + r.getDate(),
                     name: n
@@ -4027,7 +4090,8 @@ e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length 
                 elements: [],
                 assets: {}
             }, u = [], a = e.export(), f = "", l = this;
-            return a.properties.id.indexOf("container") < 0 && (a.properties.id += "-container"), c(a), s.elements.push(t.omit(a, "assets")), t.each(a.assets, function(e, n) {
+            return a.properties.id.indexOf("container"
+) < 0 && (a.properties.id += "-container"), c(a), s.elements.push(t.omit(a, "assets")), t.each(a.assets, function(e, n) {
                 t.each(e, function(e, t) {
                     s.assets[n] || (s.assets[n] = {}), s.assets[n][t] = e;
                 });
@@ -4037,8 +4101,7 @@ e && (_json = o.getTarget(n.properties.trueFuncBody), Object.keys(_json).length 
             };
         },
         exportHTMLCSS: function() {
-            var e = "<div class='m-body-container'></div>", r = [], i = "example", 
-o = {}, u = "", a = "", f = t.find(s.elements(), function(e) {
+            var e = "<div class='m-body-container'></div>", r = [], i = "example", o = {}, u = "", a = "", f = t.find(s.elements(), function(e) {
                 return e.isContainer();
             });
             f && (o = f.exportHTMLCSS(), e = o.html, r.push(o.css), i = f.getName()), e = n(e);
@@ -4047,13 +4110,13 @@ o = {}, u = "", a = "", f = t.find(s.elements(), function(e) {
             var c;
             return t.each(s.elements(), function(t) {
                 t.isCache() ? (o = t.exportCache(), u += o.cacheItem, a += o.cacheItemCall) : t.type != "TIMELINE" && (t.type == "UMI" ? (c = c || {
-                    modules: {},
+                    
+modules: {},
                     parentM: {},
                     "404": "/"
                 }, t.properties.id() == "rewrite-404" ? c[404] = t.properties.modulePath() : (c.modules[t.properties.hashPath()] = t.properties.modulePath(), c.parentM[t.properties.hashPath()] = t.properties.parentModule())) : t.isContainer() || (o = t.exportHTMLCSS(), l ? l.append(o.html) : e.append(o.html), r.push(o.css)));
             }), {
-                html: n("<div></div>").append(e).
-html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&amp\;/g, "&").replace(/\&quot\;/g, "'"),
+                html: n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&amp\;/g, "&").replace(/\&quot\;/g, "'"),
                 css: r.join(" "),
                 name: i,
                 cache: u,
@@ -4065,7 +4128,8 @@ html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&amp\;/g, "&").
             var e = "<div class='m-body-container'></div>", r = [], i = "example";
             t.each(s.elements(), function(t) {
                 if (t.isContainer()) {
-                    e = t.exportHTMLCSS().html, r.push(t.exportHTMLCSS().css), i = t.getName();
+                    e = t.exportHTMLCSS().html, r.push(
+t.exportHTMLCSS().css), i = t.getName();
                     return;
                 }
             }), e = n(e), t.each(s.elements(), function(t) {
@@ -4073,8 +4137,7 @@ html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&amp\;/g, "&").
             });
             var o = n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\$\{/g, "${" + i.replace(/\-/g, "_") + ".");
             return {
-                html: "<#macro " + 
-i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
+                html: "<#macro " + i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                 css: r.join(" "),
                 name: i
             };
@@ -4087,10 +4150,12 @@ i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                     return;
                 }
             }), t.each(s.elements(), function(t) {
-                t.isContainer() || (t.setTop(t.getTop() - e), t.setLeft(t.getLeft() - n), t.setZ(t.getZ() + r + 1));
+                
+t.isContainer() || (t.setTop(t.getTop() - e), t.setLeft(t.getLeft() - n), t.setZ(t.getZ() + r + 1));
             });
         }
     };
+    return l;
 }), define("modules/toolbar/toolbargroup", [ "require", "qpf", "knockout", "_" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = e("_"), i = t.container.Inline.derive(function() {
         return {};
@@ -4098,25 +4163,29 @@ i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
         type: "TOOLBARGROUP",
         css: "toolbar-group"
     });
-    return t.container.Container.provideBinding("toolbargroup"
-, i), i;
+    return t.container.Container.provideBinding("toolbargroup", i), i;
 }), define("text!template/rui/component.js", [], function() {
-    return "/**\r\n * __componentNameCap__ \u7ec4\u4ef6\u5b9e\u73b0\u6587\u4ef6\r\n *\r\n * @module   __componentNameCap__\r\n */\r\nNEJ.define([\r\n    'text!./component.html',\r\n    'text!./component.css',\r\n    'pool/component-base/src/base',\r\n    'pool/component-base/src/util',\r\n    'base/element',\r\n    'base/event'\r\n    __cacheJS__\r\n], function(\r\n    html,\r\n    css,\r\n    Component,\r\n    util,\r\n    e,\r\n    v\r\n    __cacheName__\r\n) {\r\n\r\n    /**\r\n     * __componentNameCap__ \u7ec4\u4ef6\r\n     *\r\n     * @class   module:__componentNameCap__\r\n     * @extends module:pool/component-base/src/base.Component\r\n     *\r\n     * @param {Object} options      - \u7ec4\u4ef6\u6784\u9020\u53c2\u6570\r\n     * @param {Object} options.data - \u4e0e\u89c6\u56fe\u5173\u8054\u7684\u6570\u636e\u6a21\u578b\r\n     */\r\n    var __componentNameCap__ = Component.$extends({\r\n        name: '__componentName__',\r\n        css: css,\r\n        template: html,\r\n        /**\r\n         * \u6a21\u677f\u7f16\u8bd1\u524d\u7528\u6765\u521d\u59cb\u5316\u53c2\u6570\r\n         *\r\n         * @protected\r\n         * @method  module:__componentNameCap__#config\r\n         * @returns {void}\r\n         */\r\n        config: function() {\r\n            // FIXME \u8bbe\u7f6e\u7ec4\u4ef6\u914d\u7f6e\u4fe1\u606f\u7684\u9ed8\u8ba4\u503c\r\n            util.extend(this, {\r\n\r\n            });\r\n            // FIXME \u8bbe\u7f6e\u7ec4\u4ef6\u89c6\u56fe\u6a21\u578b\u7684\u9ed8\u8ba4\u503c\r\n            util.extend(this.data, {\r\n\r\n            });\r\n\r\n            this.supr();\r\n            // TODO\r\n        },\r\n\r\n        /**\r\n         * \u6a21\u677f\u7f16\u8bd1\u4e4b\u540e(\u5373\u6d3b\u52a8dom\u5df2\u7ecf\u4ea7\u751f)\u5904\u7406\u903b\u8f91\uff0c\u53ef\u4ee5\u5728\u8fd9\u91cc\u5904\u7406\u4e00\u4e9b\u4e0edom\u76f8\u5173\u7684\u903b\u8f91\r\n         *\r\n         * @protected\r\n         * @method  module:__componentNameCap__#init\r\n         * @returns {void}\r\n         */\r\n        init: function() {\r\n            // TODO\r\n            this.supr();\r\n\r\n            __cacheCall__\r\n\r\n        },\r\n\r\n        /**\r\n         * \u7ec4\u4ef6\u9500\u6bc1\u7b56\u7565\uff0c\u5982\u679c\u6709\u4f7f\u7528\u7b2c\u4e09\u65b9\u7ec4\u4ef6\u52a1\u5fc5\u5728\u6b64\u5148\u9500\u6bc1\u7b2c\u4e09\u65b9\u7ec4\u4ef6\u518d\u9500\u6bc1\u81ea\u5df1\r\n         *\r\n         * @protected\r\n         * @method  module:__componentNameCap__#destroy\r\n         * @returns {void}\r\n         */\r\n        destroy: function() {\r\n            // TODO\r\n            this.supr();\r\n        }\r\n    });\r\n\r\n    return __componentNameCap__;\r\n});\r\n"
+    return "/**\r\n * __componentNameCap__ \u7ec4\u4ef6\u5b9e\u73b0\u6587\u4ef6\r\n *\r\n * @module   __componentNameCap__\r\n */\r\nNEJ.define([\r\n    'pool/component-base/src/base',\r\n    'pool/component-base/src/util',\r\n    'base/element',\r\n    'base/event'\r\n    __cacheJS__\r\n], function(\r\n    Component,\r\n    util,\r\n    e,\r\n    v\r\n    __cacheName__\r\n) {\r\n\r\n    /**\r\n     * __componentNameCap__ \u7ec4\u4ef6\r\n     *\r\n     * @class   module:__componentNameCap__\r\n     * @extends module:pool/component-base/src/base.Component\r\n     *\r\n     * @param {Object} options      - \u7ec4\u4ef6\u6784\u9020\u53c2\u6570\r\n     * @param {Object} options.data - \u4e0e\u89c6\u56fe\u5173\u8054\u7684\u6570\u636e\u6a21\u578b\r\n     */\r\n    var __componentNameCap__ = Component.$extends({\r\n        name: '__componentName__',\r\n        /**\r\n         * \u6a21\u677f\u7f16\u8bd1\u524d\u7528\u6765\u521d\u59cb\u5316\u53c2\u6570\r\n         *\r\n         * @protected\r\n         * @method  module:__componentNameCap__#config\r\n         * @returns {void}\r\n         */\r\n        config: function() {\r\n            // FIXME \u8bbe\u7f6e\u7ec4\u4ef6\u914d\u7f6e\u4fe1\u606f\u7684\u9ed8\u8ba4\u503c\r\n            util.extend(this, {\r\n\r\n            });\r\n            // FIXME \u8bbe\u7f6e\u7ec4\u4ef6\u89c6\u56fe\u6a21\u578b\u7684\u9ed8\u8ba4\u503c\r\n            util.extend(this.data, {\r\n\r\n            });\r\n\r\n            this.supr();\r\n            // TODO\r\n        },\r\n\r\n        /**\r\n         * \u6a21\u677f\u7f16\u8bd1\u4e4b\u540e(\u5373\u6d3b\u52a8dom\u5df2\u7ecf\u4ea7\u751f)\u5904\u7406\u903b\u8f91\uff0c\u53ef\u4ee5\u5728\u8fd9\u91cc\u5904\u7406\u4e00\u4e9b\u4e0edom\u76f8\u5173\u7684\u903b\u8f91\r\n         *\r\n         * @protected\r\n         * @method  module:__componentNameCap__#init\r\n         * @returns {void}\r\n         */\r\n        init: function() {\r\n            // TODO\r\n            this.supr();\r\n\r\n            __cacheCall__\r\n\r\n        },\r\n\r\n        /**\r\n         * \u7ec4\u4ef6\u9500\u6bc1\u7b56\u7565\uff0c\u5982\u679c\u6709\u4f7f\u7528\u7b2c\u4e09\u65b9\u7ec4\u4ef6\u52a1\u5fc5\u5728\u6b64\u5148\u9500\u6bc1\u7b2c\u4e09\u65b9\u7ec4\u4ef6\u518d\u9500\u6bc1\u81ea\u5df1\r\n         *\r\n         * @protected\r\n         * @method  module:__componentNameCap__#destroy\r\n         * @returns {void}\r\n         */\r\n        destroy: function() {\r\n            // TODO\r\n            this.supr();\r\n        }\r\n    });\r\n\r\n    return __componentNameCap__;\r\n});\r\n"
 ;
 }), define("text!template/cache/cache.js", [], function() {
     return "/**\r\n * ----------------------------------------------------------\r\n * __cache__\u63a5\u53e3\r\n * \r\n * @module   __cachePath__\r\n * ----------------------------------------------------------\r\n */\r\ndefine([\r\n    'pro/common/cache',\r\n    'pro/common/cache/cache',\r\n    'base/util'\r\n], function(_cache, _dwr, _util, _p) {\r\n    __content__\r\n});\r\n";
+}), define("text!template/rui/ui.js", [], function() {
+    return "/**\r\n * __componentNameCap__ \u7ec4\u4ef6\u5e26\u9ed8\u8ba4UI\u5b9e\u73b0\u6587\u4ef6\r\n *\r\n * @module   __componentNameCap__\r\n */\r\nNEJ.define([\r\n    './component.js',\r\n    'text!./component.html',\r\n    'css!./component.css'\r\n], function (\r\n    Component,\r\n    html,\r\n    css\r\n) {\r\n    /**\r\n     * __componentNameCap__ UI\u7ec4\u4ef6\r\n     *\r\n     *\r\n     * @param {Object} options\r\n     * @param {Object} options.data \u4e0e\u89c6\u56fe\u5173\u8054\u7684\u6570\u636e\u6a21\u578b\r\n     */\r\n    var UxComponent = Component.$extends({\r\n        name: '__componentName__',\r\n        css: css,\r\n        template: html\r\n    });\r\n\r\n\r\n    return UxComponent;\r\n});\r\n"
+;
+}), define("text!template/test/show.html", [], function() {
+    return '<html>\r\n\r\n<head>\r\n    <meta charset="utf-8">\r\n    <title>show Component</title>\r\n    <link href="__libDir__res-base/css/style.css" rel="stylesheet" />\r\n</head>\r\n\r\n<body>\r\n    <script src="__libDir__regularjs/dist/regular.js"></script>\r\n    <script src="__libDir__nej/src/define.js?pool=__libDir__"></script>\r\n    <script>\r\n        NEJ.define([\r\n            \'../ui.js\',\r\n            \'./caseIns.js\'\r\n        ], function (\r\n            Component,\r\n            insCases\r\n        ) {\r\n            new Component({\r\n                data: __data__\r\n            }).$inject(document.body);\r\n        });\r\n\r\n    </script>\r\n</body>\r\n\r\n</html>\r\n';
 }), define("elements/text", [ "require", "core/factory", "knockout", "onecolor" ], function(e) {
     var t = e("core/factory"), n = e("knockout"), r = e("onecolor");
     t.register("text", {
         type: "TEXT",
-        extendProperties: function() {
+        extendProperties
+: function() {
             return {
                 text: n.observable("\u8bf7\u8f93\u5165\u6587\u5b57"),
                 html: n.observable(""),
                 fontFamily: n.observable("\u5fae\u8f6f\u96c5\u9ed1,Microsoft YaHei"),
                 fontSize: n.observable(16),
-                color: n.observable("#111111"
-),
+                color: n.observable("#111111"),
                 horzontalAlign: n.observable("center"),
                 verticleAlign: n.observable("middle"),
                 lineHeight: n.observable(0),
@@ -4136,7 +4205,8 @@ i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                     ui: "textarea",
                     text: this.properties.html
                 },
-                fontFamily: {
+                
+fontFamily: {
                     label: "\u5b57\u4f53",
                     ui: "combobox",
                     "class": "small",
@@ -4144,8 +4214,7 @@ i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                         text: "\u5b8b\u4f53",
                         value: "\u5b8b\u4f53,SimSun"
                     }, {
-                        text
-: "\u5fae\u8f6f\u96c5\u9ed1",
+                        text: "\u5fae\u8f6f\u96c5\u9ed1",
                         value: "\u5fae\u8f6f\u96c5\u9ed1,Microsoft YaHei"
                     }, {
                         text: "\u6977\u4f53",
@@ -4161,15 +4230,15 @@ i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                         value: "andale mono"
                     }, {
                         text: "Arial",
-                        value: "arial,helvetica,sans-serif"
+                        
+value: "arial,helvetica,sans-serif"
                     }, {
                         text: "Arial Black",
                         value: "arial black,avant garde"
                     }, {
                         text: "Comic Sans Ms",
                         value: "comic sans ms"
-                    
-}, {
+                    }, {
                         text: "Impact",
                         value: "impact,chicago"
                     }, {
@@ -4189,7 +4258,8 @@ i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                 classStr: {
                     label: "class",
                     ui: "textfield",
-                    text: this.properties.classStr
+                    
+text: this.properties.classStr
                 },
                 color: {
                     label: "\u989c\u8272",
@@ -4197,8 +4267,7 @@ i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                     text: this.properties.color
                 },
                 horzontalAlign: {
-                    label: "\u6c34\u5e73\u5bf9\u9f50"
-,
+                    label: "\u6c34\u5e73\u5bf9\u9f50",
                     ui: "combobox",
                     "class": "small",
                     items: [ {
@@ -4217,15 +4286,15 @@ i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                     value: this.properties.horzontalAlign
                 },
                 verticleAlign: {
-                    label: "\u5782\u76f4\u5bf9\u9f50",
+                    
+label: "\u5782\u76f4\u5bf9\u9f50",
                     ui: "combobox",
                     "class": "small",
                     items: [ {
                         value: "top",
                         text: "\u9876\u90e8\u5bf9\u9f50"
                     }, {
-                        value: "middle"
-,
+                        value: "middle",
                         text: "\u5c45\u4e2d"
                     }, {
                         value: "bottom",
@@ -4245,13 +4314,13 @@ i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                     min: 0,
                     value: this.properties.lineClamp
                 }
-            };
+            }
+;
         },
         onCreate: function(e) {
             var t = $("<span style='line-height:normal;display:inline-block;width:100%;'></span>"), r = this;
             e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), r.properties.boxFontSize(0), n.computed(function() {
-                
-var e = r.properties.fontFamily(), n = r.properties.classStr();
+                var e = r.properties.fontFamily(), n = r.properties.classStr();
                 t.css({
                     "font-family": e
                 }), n && t.addClass(n);
@@ -4265,7 +4334,8 @@ var e = r.properties.fontFamily(), n = r.properties.classStr();
                 var e = r.properties.verticleAlign(), n = r.properties.horzontalAlign();
                 t.css({
                     "text-align": n,
-                    "vertical-align": e
+                    "vertical-align"
+: e
                 });
             }), n.computed(function() {
                 var n = r.properties.lineHeight();
@@ -4273,16 +4343,15 @@ var e = r.properties.fontFamily(), n = r.properties.classStr();
                     "line-height": n + "px"
                 }), e.css({
                     "line-height": n + "px"
-                
-}));
+                }));
             }), n.computed(function() {
                 var e = r.properties.lineClamp();
                 e > 1 ? t.addClass("f-" + e + "lines") : e > 0 ? t.addClass("f-line") : (t.removeClass("f-line"), t.removeClass("f-2lines"), t.removeClass("f-3lines"), t.removeClass("f-4lines"));
             });
         }
     });
-}), define("modules/toolbar/index", [ "require", "qpf", "knockout", "../module", "text!./toolbar.xml", "text!template/module/m-example.cmp", "text!template/unit/u-example.cmp", "text!template/cache/c-example.cmp", "text!template/page/p-example.cmp", "text!template/page/page.html", "text!template/page/module.html", "text!template/page/page.js", "text!template/page/module.js", "core/command", "core/service", "util/regKey", "util/exportFile", "$", "project/project", "../hierarchy/index", "modules/component/index", "modules/page/index", "../viewport/index", "../codeEditor/index", "../shellCmd/index", "../dataMock/index", "modules/common/modal", "./toolbargroup", "text!template/rui/component.js"
-, "text!template/cache/cache.js", "text!template/cache/cache.js", "text!template/rui/component.js", "text!template/cache/cache.js", "elements/image", "elements/text", "elements/func", "elements/umi", "elements/timeline" ], function(e) {
+}), define("modules/toolbar/index", [ "require", "qpf", "knockout", "../module", "text!./toolbar.xml", "text!template/module/m-example.cmp", "text!template/unit/u-example.cmp", "text!template/cache/c-example.cmp", "text!template/page/p-example.cmp", "text!template/page/page.html", "text!template/page/module.html", "text!template/page/page.js", "text!template/page/module.js", "core/command", "core/service"
+, "util/regKey", "util/exportFile", "$", "project/project", "../hierarchy/index", "modules/component/index", "modules/page/index", "../viewport/index", "../codeEditor/index", "../shellCmd/index", "../dataMock/index", "modules/common/modal", "./toolbargroup", "text!template/rui/component.js", "text!template/cache/cache.js", "text!template/cache/cache.js", "text!template/rui/component.js", "text!template/cache/cache.js", "text!template/rui/component.js", "text!template/rui/ui.js", "text!template/cache/cache.js", "text!template/test/show.html", "elements/image", "elements/text", "elements/func", "elements/umi", "elements/timeline" ], function(e) {
     function H(e) {
         var t = e.target.files[0];
         t && t.type.match(/image/) && (P.onload = function(e) {
@@ -4293,7 +4362,8 @@ var e = r.properties.fontFamily(), n = r.properties.classStr();
     }
     function B(e) {
         var t = e.target.files[0];
-        !t || t.name.substr(-3) !== "cmp" && t.name.substr(-10) !== "cmp_backup" ? t && t.name.substr(-4) === "cmpp" && (P.onload = function(e) {
+        !t || t.name.substr
+(-3) !== "cmp" && t.name.substr(-10) !== "cmp_backup" ? t && t.name.substr(-4) === "cmpp" && (P.onload = function(e) {
             P.onload = null;
             var t = y.importPage(JSON.parse(e.target.result));
         }, P.readAsText(t)) : (P.onload = function(e) {
@@ -4301,14 +4371,13 @@ var e = r.properties.fontFamily(), n = r.properties.classStr();
             var t = y.import(JSON.parse(e.target.result));
         }, P.readAsText(t));
     }
-    var t = e("qpf"), 
-n = e("knockout"), r = e("../module"), i = e("text!./toolbar.xml"), s = e("text!template/module/m-example.cmp"), o = e("text!template/unit/u-example.cmp"), u = e("text!template/cache/c-example.cmp"), a = e("text!template/page/p-example.cmp"), f = e("text!template/page/page.html"), l = e("text!template/page/module.html"), c = e("text!template/page/page.js"), h = e("text!template/page/module.js"), p = e("core/command"), d = e("core/service"), v = e("util/regKey"), m = e("util/exportFile"), g = e("$"), y = e("project/project"), b = e("../hierarchy/index"), w = e("modules/component/index"), E = e("modules/page/index"), S = e("../viewport/index"), x = e("../codeEditor/index"), T = e("../shellCmd/index"), N = e("../dataMock/index"), C = e("modules/common/modal"), k = t.use("meta/textfield"), L = t.use("container/vbox"), A = t.use("container/container"), O = t.use("container/inline"), M = t.use("meta/label");
+    var t = e("qpf"), n = e("knockout"), r = e("../module"), i = e("text!./toolbar.xml"), s = e("text!template/module/m-example.cmp"), o = e("text!template/unit/u-example.cmp"), u = e("text!template/cache/c-example.cmp"), a = e("text!template/page/p-example.cmp"), f = e("text!template/page/page.html"), l = e("text!template/page/module.html"), c = e("text!template/page/page.js"), h = e("text!template/page/module.js"), p = e("core/command"), d = e("core/service"), v = e("util/regKey"), m = e("util/exportFile"), g = e("$"), y = e("project/project"), b = e("../hierarchy/index"), w = e("modules/component/index"
+), E = e("modules/page/index"), S = e("../viewport/index"), x = e("../codeEditor/index"), T = e("../shellCmd/index"), N = e("../dataMock/index"), C = e("modules/common/modal"), k = t.use("meta/textfield"), L = t.use("container/vbox"), A = t.use("container/container"), O = t.use("container/inline"), M = t.use("meta/label");
     e("./toolbargroup");
     var D = new r({
         name: "toolbar",
         xml: i,
-        
-createElement: function() {
+        createElement: function() {
             p.execute("create");
         },
         createImage: function() {
@@ -4327,15 +4396,15 @@ createElement: function() {
         },
         showCmd: function() {
             var e = w.selectedComponents()[0], t = "";
-            e && (t = _.find(E.pages(), function(t) {
+            
+e && (t = _.find(E.pages(), function(t) {
                 return t.name == e.meta.name;
             }));
             var n = "";
             t && (t.ftlPath.indexOf("src") > 0 && (n = t.ftlPath.substring(0, t.ftlPath.indexOf("src"))), t.ruiPath.indexOf("src") > 0 && (n = t.ruiPath.substring(0, t.ruiPath.indexOf("src")))), T.addCode(!1, n);
         },
         createModule: function() {
-            var e = b.selectedElements
-(), t = e[e.length - 1], n = "umi-root";
+            var e = b.selectedElements(), t = e[e.length - 1], n = "umi-root";
             t && (n = t.properties.id()), p.execute("create", "umi", {
                 parentModule: n
             });
@@ -4351,7 +4420,8 @@ createElement: function() {
                 classStr: "pageJS",
                 codeStr: t
             }), n && i.push({
-                titleStr: "pageCacheJS.js",
+                titleStr: "pageCacheJS.js"
+,
                 classStr: "pageCacheJS",
                 codeStr: n
             }), x.showCode(i, function(e) {
@@ -4361,8 +4431,7 @@ createElement: function() {
             });
         },
         showUMICodeEditor: function(e, t, n) {
-            var r = [], 
-i = this;
+            var r = [], i = this;
             e && r.push({
                 titleStr: "module.js",
                 classStr: "moduleJS",
@@ -4375,37 +4444,42 @@ i = this;
                 n && n(e);
             });
         },
-        showCodeEditor: function(e, t, n, r, i, s) {
-            var o = [], u = this;
-            e && o.push({
+        showCodeEditor: function(e, t, n, r, i, s, o) {
+            var u = [], a = this;
+            e && u.push({
                 titleStr: "component.js",
                 classStr: "componentJS",
-                codeStr: e
-            }), t && o.push({
+                
+codeStr: e
+            }), t && u.push({
+                titleStr: "ui.js",
+                classStr: "uiJS",
+                codeStr: t
+            }), n && u.push({
                 titleStr: "cache.js",
                 classStr: "cacheJS",
-                codeStr: t
-            }), n && o.push({
+                codeStr: n
+            }), r && u.push({
                 titleStr: "testCaseApi.js",
                 classStr: "testCaseApi",
-                codeStr: n
-            }), r && o.push({
+                codeStr: r
+            }), i && u.push({
                 titleStr: "testCaseEvt.js",
                 classStr: "testCaseEvt",
-                
-codeStr: r
-            }), i && o.push({
+                codeStr: i
+            }), s && u.push({
                 titleStr: "testCaseIns.js",
                 classStr: "testCaseIns",
-                codeStr: i
-            }), x.showCode(o, function(e) {
-                s ? s(e) : (_smeta = w.selectedComponents()[0].meta, _.each(e, function(e) {
+                codeStr: s
+            }), x.showCode(u, function(e) {
+                o ? o(e) : (_smeta = w.selectedComponents()[0].meta, _.each(e, function(e) {
                     e.codeStr.length && (_smeta[e.classStr] = e.codeStr);
-                }), u.saveProject());
+                }), a.saveProject());
             });
         },
         zoomIn: function() {
-            var e = S.viewportScale();
+            
+var e = S.viewportScale();
             S.viewportScale(Math.min(Math.max(e + .1, .2), 1.5));
         },
         zoomOut: function() {
@@ -4418,8 +4492,7 @@ codeStr: r
         viewportWidth: S.viewportWidth,
         viewportHeight: S.viewportHeight,
         exportProject: function() {
-            var e = w.selectedComponents()
-[0], t = y.export(!1, e), n = new Blob([ JSON.stringify(t.result, null, 2) ], {
+            var e = w.selectedComponents()[0], t = y.export(!1, e), n = new Blob([ JSON.stringify(t.result, null, 2) ], {
                 type: "text/plain;charset=utf-8"
             });
             saveAs(n, t.name + ".cmp");
@@ -4429,7 +4502,8 @@ codeStr: r
             t.result[0].elements.length > 0 && y.import(t.result);
         },
         saveElement: function(e) {
-            var t = b.selectedElements(), n = t[t.length - 1];
+            var t = b.selectedElements(), n = t[t.length - 1
+];
             if (n) {
                 var r = y.exportElement(n);
                 r.result[0].elements.length > 0 && (y.import(r.result), e());
@@ -4442,8 +4516,7 @@ codeStr: r
         expandProp: function() {
             +g(".propContent").css("width").replace("px", "") ? g(".propContent").css("width", 0) : g(".propContent").css("width", 280);
         },
-        newPage: function(
-) {
+        newPage: function() {
             b.removeAll(), y.loadComponent(JSON.parse(a)[0]);
         },
         newModule: function() {
@@ -4457,15 +4530,15 @@ codeStr: r
         },
         changeBack: function() {
             var e = S.backColor();
-            e == "#fff" ? S.backColor("#9a9a9a") : S.backColor("#fff");
+            
+e == "#fff" ? S.backColor("#9a9a9a") : S.backColor("#fff");
         },
         generatePageHtml: function(e, t, n) {
             var r = e.umi, i = t || "", s = e.name.replace(/p\-/g, "P");
             return f.replace("__404Path__", r[404]).replace("__module__", JSON.stringify(r.modules)).replace("__html__", e.html).replace(/\_\_pageFilePath\_\_/g, i.split("/")[0] + "/pages/" + i.split("/")[1] + "/" + s).replace(/\_\_pageCSSPath\_\_/g, (n || "") + e.name);
         },
         exportFTL: function() {
-            var e = y.exportHTMLCSS
-();
+            var e = y.exportHTMLCSS();
             if (e.umi) {
                 var t = new Blob([ this.generatePageHtml(e) ], {
                     type: "text/plain;charset=utf-8"
@@ -4478,7 +4551,8 @@ codeStr: r
                 saveAs(t, e.name + ".ftl");
             }
             var t = new Blob([ e.css ], {
-                type: "text/plain;charset=utf-8"
+                
+type: "text/plain;charset=utf-8"
             });
             saveAs(t, "_" + e.name + ".scss");
         },
@@ -4491,8 +4565,7 @@ codeStr: r
             saveAs(s, "component.html");
             var s = new Blob([ r.css ], {
                 type: "text/plain;charset=utf-8"
-            
-});
+            });
             saveAs(s, "component.css");
             var o = w.selectedComponents()[0];
             if (o && o.meta.componentJS) {
@@ -4503,7 +4576,8 @@ codeStr: r
                     });
                     saveAs(s, "cache.js");
                 }
-                var s = new Blob([ o.meta.componentJS ], {
+                var s = new Blob([ o.
+meta.componentJS ], {
                     type: "text/plain;charset=utf-8"
                 });
                 saveAs(s, "component.js");
@@ -4512,14 +4586,14 @@ codeStr: r
                 t = t.replace(/\_\_componentName\_\_/g, a.toLowerCase()), a = a.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g, "C"), t = t.replace(/\_\_componentNameCap\_\_/g, a);
                 var u = r.cache, f = r.cacheCall;
                 if (u) {
-                    n = n.replace(/\_\_cache\_\_/g, a).replace("__cachePath__", a).replace(/\_\_content\_\_/g
-, u);
+                    n = n.replace(/\_\_cache\_\_/g, a).replace("__cachePath__", a).replace(/\_\_content\_\_/g, u);
                     var s = new Blob([ n ], {
                         type: "text/plain;charset=utf-8"
                     });
                     saveAs(s, "cache.js");
                 }
-                f ? (f = f.replace(/\_\_cacheName\_\_/g, a), t = t.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + a + "Cache").replace(/\_\_cacheCall\_\_/g, f)) : t = t.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, "");
+                f ? (f = f.replace(/\_\_cacheName\_\_/g, a), t = t.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + a + "Cache").replace(/\_\_cacheCall\_\_/g, f)) : t = t.replace(/\_\_cacheJS\_\_/g, "").replace
+(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, "");
                 var s = new Blob([ t ], {
                     type: "text/plain;charset=utf-8"
                 });
@@ -4534,8 +4608,7 @@ codeStr: r
             var t = new Blob([ e.css ], {
                 type: "text/plain;charset=utf-8"
             });
-            
-saveAs(t, e.name + ".css");
+            saveAs(t, e.name + ".css");
         },
         exportMac: function() {
             var e = y.exportMacro(), t = new Blob([ e.html ], {
@@ -4547,7 +4620,8 @@ saveAs(t, e.name + ".css");
             });
             saveAs(t, "_" + e.name + ".scss");
         },
-        alignProcess: function() {
+        alignProcess: function(
+) {
             y.alignProcess();
         }
     });
@@ -4561,53 +4635,52 @@ saveAs(t, e.name + ".css");
         if (E.pages().length < 1) C.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
             var r = t.meta.name, i = _.find(E.pages(), function(e) {
                 return e.name == r;
-            
-}), s = w.components()[0];
+            }), s = w.components()[0];
             t = w.selectedComponents()[0];
             if (i && i.ftlPath.indexOf("/") > 0) {
                 var o = y.exportHTMLCSS(), u = o.html;
                 if (o.umi) {
-                    var a = i.ftlPath.substr(i.ftlPath.indexOf("views") + 6), f = i.cssPath.substr(i.cssPath.indexOf("scss") + 5), p = o.name.replace(/p\-/g, "P"), v = a.split("/")[0], m = a.split("/")[1], g = i.ftlPath.substring(0, i.ftlPath.indexOf("views")) + "javascript/", S = i.ftlPath.substring(0, i.ftlPath.indexOf("views")) + "html/", x = o.cache, T = o.cacheCall, N = e("text!template/cache/cache.js");
+                    var a = i.ftlPath.substr(i.ftlPath.indexOf("views") + 6), f = i.cssPath.substr(i.cssPath.indexOf("scss") + 5), p = o.name.replace(/p\-/g, "P"), v = a.split("/")[0], m = a.split("/")[1], g = i.ftlPath.substring
+(0, i.ftlPath.indexOf("views")) + "javascript/", S = i.ftlPath.substring(0, i.ftlPath.indexOf("views")) + "html/", x = o.cache, T = o.cacheCall, N = e("text!template/cache/cache.js");
                     x && (t.meta.pageCacheJS ? N = t.meta.pageCacheJS : N = N.replace(/\_\_cache\_\_/g, p).replace("__cachePath__", "pro/" + v + "/cache/" + m + "/" + p + "Cache").replace(/\_\_content\_\_/g, x), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (g + v + "/cache/" + m + "/" + p + "Cache.js") + '"}',
-                        cmpData
-: N
+                        cmpData: N
                     }, p + "Cache.js\u4fdd\u5b58\u6210\u529f")), t.meta.pageJS ? c = t.meta.pageJS : c = c.replace("__path0__", v).replace("__path1__", m).replace("__pName__", p).replace("__pDesc__", i.desc), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (g + v + "/pages/" + m + "/" + p + ".js") + '"}',
                         cmpData: c
-                    }, "pageJS\u4fdd\u5b58\u6210\u529f");
+                    }, "pageJS\u4fdd\u5b58\u6210\u529f"
+);
                     var k = o.umi.modules, L = o.umi.parentM;
                     if (Object.keys(k).length) for (var A in k) if (k[A] != "common/commonutil.html") {
                         var O = _.find(t.elements, function(e) {
                             return k[A] == e.properties.modulePath;
                         }), M = A.substr(A.lastIndexOf("/") + 1), P = "";
-                        O && O.properties.moduleJS ? P = O.properties.moduleJS : P = h.replace("__path0__", v).replace("__path1__", m).replace("__parentM__", L[A]).replace(/\_\_pName\_\_/g
-, M).replace("__pDesc__", i.desc).replace("__modulePath__", A), d.saveApi("/api/" + r, {
+                        O && O.properties.moduleJS ? P = O.properties.moduleJS : P = h.replace("__path0__", v).replace("__path1__", m).replace("__parentM__", L[A]).replace(/\_\_pName\_\_/g, M).replace("__pDesc__", i.desc).replace("__modulePath__", A), d.saveApi("/api/" + r, {
                             ext: '{"name":"' + r + '", "url":"' + (g + v + "/module/" + m + "/" + M + ".js") + '"}',
                             cmpData: P
                         }, "moduleJS\u4fdd\u5b58\u6210\u529f");
                         var H = "";
-                        O && O.properties.moduleHTML ? H = O.properties.moduleHTML : H = l.replace(/\_\_pName\_\_/g, M).replace("__jsName__", v + "/module/" + m + "/" + M), d.saveApi("/api/" + r, {
+                        O && O.properties.moduleHTML ? H = O.properties.moduleHTML : H = l.replace
+(/\_\_pName\_\_/g, M).replace("__jsName__", v + "/module/" + m + "/" + M), d.saveApi("/api/" + r, {
                             ext: '{"name":"' + r + '", "url":"' + (S + v + "/" + k[A]) + '"}',
                             cmpData: H
                         }, "moduleHTML\u4fdd\u5b58\u6210\u529f"), O && (P != O.properties.moduleJS || H != O.properties.moduleHTML) && (O.properties.moduleJS = P, O.properties.moduleHTML = H, b.loadElement(O));
                     }
                     var u = "";
-                    t.meta.pageFTL && !n ? u = t.meta.pageFTL 
-: (u = D.generatePageHtml(o, a, f), d.saveApi("/api/" + r, {
+                    t.meta.pageFTL && !n ? u = t.meta.pageFTL : (u = D.generatePageHtml(o, a, f), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.cssPath + o.name + ".scss") + '"}',
                         cmpData: o.css
                     }, "CSS\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ftlPath + o.name + ".ftl") + '"}',
                         cmpData: u
-                    }, "FTL\u4fdd\u5b58\u6210\u529f"));
+                    }, "FTL\u4fdd\u5b58\u6210\u529f"
+));
                     if (u != t.meta.pageFTL || c != t.meta.pageJS || N != t.meta.pageCacheJS) t.meta.pageFTL = u, t.meta.pageJS = c, t.meta.pageCacheJS = N, D.saveProject();
                 } else d.saveApi("/api/" + r, {
                     ext: '{"name":"' + r + '", "url":"' + (i.cssPath + "_" + o.name + ".scss") + '"}',
                     cmpData: o.css
                 }, "CSS\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
-                    ext: '{"name":"' + r + '", "url":"' + (i.ftlPath + o.name + ".ftl") + '"}'
-,
+                    ext: '{"name":"' + r + '", "url":"' + (i.ftlPath + o.name + ".ftl") + '"}',
                     cmpData: o.html
                 }, "FTL\u4fdd\u5b58\u6210\u529f");
             } else C.confirm("\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199FTL/CSS\u8def\u5f84", _date.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
@@ -4617,16 +4690,19 @@ saveAs(t, e.name + ".css");
     }), b.on("saveElement", function(e) {
         D.saveElement(e);
     }), b.on("editModule", function(e) {
-        e && e.properties.moduleJS().length ? D.showUMICodeEditor(e.properties.moduleJS(), e.properties.moduleHTML(), function(t) {
+        e && 
+e.properties.moduleJS().length ? D.showUMICodeEditor(e.properties.moduleJS(), e.properties.moduleHTML(), function(t) {
             _.each(t, function(t) {
                 t.codeStr.length && (t.classStr == "moduleJS" ? e.properties.moduleJS(t.codeStr) : t.classStr == "moduleHTML" && e.properties.moduleHTML(t.codeStr)), D.saveProject();
             });
         }) : C.confirm("\u63d0\u793a", "\u8bf7\u5148\u4fdd\u5b58\u9875\u9762\u4ee5\u751f\u6210\u6a21\u5757\u521d\u59cb\u4ee3\u7801", null, null, 1e3);
-    }), w.on("editorJS", function(
-e) {
-        var t = w.selectedComponents()[0];
-        t.meta.pageFTL || t.meta.pageJS || t.meta.pageCacheJS ? D.showFTLCodeEditor(t.meta.pageFTL, t.meta.pageJS, t.meta.pageCacheJS) : t.meta.componentJS || t.meta.cacheJS ? D.showCodeEditor(t.meta.componentJS, t.meta.cacheJS, t.meta.testCaseApi, t.meta.testCaseEvt, t.meta.testCaseIns) : D.showCodeEditor("", "");
-    }), w.on("enterShell", function(e) {
+    }), D.editorCode = function() {
+        var e = w.selectedComponents()[0];
+        e.meta.pageFTL || e.meta.pageJS || e.meta.pageCacheJS ? D.showFTLCodeEditor(e.meta.pageFTL, e.meta.pageJS, e.meta.pageCacheJS) : e.meta.componentJS || e.meta.cacheJS ? D.showCodeEditor(e.meta.componentJS, e.meta.uiJS, e.meta.cacheJS, e.meta.testCaseApi, e.meta.testCaseEvt, e.meta.testCaseIns) : D.showCodeEditor("", "");
+    }, w.on("editorJS", function() {
+        D.editorCode();
+    }), w.on("enterShell", 
+function(e) {
         D.showCmd();
     }), w.on("saveRUI", function(t, n) {
         if (E.pages().length < 1) C.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
@@ -4636,9 +4712,65 @@ e) {
             });
             if (i && i.ruiPath.indexOf("/") > 0) {
                 var s = y.exportHTMLCSS(), o = s.html;
-                
-o = o.replace(/\$\{/g, "{"), d.saveApi("/api/" + r, {
+                o = o.replace(/\$\{/g, "{"), d.saveApi("/api/" + r, {
                     ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.html") + '"}',
+                    cmpData: o
+                }, "component.html\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
+                    ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.css") + '"}',
+                    cmpData
+: s.css
+                }, "component.css\u4fdd\u5b58\u6210\u529f");
+                var u = w.selectedComponents()[0];
+                if (u.meta.componentJS && !n) {
+                    var a = s.cache;
+                    a && u.meta.cacheJS && d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js") + '"}',
+                        cmpData: u.meta.cacheJS
+                    }, "cache.js\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
+                        cmpData: u.meta.componentJS
+                    }, "component.js\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseApi && d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseApi.js") + '"}',
+                        cmpData: u.meta.testCaseApi
+                    }, "testCaseApi\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseEvt && 
+d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseEvt.js") + '"}',
+                        cmpData: u.meta.testCaseEvt
+                    }, "testCaseEvt\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseIns && d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseIns.js") + '"}',
+                        cmpData: u.meta.testCaseIns
+                    }, "testCaseIns"), !u.meta.testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i, function(e, t, n) {
+                        u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
+                    });
+                } else {
+                    var f = s.name, l = e("text!template/rui/component.js"), c = e("text!template/cache/cache.js");
+                    l = l.replace(/\_\_componentName\_\_/g, f.toLowerCase()), f = f.replace(/m\-/g, "M").replace(/u\-/g, "U").replace
+(/c\-/g, "C"), l = l.replace(/\_\_componentNameCap\_\_/g, f);
+                    var a = s.cache, h = s.cacheCall;
+                    a && (c = c.replace(/\_\_cache\_\_/g, f).replace("__cachePath__", f).replace(/\_\_content\_\_/g, a), u.meta.cacheJS = c, d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js") + '"}',
+                        cmpData: u.meta.cacheJS
+                    }, "cache.js\u4fdd\u5b58\u6210\u529f")), h ? (h = h.replace(/\_\_cacheName\_\_/g, f), l = l.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + f + "Cache").replace(/\_\_cacheCall\_\_/g, h)) : l = l.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, ""), u.meta.componentJS = l, d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
+                        cmpData: u.meta.componentJS
+                    }, "component.js\u4fdd\u5b58\u6210\u529f"
+), m.exportTests(r, i, function(e, t, n) {
+                        u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
+                    });
+                }
+            } else C.confirm("\u63d0\u793a", "\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199RUI\u8def\u5f84", null, null, 1e3);
+        }
+    }), w.on("saveRUINew", function(t, n) {
+        if (E.pages().length < 1) C.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
+            C.confirm("\u63d0\u793a", "\u6b63\u5728\u4fdd\u5b58\u7ec4\u4ef6\u6587\u4ef6...", null, null, 1500);
+            var r = t.meta.name, i = _.find(E.pages(), function(e) {
+                return e.name == r;
+            });
+            if (i && i.ruiPath.indexOf("/") > 0) {
+                var s = y.exportHTMLCSS(), o = s.html;
+                o = o.replace(/\$\{/g, "{"), d.saveApi("/api/" + r, {
+                    
+ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.html") + '"}',
                     cmpData: o
                 }, "component.html\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
                     ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.css") + '"}',
@@ -4652,9 +4784,12 @@ o = o.replace(/\$\{/g, "{"), d.saveApi("/api/" + r, {
                         cmpData: u.meta.cacheJS
                     }, "cache.js\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
-                        
-cmpData: u.meta.componentJS
-                    }, "component.js\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseApi && d.saveApi("/api/" + r, {
+                        cmpData: u.meta.componentJS
+                    }, "component.js\u4fdd\u5b58\u6210\u529f"
+), d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "ui.js") + '"}',
+                        cmpData: u.meta.uiJS
+                    }, "ui.js\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseApi && d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseApi.js") + '"}',
                         cmpData: u.meta.testCaseApi
                     }, "testCaseApi\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseEvt && d.saveApi("/api/" + r, {
@@ -4663,41 +4798,61 @@ cmpData: u.meta.componentJS
                     }, "testCaseEvt\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseIns && d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseIns.js") + '"}',
                         cmpData: u.meta.testCaseIns
-                    }, "testCaseIns"), !u.meta.testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i.ruiPath, function(e, t, n) {
-                        
-u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
+                    }, "testCaseIns"), !u.meta.
+testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i, function(e, t, n) {
+                        u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
                     });
                 } else {
-                    var f = s.name, l = e("text!template/rui/component.js"), c = e("text!template/cache/cache.js");
-                    l = l.replace(/\_\_componentName\_\_/g, f.toLowerCase()), f = f.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g, "C"), l = l.replace(/\_\_componentNameCap\_\_/g, f);
-                    var a = s.cache, h = s.cacheCall;
-                    a && (c = c.replace(/\_\_cache\_\_/g, f).replace("__cachePath__", f).replace(/\_\_content\_\_/g, a), u.meta.cacheJS = c, d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js") + '"}',
+                    var f = s.name, l = e("text!template/rui/component.js"), c = e("text!template/rui/ui.js"), h = e("text!template/cache/cache.js");
+                    f = f.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g, "C"), l = l.replace(/\_\_componentNameCap\_\_/g, f).replace(/\_\_componentName\_\_/g, f.toLowerCase()), c = c.replace(/\_\_componentNameCap\_\_/g, f).replace(/\_\_componentName\_\_/g, f.toLowerCase());
+                    var a = s.cache, p = s.cacheCall;
+                    a && (h = h.replace(/\_\_cache\_\_/g, f).replace("__cachePath__", f).replace(/\_\_content\_\_/g, a), u.meta.cacheJS = h, d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js"
+) + '"}',
                         cmpData: u.meta.cacheJS
-                    }, "cache.js\u4fdd\u5b58\u6210\u529f")), h ? (h = h.replace(/\_\_cacheName\_\_/g, f), l = l.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + 
-f + "Cache").replace(/\_\_cacheCall\_\_/g, h)) : l = l.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, ""), u.meta.componentJS = l, d.saveApi("/api/" + r, {
+                    }, "cache.js\u4fdd\u5b58\u6210\u529f")), p ? (p = p.replace(/\_\_cacheName\_\_/g, f), l = l.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + f + "Cache").replace(/\_\_cacheCall\_\_/g, p)) : l = l.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, ""), u.meta.componentJS = l, d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
                         cmpData: u.meta.componentJS
-                    }, "component.js\u4fdd\u5b58\u6210\u529f"), m.exportTests(r, i.ruiPath, function(e, t, n) {
-                        u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
+                    }, "component.js\u4fdd\u5b58\u6210\u529f"), u.meta.uiJS = c, d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "ui.js") + '"}',
+                        cmpData: u.meta.uiJS
+                    }, "ui.js\u4fdd\u5b58\u6210\u529f"), m.exportTests(r, i, function(e, t, n) {
+                        u.meta.testCaseApi = e, u.meta
+.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
                     });
                 }
             } else C.confirm("\u63d0\u793a", "\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199RUI\u8def\u5f84", null, null, 1e3);
         }
+    }), N.on("refreshExample", function(t) {
+        var n = w.selectedComponents()[0], r = n.meta.name, i = _.find(E.pages(), function(e) {
+            return e.name == r;
+        }), s = i.ruiPath, o = i.libPath, u = e("text!template/test/show.html");
+        u = u.replace(/\_\_libDir\_\_/g, o).replace(/\_\_data\_\_/g, JSON.stringify(t)), d.saveApi("/api/refreshExample", {
+            ext: '{"name":"refreshExample", "url":"' + s + 'test/show.html"}',
+            cmpData: u
+        }, function() {
+            g("#drawMockView").html('<iframe frameborder="no" width="100%" height="100%" src="/' + s.substr(s.indexOf("src")) + 'test/show.html" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" style="position: absolute;left: 0px;"></iframe>'
+);
+        });
+    }), N.on("showTestResult", function() {
+        var e = w.selectedComponents()[0], t = e.meta.name, n = _.find(E.pages(), function(e) {
+            return e.name == t;
+        }), r = n.ruiPath;
+        g("#drawMockView").html('<iframe frameborder="no" width="100%" height="100%" src="/' + r.substr(r.indexOf("src")) + 'test/test.html" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" style="position: absolute;left: 0px;background:#fff;"></iframe>');
     }), N.on("save2test", function() {
         var e = w.selectedComponents()[0];
         if (e && e.meta.testCaseIns) {
-            var t = /return (.*?\])\;/g, n = t.exec(e.meta.testCaseIns), r = [];
-            n && (
-r = JSON.parse(n[1])), r.push({
+            var t = /return ([\s\S]*?\])\;/g, n = t.exec(e.meta.testCaseIns), r = [];
+            n && (r = JSON.parse(n[1])), r.push({
                 data: N.getDataValue()
-            }), e.meta.testCaseIns = e.meta.testCaseIns.replace(/(return ).*?\](\;)/g, "$1" + JSON.stringify(r) + "$2"), C.confirm("\u63d0\u793a", "\u6210\u529f\u4fdd\u5b58\u5230caseIns\u4e2d,\u53ef\u4ee5\u7f16\u8f91JS\u67e5\u770b", null, null, 1e3);
+            }), e.meta.testCaseIns = e.meta.testCaseIns.replace(/(return )[\s\S]*?\](\;)/g, "$1" + JSON.stringify(r).replace(/\,/g, ",\n") + "$2"), C.confirm("\u63d0\u793a", "\u6210\u529f\u4fdd\u5b58\u5230caseIns\u4e2d,\u53ef\u4ee5\u7f16\u8f91JS\u67e5\u770b"
+, null, null, 1e3);
         }
     }), N.on("getTestData", function() {
         var e = w.selectedComponents()[0];
         if (e && e.meta.testCaseIns) {
-            var t = /return (.*?\])\;/g, n = t.exec(e.meta.testCaseIns), r = [];
-            n && (r = JSON.parse(n[1]), r.length && N.setDataValue(r[Math.floor(Math.random() * r.length)]));
+            var t = /return ([\s\S]*?\])\;/g, n = t.exec(e.meta.testCaseIns), r = [];
+            n && (r = JSON.parse(n[1]), r.length && N.setDataValue(r[Math.floor(Math.random() * r.length)].data));
         }
     }), w.on("save2pool", function(e) {
         var t = e.meta.name, n = _.find(E.pages(), function(e) {
@@ -4706,80 +4861,91 @@ r = JSON.parse(n[1])), r.push({
         if (n) d.saveApi(n.postUrl, {
             ext: JSON.stringify(n),
             cmpData: JSON.stringify(r.result)
-        }, "\u64cd\u4f5c\u6210\u529f"
-); else {
-            var i = new A, s = new O, o = new O, u = new O, a = new O, f = new O, l = new O;
+        }, "\u64cd\u4f5c\u6210\u529f"); else {
+            var i = new A, s = new O, o = new O, u = new O, a = new O, f = new O, l = new O, c = new O;
             s.add(new M({
                 attributes: {
                     text: "\u7ec4\u4ef6\u63cf\u8ff0\uff1a"
                 }
             }));
-            var c = new k({
+            var h = new 
+k({
                 attributes: {
                     placeholder: "\u7ec4\u4ef6\u63cf\u8ff0"
                 }
             });
-            s.add(c), o.add(new M({
+            s.add(h), o.add(new M({
                 attributes: {
                     text: "\u7f29\u7565\u56fe\u7247\uff1a"
                 }
             }));
-            var h = new k({
+            var p = new k({
                 attributes: {
                     text: "\u7ec4\u4ef6\u5730\u5740\u524d\u7f00/" + t + "/example.png"
                 }
             });
-            o.add(h), u.add(new M({
+            o.add(p), u.add(new M({
                 attributes: {
                     text: "\u7ec4\u4ef6\u5730\u5740\uff1a"
                 }
             }));
-            var p = new k({
+            var v = new k({
                 attributes: {
-                    text: "\u7ec4\u4ef6\u5730\u5740\u524d\u7f00/" + 
-t + "/" + t + ".cmp"
+                    text: "\u7ec4\u4ef6\u5730\u5740\u524d\u7f00/" + t + "/" + t + ".cmp"
                 }
             });
-            u.add(p), a.add(new M({
+            u.add(v), a.add(new M({
                 attributes: {
                     text: "FTL\u5730\u5740\uff1a"
                 }
             }));
-            var v = new k({
-                attributes: {
+            var m = new k({
+                
+attributes: {
                     placeholder: "FTL\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                 }
             });
-            a.add(v), f.add(new M({
+            a.add(m), f.add(new M({
                 attributes: {
                     text: "CSS\u5730\u5740\uff1a"
                 }
             }));
-            var m = new k({
+            var g = new k({
                 attributes: {
                     placeholder: "CSS\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                 }
             });
-            f.add(m), l.add(new M({
+            f.add(g), l.add(new M({
                 attributes: {
                     text: "RUI\u5730\u5740\uff1a"
                 }
             }));
-            var g = new k({
+            var b = new k({
                 attributes: {
                     placeholder: "Regular\u7ec4\u4ef6\u5bfc\u51fa\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
-                
-}
+                }
             });
-            l.add(g), i.add(s), i.add(o), i.add(u), i.add(a), i.add(f), i.add(l), C.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", i, function() {
+            l.add(b), c.add(new M({
+                attributes: {
+                    text: "LIB\u5730\u5740\uff1a"
+                }
+            }));
+            
+var S = new k({
+                attributes: {
+                    placeholder: "\u6240\u4f9d\u8d56\u7684\u7ec4\u4ef6\u6c60lib\u5730\u5740('/src/javascript/lib/')"
+                }
+            });
+            c.add(S), i.add(s), i.add(o), i.add(u), i.add(a), i.add(f), i.add(l), i.add(c), C.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", i, function() {
                 var e = {
                     name: t,
-                    desc: c.text(),
-                    img: h.text(),
-                    url: p.text(),
-                    ftlPath: v.text(),
-                    cssPath: m.text(),
-                    ruiPath: g.text(),
+                    desc: h.text(),
+                    img: p.text(),
+                    url: v.text(),
+                    ftlPath: m.text(),
+                    cssPath: g.text(),
+                    ruiPath: b.text(),
+                    libPath: S.text(),
                     postUrl: "/api/" + t
                 };
                 E.load([ e ]), d.saveApi(e.postUrl, {
@@ -4788,7 +4954,8 @@ t + "/" + t + ".cmp"
                 }, "\u64cd\u4f5c\u6210\u529f"), E.savePool();
             });
         }
-    }), E.on("importProject", function() {
+    }), E.on("importProject"
+, function() {
         D.importProject();
     }), E.on("importProjectFromUrl", function(e) {
         g.get(e, function(e) {
@@ -4796,8 +4963,9 @@ t + "/" + t + ".cmp"
         });
     });
     var P = new FileReader;
-    return v
-.registerKey(!1, !0, !1, "c", function() {
+    return v.registerKey(!1, !0, !1, "s", function() {
         g("#cmd").css("display") == "none" ? D.showCmd() : g("#cmd").slideUp();
+    }), v.registerKey(!1, !0, !1, "c", function() {
+        g("#editor").css("display") == "none" ? D.editorCode() : g("#editor").slideUp();
     }), e("elements/image"), e("elements/text"), e("elements/func"), e("elements/umi"), e("elements/timeline"), D;
 });;

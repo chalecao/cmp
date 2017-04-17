@@ -13,6 +13,9 @@ CMP是一个用于制作网页的工具，你可以用它来制作静态网页�
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_timeline.png" />
  数据mock，实时预览，也可以保存数据到测试用例中，也可以从测试用例中加载数据：
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_mock.png" />
+<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/mock.png" />
+浏览器中跑测试用例：
+<img src="https://github.com/chalecao/cmp/raw/master/static/style/images/test.png" />
  在线代码编辑：
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_editor.png" />
 
@@ -73,16 +76,24 @@ cmps ./cmp -p 8088 -s false
 
 ## release
 
+### release 2.1.0
+1. 完善数据mock和测试用例功能，用户可以测试组件展示效果，同时在浏览器中跑测试用例。
+
 ### release 2.0.0
 1.新增mock数据，导出组件测试用例的功能，实时监控组件的mock data数据，用户可以自己模拟数据，也可以将模拟数据保存在测试用例中。
+
 2.新增模块UMI设计功能，每个UMI对应于模块中的一个hash节点界面，主要用于单页系统的设计。
+
 3.新增组件时序图组件，用户可以在设计阶段绘制组件逻辑时序图。
+
 4.函数组件增加else节点，最多可以增加两个else节点。
 
 
 ### release 1.1.0
 1.在和其他前端同事讨论的时候，发现了一些问题，于是我主要是代码和设计稿如何同步的问题。如何把生成的HTML和CSS再导回来。目前是无法实现的，因为数据模型导出到HTML和CSS是一个单向的过程。但是我多做了一点工作是先把代码编辑器集成了进来，这样在导出模块之前，至少可以先编辑模块的JS代码逻辑，而不需要导出之后再回到项目中编辑逻辑代码。
+
 2.增加了杀手锏功能，远程SHELL控制台，默认是在启动CMPS的根目录，当你打开某个模块的时候，默认切到模块的根目录，你可以执行远程命令，可以打包、编译CSS等。
+
 3.增加了SPA单页系统模块设计功能，可以直接设计页面的模块构成，一键生成单页系统所需页面以及模块的代码。生成的模块目录结构是根据用户所指定的组件池的FTL、CSS、RUI三个路径共同决定的，这三个路径中需要包含src目录。生成的页面和模块文件都会放在src目录下，给个简单的示例：
 ```
 {
@@ -101,6 +112,7 @@ cmps ./cmp -p 8088 -s false
 更新了許多，算是一個里程碑的版本。
 
 1.增加JS在线编辑器，保存JS代码到数据模型中。目前代码编辑器还只能编辑js代码。
+
 2.丰富组件池数据模型，示例如下：
 ```
 [
