@@ -1,21 +1,21 @@
 {
-    "name": "cmp",
-    "version": "2.1.0",
-    "description": "cmp means core mapping pages. you can use it as a tool.",
-    "main": "",
-    "authors": [
-        "ch19900606@gmail.com"
-    ],
-    "license": "MIT",
-    "homepage": "https://github.com/chalecao/cmp",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "cmui": "https://github.com/chalecao/cmui.git#master"
-    }
+  "name": "cmp",
+  "version": "2.1.2",
+  "description": "cmp means core mapping pages. you can use it as a tool.",
+  "main": "",
+  "authors": [
+    "ch19900606@gmail.com"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/chalecao/cmp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "cmui": "https://github.com/chalecao/cmui.git#master"
+  }
 }

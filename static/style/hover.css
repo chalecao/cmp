@@ -1,0 +1,80 @@
+.e-hover-source:hover .e-hover-target {
+    display: block;
+}
+
+.e-hover-source:hover .e-hover-code {
+    display: block;
+}
+
+.e-hover-target {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-top: -2px;
+    padding-top: 14px;
+    top: 100%;
+}
+
+.e-hover-target.left {
+    top: -50%;
+    margin-right: -2px;
+    padding-right: 14px;
+    padding-top: 0px;
+    right: 100%;
+    left: auto;
+}
+
+.e-hover-code {
+    display: none;
+}
+
+.e-hover-arrow {
+    position: absolute;
+    top: 5px;
+    width: 1px;
+    height: 1px;
+    border: 9px solid transparent;
+    border-bottom-color: #ddd;
+    z-index: 3;
+    border-top-width: 0px;
+}
+
+.e-hover-arrow.left {
+    position: absolute;
+    width: 1px;
+    right: 5px;
+    height: 1px;
+    border: 9px solid transparent;
+    border-left-color: #ddd;
+    z-index: 3;
+    border-right-width: 0px;
+}
+
+.e-hover-arrow-border {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    top: 6px;
+    border: 9px solid transparent;
+    border-bottom-color: #fff;
+    border-top-width: 0px;
+    z-index: 3;
+}
+
+.e-hover-arrow-border.left {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    right: 6px;
+    border: 9px solid transparent;
+    border-left-color: #fff;
+    border-right-width: 0px;
+    z-index: 3;
+}
+
+.e-hover-content {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 15px 15px 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+}

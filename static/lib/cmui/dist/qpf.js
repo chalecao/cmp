@@ -1546,57 +1546,58 @@ return Inline;
 // Panel
 // Container has title and content
 //===================================
-define('container/panel',['require','./container','knockout','$'],function(require){
+define('container/panel',['require','./container','knockout','$'],function (require) {
 
-var Container = require("./container");
-var ko = require("knockout");
-var $ = require("$");
+    var Container = require("./container");
+    var ko = require("knockout");
+    var $ = require("$");
 
-var Panel = Container.derive(function(){
-    return {
-        title : ko.observable("")
-    }
-}, {
+    var Panel = Container.derive(function () {
+        return {
+            title: ko.observable("")
+        }
+    }, {
 
-    type : 'PANEL',
+            type: 'PANEL',
 
-    css : 'panel',
+            css: 'panel',
 
-    template : '<div class="qpf-panel-header">\
+            template: '<div class="qpf-panel-header">\
                     <div class="qpf-panel-title" data-bind="html:title"></div>\
                     <div class="qpf-panel-tools"></div>\
                 </div>\
                 <div class="qpf-panel-body" data-bind="foreach:children" class="qpf-children">\
                     <div data-bind="qpf_view:$data"></div>\
-                </div>\
-                <div class="qpf-panel-footer"></div>',
-    
-    afterRender : function(){
-        var $el = this.$el;
-        this._$header = $el.children(".qpf-panel-header");
-        this._$tools = this._$header.children(".qpf-panel-tools");
-        this._$body = $el.children(".qpf-panel-body");
-        this._$footer = $el.children(".qpf-panel-footer");
-    },
+                </div>',
+                // <div class="qpf-panel-footer"></div>',
 
-    onResize : function(){
-        // stretch the body when the panel's height is given
-        if( this._$body && this.height() ){
-            var headerHeight = this._$header.height();
-            var footerHeight = this._$footer.height();
+            afterRender: function () {
+                var $el = this.$el;
+                this._$header = $el.children(".qpf-panel-header");
+                this._$tools = this._$header.children(".qpf-panel-tools");
+                this._$body = $el.children(".qpf-panel-body");
+                // this._$footer = $el.children(".qpf-panel-footer");
+            },
 
-            // PENDING : here use jquery innerHeight method ?because we still 
-            // need to consider the padding of body
-            this._$body.height( this.$el.height() - headerHeight - footerHeight );
-    
-        }
-        Container.prototype.onResize.call(this);
-    }
-})
+            onResize: function () {
+                // stretch the body when the panel's height is given
+                if (this._$body && this.height()) {
+                    var headerHeight = this._$header.height();
+                    // var footerHeight = this._$footer.height();
+                    var footerHeight = 0;
 
-Container.provideBinding("panel", Panel);
+                    // PENDING : here use jquery innerHeight method ?because we still 
+                    // need to consider the padding of body
+                    this._$body.height(this.$el.height() - headerHeight - footerHeight);
 
-return Panel;
+                }
+                Container.prototype.onResize.call(this);
+            }
+        })
+
+    Container.provideBinding("panel", Panel);
+
+    return Panel;
 
 })
 
@@ -1605,58 +1606,58 @@ return Panel;
 // Tab Container
 // Children of tab container must be a panel
 //============================================
-define('container/tab',['require','./container','./panel','knockout','$','_'],function(require){
+define('container/tab',['require','./container','./panel','knockout','$','_'],function (require) {
 
-var Container = require("./container");
-var Panel = require("./panel");
-var ko = require("knockout");
-var $ = require("$");
-var _ = require("_");
+    var Container = require("./container");
+    var Panel = require("./panel");
+    var ko = require("knockout");
+    var $ = require("$");
+    var _ = require("_");
 
-var Tab = Panel.derive(function(){
+    var Tab = Panel.derive(function () {
 
-    var ret = {
-            
-        actived : ko.observable(0),
+        var ret = {
 
-        maxTabWidth : 100,
+            actived: ko.observable(0),
 
-        minTabWidth : 30
+            maxTabWidth: 100,
 
-    }
+            minTabWidth: 30
 
-    ret.actived.subscribe(function(idx){
-        this._active(idx);
-    }, this);
-
-    return ret;
-}, {
-
-    type : "TAB",
-
-    css : 'tab',
-
-    add : function(item){
-        if( item.instanceof(Panel) ){
-            Panel.prototype.add.call(this, item);
-        }else{
-            console.error("Children of tab container must be instance of panel");
         }
-        this._active( this.actived() );
-    },
 
-    eventsProvided : _.union('change', Container.prototype.eventsProvided),
-
-    initialize : function(){
-        // compute the tab value;
-        this.children.subscribe(function(){
-            this._updateTabSize();
+        ret.actived.subscribe(function (idx) {
+            this._active(idx);
         }, this);
 
-        Panel.prototype.initialize.call(this);
-    },
+        return ret;
+    }, {
 
-    template : '<div class="qpf-tab-header">\
+            type: "TAB",
+
+            css: 'tab',
+
+            add: function (item) {
+                if (item.instanceof(Panel)) {
+                    Panel.prototype.add.call(this, item);
+                } else {
+                    console.error("Children of tab container must be instance of panel");
+                }
+                this._active(this.actived());
+            },
+
+            eventsProvided: _.union('change', Container.prototype.eventsProvided),
+
+            initialize: function () {
+                // compute the tab value;
+                this.children.subscribe(function () {
+                    this._updateTabSize();
+                }, this);
+
+                Panel.prototype.initialize.call(this);
+            },
+
+            template: '<div class="qpf-tab-header">\
                     <ul class="qpf-tab-tabs" data-bind="foreach:children">\
                         <li data-bind="click:$parent.actived.bind($data, $index())">\
                             <a data-bind="html:title"></a>\
@@ -1668,87 +1669,90 @@ var Tab = Panel.derive(function(){
                     <div class="qpf-tab-views" data-bind="foreach:children" class="qpf-children">\
                         <div data-bind="qpf_view:$data"></div>\
                     </div>\
-                </div>\
-                <div class="qpf-tab-footer"></div>',
+                 </div>',
+            // <div class="qpf-tab-footer"></div>',
 
-    afterRender : function(){
-        this._updateTabSize();
-        // cache the $element will be used
-        var $el = this.$el;
-        this._$header = $el.children(".qpf-tab-header");
-        this._$tools = this._$header.children(".qpf-tab-tools");
-        this._$body = $el.children(".qpf-tab-body");
-        this._$footer = $el.children('.qpf-tab-footer');
+            afterRender: function () {
+                this._updateTabSize();
+                // cache the $element will be used
+                var $el = this.$el;
+                this._$header = $el.children(".qpf-tab-header");
+                this._$tools = this._$header.children(".qpf-tab-tools");
+                this._$body = $el.children(".qpf-tab-body");
+                // this._$footer = $el.children('.qpf-tab-footer');
 
-        this._active( this.actived() );
-    },
+                this._active(this.actived());
+            },
 
-    onResize : function(){
-        this._adjustCurrentSize();
-        this._updateTabSize();
-        Container.prototype.onResize.call(this);
-    },
+            onResize: function () {
+                this._adjustCurrentSize();
+                this._updateTabSize();
+                Container.prototype.onResize.call(this);
+            },
 
-    _unActiveAll : function(){
-        _.each(this.children(), function(child){
-            child.$el.css("display", "none");
-        });
-    },
+            _unActiveAll: function () {
+                _.each(this.children(), function (child) {
+                    child.$el.css("display", "none");
+                });
+            },
 
-    _updateTabSize : function(){
-        var length = this.children().length,
-            tabSize = Math.floor((this.$el.width()-20)/length);
-        // clamp
-        tabSize = Math.min(this.maxTabWidth, Math.max(this.minTabWidth, tabSize) );
+            _updateTabSize: function () {
+                var length = this.children().length,
+                    tabSize = Math.floor((this.$el.width() - 20) / length);
+                // clamp
+                tabSize = Math.min(this.maxTabWidth, Math.max(this.minTabWidth, tabSize));
 
-        this.$el.find(".qpf-tab-header>.qpf-tab-tabs>li").width(tabSize);
-    },
+                this.$el.find(".qpf-tab-header>.qpf-tab-tabs>li").width(tabSize);
+            },
 
-    _adjustCurrentSize : function(){
+            _adjustCurrentSize: function () {
 
-        var current = this.children()[ this.actived() ];
-        if( current && this._$body ){
-            var headerHeight = this._$header.height(),
-                footerHeight = this._$footer.height();
+                var current = this.children()[this.actived()];
+                if (current && this._$body) {
+                    var headerHeight = this._$header.height(),
+                        footerHeight = 0;
 
-            if( this.height() &&
-                this.height() !== "auto" ){
-                current.height( this.$el.height() - headerHeight - footerHeight );
+                    if (this.height() &&
+                        this.height() !== "auto") {
+                        console.log(headerHeight);
+                        console.log("footerHeight" + footerHeight);
+                        current.height(this.$el.height() );
+                    }
+                    // PENDING : compute the width ???
+                    if (this.width() == "auto") {
+                    }
+                }
+            },
+
+            _active: function (idx) {
+                this._unActiveAll();
+                var current = this.children()[idx];
+                if (current) {
+                    current.$el.css("display", "block");
+
+                    // Trigger the resize events manually
+                    // Because the width and height is zero when the panel is hidden,
+                    // so the children may not be properly layouted, We need to force the
+                    // children do layout again when panel is visible;
+                    this._adjustCurrentSize();
+                    current.onResize();
+
+                    this.trigger('change', idx, current);
+                }
+
+                this.$el.find(".qpf-tab-header>.qpf-tab-tabs>li")
+                    .removeClass("actived")
+                    .eq(idx).addClass("actived");
             }
-            // PENDING : compute the width ???
-            if( this.width() == "auto" ){
-            }
-        }
-    },
 
-    _active : function(idx){
-        this._unActiveAll();
-        var current = this.children()[idx];
-        if( current ){
-            current.$el.css("display", "block");
+        })
 
-            // Trigger the resize events manually
-            // Because the width and height is zero when the panel is hidden,
-            // so the children may not be properly layouted, We need to force the
-            // children do layout again when panel is visible;
-            this._adjustCurrentSize();
-            current.onResize();
+    Container.provideBinding("tab", Tab);
 
-            this.trigger('change', idx, current);
-        }
-
-        this.$el.find(".qpf-tab-header>.qpf-tab-tabs>li")
-                .removeClass("actived")
-                .eq(idx).addClass("actived");
-    }
+    return Tab;
 
 })
-
-Container.provideBinding("tab", Tab);
-
-return Tab;
-
-});
+;
 //===============================================
 // vbox layout
 // 

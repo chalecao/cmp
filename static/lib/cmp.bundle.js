@@ -112,7 +112,7 @@ createXhr: c.createXhr || function() {
     };
     return t;
 }), define("text!modules/app.xml", [], function() {
-    return '<application>\r\n    <region  id="editor" name="codeEditor" controller="@binding[codeEditor]" height="100%"></region>\r\n    <region  id="cmd" name="shellCmd" controller="@binding[shellCmd]" height="100%"></region>\r\n    <vbox height="100%">\r\n        <container prefer="30" style="margin-bottom:3px;">\r\n            <region name="toolbar" controller="@binding[toolbar]" height="100%"></region>\r\n        </container>\r\n        <hbox class="flexBox"> \r\n            <tab prefer="200" maxTabWidth="50" minTabWidth="50" class="tabContent">\r\n                <panel title="POOL" >\r\n                    <region name="page" controller="@binding[page]" style="height:100%"></region>\r\n                </panel>\r\n                <panel title="\u7ec4\u4ef6">\r\n                    <region name="component" controller="@binding[component]" style="height:100%"></region>\r\n                </panel>\r\n                <panel title="\u5c42\u7ea7">\r\n                    <region name="hierarchy" controller="@binding[hierarchy]" style="height:100%"></region>\r\n                </panel>\r\n                <panel title="DATA">\r\n                    <region name="dataMock" controller="@binding[dataMock]" style="height:100%"></region>\r\n                </panel>\r\n            </tab>\r\n            <region flex="1" name="viewport" class="mainContent" style="margin:0 5px;webkit-box-flex: 1;flex: 1;" controller="@binding[viewport]"></region>\r\n            <region class="propContent" prefer="280" name="property" controller="@binding[property]"></region>\r\n        </hbox>\r\n    </vbox>\r\n</application>\r\n\r\n'
+    return '<application>\r\n    <region  id="editor" name="codeEditor" controller="@binding[codeEditor]" height="100%"></region>\r\n    <region  id="cmd" name="shellCmd" controller="@binding[shellCmd]" height="100%"></region>\r\n    <vbox height="100%">\r\n        <container prefer="30" style="margin-bottom:3px;">\r\n            <region name="toolbar" controller="@binding[toolbar]" height="100%"></region>\r\n        </container>\r\n        <hbox class="flexBox"> \r\n            <tab prefer="230"  maxTabWidth="30" minTabWidth="30" class="leftTabContent" >\r\n                <panel title="\u9879\u76ee\u7ec4\u4ef6">\r\n                    <tab prefer="200" maxTabWidth="50" minTabWidth="50" height="100%">\r\n                        <panel title="POOL" >\r\n                            <region name="page" controller="@binding[page]" style="height:100%"></region>\r\n                        </panel>\r\n                        <panel title="\u7ec4\u4ef6">\r\n                            <region name="component" controller="@binding[component]" style="height:100%"></region>\r\n                        </panel>\r\n                        <panel title="\u5c42\u7ea7">\r\n                            <region name="hierarchy" controller="@binding[hierarchy]" style="height:100%"></region>\r\n                        </panel>\r\n                        <panel title="DATA">\r\n                            <region name="dataMock" controller="@binding[dataMock]" style="height:100%"></region>\r\n                        </panel>\r\n                    </tab>\r\n                </panel>\r\n                <panel title="\u901a\u7528\u7ec4\u4ef6">\r\n                    <region name="page"  style="height:100%"></region>\r\n                </panel>\r\n                <panel title="\u4e1a\u52a1\u7ec4\u4ef6">\r\n                </panel>\r\n            </tab>\r\n            <region flex="1" name="viewport" class="mainContent" style="margin:0 5px;webkit-box-flex: 1;flex: 1;" controller="@binding[viewport]"></region>\r\n            <region class="propContent" prefer="280" name="property" controller="@binding[property]"></region>\r\n        </hbox>\r\n    </vbox>\r\n</application>\r\n\r\n'
 ;
 }), define("modules/router", [ "require" ], function(e) {
     var t = Router();
@@ -294,7 +294,7 @@ body: new u({
     return '.f-fl {\r\n    float: left;\r\n}\r\n\r\n.f-fr {\r\n    float: right;\r\n}\r\n\r\n.f-line,\r\n.f-thide {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n}\r\n\r\n.f-cb:after {\r\n    display: block;\r\n    clear: both;\r\n    visibility: hidden;\r\n    height: 0;\r\n    overflow: hidden;\r\n    content: ".";\r\n}\r\n\r\n.f-2lines {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    display: -webkit-box;\r\n    -webkit-line-clamp: 2;\r\n    -webkit-box-orient: vertical;\r\n}\r\n\r\n.f-3lines {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    display: -webkit-box;\r\n    -webkit-line-clamp: 3;\r\n    -webkit-box-orient: vertical;\r\n}\r\n\r\n.f-4lines {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    display: -webkit-box;\r\n    -webkit-line-clamp: 4;\r\n    -webkit-box-orient: vertical;\r\n}\r\n';
 }), define("text!template/cache/cacheItem.js"
 , [], function() {
-    return "    /**\r\n     * __name__\r\n     * @param  {Object} _data\r\n     */\r\n    _p._$__name__ = function (_data, _onLoad) {\r\n        _cache._$request({\r\n            url: '__url__',\r\n            method: '__method__',\r\n            data: _data,\r\n            onload: _onLoad,\r\n            notShowLoading: true\r\n        });\r\n    };\r\n";
+    return "/**\r\n     * __name__\r\n     * @param  {Object} _data\r\n     */\r\n    _p._$__name__ = function (_data, _onLoad) {\r\n        _cache._$request({\r\n            url: '__url__',\r\n            method: '__method__',\r\n            data: _data,\r\n            onload: _onLoad,\r\n            notShowLoading: true\r\n        });\r\n    };\r\n";
 }), define("text!template/cache/dwrItem.js", [], function() {
     return "/**\r\n     * __name__\r\n     */\r\n    _p._$__name__ = function (_data, _onLoad) {\r\n        _dwr._$postDWR({\r\n            key: \"__name__\",\r\n            url: '__url__',\r\n            param: [_data],\r\n            onload: _onLoad\r\n        });\r\n    };\r\n";
 }), define("text!template/cache/callCache.js", [], function() {
@@ -404,15 +404,15 @@ t.helper.Draggable, m = JSON.parse(e("text!template/animate/animate.json")), g =
                 overflow: n.observable(!1),
                 hover: n.observable(""),
                 hoverComponent: n.observable(""),
-                hoverStr: n.observable("/* css style */"),
+                hoverStr: n.observable(""),
                 titleStr: n.observable(""),
                 animateStr: n.observable("none"),
                 dataCate: n.observable(""),
                 dataAction: n.observable(""),
                 dataLabel: n.observable(""),
                 positionStr: n.observable("absolute"),
-                
-floatStr: n.observable(""),
+                floatStr
+: n.observable(""),
                 eventName: n.observable(""),
                 eventHandler: n.observable("")
             },
@@ -443,8 +443,8 @@ floatStr: n.observable(""),
                 items: [ {
                     name: "left",
                     type: "textfield",
-                    value
-: u.left,
+                    value: u.left
+,
                     text: u.left
                 }, {
                     name: "top",
@@ -477,8 +477,8 @@ floatStr: n.observable(""),
                 label: "\u7c7b\u578b*",
                 ui: "combobox",
                 "class": "small",
-                field
-: "style",
+                field: "style"
+,
                 items: [ {
                     text: "\u666e\u901a\u5143\u7d20",
                     value: "ELEMENT"
@@ -509,9 +509,9 @@ floatStr: n.observable(""),
                     text: "block",
                     value: "block"
                 }, {
-                    text: "inline-block"
-,
-                    value: "inline-block"
+                    text: "inline-block",
+                    
+value: "inline-block"
                 }, {
                     text: "none",
                     value: "none"
@@ -532,6 +532,9 @@ floatStr: n.observable(""),
                 }, {
                     text: "right",
                     value: "right"
+                }, {
+                    text: "clearBoth",
+                    value: "both"
                 } ],
                 value: u.floatStr,
                 visible: t
@@ -542,10 +545,10 @@ floatStr: n.observable(""),
                 field: "layout",
                 items: [ {
                     name: "width",
-                    type: "textfield",
-                    text: u.width,
                     
-value: u.width
+type: "textfield",
+                    text: u.width,
+                    value: u.width
                 }, {
                     name: "height",
                     type: "textfield",
@@ -576,10 +579,10 @@ value: u.width
                 items: [ {
                     text: "\u65e0",
                     value: ""
-                }, {
+                
+}, {
                     text: "\u5b9e\u7ebf",
-                    value
-: "solid"
+                    value: "solid"
                 }, {
                     text: "\u95f4\u9694\u6a2a\u7ebf",
                     value: "dashed"
@@ -609,10 +612,10 @@ value: u.width
                     step: 1,
                     min: 0,
                     max: 20
-                }, {
+                
+}, {
                     name: "bottom",
-                    
-type: "slider",
+                    type: "slider",
                     value: u.borderBottom,
                     precision: 0,
                     step: 1,
@@ -642,10 +645,10 @@ type: "slider",
                 field: "style",
                 checked: e
             },
-            backgroundColor: {
+            backgroundColor
+: {
                 label: "\u80cc\u666f\u8272",
-                
-ui: "color",
+                ui: "color",
                 field: "style",
                 color: u.backgroundColor,
                 alpha: u.backgroundAlpha,
@@ -673,11 +676,11 @@ ui: "color",
                 label: "\u80cc\u666fURL",
                 field: "style",
                 ui: "textfield",
-                text: u.backgroundImageStr,
+                text: u.
+backgroundImageStr,
                 visible: s
             },
-            
-backgroundGradient: {
+            backgroundGradient: {
                 ui: "gradient",
                 field: "style",
                 stops: u.backgroundGradientStops,
@@ -704,10 +707,10 @@ backgroundGradient: {
                     min: 0
                 }, {
                     name: "bottom-right",
-                    type: "slider",
+                    type: "slider"
+,
                     value: u.borderBottomRightRadius,
-                    
-precision: 0,
+                    precision: 0,
                     step: 1,
                     min: 0
                 }, {
@@ -735,10 +738,10 @@ precision: 0,
                     text: u.marginRight,
                     value: u.marginRight
                 }, {
-                    name: "bottom",
-                    type: "textfield",
-                    text: u.marginBottom
+                    name: "bottom"
 ,
+                    type: "textfield",
+                    text: u.marginBottom,
                     value: u.marginBottom
                 }, {
                     name: "left",
@@ -765,11 +768,11 @@ precision: 0,
                 }, {
                     name: "bottom",
                     type: "textfield",
-                    text: u.paddingBottom,
+                    text: u.paddingBottom
+,
                     value: u.paddingBottom
                 }, {
-                    
-name: "left",
+                    name: "left",
                     type: "textfield",
                     text: u.paddingLeft,
                     value: u.paddingLeft
@@ -799,10 +802,10 @@ name: "left",
                     type: "slider",
                     min: -50,
                     max: 50,
-                    precision: 0,
+                    
+precision: 0,
                     value: u.shadowOffsetX
-                
-}, {
+                }, {
                     name: "shadowOffsetY",
                     type: "slider",
                     min: -50,
@@ -832,11 +835,11 @@ name: "left",
                 text: u.boxColor
             },
             href: {
-                label: "\u8d85\u94fe\u63a5",
+                label: "\u8d85\u94fe\u63a5"
+,
                 ui: "vector",
                 items: [ {
-                    
-label: "\u65b0\u5f00\u9875\u9762",
+                    label: "\u65b0\u5f00\u9875\u9762",
                     type: "checkbox",
                     checked: u.newBlank,
                     value: u.newBlank
@@ -864,11 +867,11 @@ label: "\u65b0\u5f00\u9875\u9762",
                 }, {
                     text: "overflowX",
                     value: "overflowX"
-                }, {
-                    text: "overflowY",
-                    value: "overflowY"
                 
 }, {
+                    text: "overflowY",
+                    value: "overflowY"
+                }, {
                     text: "overflowXY",
                     value: "overflowXY"
                 } ],
@@ -897,11 +900,11 @@ label: "\u65b0\u5f00\u9875\u9762",
             hoverComponent: {
                 label: "HoverC",
                 ui: "textfield",
-                field: "layout",
+                field
+: "layout",
                 text: u.hoverComponent,
                 visible: u.hover
-            
-},
+            },
             hoverStr: {
                 label: "HoverStr",
                 ui: "codearea",
@@ -932,12 +935,12 @@ label: "\u65b0\u5f00\u9875\u9762",
             titleStr: {
                 label: "\u63cf\u8ff0\u63d0\u793a",
                 ui: "textfield",
-                text: u.titleStr
+                text
+: u.titleStr
             },
             eventName: {
                 label: "on-",
-                
-ui: "textfield",
+                ui: "textfield",
                 field: "event",
                 text: u.eventName
             },
@@ -963,11 +966,11 @@ ui: "textfield",
                 }
                 if (e.extendUIConfig) {
                     var a = e.extendUIConfig.call(this);
-                    a && i.extend(this.uiConfig, a);
+                    a && i.extend(this.
+uiConfig, a);
                 }
             }
-            e && i.extend(t, i.omit(e, "properties"))
-;
+            e && i.extend(t, i.omit(e, "properties"));
             var l = !0;
             n.computed({
                 read: function() {
@@ -984,18 +987,20 @@ ui: "textfield",
                 }
             }), n.computed({
                 read: function() {
-                    t.$wrapper.css({
-                        "z-index": t.properties.zIndex(),
+                    var e = t.properties.zIndex();
+                    e > 0 && t.$wrapper.css({
+                        "z-index": t.properties.zIndex()
+                    }), t.$wrapper.css({
                         "min-width": t.properties.minWidth() + "px",
-                        display: t.properties.displayStr()
+                        display: t.properties.displayStr
+()
                     });
                 }
             }), n.computed({
                 read: function() {
                     var e = t.properties.rid();
                     e ? t.$wrapper.attr({
-                        
-id: t.properties.rid()
+                        id: t.properties.rid()
                     }) : t.$wrapper.removeAttr("id");
                 }
             }), n.computed({
@@ -1011,16 +1016,16 @@ id: t.properties.rid()
                     t.$wrapper.attr({
                         "class": e,
                         title: n
-                    });
+                    }), n || t.$wrapper.removeAttr("title");
                 }
             }), n.computed({
-                read: function() {
+                read: 
+function() {
                     var e = t.properties.hoverStr();
-                    e ? t.type == "TEXT" ? r(t.$wrapper.find("span")[0]).attr({
+                    r.trim(e).length ? t.type == "TEXT" ? r(t.$wrapper.find("span")[0]).attr({
                         hoverStyle: e
                     }) : t.$wrapper.attr({
-                        hoverStyle
-: e
+                        hoverStyle: e
                     }) : t.type == "TEXT" ? r(t.$wrapper.find("span")[0]).removeAttr("hoverStyle") : t.$wrapper.removeAttr("hoverStyle");
                 }
             }), n.computed({
@@ -1036,15 +1041,15 @@ id: t.properties.rid()
                 read: function() {
                     var e = t.properties.overflow();
                     switch (e) {
-                      case "visiable":
+                      
+case "visiable":
                         t.$wrapper.css({
                             overflow: "visiable"
                         });
                         break;
                       case "overflowX":
                         t.$wrapper.css({
-                            "overflow-x"
-: "hidden"
+                            "overflow-x": "hidden"
                         });
                         break;
                       case "overflowY":
@@ -1060,15 +1065,18 @@ id: t.properties.rid()
                 }
             }), n.computed({
                 read: function() {
-                    var e = t.uiConfig.borderRadius.items, n = t.uiConfig.margin.items, r = t.uiConfig.padding.items;
-                    t.$wrapper.css({
+                    var e = t.uiConfig.borderRadius.items, n = t.uiConfig.margin.items, r = t.uiConfig.padding.items, s = i.find(e, function(e) {
+                        return +e.value() > 0;
+                    
+});
+                    s && t.$wrapper.css({
                         "border-radius": i.map(e, function(e) {
                             return Math.round(e.value()) + "px";
-                        }).join(" "),
+                        }).join(" ")
+                    }), t.$wrapper.css({
                         margin: i.map(n, function(e) {
                             return isNaN(+e.value()) ? e.value() : Math.round(e.value()) + "px";
-                        
-}).join(" "),
+                        }).join(" "),
                         padding: i.map(r, function(e) {
                             return Math.round(e.value()) + "px";
                         }).join(" ")
@@ -1080,12 +1088,12 @@ id: t.properties.rid()
                     "font-size": t.properties.boxFontSize()
                 });
             }), n.computed(function() {
-                var e = t.properties.animateStr(), n = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+                var e = t.properties.animateStr(), n = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend"
+;
                 e && (t.$wrapper.hasClass("animated") || t.$wrapper.addClass("animated"), t.tempAniStr && t.tempAniStr != e && t.$wrapper.removeClass(t.tempAniStr), t.tempAniStr = e, t.$wrapper.addClass(e).one(n, function() {}));
             }), n.computed({
                 read: function() {
-                    var e = t.properties.borderStyle(), n = t.properties.borderColor(), r = t.properties.borderAlpha
-(), o = s(n);
+                    var e = t.properties.borderStyle(), n = t.properties.borderColor(), r = t.properties.borderAlpha(), o = s(n);
                     o._alpha = r;
                     var u = t.uiConfig.borderWidth.items;
                     e ? (t.$wrapper.css({
@@ -1099,7 +1107,8 @@ id: t.properties.rid()
                     })) : t.$wrapper.css({
                         border: ""
                     });
-                }
+                
+}
             }), n.computed({
                 read: function() {
                     var e = t.properties.background(), n = t.properties.backgroundColor(), r = t.properties.backgroundAlpha(), o = s(n);
@@ -1107,8 +1116,7 @@ id: t.properties.rid()
                     var u = t.properties.backgroundImageStr();
                     if (e) {
                         t.$wrapper.css({
-                            "background-color"
-: o.cssa()
+                            "background-color": o.cssa()
                         });
                         switch (t.properties.backgroundImageType()) {
                           case "none":
@@ -1118,7 +1126,8 @@ id: t.properties.rid()
                             break;
                           case "gradient":
                             var a = t.properties.backgroundGradientStops(), f = t.properties.backgroundGradientAngle(), l = "linear-gradient(" + f + "deg, " + i.map(a, function(e) {
-                                return s(e.color()).cssa() + " " + Math.round(e.percent() * 100) + "%";
+                                return s(e.color
+()).cssa() + " " + Math.round(e.percent() * 100) + "%";
                             }).join(", ") + ")";
                             t.$wrapper.css({
                                 "background-image": "-webkit-" + l,
@@ -1126,9 +1135,10 @@ id: t.properties.rid()
                                 "background-image": l
                             });
                             break;
-                          
-case "file":
-                            t.$wrapper.css({
+                          case "file":
+                            u.indexOf("url") >= 0 ? t.$wrapper.css({
+                                background: u
+                            }) : t.$wrapper.css({
                                 background: "url('" + u + "')"
                             });
                         }
@@ -1138,17 +1148,18 @@ case "file":
                 }
             }), n.computed({
                 read: function() {
-                    var e = t.properties.hover(), n = t.properties.hoverComponent();
+                    var e = t.properties.hover(), n = t.properties.hoverComponent()
+;
                     e ? c(n) ? (t.$wrapper.find(".e-hover-code").remove(), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.append(r("<div></div>").append(r("<div></div>").addClass("e-hover-code").append(n)).html()), t.$wrapper.css({
                         cursor: "auto"
                     })) : (t.$wrapper.find(".e-hover-target").remove(), t.properties.boxClassStr().indexOf("e-hover-source") < 0 && t.properties.boxClassStr(t.properties.boxClassStr() + " e-hover-source"), t.$wrapper.css({
                         cursor: "pointer"
-                    
-}), t.$wrapper.append(f), e == "left" && t.$wrapper.find(".e-hover-target").addClass("left"), n && t.trigger("addHoverComponent", n, t.$wrapper.find(".e-hover-content"), e)) : (t.$wrapper.removeClass("e-hover-source"), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.find(".e-hover-code").remove());
+                    }), t.$wrapper.append(f), e == "left" && t.$wrapper.find(".e-hover-target").addClass("left"), n && t.trigger("addHoverComponent", n, t.$wrapper.find(".e-hover-content"), e)) : (t.$wrapper.removeClass("e-hover-source"), t.$wrapper.find(".e-hover-target").remove(), t.$wrapper.find(".e-hover-code").remove());
                 }
             }), n.computed({
                 read: function() {
-                    var e = t.properties, n = Math.round(e.shadowOffsetX()) + "px", r = Math.round(e.shadowOffsetY()) + "px", i = Math.round(e.shadowBlur()) + "px", o = Math.round(e.shadowColor()), u = e.shadowColorAlpha(), a = s(o);
+                    var e = t.properties, n = 
+Math.round(e.shadowOffsetX()) + "px", r = Math.round(e.shadowOffsetY()) + "px", i = Math.round(e.shadowBlur()) + "px", o = Math.round(e.shadowColor()), u = e.shadowColorAlpha(), a = s(o);
                     a._alpha = u, i && e.hasShadow() ? t.$wrapper.css({
                         "box-shadow": [ n, r, i, a.cssa() ].join(" ")
                     }) : t.$wrapper.css({
@@ -1157,13 +1168,17 @@ case "file":
                 }
             }), n.computed({
                 read: function() {
-                    t.properties.positionStr() != "relative" && 
-t.properties.floatStr(""), t.$wrapper.css({
+                    var e = t.properties.floatStr();
+                    t.properties.positionStr() != "relative" && t.properties.floatStr(""), e == "both" ? t.$wrapper.css({
+                        clear: "both"
+                    }) : t.$wrapper.css({
                         position: t.properties.positionStr(),
-                        "float": t.properties.floatStr()
+                        "float": t.properties.floatStr(),
+                        clear: "none"
                     });
                 }
-            }), n.computed({
+            }), n.computed(
+{
                 read: function() {
                     t.type = t.properties.typeStr();
                 }
@@ -1178,11 +1193,11 @@ t.properties.floatStr(""), t.$wrapper.css({
                     e && t.$wrapper.attr({
                         "data-cate": e
                     }), n && t.$wrapper.attr({
-                        "data-action"
-: n
+                        "data-action": n
                     }), r && t.$wrapper.attr({
                         "data-label": r
-                    }), (e || n || r) && t.properties.boxClassStr().indexOf("ga-click") < 0 && t.properties.boxClassStr(t.properties.boxClassStr() + " ga-click");
+                    }), (e || n || r) && t.properties.boxClassStr().indexOf("ga-click") < 0 && t.properties.boxClassStr(t.properties
+.boxClassStr() + " ga-click");
                 }
             }), t.$wrapper.css({
                 position: "absolute"
@@ -1198,15 +1213,15 @@ t.properties.floatStr(""), t.$wrapper.css({
         rasterize: function() {},
         "export": function() {
             var e = {
-                
-eid: this.eid,
+                eid: this.eid,
                 type: this.type,
                 properties: o.toJS(this.properties),
                 assets: {
                     images: {}
                 }
             };
-            return this.onExport(e), e;
+            return this
+.onExport(e), e;
         },
         isContainer: function() {
             return this.properties.id().indexOf("container") < 0 ? !1 : !0;
@@ -1216,14 +1231,14 @@ eid: this.eid,
         },
         exportCache: function() {
             var e = "", t = "";
-            return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()).replace(/\_\_method\_\_/g, this.properties.requestType()) : e = p.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()), t = d.replace(/\_\_funcName\_\_/g, this.properties.requestName()).replace(/\_\_reqData\_\_/g, this
-.properties.requestParam()).replace(/\_\_cb\_\_/g, this.properties.onLoadFunc()), {
+            return this.properties.requestType() != "dwr" ? e = h.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()).replace(/\_\_method\_\_/g, this.properties.requestType()) : e = p.replace(/\_\_name\_\_/g, this.properties.requestName()).replace(/\_\_url\_\_/g, this.properties.requestUrl()), t = d.replace(/\_\_funcName\_\_/g, this.properties.requestName()).replace(/\_\_reqData\_\_/g, this.properties.requestParam()).replace(/\_\_cb\_\_/g, this.properties.onLoadFunc()), {
                 cacheItem: e,
                 cacheItemCall: t
             };
         },
         getLeft: function() {
-            return this.properties.left();
+            
+return this.properties.left();
         },
         getTop: function() {
             return this.properties.top();
@@ -1250,12 +1265,12 @@ eid: this.eid,
             return this.isContainer() ? e.substring(0, e.indexOf("container") - 1) : e;
         },
         getCss: function(e, t, n) {
-            if (
-e.children().length < 1) return;
+            if (e.children().length < 1) return;
             var i = this, s = "", o = t, u = "";
             r.each(e.children(), function(e, a) {
                 u = r(a).attr("class"), u && r(a).attr({
-                    "class": i.removeCMPClass(u)
+                    "class"
+: i.removeCMPClass(u)
                 }), s = r(a).attr("style");
                 if (s) {
                     o = t + "_" + r(a).prop("tagName").toLowerCase() + k();
@@ -1265,14 +1280,14 @@ e.children().length < 1) return;
                     l && (l.indexOf("&") >= 0 ? n.push(l.replace(/\&/g, "." + o)) : n.push("." + o + ":hover{" + i.getCSS3String(l) + "}"), r(a).removeAttr("hoverstyle")), r(a).removeAttr("style"), r(a).addClass(o);
                 } else o = r(a).attr("class");
                 i.getCss(r(a), t, n);
-            
-});
+            });
         },
         getHTMLCSS: function(e, t) {
             var n = r("<div></div>").append(e), i = [];
             return this.getCss(n, t, i), {
                 html: n.html(),
-                css: i.join("")
+                css: i.
+join("")
             };
         },
         removeCMPClass: function(e) {
@@ -1286,31 +1301,31 @@ e.children().length < 1) return;
         exportHTMLCSS: function() {
             this.$wrapper.find(".element-select-outline").remove();
             var e = "", t = this.type, n = this.properties.boxClassStr(), r = this.properties.hoverStr(), i = this.properties.titleStr(), s = this.properties.animateStr(), o = this.properties.rid(), a = "", f = "", h = this.$wrapper.html();
-            s != "none" ? (f += m.common, f += m.list[s], n = this.removeCMPClass(n) + " animated " + 
-s) : n = this.removeCMPClass(n), h.indexOf("animated") >= 0 && u.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u5d4c\u5957\u4e2d\u542b\u6709\u52a8\u753b\uff0c\u8bf7\u4e0b\u8f7d<a style='color:#fff;' href='style/lib/animate.min.css' target='_blank'>animate.min.css</a>\u6837\u5f0f\u548c\u6eda\u52a8\u52a0\u8f7d\u52a8\u753b\u5904\u7406\u51fd\u6570<a style='color:#fff;' href='style/lib/animate.js' target='_blank'>animate.js</a>"), o && (a = " id='" + o + "'");
+            s != "none" ? (f += m.common, f += m.list[s], n = this.removeCMPClass(n) + " animated " + s) : n = this.removeCMPClass(n), h.indexOf("animated") >= 0 && u.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u5d4c\u5957\u4e2d\u542b\u6709\u52a8\u753b\uff0c\u8bf7\u4e0b\u8f7d<a style='color:#fff;' href='style/lib/animate.min.css' target='_blank'>animate.min.css</a>\u6837\u5f0f\u548c\u6eda\u52a8\u52a0\u8f7d\u52a8\u753b\u5904\u7406\u51fd\u6570<a style='color:#fff;' href='style/lib/animate.js' target='_blank'>animate.js</a>"
+), o && (a = " id='" + o + "'");
             var p = {};
             !this.$wrapper.hasClass("e-hover-source") && !this.$wrapper.hasClass("cmp-func") && !this.$wrapper.find("a").attr("href") ? p = this.getHTMLCSS(this.$wrapper.find("a").html(), this.properties.id()) : p = this.getHTMLCSS(h, this.properties.id());
             if (this.type == "FUNC" && this.properties.funcType() == "CACHE") e = "", f = ""; else {
                 e = "<div" + a + " class='" + this.properties.id() + " " + n + "'";
-                var d = this.properties.eventName(), v = this.properties.eventHandler
-();
+                var d = this.properties.eventName(), v = this.properties.eventHandler();
                 d && (e += " on-" + d + "={" + v + "}");
-                var g = this.properties.dataCate(), y = this.properties.dataAction(), b = this.properties.dataLabel();
-                g && (e += ' data-cate="' + g + '" '), y && (e += ' data-action="' + y + '" '), b && (e += ' data-label="' + b + '" '), i && (e += ' title="' + i + '" '), e += ">" + p.html + "</div>", f += p.css;
+                var g = this.properties.dataCate().replace(/\"/g, "'"), y = this.properties.dataAction().replace(/\"/g, "'"), b = this.properties.dataLabel().replace(/\"/g, "'");
+                g && (e += ' data-cate="' + g + '" '), y && (e += ' data-action="' + y + '" '), b && (e += ' data-label="' + b + '" '), i && (e += ' title="' + i + '" '), e += ">" + 
+p.html + "</div>", f += p.css;
                 var E = this.$wrapper.attr("style");
                 this.isContainer() && (E = E.replace("absolute", "relative"));
                 var S = w.exec(E);
                 S && +S[1].split(",")[3] > 0 && (E = "background-color:rgb(" + S[1].split(",").slice(0, 3).join(",") + ");filter:alpha(opacity=" + +S[1].split(",")[3] * 100 + ");" + E), f += "." + this.properties.id() + " {" + E + "}", r && (r.indexOf("&") >= 0 ? f += r.replace(/\&/g, "." + this.properties.id()) : f += "." + this.properties.id() + ":hover {" + this.getCSS3String(r) + "}");
             }
-            if (h.indexOf("e-hover-target"
-) >= 0 || h.indexOf("e-hover-code") >= 0) f += l;
+            if (h.indexOf("e-hover-target") >= 0 || h.indexOf("e-hover-code") >= 0) f += l;
             return /.*f-.?line.*/g.test(h) && (f += c), e = e.replace(/data-cmp-eid\=\"(\d*)\"/g, "").replace(/\s+\'/g, "'"), {
                 html: e,
                 css: f
             };
         },
         "import": function(e) {
-            o.fromJS(e.properties, {}, this.properties), delete this.properties.__ko_mapping__, this.onImport(e);
+            o.fromJS(e.properties, {}, this.properties), delete this.properties
+.__ko_mapping__, this.onImport(e);
         },
         makeAsset: function(e, t, n, r) {
             var i = this.eid + "#" + t;
@@ -1327,15 +1342,15 @@ s) : n = this.removeCMPClass(n), h.indexOf("animated") >= 0 && u.confirm("\u63d0
         register: function(e, t) {
             s[e] = t;
         },
-        create: function(e
-, r) {
+        create: function(e, r) {
             var i = new t;
             o[i.eid] = i;
             var u = s[e];
             return i.initialize(u), r && (n.fromJS(r, {}, i.properties), delete i.properties.__ko_mapping__), i;
         },
         clone: function(e) {
-            var t = e.type.toLowerCase(), r = n.toJS(e.properties), i = e.__original__ ? e.__original__.properties.id() : e.properties.id();
+            var t = e.type.toLowerCase(), r = n.toJS(e.properties), i = e.__original__ ? e.__original__.properties.id() : e.
+properties.id();
             r.id = a(i), r.left = parseInt(r.left) + 10, r.top = parseInt(r.top) + 10;
             var s = u.create(t, r);
             return s.__original__ = e.__original__ || e, s;
@@ -1357,8 +1372,7 @@ s) : n = this.removeCMPClass(n), h.indexOf("animated") >= 0 && u.confirm("\u63d0
             return e[t] && (n += e[t]), e[t]++, n;
         };
     }();
-    
-return u;
+    return u;
 }), define("core/service", [ "require", "$", "modules/common/modal" ], function(e) {
     var t = e("$"), n = e("modules/common/modal"), r = {
         saveApi: function(e, r, i) {
@@ -1366,7 +1380,8 @@ return u;
                 typeof i == "function" ? i(e) : n.confirm("\u63d0\u793a", e.message || i, null, null, 3e3);
             });
         }
-    };
+    
+};
     return r;
 }), define("elements/func", [ "require", "core/factory", "knockout" ], function(e) {
     var t = e("core/factory"), n = e("knockout");
@@ -1375,14 +1390,13 @@ return u;
         extendProperties: function() {
             return {
                 text: n.observable("\u51fd\u6570"),
-                funcType: n.observable("IF"),
-                funcLanguage: n.observable("FTL"),
+                funcType: n.observable(""),
+                funcLanguage: n.observable(""),
                 ifFuncItem: n.observable(""),
                 trueFuncBody: n.observable(""),
                 elseIfSwitch: n.observable(!1),
                 elseIfFuncItem: n.observable(""),
-                elseIfFuncBody: n.observable
-(""),
+                elseIfFuncBody: n.observable(""),
                 elseIfSwitch2: n.observable(!1),
                 elseIfFuncItem2: n.observable(""),
                 elseIfFuncBody2: n.observable(""),
@@ -1390,7 +1404,8 @@ return u;
                 forFuncItem: n.observable(""),
                 forFuncBody: n.observable(""),
                 requestName: n.observable(""),
-                requestUrl: n.observable(""),
+                
+requestUrl: n.observable(""),
                 requestType: n.observable("post"),
                 requestParam: n.observable("{}"),
                 onLoadFunc: n.observable(""),
@@ -1408,8 +1423,7 @@ return u;
                     items: [ {
                         text: "IF\u51fd\u6570",
                         value: "IF"
-                    
-}, {
+                    }, {
                         text: "FOR\u51fd\u6570",
                         value: "FOR"
                     }, {
@@ -1418,7 +1432,8 @@ return u;
                     }, {
                         text: "Cache\u51fd\u6570",
                         value: "CACHE"
-                    } ],
+                    
+} ],
                     value: this.properties.funcType
                 },
                 funcLanguage: {
@@ -1436,8 +1451,7 @@ return u;
                         text: "JS\u51fd\u6570",
                         value: "JS"
                     } ],
-                    
-value: this.properties.funcLanguage
+                    value: this.properties.funcLanguage
                 },
                 includeBody: {
                     label: "\u5305\u542b\u7ec4\u4ef6",
@@ -1445,7 +1459,8 @@ value: this.properties.funcLanguage
                     field: "func",
                     text: this.properties.includeBody,
                     visible: n.computed({
-                        read: function() {
+                        read: 
+function() {
                             return e.properties.funcType() == "INCLUDE";
                         }
                     })
@@ -1463,8 +1478,7 @@ value: this.properties.funcLanguage
                 },
                 trueFuncBody: {
                     label: "IfTrue",
-                    ui: "textarea"
-,
+                    ui: "textarea",
                     field: "func",
                     text: this.properties.trueFuncBody,
                     visible: n.computed({
@@ -1473,7 +1487,8 @@ value: this.properties.funcLanguage
                         }
                     })
                 },
-                elseIfFuncItem: {
+                
+elseIfFuncItem: {
                     label: "elseIfItem",
                     ui: "textfield",
                     field: "func",
@@ -1490,8 +1505,7 @@ value: this.properties.funcLanguage
                     field: "func",
                     text: this.properties.elseIfFuncBody,
                     visible: n.computed({
-                        
-read: function() {
+                        read: function() {
                             return e.properties.elseIfSwitch();
                         }
                     })
@@ -1500,7 +1514,8 @@ read: function() {
                     label: "elseIfItem",
                     ui: "textfield",
                     field: "func",
-                    text: this.properties.elseIfFuncItem2,
+                    text: 
+this.properties.elseIfFuncItem2,
                     visible: n.computed({
                         read: function() {
                             return e.properties.elseIfSwitch2();
@@ -1518,15 +1533,15 @@ read: function() {
                         }
                     })
                 },
-                
-falseFuncBody: {
+                falseFuncBody: {
                     label: "IfFalse",
                     ui: "textarea",
                     field: "func",
                     text: this.properties.falseFuncBody,
                     visible: n.computed({
                         read: function() {
-                            return e.properties.funcType() == "IF";
+                            return e.properties
+.funcType() == "IF";
                         }
                     })
                 },
@@ -1545,8 +1560,7 @@ falseFuncBody: {
                     label: "ForBody",
                     ui: "textarea",
                     field: "func",
-                    text: this.properties
-.forFuncBody,
+                    text: this.properties.forFuncBody,
                     visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "FOR";
@@ -1554,7 +1568,8 @@ falseFuncBody: {
                     })
                 },
                 requestName: {
-                    label: "\u65b9\u6cd5\u540d\u79f0",
+                    label: "\u65b9\u6cd5\u540d\u79f0"
+,
                     ui: "textfield",
                     field: "func",
                     text: this.properties.requestName,
@@ -1571,8 +1586,7 @@ falseFuncBody: {
                     text: this.properties.requestUrl,
                     visible: n.computed({
                         read: function() {
-                            return e
-.properties.funcType() == "CACHE";
+                            return e.properties.funcType() == "CACHE";
                         }
                     })
                 },
@@ -1581,7 +1595,8 @@ falseFuncBody: {
                     ui: "combobox",
                     "class": "small",
                     field: "func",
-                    items: [ {
+                    
+items: [ {
                         text: "POST",
                         value: "post"
                     }, {
@@ -1600,15 +1615,15 @@ falseFuncBody: {
                 },
                 requestParam: {
                     label: "\u8bf7\u6c42\u53c2\u6570",
-                    
-ui: "textarea",
+                    ui: "textarea",
                     field: "func",
                     text: this.properties.requestParam,
                     visible: n.computed({
                         read: function() {
                             return e.properties.funcType() == "CACHE";
                         }
-                    })
+                    
+})
                 },
                 onLoadFunc: {
                     label: "\u6210\u529f\u56de\u6389",
@@ -1628,37 +1643,37 @@ ui: "textarea",
                 return e.indexOf("<") >= 0 || e.indexOf(".") >= 0;
             }
             var t = $("<span></span>"), r = this;
-            e.find("a"
-).length ? $(e.find("a")[0]).append(t) : e.append(t), n.computed(function() {
+            e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), n.computed(function() {
                 var n = r.properties.funcType(), s = r.properties.funcLanguage();
-                n == "CACHE" && r.properties.funcLanguage("JS"), t.html(n + "\u51fd\u6570<br/>" + r.properties.funcLanguage() + "\u6a21\u677f/\u8bed\u8a00");
+                n == "CACHE" && r.properties.funcLanguage("JS"), t.html(n + "\u51fd\u6570<br/>" + r.properties.funcLanguage() + "\u6a21\u677f/\u8bed\u8a00"
+);
                 var o = "", u = r.properties.id().substr(2);
                 if (n == "IF") {
                     var a = r.properties.ifFuncItem(), f = r.properties.elseIfSwitch(), l = r.properties.elseIfSwitch2(), c = r.properties.elseIfFuncItem(), h = r.properties.elseIfFuncItem2();
                     if (!a) return;
                     r.$wrapper.empty();
                     var p = u + "-t", d = u + "-f", v = u + "-elf", m = u + "-elf2", g = r.properties.trueFuncBody(), y = r.properties.falseFuncBody(), b = r.properties.elseIfFuncBody(), w = r.properties.elseIfFuncBody2();
-                    s == "FTL" ? (o = "<#if " + a + "><div class='" + p + "'></div>", f && b && (
-o += "<#elseif " + c + "><div class='" + v + "'></div>"), l && w && (o += "<#elseif " + h + "><div class='" + m + "'></div>"), o += "<#else><div class='" + d + "'></div>&lt;/#if>") : s == "Regular" && (o = "{#if " + a + "}<div class='" + p + "'></div>", f && b && (o += "{#elseif " + c + "}<div class='" + v + "'></div>"), l && w && (o += "{#elseif " + h + "}<div class='" + m + "'></div>"), o += "{#else}<div class='" + d + "'></div>{/if}"), r.$wrapper.append(o), g ? i(g) ? r.$wrapper.find("." + p).append(g) : r.trigger("addFuncComponent", g, r.$wrapper.find("." + p)) : r.$wrapper.find("." + p).remove(), b ? i(b) ? r.$wrapper.find("." + v).append(b) : r.trigger("addFuncComponent", b, r.$wrapper.find("." + v)) : r.$wrapper.find("." + v).remove(), w ? i(w) ? r.$wrapper.find("." + m).append(w) : r.trigger("addFuncComponent", w, r.$wrapper.find("." + m)) : r.$wrapper.find("." + m).remove(), y ? i(y) ? r.$wrapper.find("." + d).append(y) : r.trigger("addFuncComponent", y, r.$wrapper.find("." + d
-)) : r.$wrapper.find("." + d).remove();
+                    s == "FTL" ? (o = "<#if " + a + "><div class='" + p + "'></div>", f && b && (o += "<#elseif " + c + "><div class='" + v + "'></div>"), l && w && (o += "<#elseif " + h + "><div class='" + m + "'></div>"), o += "<#else><div class='" + d + "'></div>&lt;/#if>") : s == "Regular" && (o = "{#if " + a + "}<div class='" + p + "'></div>", f && b && (o += "{#elseif " + c + "}<div class='" + v + "'></div>"
+), l && w && (o += "{#elseif " + h + "}<div class='" + m + "'></div>"), o += "{#else}<div class='" + d + "'></div>{/if}"), r.$wrapper.append(o), g ? i(g) ? r.$wrapper.find("." + p).append(g) : r.trigger("addFuncComponent", g, r.$wrapper.find("." + p)) : r.$wrapper.find("." + p).remove(), b ? i(b) ? r.$wrapper.find("." + v).append(b) : r.trigger("addFuncComponent", b, r.$wrapper.find("." + v)) : r.$wrapper.find("." + v).remove(), w ? i(w) ? r.$wrapper.find("." + m).append(w) : r.trigger("addFuncComponent", w, r.$wrapper.find("." + m)) : r.$wrapper.find("." + m).remove(), y ? i(y) ? r.$wrapper.find("." + d).append(y) : r.trigger("addFuncComponent", y, r.$wrapper.find("." + d)) : r.$wrapper.find("." + d).remove();
                 } else if (n == "FOR") {
                     if (!r.properties.forFuncItem()) return;
                     if (!r.properties.forFuncBody()) return;
                     r.$wrapper.empty();
                     var E = u + "-f";
-                    s == "FTL" ? o = "<#if " + r.properties.forFuncItem() + "??><#list " + r.properties.forFuncItem() + " as item><div class='" + E + "'></div>&lt;/#list>&lt;/#if>" : s == "Regular" && (o = "{#if " + r.properties.forFuncItem() + "}{#list " + r.properties.forFuncItem() + " as item}<div class='" + E + "'></div>{/list}{/if}"), r.$wrapper.append(o);
+                    s == "FTL" ? o = "<#if " + 
+r.properties.forFuncItem() + "??><#list " + r.properties.forFuncItem() + " as item><div class='" + E + "'></div>&lt;/#list>&lt;/#if>" : s == "Regular" && (o = "{#if " + r.properties.forFuncItem() + "}{#list " + r.properties.forFuncItem() + " as item}<div class='" + E + "'></div>{/list}{/if}"), r.$wrapper.append(o);
                     var S = r.properties.forFuncBody();
                     S && (i(S) ? r.$wrapper.find("." + E).append(S) : r.trigger("addFuncComponent", r.properties.forFuncBody(), r.$wrapper.find("." + E)));
                 } else if (n == "CACHE") r.$wrapper.empty(), r.$wrapper.css({
                     color: "#fff",
                     background: "#56278f"
-                
-}), r.$wrapper.append("CACHE"), r.$wrapper.addClass("cmp-umi"); else if (n == "INCLUDE") {
+                }), r.$wrapper.append("CACHE"), r.$wrapper.addClass("cmp-umi"); else if (n == "INCLUDE") {
                     r.$wrapper.empty();
                     var x = r.properties.includeBody();
                     if (x) {
                         var T = u + "-i";
-                        o = "<div class='" + T + "'></div>", r.$wrapper.append(o), i(x) ? x.indexOf(".") >= 0 && s == "FTL" ? r.$wrapper.find("." + T).append('<#include "' + x + '"/>') : r.$wrapper.find("." + T).append(x) : r.trigger("addFuncComponent", x, r.$wrapper.find("." + T));
+                        o = "<div class='" + 
+T + "'></div>", r.$wrapper.append(o), i(x) ? x.indexOf(".") >= 0 && s == "FTL" ? r.$wrapper.find("." + T).append('<#include "' + x + '"/>') : r.$wrapper.find("." + T).append(x) : r.trigger("addFuncComponent", x, r.$wrapper.find("." + T));
                     } else e.append(t);
                 } else r.$wrapper.empty();
             });
@@ -1672,17 +1687,17 @@ o += "<#elseif " + c + "><div class='" + v + "'></div>"), l && w && (o += "<#els
             return {
                 src: n.observable(""),
                 alt: n.observable(""),
-                
-classStr: n.observable("")
+                classStr: n.observable("")
             };
         },
         extendUIConfig: function() {
             return {
-                text: {
+                src: {
                     label: "\u56fe\u7247\u5730\u5740",
                     ui: "textfield",
                     text: this.properties.src
-                },
+                }
+,
                 alt: {
                     label: "alt\u5185\u5bb9",
                     ui: "textfield",
@@ -1702,11 +1717,11 @@ classStr: n.observable("")
                     height: n
                 });
             }, o = i.properties.width(), u = i.properties.height();
-            s(o, u), t.alt = 
-i.properties.alt(), n.computed(function() {
+            s(o, u), t.alt = i.properties.alt(), n.computed(function() {
                 t.onload = function() {
                     var e = t.width, n = t.height;
-                    i.properties.width() || i.properties.width(e), i.properties.height() || i.properties.height(n), s(i.properties.width(), i.properties.height()), t.onload = null;
+                    i.properties.width() || i.properties.width(e), i.properties.height() || i.properties.height(n), s(i.properties.width(), i.properties
+.height()), t.onload = null;
                 }, t.src = i.properties.src();
                 var e = i.uiConfig.size.items;
                 s(e[0].value(), e[1].value());
@@ -1717,17 +1732,20 @@ i.properties.alt(), n.computed(function() {
                         "border-radius": r.map(e, function(e) {
                             return e.value() + "px";
                         }).join(" ")
-                    }), $(t).attr({
+                    }), n ? $(t).attr({
                         alt: n
-                    });
+                    }) : $(t).removeAttr("alt");
                 }
             }), n.computed(function() {
                 var e = i.properties.classStr();
-                
-e && $(t).addClass(e);
+                e && $(t).addClass(e);
+            }), n.computed(function() {
+                var e = i.properties.width(), t = i.properties.height();
+                s(e, t);
             }), e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t);
         },
-        onExport: function(e) {}
+        
+onExport: function(e) {}
     });
 }), define("elements/timeline", [ "require", "core/factory", "knockout", "_", "sequence" ], function(e) {
     var t = e("core/factory"), n = e("knockout"), r = e("_");
@@ -1752,11 +1770,11 @@ e && $(t).addClass(e);
             $("#drawDiagram").text(e), $("#drawDiagram").sequenceDiagram({
                 theme: "simple"
             });
-        
-},
+        },
         onCreate: function(e) {
             var t = this;
-            t.properties.width(800), t.properties.height(600), n.computed(function() {
+            t.properties.width(800), t.properties.height
+(600), n.computed(function() {
                 t.refreshDiagram("");
                 var e = t.properties.timelineCode();
                 t.refreshDiagram(e);
@@ -1779,11 +1797,11 @@ e && $(t).addClass(e);
             return this.xml && this.applyXML(this.xml), this.trigger("start"), this.$el;
         },
         enable: function(e) {
-            
-this.$el.show(), this.trigger("enable"), e && e();
+            this.$el.show(), this.trigger("enable"), e && e();
         },
         disable: function(e) {
-            this.$el.hide(), this.trigger("disable"), e && e();
+            this.$el
+.hide(), this.trigger("disable"), e && e();
         },
         setContext: function(e) {
             this._defaultContext || (this._defaultContext = {}, _.each(this.context, function(e, t) {
@@ -1802,10 +1820,10 @@ this.$el.show(), this.trigger("enable"), e && e();
             this._$mask && this._$mask.removeClass("loading").hide();
         },
         applyXML: function(e) {
-            i.parse(e, this.$el[0]), r.applyBindings
-(this, this.$el[0]);
+            i.parse(e, this.$el[0]), r.applyBindings(this, this.$el[0]);
             var t = this.$el[0].firstChild;
-            t && (this.mainComponent = n.getByDom(t));
+            t && (this.mainComponent = n.getByDom
+(t));
         }
     });
     return a;
@@ -2206,7 +2224,7 @@ s), s;
             }), g.selectedElements(t), t;
         },
         load: function(e) {
-            this.removeAll(), this.elementsList(u.map(e, function(e) {
+            console.log("\u5f00\u59cb\u7ed8\u5236\u5143\u7d20"), this.removeAll(), this.elementsList(u.map(e, function(e) {
                 return {
                     id: e.properties.id,
                     typeStr: e.type.toLowerCase(),
@@ -2228,9 +2246,9 @@ s), s;
                 g.trigger("create", e);
             });
         },
-        loadElement: function(e) {
-            var t = u.find
-(this.elementsList(), function(t) {
+        
+loadElement: function(e) {
+            var t = u.find(this.elementsList(), function(t) {
                 return t.id() == e.properties.id;
             });
             t ? (t.target.properties.moduleHTML(e.properties.moduleHTML), t.target.properties.moduleJS(e.properties.moduleJS)) : g.trigger("create", e);
@@ -2250,9 +2268,9 @@ s), s;
         deferEvaluation: !0
     }), g.on("start", function() {
         g.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(e) {
-            g.trigger("focus", $(this).qpf("get")[0].target());
-        }), l.bindTo(g.mainComponent
-.$el, function(e) {
+            g.trigger("focus", $(this).qpf("get"
+)[0].target());
+        }), l.bindTo(g.mainComponent.$el, function(e) {
             var t = $(e).parents(".qpf-ui-element");
             return t.length ? [ {
                 label: "\u5220\u9664",
@@ -2278,9 +2296,9 @@ s), s;
                 }
             } ];
         });
-    }), n.computed(function() {
-        var e = g.selectedElements(), t = e[e.
-length - 1];
+    }), n.computed(function(
+) {
+        var e = g.selectedElements(), t = e[e.length - 1];
         if (t) {
             a.showProperties(t.uiConfig);
             var n = 0;
@@ -2300,8 +2318,8 @@ length - 1];
         unexecute: function(e, t) {}
     }), i.register("remove", {
         execute: function(e) {
-            typeof e == "string" && (e = r.getByEID(e)), 
-r.remove(e), g.selectedElements.remove(e), g.elementsList.remove(function(t) {
+            typeof 
+e == "string" && (e = r.getByEID(e)), r.remove(e), g.selectedElements.remove(e), g.elementsList.remove(function(t) {
                 return t.id() == e.properties.id();
             }), g.refreshList(), a.showProperties([]), g.trigger("remove", e), e.type == "UMI" && $(e.pointLine[0]).remove();
         },
@@ -2325,9 +2343,9 @@ r.remove(e), g.selectedElements.remove(e), g.elementsList.remove(function(t) {
                     var i = r.clone(n);
                     e >= 0 ? g.elementsList.splice(e, 0, {
                         target: i,
-                        id: i.properties.id
-                    }) 
-: g.elementsList.push({
+                        id: 
+i.properties.id
+                    }) : g.elementsList.push({
                         target: i,
                         id: i.properties.id
                     }), g.trigger("create", i), t.push(i);
@@ -2353,9 +2371,9 @@ r.remove(e), g.selectedElements.remove(e), g.elementsList.remove(function(t) {
         },
         unexecute: function() {}
     }), g;
-}), define("elements/umi", [ "require", "core/factory", "knockout", "_", "../modules/hierarchy/index", "d3" ], function(e) {
-    var t = 
-e("core/factory"), n = e("knockout"), r = e("_"), i = e("../modules/hierarchy/index"), s = e("d3"), o = [ "#61C5C9", "#CC9E82", "#4F8DB1", "#F9C63D", "#60ADD5", "#8EB93B", "#B31800", "#EB3F2F", "#abcc39" ], u = s.select("#drawArrow").append("svg").attr("width", parseInt(s.select("#drawArrow").attr("width"))).attr("height", parseInt(s.select("#drawArrow").attr("height"))), a = u.append("defs"), f = a.append("marker").attr("id", "arrow").attr("markerUnits", "strokeWidth").attr("markerWidth", "12").attr("markerHeight", "12").attr("viewBox", "0 0 12 12").attr("refX", "6").attr("refY", "6").attr("orient", "auto"), l = "M2,2 L10,6 L2,10 L6,6 L2,2";
+}), define("elements/umi", [ "require", "core/factory", "knockout", "_", "../modules/hierarchy/index"
+, "d3" ], function(e) {
+    var t = e("core/factory"), n = e("knockout"), r = e("_"), i = e("../modules/hierarchy/index"), s = e("d3"), o = [ "#61C5C9", "#CC9E82", "#4F8DB1", "#F9C63D", "#60ADD5", "#8EB93B", "#B31800", "#EB3F2F", "#abcc39" ], u = s.select("#drawArrow").append("svg").attr("width", parseInt(s.select("#drawArrow").attr("width"))).attr("height", parseInt(s.select("#drawArrow").attr("height"))), a = u.append("defs"), f = a.append("marker").attr("id", "arrow").attr("markerUnits", "strokeWidth").attr("markerWidth", "12").attr("markerHeight", "12").attr("viewBox", "0 0 12 12").attr("refX", "6").attr("refY", "6").attr("orient", "auto"), l = "M2,2 L10,6 L2,10 L6,6 L2,2";
     f.append("path").attr("d", l).attr("fill", "#000"), t.register("umi", {
         type: "UMI",
         pointLine: "",
@@ -2363,9 +2381,9 @@ e("core/factory"), n = e("knockout"), r = e("_"), i = e("../modules/hierarchy/in
             return {
                 hashPath: n.observable("/home"),
                 modulePath: n.observable("home/index.html"),
-                parentModule: n.observable(""),
-                
-moduleJS: n.observable(""),
+                parentModule
+: n.observable(""),
+                moduleJS: n.observable(""),
                 moduleHTML: n.observable("")
             };
         },
@@ -2390,8 +2408,8 @@ moduleJS: n.observable(""),
         },
         onCreate: function(e) {
             var t = $("<span style='line-height:normal;display:inline-block;width:100%;color:#fff;font-size:12px;'></span>"), a = this;
-            e.find("a").length ? $(e.find("a")[0]).append(t) : e.append(t), a.properties
-.boxFontSize(0), e.css("background-color") || e.css("background-color", o[parseInt(o.length * Math.random())]), a.properties.left(400 + parseInt(100 * Math.random())), a.properties.top(80 + parseInt(400 * Math.random())), n.computed(function() {
+            e.find("a").length ? $(e.find("a"
+)[0]).append(t) : e.append(t), a.properties.boxFontSize(0), e.css("background-color") || e.css("background-color", o[parseInt(o.length * Math.random())]), a.properties.left(400 + parseInt(100 * Math.random())), a.properties.top(80 + parseInt(400 * Math.random())), n.computed(function() {
                 var e = a.properties.hashPath(), n = a.properties.modulePath();
                 t.html("<br/>" + e + "<br/><br/>" + (a.properties.titleStr() || "\u6a21\u5757\u8def\u5f84") + "\uff1a<br/>" + n);
             }), n.computed(function() {
@@ -2399,9 +2417,9 @@ moduleJS: n.observable(""),
                 var e = a.properties.parentModule();
                 if (e) {
                     var t = r.find(i.elements(), function(t) {
-                        return t.properties.id() == e;
-                    }
-);
+                        return t.
+properties.id() == e;
+                    });
                     if (t) {
                         var n = +t.properties.left() + parseInt(t.properties.width()), o = +t.properties.top() + parseInt(t.properties.height() / 2), f = +a.properties.left() - 5, l = +a.properties.top() + parseInt(a.properties.height() / 2);
                         a.pointLine && a.pointLine.remove(), $("line[x1=" + n + "][y1=" + o + "][x2=" + f + "][y2=" + l + "]").remove(), a.pointLine = u.append("line").attr("x1", n).attr("y1", o).attr("x2", f).attr("y2", l).attr("stroke", "red").attr("stroke-width", 2).attr("marker-end", "url(#arrow)");
@@ -2439,18 +2457,14 @@ moduleJS: n.observable(""),
         selectedComponents: n.observableArray([]),
         ElementView: h,
         _selectComponents: function(e) {
+            d.handleSelect(e);
+        },
+        handleSelect: function(e) {
             d.selectedComponents(u.map(e, function(e) {
                 return e.target;
             }));
             var t = d.selectedComponents(), n = t[t.length - 1];
-            n && (l.elements().length ? c.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u5df2\u5b58\u5728\u6b63\u5728\u7f16\u8f91\u7ec4\u4ef6, \u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\uff01", function() {
-                l.removeAll(), d.trigger("selectComponent", n), n.viewport.backColor && d.trigger("changeBackColor", n.viewport.backColor);
-            }, function() {
-                d.selectedComponents([]);
-                var e = d.componentsList();
-                d.componentsList([]), d.componentsList
-(e);
-            }) : d.trigger("selectComponent", n));
+            n && (l.removeAll(), d.trigger("selectComponent", n), n.viewport.backColor && d.trigger("changeBackColor", n.viewport.backColor));
         },
         load: function(e) {
             var t = d.componentsList(), n = d.selectedComponents(), r = n[n.length - 1];
@@ -2458,10 +2472,11 @@ moduleJS: n.observable(""),
                 var n = u.find(p.split("_"), function(t) {
                     return t == e.meta.name;
                 });
-                n ? c.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u5df2\u5b58\u5728\u7ec4\u4ef6" + e.meta.name + ", \u70b9\u51fb\u786e\u5b9a\u66ff\u6362\u4e3a\u65b0\u7684\u7ec4\u4ef6", function() {
+                
+n ? c.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u5df2\u5b58\u5728\u7ec4\u4ef6" + e.meta.name + ", \u70b9\u51fb\u786e\u5b9a\u66ff\u6362\u4e3a\u65b0\u7684\u7ec4\u4ef6", function() {
                     u.each(t, function(t) {
                         t.id == e.meta.name && (t.target = e);
-                    }), r.meta.name == e.meta.name && d.selectedComponents([ e ]);
+                    }), r && e.meta && r.meta.name == e.meta.name && d.selectedComponents([ e ]);
                 }) : (t.push({
                     id: e.meta.name,
                     target: e
@@ -2469,8 +2484,7 @@ moduleJS: n.observable(""),
             }), this.componentsList(t);
         },
         getTarget: function(e) {
-            var t = d.componentsList(), n = 
-{};
+            var t = d.componentsList(), n = {};
             return u.each(t, function(t, r) {
                 if (t.id == e) {
                     n = t.target;
@@ -2483,7 +2497,8 @@ moduleJS: n.observable(""),
         }
     });
     d.components = function() {
-        return u.map(d.componentsList(), function(e) {
+        return u.map
+(d.componentsList(), function(e) {
             return e.target;
         });
     }, d.on("start", function() {
@@ -2494,8 +2509,7 @@ moduleJS: n.observable(""),
                 exec: function() {
                     d.trigger("save2pool", t.qpf("get")[0].target());
                     var e = $(t[0]);
-                    e.css("color", "#ffeb3b"), $(".mainContent"
-).click(function() {
+                    e.css("color", "#ffeb3b"), $(".mainContent").click(function() {
                         e.css("color", "");
                     }), $(".tabContent").click(function() {
                         e.css("color", "");
@@ -2504,7 +2518,8 @@ moduleJS: n.observable(""),
                     });
                 }
             }, {
-                label: "\u5bfc\u51faFTL\u5230\u76ee\u5f55",
+                
+label: "\u5bfc\u51faFTL\u5230\u76ee\u5f55",
                 exec: function() {
                     c.confirm("\u63d0\u793a", "\u662f\u5426\u66ff\u6362PageFTL\u5c5e\u6027?", function() {
                         d.trigger("saveFTL", t.qpf("get")[0].target(), !0);
@@ -2516,8 +2531,7 @@ moduleJS: n.observable(""),
                 label: "\u5bfc\u51faRUI\u5230\u76ee\u5f55",
                 exec: function() {
                     c.confirm("\u63d0\u793a", "\u662f\u5426\u5f3a\u5236\u66f4\u65b0JS\u4ee3\u7801?", function() {
-                        
-d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
+                        d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
                     }, function() {
                         d.trigger("saveRUI", t.qpf("get")[0].target(), !1);
                     });
@@ -2525,7 +2539,8 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
             }, {
                 label: "\u5bfc\u51fa\u901a\u7528\u6a21\u5757",
                 exec: function() {
-                    c.confirm("\u63d0\u793a", "\u662f\u5426\u5f3a\u5236\u66f4\u65b0JS\u4ee3\u7801?", function() {}, function() {});
+                    
+c.confirm("\u63d0\u793a", "\u662f\u5426\u5f3a\u5236\u66f4\u65b0JS\u4ee3\u7801?", function() {}, function() {});
                 }
             }, {
                 label: "\u5bfc\u51fa\u901a\u7528\u7ec4\u4ef6",
@@ -2537,8 +2552,7 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
                     });
                 }
             }, {
-                label: "\u7f16\u8f91\u7ec4\u4ef6JS"
-,
+                label: "\u7f16\u8f91\u7ec4\u4ef6JS",
                 exec: function() {
                     d.trigger("editorJS", t.qpf("get")[0].target());
                 }
@@ -2547,7 +2561,8 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
                 exec: function() {
                     d.trigger("enterShell", t.qpf("get")[0].target());
                 }
-            } ]), n.push({
+            
+} ]), n.push({
                 label: "\u590d\u5236",
                 exec: function() {
                     i.execute("copyComponent", t.qpf("get")[0].target());
@@ -2567,8 +2582,7 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
                 exec: function() {
                     d.trigger("newUnit");
                 }
-            
-}, {
+            }, {
                 label: "\u5bfc\u5165\u7ec4\u4ef6",
                 exec: function() {
                     d.trigger("importProject");
@@ -2577,7 +2591,8 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
                 label: "\u6e05\u7a7a\u5217\u8868",
                 exec: function() {
                     d.clearComponents(), l.removeAll();
-                }
+                
+}
             } ];
         });
     });
@@ -2597,9 +2612,9 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
         unexecute: function() {}
     }), d;
 }), define("text!modules/codeEditor/property.html", [], function() {
-    return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n</panel>\r\n<div class="editor-toolbar">\r\n    <button class="editor-close">\u786e\u8ba4\u4fee\u6539</button>\r\n    <button class="editor-cancel"> \u53d6\u6d88(alt+c) </button>\r\n</div>\r\n'
-;
-}), define("modules/codeEditor/property", [ "require", "qpf", "knockout", "text!./property.html" ], function(e) {
+    return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n</panel>\r\n<div class="editor-toolbar">\r\n    <button class="editor-close">\u786e\u8ba4\u4fee\u6539</button>\r\n    <button class="editor-cancel"> \u53d6\u6d88(alt+c) </button>\r\n</div>\r\n';
+}), define("modules/codeEditor/property", [ "require"
+, "qpf", "knockout", "text!./property.html" ], function(e) {
     var t = e("qpf"), n = e("knockout"), r = t.use("container/container"), i = t.widget.Widget, s = i.derive(function() {
         return {
             codeStr: n.observable(""),
@@ -2617,9 +2632,9 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
 }), define("modules/codeEditor/index", [ "require", "qpf", "knockout", "../module", "_", "modules/component/index", "./property", "text!./property.xml", "modules/common/modal" ], function(e) {
     function p(e, t) {
         var n = e.getCursor();
-        return (!t || t()) && setTimeout
-(function() {
-            e.state.completionActive || e.showHint({
+        return (!t || t()) && setTimeout(function() {
+            e.state.completionActive || 
+e.showHint({
                 completeSingle: !1
             });
         }, 100), CodeMirror.Pass;
@@ -2642,9 +2657,9 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
     }
     var t = e("qpf"), n = e("knockout"), r = e("../module"), i = e("_"), s = t.use("container/panel"), o = e("modules/component/index"), u = e("./property"), a = [], f = e("text!./property.xml"), l = e("modules/common/modal"), c = {
         attrs: {
-            color: [ "red", "green"
-, "blue", "purple", "white", "black", "yellow" ],
-            size: [ "large", "medium", "small" ],
+            color: [ "red", "green", "blue", "purple", "white", "black", "yellow" ],
+            
+size: [ "large", "medium", "small" ],
             description: null
         },
         children: []
@@ -2683,11 +2698,11 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
         stem: c,
         flowers: c
     }, m = new r({
-        name: "property"
-,
+        name: "property",
         xml: f,
         CodeItemView: u,
-        codeArray: n.observableArray([]),
+        codeArray
+: n.observableArray([]),
         showCode: function(e, t) {
             if (e.length < 1) {
                 l.confirm("\u63d0\u793a", "\u6ca1\u6709\u4ee3\u7801\u54e6\uff01", null, null, 1e3);
@@ -2710,10 +2725,10 @@ d.trigger("saveRUI", t.qpf("get")[0].target(), !0);
                         annotateScrollbar: !0
                     },
                     matchTags: {
-                        
-bothTags: !0
+                        bothTags: !0
                     },
-                    mode: /^.*(FTL)|(HTML).*$/.test(e.classStr) ? "htmlmixed" : "javascript",
+                    
+mode: /^.*(FTL)|(HTML).*$/.test(e.classStr) ? "htmlmixed" : "javascript",
                     tabSize: 4,
                     indentUnit: 4,
                     keyMap: "sublime",
@@ -2733,9 +2748,9 @@ bothTags: !0
             $("#editor .editor-close").click(function() {
                 if ($("#editor").is(":visible")) {
                     $("#editor").hide();
-                    var e = n.codeArray
-();
-                    i.each(a, function(t, n) {
+                    var e = n.codeArray();
+                    i.each(a, function(t, n) 
+{
                         e[n].codeStr = t.doc.getValue();
                     }), t(e);
                 }
@@ -2760,9 +2775,9 @@ bothTags: !0
         return {
             tag: "div",
             text: r.observable(""),
-            
-placeholder: r.observable("")
-        };
+            placeholder: r.observable("")
+        }
+;
     }, {
         type: "CODEAREA",
         css: "codearea",
@@ -2780,10 +2795,10 @@ placeholder: r.observable("")
                 indentUnit: 4,
                 tabSize: 4
             });
-            t.setOption("theme", "monokai"), t.doc.setCursor(t.doc.lastLine() + 1), e.text(e.text() + " "), t.on("keyup", function(t, n) {
-                
-e.text(t.doc.getValue());
-            });
+            t.setOption("theme", "monokai"), t.doc.setCursor(t.doc.lastLine() + 1), e.text(e.text() + ""), t.on("keyup", function(t, n) {
+                e.text(t.doc.getValue());
+            
+});
         }
     });
     return n.provideBinding("codearea", s), s;
@@ -2805,9 +2820,9 @@ e.text(t.doc.getValue());
             color: n.observable(16777215),
             alpha: n.observable(1)
         };
-        return e._colorStr = n.computed(
-function() {
-            return i(e.color()).hex();
+        return e._colorStr = n.computed(function() {
+            return i(e.color
+()).hex();
         }), e;
     }, {
         type: "COLOR",
@@ -2828,9 +2843,9 @@ function() {
         _paletteCancel: function() {
             s.hide(), s.off("change"), s.off("apply"), s.off("cancel");
         },
-        _paletteApply: function(
-e, t) {
-            this.color(e), this.alpha(t), this._paletteCancel();
+        _paletteApply: function(e, t) {
+            this.color(e)
+, this.alpha(t), this._paletteCancel();
         }
     });
     return r.provideBinding("color", o), o;
@@ -3032,7 +3047,7 @@ this._paths[e], r = this.height(), i = this.sample();
     }, {
         type: "ICONBUTTON",
         css: _.union("icon-button", n.prototype.css),
-        template: '<div class="qpf-icon" data-bind="css:icon, attr{title:title}"></div>'
+        template: '<div class="qpf-icon" data-bind="css:icon,attr:{title:title}"></div>'
     });
     return r.provideBinding("iconbutton", s), s;
 }), define("modules/common/listTab", [ "require", "qpf", "./listitem", "knockout" ], function(e) {
@@ -3305,14 +3320,14 @@ if (t.id == e) {
         } else {
             var t = new p({
                 attributes: {
-                    text: "../example/index.cmpp"
+                    text: "/.cmp/index.cmpp"
                 }
             });
             h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u5730\u5740\uff1a", t, function() {
                 if (t.text()) {
-                    w = t.text()
-;
-                    var e = w.substring(w.lastIndexOf("/"), w.indexOf("cmpp") - 1);
+                    w = t.text();
+                    
+var e = w.substring(w.lastIndexOf("/"), w.indexOf("cmpp") - 1);
                     $.post("/api/" + e, {
                         ext: '{"name":"' + e + '", "url":"' + w + '"}',
                         cmpData: JSON.stringify(E.pages(), null, 2)
@@ -3327,14 +3342,10 @@ if (t.id == e) {
             var e = E.selectedPages(), t = e[e.length - 1];
             t && (f.components().length ? h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6", function() {
                 f.clearComponents(), l.removeAll(), E.trigger("selectPage", t);
-            }, function() {
-                E.selectedPages([]);
-                
-var e = E.pagesList();
-                E.pagesList([]), E.pagesList(e);
-            }) : E.trigger("selectPage", t));
+            }, function() {}) : E.trigger("selectPage", t));
         }
-        E.mainComponent.$el.delegate(".qpf-ui-element", "dblclick", function(t) {
+        E.mainComponent.$el
+.delegate(".qpf-ui-element", "dblclick", function(t) {
             e();
         }), c.bindTo(E.mainComponent.$el, function(t) {
             var n = $(t).parents(".qpf-ui-element");
@@ -3352,12 +3363,12 @@ var e = E.pagesList();
             }, {
                 label: "\u7f16\u8f91",
                 exec: function() {
-                    var e = n.qpf("get")[0].attributes.target, t = e.name, r = new v, i = new m, s = new m, o = new m, u = new m, a = new m, f = new 
-m, l = new m;
+                    var e = n.qpf("get")[0].attributes.target, t = e.name, r = new v, i = new m, s = new m, o = new m, u = new m, a = new m, f = new m, l = new m;
                     i.add(new g({
                         attributes: {
                             text: "\u7ec4\u4ef6\u63cf\u8ff0\uff1a"
-                        }
+                        
+}
                     }));
                     var c = new p({
                         attributes: {
@@ -3379,12 +3390,12 @@ m, l = new m;
                     s.add(d), o.add(new g({
                         attributes: {
                             text: "\u7ec4\u4ef6\u5730\u5740\uff1a"
-                        
-}
+                        }
                     }));
                     var y = new p({
                         attributes: {
-                            text: e.url,
+                            text: 
+e.url,
                             placeholder: "\u7ec4\u4ef6\u5730\u5740"
                         }
                     });
@@ -3406,10 +3417,10 @@ m, l = new m;
                     }));
                     var w = new p({
                         attributes: {
-                            
-text: e.cssPath,
+                            text: e.cssPath,
                             placeholder: "CSS\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
-                        }
+                        
+}
                     });
                     a.add(w), f.add(new g({
                         attributes: {
@@ -3430,11 +3441,11 @@ text: e.cssPath,
                     var x = new p({
                         attributes: {
                             text: e.libPath,
-                            placeholder
-: "\u6240\u4f9d\u8d56\u7684\u7ec4\u4ef6\u6c60lib\u5730\u5740('/src/javascript/lib/')"
+                            placeholder: "\u6240\u4f9d\u8d56\u7684\u7ec4\u4ef6\u6c60lib\u5730\u5740('/src/javascript/lib/')"
                         }
                     });
-                    l.add(x), r.add(i), r.add(s), r.add(o), r.add(u), r.add(a), r.add(f), r.add(l), h.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", r, function() {
+                    
+l.add(x), r.add(i), r.add(s), r.add(o), r.add(u), r.add(a), r.add(f), r.add(l), h.popup("\u8bf7\u8f93\u5165\u76f8\u5173\u5185\u5bb9", r, function() {
                         var e = {
                             name: t,
                             desc: c.text(),
@@ -3453,11 +3464,11 @@ text: e.cssPath,
                 label: "\u5220\u9664",
                 exec: function() {}
             }, {
-                label: "\u52a0\u8f7d\u9009\u4e2d\u7ec4\u4ef6\u5907\u4efd"
-,
+                label: "\u52a0\u8f7d\u9009\u4e2d\u7ec4\u4ef6\u5907\u4efd",
                 exec: function() {
                     var e = E.selectedPages(), t = e[e.length - 1];
-                    t && (t.urlBackup = t.url + "_backup", f.components().length ? h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6", function() {
+                    
+t && (t.urlBackup = t.url + "_backup", f.components().length ? h.confirm("\u63d0\u793a", "\u5de5\u4f5c\u533a\u4e2d\u5b58\u5728\u7ec4\u4ef6\uff0c\u8bf7\u5148\u4fdd\u5b58\uff01\u70b9\u51fb\u786e\u5b9a\u76f4\u63a5\u6e05\u7a7a\u5de5\u4f5c\u533a\u7ec4\u4ef6", function() {
                         f.clearComponents(), l.removeAll(), E.trigger("selectPage", t);
                     }, function() {
                         E.selectedPages([]);
@@ -3471,12 +3482,12 @@ text: e.cssPath,
                     E.trigger("importProject");
                 }
             }, {
-                label: "\u52a0\u8f7d\u8fdc\u7a0b\u7ec4\u4ef6"
-,
+                label: "\u52a0\u8f7d\u8fdc\u7a0b\u7ec4\u4ef6",
                 exec: function() {
                     var e = new p({
                         attributes: {
-                            text: w || "../example/index.cmpp"
+                            
+text: w || "/.cmp/index.cmpp"
                         }
                     }), t = h.popup("\u8bf7\u8f93\u5165\u8fdc\u7a0b\u7ec4\u4ef6\u5730\u5740\uff1a", e, function() {
                         e.text() && (w = e.text(), E.trigger("importProjectFromUrl", e.text()));
@@ -3493,11 +3504,11 @@ text: e.cssPath,
                             placeholder: "\u7ec4\u4ef6\u6c60\u540d\u79f0"
                         }
                     });
-                    h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u540d\u79f0\uff1a", e, function(
-) {
+                    h.popup("\u8bf7\u8f93\u5165\u7ec4\u4ef6\u6c60\u540d\u79f0\uff1a", e, function() {
                         if (e.text()) {
                             var t = new Blob([ JSON.stringify(E.pages(), null, 2) ], {
-                                type: "text/plain;charset=utf-8"
+                                
+type: "text/plain;charset=utf-8"
                             });
                             saveAs(t, e.text() + ".cmpp");
                         }
@@ -3512,10 +3523,10 @@ text: e.cssPath,
         });
     }), E;
 }), define("text!modules/shellCmd/property.html", [], function() {
-    return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n</panel>\r\n<div class="editor-toolbar">\r\n    <button class="editor-new"> \u65b0\u589e </button>\r\n    <button class="editor-cancel"> \u6536\u8d77(alt+s) </button>\r\n    <button class="editor-close" data-bind="attr: { index: index}"> \u5173\u95ed </button>\r\n</div>\r\n'
-;
+    return '<panel data-bind="attr: { title: titleStr}">\r\n    <textarea data-bind="attr: { class: classStr},text:codeStr"></textarea>\r\n</panel>\r\n<div class="editor-toolbar">\r\n    <button class="editor-new"> \u65b0\u589e </button>\r\n    <button class="editor-cancel"> \u6536\u8d77(alt+s) </button>\r\n    <button class="editor-close" data-bind="attr: { index: index}"> \u5173\u95ed </button>\r\n</div>\r\n';
 }), define("modules/shellCmd/property", [ "require", "qpf", "knockout", "text!./property.html" ], function(e) {
-    var t = e("qpf"), n = e("knockout"), r = t.use("container/container"), i = t.widget.Widget, s = i.derive(function() {
+    var t = e
+("qpf"), n = e("knockout"), r = t.use("container/container"), i = t.widget.Widget, s = i.derive(function() {
         return {
             codeStr: n.observable(""),
             classStr: n.observable(""),
@@ -3534,11 +3545,11 @@ text: e.cssPath,
         e.preventDefault ? e.preventDefault() : e.returnValue = !1;
     }
     function p(e) {
-        
-e.stopPropagation ? e.stopPropagation() : e.cancelBubble = !0;
+        e.stopPropagation ? e.stopPropagation() : e.cancelBubble = !0;
     }
     function d(e) {
-        return e.defaultPrevented != null ? e.defaultPrevented : e.returnValue == 0;
+        return e.defaultPrevented != 
+null ? e.defaultPrevented : e.returnValue == 0;
     }
     function v(e) {
         h(e), p(e);
@@ -3560,13 +3571,13 @@ e.stopPropagation ? e.stopPropagation() : e.cancelBubble = !0;
                 e.doc.setCursor(e.doc.lastLine() + 1);
             }
             if (u.length > 0 && !e) {
-                $("#cmd").slideDown(
-);
+                $("#cmd").slideDown();
                 return;
             }
             var n = this;
             t && (n.root = t);
-            var r = n.codeArray(), i = "CMPS-" + r.length, s = "CMPS-" + r.length, o = n.root + " $ ";
+            var r = n.codeArray
+(), i = "CMPS-" + r.length, s = "CMPS-" + r.length, o = n.root + " $ ";
             r.push({
                 titleStr: i,
                 classStr: s,
@@ -3587,12 +3598,12 @@ e.stopPropagation ? e.stopPropagation() : e.cancelBubble = !0;
                     if (f > 0) {
                         f--;
                         var n = a[f];
-                        e.doc.
-setValue(e.doc.getValue() + "\n" + n), c(e);
+                        e.doc.setValue(e.doc.getValue() + "\n" + n), c(e);
                     }
                     return !1;
                 }
-                if (t.keyCode == 40) {
+                
+if (t.keyCode == 40) {
                     v(t);
                     if (f < a.length - 1) {
                         f++;
@@ -3610,8 +3621,8 @@ setValue(e.doc.getValue() + "\n" + n), c(e);
                     var r = e.doc.getLine(e.lastLine() - 1), i = $.trim(r.substr(r.indexOf("$") + 1)), s = r.substring(0, r.indexOf("$") - 1);
                     if (i.split(" ")[0] == "cd") {
                         var o = i.split(" ")[1];
-                        
-o.indexOf(":") > 0 ? s = o : o == ".." ? s += "/../" : o != "." && (s[s.length - 1] != "/" ? s += "/" + o : s += o), e.doc.setValue(e.doc.getValue() + "\n" + s + " $ "), c(e);
+                        o.indexOf(":") > 0 ? s = o : o == ".." ? s += "/../" : o != "." && (s[s.length - 1] != "/" ? s += "/" + o : s += o), e.doc.setValue
+(e.doc.getValue() + "\n" + s + " $ "), c(e);
                     } else i.indexOf("clear") >= 0 ? (e.doc.setValue(s + " $ "), c(e)) : i && s ? (a.push(r), f = a.length, n.getCmd(i, s, function(t) {
                         window.loadingCmd && (window.loadingCmd = clearInterval(window.loadingCmd)), i == "ls" && (t = t.replace(/\n/g, "     ")), e.doc.setValue(e.doc.getValue() + "\n" + t + "\n" + s + " $ "), c(e);
                     }, function() {
@@ -3620,10 +3631,10 @@ o.indexOf(":") > 0 ? s = o : o == ".." ? s += "/../" : o != "." && (s[s.length -
                         }, 200), setTimeout(function() {
                             window.loadingCmd && (window.loadingCmd = clearInterval(window.loadingCmd), e.doc.setValue(e.doc.getValue() + " timeout 120s" + "\n" + s + " $ "), c(e));
                         }, 12e4);
-                    
-})) : (e.doc.setValue(e.doc.getValue() + "\n" + s + " $ "), c(e));
+                    })) : (e.doc.setValue(e.doc.getValue() + "\n" + s + " $ "), c(e));
                 }
-            }), l.setOption("theme", "monokai"), setTimeout(function() {
+            }), l.setOption("theme"
+, "monokai"), setTimeout(function() {
                 l.refresh();
             }, 100), u.push(l);
             var h = $("#cmd .qpf-tab-header>.qpf-tab-tabs>li");
@@ -3640,10 +3651,10 @@ o.indexOf(":") > 0 ? s = o : o == ".." ? s += "/../" : o != "." && (s[s.length -
                     setTimeout(function() {
                         $(r[r.length - 1]).trigger("click");
                     }, 300);
-                
-}
+                }
                 n.codeArray().length == 0 && ($("#cmd").slideUp(), $(".switchDesign").show());
-            }), $("#cmd .editor-cancel").click(function() {
+            }), $("#cmd .editor-cancel"
+).click(function() {
                 $("#cmd").slideUp(), $(".switchDesign").show();
             });
         }
@@ -3665,7 +3676,7 @@ o.indexOf(":") > 0 ? s = o : o == ".." ? s += "/../" : o != "." && (s[s.length -
     return '[\n  {\n    "meta": {\n      "date": "2017-3-8",\n      "name": "p-example"\n    },\n    "viewport": {\n      "width": 1440,\n      "height": 800\n    },\n    "elements": [\n       {\n        "eid": 1,\n        "type": "ELEMENT",\n        "properties": {\n          "id": "p-example-container",\n          "width": 400,\n          "height": 100,\n          "left": 0,\n          "top": 0,\n          "zIndex": 0,\n          "color": "#ffffff",\n          "border": true,\n          "borderColor": 5617961,\n          "background": false,\n          "backgroundColor": 16777215,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "classStr": "cmp-element cmp-element",\n          "include": "",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": ""\n        }\n      },\n      {\n        "eid": 1,\n        "type": "UMI",\n        "properties": {\n          "id": "umi-root",\n          "rid": "",\n          "width": "200",\n          "height": 100,\n          "left": 94,\n          "top": 294,\n          "zIndex": 0,\n          "boxColor": "#000000",\n          "borderStyle": "",\n          "borderTop": 0,\n          "borderRight": 0,\n          "borderBottom": 0,\n          "borderLeft": 0,\n          "borderColor": 5617961,\n          "borderAlpha": 1,\n          "background": true,\n          "backgroundColor": 3914264,\n          "backgroundAlpha": 1,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "backgroundImageStr": "",\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "marginTop": 0,\n          "marginRight": 0,\n          "marginBottom": 0,\n          "marginLeft": 0,\n          "paddingTop": 0,\n          "paddingRight": 0,\n          "paddingBottom": 0,\n          "paddingLeft": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "shadowColorAlpha": 1,\n          "boxFontSize": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "boxClassStr": "cmp-element cmp-umi",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": "",\n          "hoverStr": "",\n          "animateStr": "none",\n          "dataCate": "",\n          "dataAction": "",\n          "dataLabel": "",\n          "positionStr": "absolute",\n          "floatStr": "",\n          "hashPath": "/",\n          "modulePath": "common/commonutil.html",\n          "parentModule": "",\n          "color": "#ffffff",\n          "border": true,\n          "classStr": "cmp-element cmp-element",\n          "include": ""\n        }\n      },\n      {\n        "eid": 2,\n        "type": "UMI",\n        "properties": {\n          "id": "rewrite-404",\n          "rid": "",\n          "width": 100,\n          "height": 100,\n          "left": 143,\n          "top": 151,\n          "zIndex": 0,\n          "boxColor": "#000000",\n          "borderStyle": "",\n          "borderTop": 0,\n          "borderRight": 0,\n          "borderBottom": 0,\n          "borderLeft": 0,\n          "borderColor": 5617961,\n          "borderAlpha": 1,\n          "background": true,\n          "backgroundColor": 13455472,\n          "backgroundAlpha": 1,\n          "backgroundImageType": "none",\n          "backgroundGradientStops": [\n            {\n              "percent": 0,\n              "color": "rgba(255, 255, 255, 1)"\n            },\n            {\n              "percent": 1,\n              "color": "rgba(0, 0, 0, 1)"\n            }\n          ],\n          "backgroundGradientAngle": 180,\n          "backgroundImageStr": "",\n          "borderTopLeftRadius": 0,\n          "borderTopRightRadius": 0,\n          "borderBottomRightRadius": 0,\n          "borderBottomLeftRadius": 0,\n          "marginTop": 0,\n          "marginRight": 0,\n          "marginBottom": 0,\n          "marginLeft": 0,\n          "paddingTop": 0,\n          "paddingRight": 0,\n          "paddingBottom": 0,\n          "paddingLeft": 0,\n          "hasShadow": false,\n          "shadowOffsetX": 0,\n          "shadowOffsetY": 0,\n          "shadowBlur": 10,\n          "shadowColor": 0,\n          "shadowColorAlpha": 1,\n          "boxFontSize": 0,\n          "newBlank": false,\n          "targetUrl": "",\n          "boxClassStr": "cmp-element cmp-umi",\n          "overflowX": false,\n          "overflowY": false,\n          "hover": false,\n          "hoverComponent": "",\n          "hoverStr": "",\n          "animateStr": "none",\n          "dataCate": "",\n          "dataAction": "",\n          "dataLabel": "",\n          "positionStr": "absolute",\n          "floatStr": "",\n          "hashPath": "404",\n          "modulePath": "/home/course",\n          "parentModule": ""\n        }\n      }\n    ],\n    "assets": {}\n  }\n]\n'
 ;
 }), define("text!template/page/page.html", [], function() {
-    return '<#include "../common/head.ftl">\r\n<@head title="\u4e2d\u56fd\u5927\u5b66MOOC(\u6155\u8bfe)_\u6700\u597d\u7684\u5728\u7ebf\u8bfe\u7a0b\u5b66\u4e60\u5e73\u53f0"\r\n       keywords="\u4e2d\u56fd\u5927\u5b66MOOC,MOOC,\u6155\u8bfe,\u5728\u7ebf\u5b66\u4e60,\u5728\u7ebf\u6559\u80b2,\u5927\u89c4\u6a21\u5f00\u653e\u5f0f\u5728\u7ebf\u8bfe\u7a0b,\u7f51\u7edc\u516c\u5f00\u8bfe,\u89c6\u9891\u516c\u5f00\u8bfe,\u5927\u5b66\u516c\u5f00\u8bfe,\u5927\u5b66mooc, icourse163,\u6155\u8bfe\u7f51, MOOC\u5b66\u9662"\r\n       description="\u4e2d\u56fd\u5927\u5b66MOOC(\u6155\u8bfe) \u662f\u7231\u8bfe\u7a0b\u7f51\u643a\u624b\u4e91\u8bfe\u5802\u6253\u9020\u7684\u5728\u7ebf\u5b66\u4e60\u5e73\u53f0\uff0c\u6bcf\u4e00\u4e2a\u6709\u63d0\u5347\u613f\u671b\u7684\u4eba\uff0c\u90fd\u53ef\u4ee5\u5728\u8fd9\u91cc\u5b66\u4e60\u4e2d\u56fd\u6700\u597d\u7684\u5927\u5b66\u8bfe\u7a0b\uff0c\u5b66\u5b8c\u8fd8\u80fd\u83b7\u5f97\u8ba4\u8bc1\u8bc1\u4e66\u3002\u4e2d\u56fd\u5927\u5b66MOOC\u662f\u56fd\u5185\u6700\u597d\u7684\u4e2d\u6587MOOC\u5b66\u4e60\u5e73\u53f0\uff0c\u62e5\u6709\u6765\u81ea\u4e8e39\u6240985\u9ad8\u6821\u7684\u9876\u7ea7\u8bfe\u7a0b\uff0c\u6700\u597d\u6700\u5168\u7684\u5927\u5b66\u8bfe\u7a0b\uff0c\u4e0e\u540d\u5e08\u96f6\u8ddd\u79bb\u3002">\r\n</@head>\r\n<!-- @STYLE -->\r\n<link type="text/css" rel="stylesheet" href="/src/css/web/regularUI.css"/>\r\n<link type="text/css" rel="stylesheet" href="/src/css/web/style.css"/>\r\n<link type="text/css" rel="stylesheet" href="/src/css/__pageCSSPath__.css"/>\r\n<body>\r\n    <!-- \u9876\u90e8\u5bfc\u822a\u680f -->\r\n    <#include "../nav/nav.ftl">\r\n    __html__\r\n    <!-- \u5e95\u90e8\u5de5\u5177\u680f  -->\r\n    <#include \'../common/footer.ftl\' >\r\n    <!-- @NOPARSE -->\r\n    <script>\r\n    </script>\r\n    <!-- /@NOPARSE -->\r\n   \r\n    <!-- @DEFINE -->\r\n    <script src="${nejRoot}"></script>\r\n    <script>\r\n        NEJ.define([\r\n            \'pro/__pageFilePath__\',\r\n            \'util/dispatcher/dispatcher\'\r\n        ],function(_page,_p){\r\n           \r\n            _page._$allocate();\r\n            window.dispatcher = _p._$startup({\r\n                // \u89c4\u5219\u914d\u7f6e\r\n                rules:{\r\n                    rewrite:{\r\n                        // \u91cd\u5199\u89c4\u5219\u914d\u7f6e\r\n                        \'404\': \'__404Path__\'\r\n                    }\r\n                },\r\n                // \u6a21\u5757\u914d\u7f6e\r\n                modules: __module__\r\n            });\r\n            \r\n        });\r\n    </script>\r\n</body>\r\n</html>\r\n'
+    return '<#include "../common/head.ftl">\r\n<@head title="\u4e2d\u56fd\u5927\u5b66MOOC(\u6155\u8bfe)_\u6700\u597d\u7684\u5728\u7ebf\u8bfe\u7a0b\u5b66\u4e60\u5e73\u53f0"\r\n       keywords="\u4e2d\u56fd\u5927\u5b66MOOC,MOOC,\u6155\u8bfe,\u5728\u7ebf\u5b66\u4e60,\u5728\u7ebf\u6559\u80b2,\u5927\u89c4\u6a21\u5f00\u653e\u5f0f\u5728\u7ebf\u8bfe\u7a0b,\u7f51\u7edc\u516c\u5f00\u8bfe,\u89c6\u9891\u516c\u5f00\u8bfe,\u5927\u5b66\u516c\u5f00\u8bfe,\u5927\u5b66mooc, icourse163,\u6155\u8bfe\u7f51, MOOC\u5b66\u9662"\r\n       description="\u4e2d\u56fd\u5927\u5b66MOOC(\u6155\u8bfe) \u662f\u7231\u8bfe\u7a0b\u7f51\u643a\u624b\u4e91\u8bfe\u5802\u6253\u9020\u7684\u5728\u7ebf\u5b66\u4e60\u5e73\u53f0\uff0c\u6bcf\u4e00\u4e2a\u6709\u63d0\u5347\u613f\u671b\u7684\u4eba\uff0c\u90fd\u53ef\u4ee5\u5728\u8fd9\u91cc\u5b66\u4e60\u4e2d\u56fd\u6700\u597d\u7684\u5927\u5b66\u8bfe\u7a0b\uff0c\u5b66\u5b8c\u8fd8\u80fd\u83b7\u5f97\u8ba4\u8bc1\u8bc1\u4e66\u3002\u4e2d\u56fd\u5927\u5b66MOOC\u662f\u56fd\u5185\u6700\u597d\u7684\u4e2d\u6587MOOC\u5b66\u4e60\u5e73\u53f0\uff0c\u62e5\u6709\u6765\u81ea\u4e8e39\u6240985\u9ad8\u6821\u7684\u9876\u7ea7\u8bfe\u7a0b\uff0c\u6700\u597d\u6700\u5168\u7684\u5927\u5b66\u8bfe\u7a0b\uff0c\u4e0e\u540d\u5e08\u96f6\u8ddd\u79bb\u3002">\r\n</@head>\r\n<!-- @STYLE -->\r\n<link type="text/css" rel="stylesheet" href="/src/css/web/regularUI.css"/>\r\n<link type="text/css" rel="stylesheet" href="/src/css/web/style.css"/>\r\n<link type="text/css" rel="stylesheet" href="/src/css/__pageCSSPath__.css"/>\r\n<body>\r\n    <!-- \u9876\u90e8\u5bfc\u822a\u680f -->\r\n    <#include "../nav/nav.ftl">\r\n    __html__\r\n    <!-- \u5e95\u90e8\u5de5\u5177\u680f  -->\r\n    <#include \'../common/footer.ftl\' >\r\n    <!-- @NOPARSE -->\r\n    <script>\r\n    </script>\r\n    <!-- /@NOPARSE -->\r\n   \r\n    <!-- @DEFINE -->\r\n    <script src="${nejRoot}"></script>\r\n    <script>\r\n        NEJ.define([\r\n            \'pro/__pageFilePath__\',\r\n            \'util/dispatcher/dispatcher\'\r\n        ],function(_page,_p){\r\n           \r\n            _page._$allocate();\r\n            window.dispatcher = _p._$startup({\r\n                // \u89c4\u5219\u914d\u7f6e\r\n                rules:{\r\n                    rewrite:{\r\n                        // \u91cd\u5199\u89c4\u5219\u914d\u7f6e\r\n                        \'404\': \'__404Path__\'\r\n                    }\r\n                },\r\n                // \u6a21\u5757\u914d\u7f6e\r\n                modules: __module__\r\n            });\r\n            \r\n        });\r\n    </script>\r\n    <@seoScript></@seoScript>\r\n</body>\r\n</html>\r\n'
 ;
 }), define("text!template/page/module.html", [], function() {
     return '<meta charset="utf-8"/>\r\n\r\n<textarea name="txt" id="j-__pName__-body">\r\n    <div id="j-__pName__-content"></div>\r\n</textarea>\r\n\r\n<!-- @TEMPLATE -->\r\n<textarea name="js" data-src="/src/javascript/__jsName__.js"></textarea>\r\n<!-- /@TEMPLATE -->\r\n';
@@ -3685,23 +3696,23 @@ o.indexOf(":") > 0 ? s = o : o == ".." ? s += "/../" : o != "." && (s[s.length -
     };
     return e;
 }), define("text!template/test/caseApi.js", [], function() {
-    return '/**\r\n * Test the component API.\r\n * *example:\r\n * {\r\n *     "data": {\r\n *         "index": 14,\r\n *         "total": 15\r\n *     },\r\n *     "api": "api name",\r\n *     "params": null,\r\n *     "expPro": {\r\n *         "index": 13,\r\n *         "total": 15,\r\n *         "from": 10,\r\n *         "to": 14\r\n *     },\r\n *     "expCpt": {\r\n *         "hasPrev": true,\r\n *         "hasNext": true,\r\n *         "hasLeftSep": true\r\n *     }\r\n * }\r\n */\r\nNEJ.define([], function () {\r\n    return [];\r\n});\r\n';
-}), define("text!template/test/caseEvt.js", [], function() {
-    return '/**\r\n * Test component event, \r\n * trigger: trigger param, trigger[0] is the event name, trigger[1] is the param;\r\n * * example:\r\n * {\r\n *     "targetEvt": "destroy",\r\n *     "data": {\r\n *         "index": 14,\r\n *         "total": 15\r\n *     },\r\n *     "trigger": ["go", 1],\r\n *     "expEvt": {\r\n *         "last": 14,\r\n *         "index": 1,\r\n *         "total": 15\r\n *     }\r\n * }\r\n */\r\nNEJ.define([], function () {\r\n    return [];\r\n});\r\n'
-;
+    return '/**\r\n * Test the component API. expReturn is the function return\r\n * *example:\r\n * {\r\n *     "data": {\r\n *         "index": 14,\r\n *         "total": 15\r\n *     },\r\n *     "api": "api name",\r\n *     "params": [1],\r\n *     "expReturn": "wqeqw",\r\n *     "expPro": {\r\n *         "index": 13,\r\n *         "total": 15,\r\n *         "from": 10,\r\n *         "to": 14\r\n *     },\r\n *     "expCpt": {\r\n *         "hasPrev": true,\r\n *         "hasNext": true,\r\n *         "hasLeftSep": true\r\n *     }\r\n * }\r\n */\r\nNEJ.define([], function () {\r\n    return [];\r\n});\r\n';
+}), define("text!template/test/caseEvt.js"
+, [], function() {
+    return '/**\r\n * Test component event, \r\n * trigger: trigger param, trigger[0] is the event name, trigger[1] is the param;\r\n * * example:\r\n * {\r\n *     "targetEvt": "destroy",\r\n *     "data": {\r\n *         "index": 14,\r\n *         "total": 15\r\n *     },\r\n *     "trigger": ["go", 1],\r\n *     "expEvt": {\r\n *         "last": 14,\r\n *         "index": 1,\r\n *         "total": 15\r\n *     }\r\n * }\r\n */\r\nNEJ.define([], function () {\r\n    return [];\r\n});\r\n';
 }), define("text!template/test/caseIns.js", [], function() {
     return '/**\r\n * Test component instance case and UI case.UIAct & UITrigger & UIResult used in UI Test\u3002\r\n * staticInsApi: if the component has static api to generate it\'s instance, this is the static api name.\r\n * UIAct: UI test description. \r\n * UITrigger: UITrigger for animate UI operation, UITrigger[0] for element selector, UITrigger[1] for event name. \r\n * UIResult: UIResult to checkout the result after act. UIResult[\'hasClass\'] is to check has specific className or not, UIResult[\'hasClass\'] is two level array, the item is a small array which has 3 elements, item[0] is the element selector, item[1] means has or hasn\'t, 1 for has, 0 for hasn\'t. item[2] is the className. UIResult[\'hasStyle\'] is the same, but the item[2] has the style name and the corresponding style value. \r\n ** example:\r\n * {\r\n *     "staticInsApi": "static api name, if not ,leave it blank",\r\n *     "data": {\r\n *     },\r\n *     "UIAct":"has pager or click close icon",\r\n *     "UITrigger": [".u-st-cert", "click"],\r\n *     "UIResult": { \r\n *          "hasClass": [[".u-st-cert", 1, "f-dn"],[".u-st-cert", 1, "f-dn"]],\r\n *          "hasStyle": [[".u-st-cert", 0, "color:red"],[".u-st-cert", 1, "color:red"]],\r\n *      },\r\n *     "expPro": {\r\n *         "title": "",\r\n *         "content": ""\r\n *     },\r\n *     "expCpt": {\r\n *         "title": ""\r\n *     }\r\n * }\r\n *\r\n */\r\nNEJ.define([], function () {\r\n    return [];\r\n});\r\n'
 ;
 }), define("text!template/test/test.html", [], function() {
-    return '<html>\r\n\r\n<head>\r\n    <meta charset="utf-8">\r\n    <title>Unit Test - Selector</title>\r\n    <link href="__libDir__mocha/mocha.css" rel="stylesheet" />\r\n</head>\r\n\r\n<body>\r\n\r\n    <div id="mocha"></div>\r\n\r\n    <script src="__libDir__chai/chai.js"></script>\r\n    <script src="__libDir__mocha/mocha.js"></script>\r\n    <script>\r\n        mocha.setup(\'bdd\');\r\n\r\n    </script>\r\n\r\n    <script src="__libDir__regularjs/dist/regular.js"></script>\r\n    <script src="__libDir__nej/src/define.js?pool=__libDir__"></script>\r\n    <script src="test.js"></script>\r\n</body>\r\n\r\n</html>\r\n';
+    return '<html>\r\n\r\n<head>\r\n    <meta charset="utf-8">\r\n    <title>Unit Test - Selector</title>\r\n    <link href="__libDir__mocha/mocha.css" rel="stylesheet" />\r\n</head>\r\n<body>\r\n    <div id="mocha"></div>\r\n    <script src="__libDir__chai/chai.js"></script>\r\n    <script src="__libDir__mocha/mocha.js"></script>\r\n    <script>\r\n        mocha.setup(\'bdd\');\r\n    </script>\r\n    <script src="__libDir__regularjs/dist/regular.js"></script>\r\n    <script src="__libDir__nej/src/define.js?pool=__libDir__"></script>\r\n    <script src="test.js"></script>\r\n</body>\r\n\r\n</html>\r\n';
 }), define("text!template/test/test.js", [], function() {
-    return "/**\r\n * Entry for Unit Test\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    './testInsCase.spec.js',\r\n    './testInsUICase.spec.js'\r\n\r\n], function () {\r\n    mocha.run();\r\n});\r\n";
+    return "/**\r\n * Entry for Unit Test\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    './testInsCase.spec.js',\r\n    './testInsUICase.spec.js'\r\n], function () {\r\n    mocha.run();\r\n});\r\n";
 }), define("text!template/test/testInsCase.spec.js"
 , [], function() {
-    return "/**\r\n * Unit Test for __componentName__\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    'base/util',\r\n    '../component.js',\r\n    './caseIns.js',\r\n    './caseApi.js',\r\n    './caseEvt.js'\r\n], function (\r\n    u,\r\n    Component,\r\n    insCases,\r\n    apiCases,\r\n    evtCases\r\n) {\r\n    // use expect style BDD\r\n    var expect = chai.expect;\r\n    var ut = {};\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u5e38\u89c4\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} def - \u9ed8\u8ba4\u5c5e\u6027\u4fe1\u606f\r\n     * @param   {Object} ret - \u5f85\u9a8c\u8bc1\u7ed3\u679c\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.setupProChecker = function (def, ret) {\r\n        ret = u._$merge({}, def, ret);\r\n        return function (expect, inst) {\r\n            u._$forIn(ret, function (value, key) {\r\n                expect(inst.data[key]).to.eql(value, key);\r\n            });\r\n        };\r\n    };\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u8ba1\u7b97\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} def - \u9ed8\u8ba4\u5c5e\u6027\u4fe1\u606f\r\n     * @param   {Object} ret - \u5f85\u9a8c\u8bc1\u7ed3\u679c\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.setupComputedChecker = function (def, ret) {\r\n        ret = u._$merge({}, def, ret);\r\n        return function (expect, inst) {\r\n            u._$forIn(ret, function (value, key) {\r\n                expect(inst.$get(key)).to.eql(value, key);\r\n            });\r\n        };\r\n    }\r\n\r\n    // define ALL test\r\n    describe('Unit Test for component __componentName__', function () {\r\n        // define instance test\r\n        describe('Unit Test for New Instance', function () {\r\n            // FIXME set default value config\r\n            var defPro = {},\r\n                defCpt = {};\r\n            // instance Base\r\n            var caseName = \"shoule be ok for new instance with data\";\r\n            u._$forEach(insCases, function (item) {\r\n                if (item.staticInsApi && item.staticInsApi.length) {\r\n                    caseName = \"shoule be ok for static new instance api\" + item.staticInsApi;\r\n                }\r\n                it(caseName, function () {\r\n                    var inst = \"\";\r\n                    // static instance or not\r\n                    if (item.staticInsApi && item.staticInsApi.length) {\r\n                        Component[staticInsApi]({\r\n                            data: item.data\r\n                        });\r\n                    } else {\r\n                        inst = new Component({\r\n                            data: item.data\r\n                        });\r\n                    }\r\n\r\n                    expect(inst).to.be.an.instanceof(Component);\r\n                    // check property\r\n                    ut.setupProChecker(defPro, item.expPro)(expect, inst);\r\n                    // check computed property\r\n                    ut.setupComputedChecker(defCpt, item.expCpt)(expect, inst);\r\n                });\r\n\r\n            });\r\n        });\r\n\r\n        // define API test\r\n        describe('Unit Test for Used API', function () {\r\n            var caseName = \"shoule be ok for instance API \";\r\n            u._$forEach(apiCases, function (item) {\r\n                if (item.api && item.api.length) {\r\n                    it(caseName + item.api, function () {\r\n                        var inst = new Component({\r\n                            data: item.data\r\n                        });\r\n                        inst[item.api].apply(inst, item.params || []);\r\n                        ut.setupProChecker(defPro, item.expPro)(expect, inst);\r\n                        ut.setupComputedChecker(defCpt, item.expCpt)(expect, inst);\r\n                    });\r\n                }\r\n            });\r\n        });\r\n\r\n        // define Event test\r\n        describe('Unit Test for Event', function () {\r\n            var caseName = \"shoule be ok for instance event on \";\r\n\r\n            u._$forEach(evtCases, function (item) {\r\n                if (item.targetEvt) {\r\n                    it(caseName + item.targetEvt, function (done) {\r\n                        var inst = new Component({\r\n                            data: item.data\r\n                        });\r\n                        inst.$on(item.targetEvt, function (event) {\r\n                            expect(event).to.eql(item.expEvt);\r\n                            done();\r\n                        });\r\n                        var method = item.trigger.shift();\r\n                        inst[method].apply(inst, item.trigger);\r\n                    });\r\n                }\r\n            });\r\n        });\r\n    });\r\n});\r\n"
+    return "/**\r\n * Unit Test for __componentName__\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    'base/util',\r\n    '../component.js',\r\n    './caseIns.js',\r\n    './caseApi.js',\r\n    './caseEvt.js'\r\n], function (\r\n    u,\r\n    Component,\r\n    insCases,\r\n    apiCases,\r\n    evtCases\r\n) {\r\n        // use expect style BDD\r\n        var expect = chai.expect;\r\n        var ut = {};\r\n        /**\r\n         * Regular \u7ec4\u4ef6\u5e38\u89c4\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n         *\r\n         * @param   {Object} def - \u9ed8\u8ba4\u5c5e\u6027\u4fe1\u606f\r\n         * @param   {Object} ret - \u5f85\u9a8c\u8bc1\u7ed3\u679c\r\n         * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n         */\r\n        ut.setupProChecker = function (def, ret) {\r\n            ret = u._$merge({}, def, ret);\r\n            return function (expect, inst) {\r\n                u._$forIn(ret, function (value, key) {\r\n                    expect(inst.data[key]).to.eql(value, key);\r\n                });\r\n            };\r\n        };\r\n        /**\r\n         * Regular \u7ec4\u4ef6\u8ba1\u7b97\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n         *\r\n         * @param   {Object} def - \u9ed8\u8ba4\u5c5e\u6027\u4fe1\u606f\r\n         * @param   {Object} ret - \u5f85\u9a8c\u8bc1\u7ed3\u679c\r\n         * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n         */\r\n        ut.setupComputedChecker = function (def, ret) {\r\n            ret = u._$merge({}, def, ret);\r\n            return function (expect, inst) {\r\n                u._$forIn(ret, function (value, key) {\r\n                    expect(inst.$get(key)).to.eql(value, key);\r\n                });\r\n            };\r\n        }\r\n        // define ALL test\r\n        describe('Unit Test for component __componentName__', function () {\r\n            // define instance test\r\n            describe('Unit Test for New Instance', function () {\r\n                // FIXME set default value config\r\n                var defPro = {},\r\n                    defCpt = {};\r\n                // instance Base\r\n                var caseName = \"shoule be ok for new instance with data\";\r\n                u._$forEach(insCases, function (item) {\r\n                    if (item.staticInsApi && item.staticInsApi.length) {\r\n                        caseName = \"shoule be ok for static new instance api\" + item.staticInsApi;\r\n                    }\r\n                    it(caseName, function () {\r\n                        var inst = \"\";\r\n                        // static instance or not\r\n                        if (item.staticInsApi && item.staticInsApi.length) {\r\n                            Component[staticInsApi]({\r\n                                data: item.data\r\n                            });\r\n                        } else {\r\n                            inst = new Component({\r\n                                data: item.data\r\n                            });\r\n                        }\r\n                        expect(inst).to.be.an.instanceof(Component);\r\n                        // check property\r\n                        ut.setupProChecker(defPro, item.expPro)(expect, inst);\r\n                        // check computed property\r\n                        ut.setupComputedChecker(defCpt, item.expCpt)(expect, inst);\r\n                    });\r\n                });\r\n            });\r\n\r\n            // define API test\r\n            describe('Unit Test for Used API', function () {\r\n                var defPro = {},\r\n                    defCpt = {};\r\n                var caseName = \"shoule be ok for instance API \";\r\n                u._$forEach(apiCases, function (item) {\r\n                    if (item.api && item.api.length) {\r\n                        it(caseName + item.api, function () {\r\n                            var inst = new Component({\r\n                                data: item.data\r\n                            });\r\n                            if (item.expReturn) {\r\n                                expect(inst[item.api].apply(inst, item.params || [])).to.eql(item.expReturn);\r\n                            } else {\r\n                                inst[item.api].apply(inst, item.params || []);\r\n                            }\r\n                            ut.setupProChecker(defPro, item.expPro)(expect, inst);\r\n                            ut.setupComputedChecker(defCpt, item.expCpt)(expect, inst);\r\n                        });\r\n                    }\r\n                });\r\n            });\r\n\r\n            // define Event test\r\n            describe('Unit Test for Event', function () {\r\n                var caseName = \"shoule be ok for instance event on \";\r\n                u._$forEach(evtCases, function (item) {\r\n                    if (item.targetEvt) {\r\n                        it(caseName + item.targetEvt, function (done) {\r\n                            var inst = new Component({\r\n                                data: item.data\r\n                            });\r\n                            inst.$on(item.targetEvt, function (event) {\r\n                                expect(event).to.eql(item.expEvt);\r\n                                done();\r\n                            });\r\n                            var method = item.trigger.shift();\r\n                            inst[method].apply(inst, item.trigger);\r\n                        });\r\n                    }\r\n                });\r\n            });\r\n        });\r\n    });\r\n"
 ;
 }), define("text!template/test/testInsUICase.spec.js", [], function() {
-    return '/**\r\n * Unit UI Test for __componentName__\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    \'base/element\',\r\n    \'base/event\',\r\n    \'base/util\',\r\n    \'../ui.js\',\r\n    \'./caseIns.js\'\r\n], function (\r\n    e,\r\n    v,\r\n    u,\r\n    Component,\r\n    insCases\r\n) {\r\n    // use expect style BDD\r\n    var expect = chai.expect;\r\n    var ut = {};\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u5e38\u89c4\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} parent - \u7236\u5143\u7d20\r\n     * @param   {Object} sel - \u9009\u62e9\u5668\uff0c\u652f\u6301class\u548cid\uff0c\u683c\u5f0f\u5206\u522b\u4e3a.class \u6216 #id\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.getElement = function (parent, sel) {\r\n        sel = sel.trim();\r\n        if ("." === sel[0]) {\r\n            return e._$getByClassName(parent, sel.substr(1)) && e._$getByClassName(parent, sel.substr(1))[0];\r\n        }\r\n        if ("#" === sel[0]) {\r\n            return e._$get(sel.substr(1));\r\n        }\r\n        return null;\r\n    };\r\n    // define component test\r\n    describe(\'Unit UI Test - __componentName__\', function () {\r\n        // define API test\r\n        describe(\'Unit UI Test for user Operation\', function () {\r\n            var caseName = "shoule act right when ";\r\n            u._$forEach(insCases, function (item) {\r\n                if (item.UIAct && item.UIAct.length) {\r\n                    var inst = new Component({\r\n                        data: item.data\r\n                    }).$inject(document.body);\r\n                    it(caseName + item.UIAct, function (done) {\r\n                        //animate action\r\n                        if (item.UITrigger && item.UITrigger.length) {\r\n                            var selector = item.UITrigger.shift();\r\n                            var element = ut.getElement(inst.parentNode, selector);\r\n                            if (element) {\r\n                                v._$dispatchEvent(element, item.UITrigger[0]);\r\n                            }\r\n                        }\r\n                        //checkout result, may be has animate action, so delay a while.\r\n                        // setTimeout(function () {\r\n                        // check class\r\n                        if (item.UIResult && item.UIResult["hasClass"] && item.UIResult["hasClass"].length) {\r\n                            var classCheckor = item.UIResult["hasClass"];\r\n                            u._$forEach(classCheckor, function (item) {\r\n                                var selector = item.shift();\r\n                                var hasOrNot = item.shift();\r\n                                var element = ut.getElement(inst.parentNode, selector);\r\n                                if (element) {\r\n                                    setTimeout(function () {\r\n                                        if (hasOrNot > 0) {\r\n                                            expect(e._$hasClassName(element, item)).to.be.true;\r\n                                        } else {\r\n                                            expect(e._$hasClassName(element, item)).to.be.false;\r\n                                        }\r\n                                        done();\r\n                                    }, 100);\r\n                                }\r\n\r\n                            });\r\n                        }\r\n                        // check style\uff0cuse math.ceil to handle the animation case\r\n                        if (item.UIResult && item.UIResult["hasStyle"] && item.UIResult["hasStyle"].length) {\r\n                            var styleCheckor = item.UIResult["hasStyle"];\r\n                            u._$forEach(styleCheckor, function (item) {\r\n                                var selector = item.shift();\r\n                                var hasOrNot = item.shift();\r\n                                var element = ut.getElement(inst.parentNode, selector);\r\n                                if (element) {\r\n                                    setTimeout(function () {\r\n                                        if (hasOrNot > 0) {\r\n                                            expect("" + Math.ceil(e._$getStyle(element, item[0].split(":")[0]))).to.eq(item[0].split(":")[1]);\r\n                                        } else {\r\n                                            expect("" + Math.ceil(e._$getStyle(element, item[0].split(":")[0]))).to.not.eq(item[0].split(":")[1]);\r\n                                        }\r\n                                        done();\r\n                                    }, 100);\r\n\r\n                                }\r\n\r\n                            });\r\n                        }\r\n\r\n                        // }, 100);\r\n\r\n                    });\r\n                }\r\n            });\r\n        });\r\n    });\r\n});\r\n'
+    return '/**\r\n * Unit UI Test for __componentName__\r\n *\r\n * @author edu <edu@corp.netease.com>\r\n */\r\nNEJ.define([\r\n    \'base/element\',\r\n    \'base/event\',\r\n    \'base/util\',\r\n    \'../ui.js\',\r\n    \'./caseIns.js\'\r\n], function (\r\n    e,\r\n    v,\r\n    u,\r\n    Component,\r\n    insCases\r\n) {\r\n    // use expect style BDD\r\n    var expect = chai.expect;\r\n    var ut = {};\r\n    /**\r\n     * Regular \u7ec4\u4ef6\u5e38\u89c4\u5c5e\u6027\u9a8c\u8bc1\u5668\u521d\u59cb\u5316\r\n     *\r\n     * @param   {Object} parent - \u7236\u5143\u7d20\r\n     * @param   {Object} sel - \u9009\u62e9\u5668\uff0c\u652f\u6301class\u548cid\uff0c\u683c\u5f0f\u5206\u522b\u4e3a.class \u6216 #id\r\n     * @returns {Function}     \u9a8c\u8bc1\u6267\u884c\u51fd\u6570\r\n     */\r\n    ut.getElement = function (parent, sel) {\r\n        sel = sel.trim();\r\n        if ("." === sel[0]) {\r\n            return e._$getByClassName(parent, sel.substr(1)) && e._$getByClassName(parent, sel.substr(1))[0];\r\n        }\r\n        if ("#" === sel[0]) {\r\n            return e._$get(sel.substr(1));\r\n        }\r\n        return null;\r\n    };\r\n    // define component test\r\n    describe(\'Unit UI Test - __componentName__\', function () {\r\n        // define API test\r\n        describe(\'Unit UI Test for user Operation\', function () {\r\n            var caseName = "shoule act right when ";\r\n            u._$forEach(insCases, function (item) {\r\n                if (item.UIAct && item.UIAct.length) {\r\n                    var inst = new Component({\r\n                        data: item.data\r\n                    }).$inject(document.body);\r\n                    it(caseName + item.UIAct, function (done) {\r\n                        //animate action\r\n                        if (item.UITrigger && item.UITrigger.length) {\r\n                            var selector = item.UITrigger.shift();\r\n                            var element = ut.getElement(inst.parentNode, selector);\r\n                            if (element) {\r\n                                v._$dispatchEvent(element, item.UITrigger[0]);\r\n                            }\r\n                        }\r\n                        //checkout result, may be has animate action, so delay a while.\r\n                        // setTimeout(function () {\r\n                        // check class\r\n                        if (item.UIResult && item.UIResult["hasClass"] && item.UIResult["hasClass"].length) {\r\n                            var classCheckor = item.UIResult["hasClass"];\r\n                            u._$forEach(classCheckor, function (item) {\r\n                                var selector = item.shift();\r\n                                var hasOrNot = item.shift();\r\n                                var element = ut.getElement(inst.parentNode, selector);\r\n                                if (element) {\r\n                                    setTimeout(function () {\r\n                                        if (hasOrNot > 0) {\r\n                                            expect(e._$hasClassName(element, item)).to.be.true;\r\n                                        } else {\r\n                                            expect(e._$hasClassName(element, item)).to.be.false;\r\n                                        }\r\n                                        done();\r\n                                    }, 200);\r\n                                }\r\n\r\n                            });\r\n                        }\r\n                        // check style\uff0cuse math.ceil to handle the animation case\r\n                        if (item.UIResult && item.UIResult["hasStyle"] && item.UIResult["hasStyle"].length) {\r\n                            var styleCheckor = item.UIResult["hasStyle"];\r\n                            u._$forEach(styleCheckor, function (item) {\r\n                                var selector = item.shift();\r\n                                var hasOrNot = item.shift();\r\n                                var element = ut.getElement(inst.parentNode, selector);\r\n                                if (element) {\r\n                                    setTimeout(function () {\r\n                                        if (hasOrNot > 0) {\r\n                                            expect("" + Math.ceil(e._$getStyle(element, item[0].split(":")[0]))).to.eq(item[0].split(":")[1]);\r\n                                        } else {\r\n                                            expect("" + Math.ceil(e._$getStyle(element, item[0].split(":")[0]))).to.not.eq(item[0].split(":")[1]);\r\n                                        }\r\n                                        done();\r\n                                    }, 200);\r\n\r\n                                }\r\n\r\n                            });\r\n                        }\r\n\r\n                        // }, 100);\r\n\r\n                    });\r\n                }\r\n            });\r\n        });\r\n    });\r\n});\r\n'
 ;
 }), define("util/exportFile", [ "core/service", "text!template/test/caseApi.js", "text!template/test/caseEvt.js", "text!template/test/caseIns.js", "text!template/test/test.html", "text!template/test/test.js", "text!template/test/testInsCase.spec.js", "text!template/test/testInsUICase.spec.js" ], function() {
     var e = require("core/service"), t = require("text!template/test/caseApi.js"), n = require("text!template/test/caseEvt.js"), r = require("text!template/test/caseIns.js"), i = require("text!template/test/test.html"), s = require("text!template/test/test.js"), o = require("text!template/test/testInsCase.spec.js"), u = require("text!template/test/testInsUICase.spec.js"), a = {
@@ -3890,10 +3901,9 @@ $lc: $('<div class="resize-control lc"></div>'),
     var t = e("_"), n = e("$"), r = e("core/factory"), i = e("modules/viewport/index"), s = e("modules/hierarchy/index"
 ), o = e("modules/component/index"), u = e("modules/page/index"), a = e("modules/dataMock/index"), l = {
         "import": function(e) {
-            e instanceof Array ? o.load(e) : o.load([ e ]);
             var t = this;
-            o.on("selectComponent", function(e) {
-                t.loadComponent(e);
+            e instanceof Array ? (o.load(e), t.loadComponent(e[0])) : (o.load([ e ]), t.loadComponent(e)), o.on("selectComponent", function(e) {
+                t.loadComponent(e), console.log("selectComponent handle");
             });
         },
         importPage: function(e) {
@@ -3911,33 +3921,34 @@ $lc: $('<div class="resize-control lc"></div>'),
                     if (typeof t == "string") {
                         var i = /url\((\S*?)\)/.exec(t);
                         if (i) {
-                            var s = i[1], o = f(e.assets, s);
                             
-o && (n[r] = o);
+var s = i[1], o = f(e.assets, s);
+                            o && (n[r] = o);
                         }
                     } else (t instanceof Array || t instanceof Object) && u(t);
                 });
             }
             if (!e) return;
             e && (n(".mainContent").find(".switchDesign").length || (n(".mainContent").append("<div class='switchDesign'><span class='page'>\u9875\u9762\u8bbe\u8ba1</span><span class='mock'>Mock</span><span class='umi'>UMI\u7ed3\u6784</span><span class='timeline'>\u65f6\u5e8f\u56fe</span></div>"), n(".switchDesign span").click(function(e) {
-                n(".switchDesign span").removeClass("cur"), n(this).addClass("cur"), n("#tempStyle").remove(), n(this).hasClass("umi") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").show(), n(".cmp-umi").removeClass("cmp-dn"), n("#drawArrow").show(), n("#drawDiagram").css("opacity", 0)), n(this).hasClass("page") && (n(".cmp-element").removeClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram"
-).css("opacity", 0)), n(this).hasClass("mock") && (n(".cmp-element").removeClass("cmp-dn"), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity", 0), n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").show()), n(this).hasClass("timeline") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n("#drawArrow").hide(), n(".cmp-umi").hide(), n("#drawDiagram").css("opacity", 1));
-            })));
+                n(".switchDesign span").removeClass("cur"), n(this).addClass("cur"), n("#tempStyle").remove(), n(this).hasClass("umi") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n(".cmp-umi").show(), n(".cmp-umi").removeClass("cmp-dn"), n("#drawArrow").show(), n("#drawDiagram").css("opacity", 0)), n(this).hasClass("page") && (n(".cmp-element").removeClass("cmp-dn"), n("#drawMockView"
+).hide(), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity", 0)), n(this).hasClass("mock") && (n(".cmp-element").removeClass("cmp-dn"), n(".cmp-umi").hide(), n("#drawArrow").hide(), n("#drawDiagram").css("opacity", 0), n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").show()), n(this).hasClass("timeline") && (n(".cmp-element").addClass("cmp-dn"), n("#drawMockView").hide(), n("#drawArrow").hide(), n(".cmp-umi").hide(), n("#drawDiagram").css("opacity", 1));
+            }))), console.log("\u5f00\u59cb\u52a0\u8f7d\u5143\u4ef6-----");
             var a = [];
             t.each(e.elements, function(e) {
                 function s(e, n, s) {
+                    console.log(e + "- hover \u5904\u7406-----");
                     var u = [], a = t.find(o.components(), function(t) {
                         return t["meta"]["name"] == e;
                     });
                     if (!a) return;
                     u = a.elements;
                     var l = [];
-                    t.each(u, function(e) {
+                    
+t.each(u, function(e) {
                         var t = r.create(e.type.toLowerCase(), {
                             id: e.properties.id
                         });
-                        
-(e.properties.funcType == "IF" || e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("addFuncComponent", f), t.import(e), l.push(t);
+                        e.properties.funcType == "IF" && e.properties.ifFuncItem && (t.off("addFuncComponent"), t.on("addFuncComponent", f)), e.properties.funcType == "FOR" && e.properties.forFuncItem && (t.off("addFuncComponent"), t.on("addFuncComponent", f)), e.properties.funcType == "INCLUDE" && (t.off("addFuncComponent"), t.on("addFuncComponent", f)), t.import(e), l.push(t);
                     });
                     var c, h = t.find(l, function(e) {
                         return e.isContainer();
@@ -3946,27 +3957,28 @@ o && (n[r] = o);
                         position: "relative"
                     }), h.$wrapper.find("a").remove(), c = h.$wrapper, i.getViewPort().addElement(h, n), s == "bottom" ? (n.parent().css({
                         "margin-left": -Math.floor(+h.properties.width() / 2 + 15)
-                    }), n.parent().find(".e-hover-arrow").css({
+                    
+}), n.parent().find(".e-hover-arrow").css({
                         left: Math.floor(+h.properties.width() / 2 + 15) - 10
                     }), n.parent().find(".e-hover-arrow-border").css({
                         left: Math.floor(+h.properties.width() / 2 + 15) - 10
                     })) : s == "bottom-right" ? (n.parent().css({
-                        cssText
-: "left:auto !important;right:0;"
+                        cssText: "left:auto !important;right:0;"
                     }), n.parent().find(".e-hover-arrow").css({
                         right: Math.floor(+n.parent().parent().width() / 2) - 10
                     }), n.parent().find(".e-hover-arrow-border").css({
                         right: Math.floor(+n.parent().parent().width() / 2) - 10
                     })) : s == "left" && (n.parent().find(".e-hover-arrow").addClass("left"), n.parent().find(".e-hover-arrow").css({
                         cssText: "top:" + (Math.floor(+h.properties.height() / 2 + 15) - 10) + "px !important"
-                    }), n.parent().find(".e-hover-arrow-border").addClass("left"), n.parent().find(".e-hover-arrow-border").css({
+                    }), n.parent().find(".e-hover-arrow-border"
+).addClass("left"), n.parent().find(".e-hover-arrow-border").css({
                         cssText: "top:" + (Math.floor(+h.properties.height() / 2 + 15) - 10) + "px !important"
                     })), t.each(l, function(e, t) {
-                        e.isContainer() || (!e.$wrapper.hasClass("e-hover-source") && !e.$wrapper.hasClass("cmp-func") && !e.$wrapper
-.find("a").attr("href") && e.$wrapper.html(e.$wrapper.find("a").html()), i.getViewPort().addElement(e, c));
+                        e.isContainer() || (!e.$wrapper.hasClass("e-hover-source") && !e.$wrapper.hasClass("cmp-func") && !e.$wrapper.find("a").attr("href") && e.$wrapper.html(e.$wrapper.find("a").html()), i.getViewPort().addElement(e, c));
                     });
                 }
                 function f(e, n) {
+                    console.log(e + "- FUNC \u5904\u7406-----");
                     var u = [], e = e, n = n, a = t.find(o.components(), function(t) {
                         return t["meta"]["name"] == e;
                     });
@@ -3975,18 +3987,19 @@ o && (n[r] = o);
                         var l = [];
                         t.each(u, function(e) {
                             var t = r.create(e.type.toLowerCase(), {
-                                id: e.properties.id
+                                
+id: e.properties.id
                             });
-                            (e.properties.funcType == "IF" || e.properties.funcType == "FOR" || e.properties.funcType == "INCLUDE") && t.on("addFuncComponent", f), e.properties.hoverComponent && t.on("addHoverComponent", s), t.import(e), l.push(t);
+                            e.properties.funcType == "IF" && e.properties.ifFuncItem && (t.off("addFuncComponent"), t.on("addFuncComponent", f)), e.properties.funcType == "FOR" && e.properties.forFuncItem && (t.off("addFuncComponent"), t.on("addFuncComponent", f)), e.properties.funcType == "INCLUDE" && (t.off("addFuncComponent"), t.on("addFuncComponent", f)), e.properties.hoverComponent && (t.off("addHoverComponent"), t.on("addHoverComponent", s)), t.import(e), l.push(t);
                         });
                     }
-                    var c, h = t.find(l, function(
-e) {
+                    var c, h = t.find(l, function(e) {
                         return e.isContainer();
                     });
                     h && (h.$wrapper.css({
                         position: "relative"
-                    }), h.$wrapper.find("a").attr("href") ? c = h.$wrapper.find("a") : (h.$wrapper.find("a").children().length < 1 ? h.$wrapper.find("a").remove() : h.$wrapper.html(h.$wrapper.find("a").html()), c = h.$wrapper), i.getViewPort().addElement(h, n), t.each(l, function(e, t) {
+                    }), h.$wrapper.find("a").attr("href") ? c = h.$wrapper.find("a") : (h.$wrapper.find("a").children().length < 1 ? h.$wrapper.find("a").remove() : h.$wrapper.html(h.$wrapper.find("a").html(
+)), c = h.$wrapper), i.getViewPort().addElement(h, n), t.each(l, function(e, t) {
                         e.isContainer() || (e.$wrapper.find("a").attr("href") || (e.$wrapper.find("a").children().length < 1 ? e.$wrapper.find("a").remove() : e.properties.hoverComponent() || e.$wrapper.html(e.$wrapper.find("a").html())), i.getViewPort().addElement(e, c));
                     }));
                 }
@@ -3994,14 +4007,14 @@ e) {
                 var n = r.create(e.type.toLowerCase(), {
                     id: e.properties.id
                 });
-                e.properties.hoverComponent && n.on("addHoverComponent", s), n.on
-("addFuncComponent", f), n.import(e), a.push(n);
+                e.properties.hoverComponent && (n.off("addFuncComponent"), n.on("addHoverComponent", s)), n.off("addFuncComponent"), n.on("addFuncComponent", f), n.import(e), a.push(n);
             }), s.load(a), i.viewportWidth(e.viewport.width), i.viewportHeight(e.viewport.height), i.backColor(e.viewport.backColor);
         },
         "export": function(e, n) {
             function h(e, n) {
                 return t.find(e, function(e) {
-                    return n == e.meta.name;
+                    
+return n == e.meta.name;
                 });
             }
             function v(n) {
@@ -4009,24 +4022,24 @@ e) {
                     v(e);
                 }))), n.properties.falseFuncBody && !e && (_json = o.getTarget(n.properties.falseFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
-                }))), n.properties.elseIfFuncBody && !e && (_json = o.getTarget(n.properties.elseIfFuncBody), Object
-.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
+                }))), n.properties.elseIfFuncBody && !e && (_json = o.getTarget(n.properties.elseIfFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
-                }))), n.properties.elseIfFuncBody2 && !e && (_json = o.getTarget(n.properties.elseIfFuncBody2), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
+                }))), n.properties.elseIfFuncBody2 && !e && (_json = o.getTarget(n.properties.elseIfFuncBody2), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements
+, function(e) {
                     v(e);
                 }))), n.properties.forFuncBody && !e && (_json = o.getTarget(n.properties.forFuncBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
                 }))), n.properties.includeBody && !e && (_json = o.getTarget(n.properties.includeBody), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
-                }))), n.properties.hoverComponent && !e && (_json = o.getTarget(n.properties.hoverComponent), Object.keys(_json).length && (h(p, _json.meta
-.name) || p.push(_json), t.each(_json.elements, function(e) {
+                }))), n.properties.hoverComponent && !e && (_json = o.getTarget(n.properties.hoverComponent), Object.keys(_json).length && (h(p, _json.meta.name) || p.push(_json), t.each(_json.elements, function(e) {
                     v(e);
                 })));
             }
             var r = new Date, u = "example", a = "", f = "", l = t.find(s.elements(), function(e) {
                 return e.isContainer();
             });
-            l && l.getName().length ? u = l.getName() : u = s.elements()[0].getName();
+            l && l.getName().length ? u = l.getName
+() : u = s.elements()[0].getName();
             var c = {
                 meta: {
                     date: r.getFullYear() + "-" + (r.getMonth() + 1) + "-" + r.getDate(),
@@ -4040,12 +4053,12 @@ e) {
                 elements: [],
                 assets: {}
             };
-            n && (c.meta.componentJS = n.meta.componentJS, c.meta.cacheJS = n.meta.cacheJS, c.meta.pageFTL = n.meta.pageFTL, c.meta.pageJS = n.meta.pageJS, c.meta.uiJS = n.meta.uiJS, c.meta.pageCacheJS = 
-n.meta.pageCacheJS, c.meta.testCaseApi = n.meta.testCaseApi, c.meta.testCaseEvt = n.meta.testCaseEvt, c.meta.testCaseIns = n.meta.testCaseIns);
+            n && (c.meta.componentJS = n.meta.componentJS, c.meta.cacheJS = n.meta.cacheJS, c.meta.pageFTL = n.meta.pageFTL, c.meta.pageJS = n.meta.pageJS, c.meta.uiJS = n.meta.uiJS, c.meta.pageCacheJS = n.meta.pageCacheJS, c.meta.testCaseApi = n.meta.testCaseApi, c.meta.testCaseEvt = n.meta.testCaseEvt, c.meta.testCaseIns = n.meta.testCaseIns);
             var p = [], d = this;
             return t.each(s.elements(), function(e) {
                 var n = e.export(), r = "";
-                v(n), c.elements.push(t.omit(n, "assets")), t.each(n.assets, function(e, n) {
+                v(n), c.elements.push(t.omit
+(n, "assets")), t.each(n.assets, function(e, n) {
                     t.each(e, function(e, t) {
                         c.assets[n] || (c.assets[n] = {}), c.assets[n][t] = e;
                     });
@@ -4059,20 +4072,20 @@ n.meta.pageCacheJS, c.meta.testCaseApi = n.meta.testCaseApi, c.meta.testCaseEvt 
             function c(e) {
                 e.properties.trueFuncBody && !isSave && (f = o.getTarget(e.properties.trueFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
-                }))), e.properties.falseFuncBody && !isSave && (
-f = o.getTarget(e.properties.falseFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
+                }))), e.properties.falseFuncBody && !isSave && (f = o.getTarget(e.properties.falseFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
-                }))), e.properties.elseIfFuncBody && !isSave && (f = o.getTarget(e.properties.elseIfFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
+                }))), e.properties.elseIfFuncBody && !isSave && (f = o.getTarget(e.properties.elseIfFuncBody), Object.keys(f).length && (isContain(u, 
+f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
                 }))), e.properties.elseIfFuncBody2 && !isSave && (f = o.getTarget(e.properties.elseIfFuncBody2), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
                 }))), e.properties.forFuncBody && !isSave && (f = o.getTarget(e.properties.forFuncBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
-                }))), e.properties.includeBody && !isSave && (f = o.getTarget(e.properties.includeBody), Object.keys(f).length && 
-(isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
+                }))), e.properties.includeBody && !isSave && (f = o.getTarget(e.properties.includeBody), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
                     c(e);
                 }))), e.properties.hoverComponent && !isSave && (f = o.getTarget(e.properties.hoverComponent), Object.keys(f).length && (isContain(u, f.meta.name) || u.push(f), t.each(f.elements, function(e) {
-                    c(e);
+                    
+c(e);
                 })));
             }
             var n = "example", r = new Date;
@@ -4090,14 +4103,14 @@ f = o.getTarget(e.properties.falseFuncBody), Object.keys(f).length && (isContain
                 elements: [],
                 assets: {}
             }, u = [], a = e.export(), f = "", l = this;
-            return a.properties.id.indexOf("container"
-) < 0 && (a.properties.id += "-container"), c(a), s.elements.push(t.omit(a, "assets")), t.each(a.assets, function(e, n) {
+            return a.properties.id.indexOf("container") < 0 && (a.properties.id += "-container"), c(a), s.elements.push(t.omit(a, "assets")), t.each(a.assets, function(e, n) {
                 t.each(e, function(e, t) {
                     s.assets[n] || (s.assets[n] = {}), s.assets[n][t] = e;
                 });
             }), u.push(s), {
                 result: u,
-                name: n
+                
+name: n
             };
         },
         exportHTMLCSS: function() {
@@ -4110,11 +4123,11 @@ f = o.getTarget(e.properties.falseFuncBody), Object.keys(f).length && (isContain
             var c;
             return t.each(s.elements(), function(t) {
                 t.isCache() ? (o = t.exportCache(), u += o.cacheItem, a += o.cacheItemCall) : t.type != "TIMELINE" && (t.type == "UMI" ? (c = c || {
-                    
-modules: {},
+                    modules: {},
                     parentM: {},
                     "404": "/"
-                }, t.properties.id() == "rewrite-404" ? c[404] = t.properties.modulePath() : (c.modules[t.properties.hashPath()] = t.properties.modulePath(), c.parentM[t.properties.hashPath()] = t.properties.parentModule())) : t.isContainer() || (o = t.exportHTMLCSS(), l ? l.append(o.html) : e.append(o.html), r.push(o.css)));
+                }, t.properties.id() == "rewrite-404" ? c[404] = t.properties.modulePath() : (c.modules[t.properties.hashPath()] = t.properties.modulePath(), c.parentM[t.properties.hashPath()] = t.properties.parentModule())) : t.isContainer() || 
+(o = t.exportHTMLCSS(), l ? l.append(o.html) : e.append(o.html), r.push(o.css)));
             }), {
                 html: n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\&amp\;/g, "&").replace(/\&quot\;/g, "'"),
                 css: r.join(" "),
@@ -4128,14 +4141,14 @@ modules: {},
             var e = "<div class='m-body-container'></div>", r = [], i = "example";
             t.each(s.elements(), function(t) {
                 if (t.isContainer()) {
-                    e = t.exportHTMLCSS().html, r.push(
-t.exportHTMLCSS().css), i = t.getName();
+                    e = t.exportHTMLCSS().html, r.push(t.exportHTMLCSS().css), i = t.getName();
                     return;
                 }
             }), e = n(e), t.each(s.elements(), function(t) {
                 t.isContainer() || (e.append(t.exportHTMLCSS().html), r.push(t.exportHTMLCSS().css));
             });
-            var o = n("<div></div>").append(e).html().replace(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\$\{/g, "${" + i.replace(/\-/g, "_") + ".");
+            var o = n("<div></div>").append(e).html().replace
+(/\&lt\;/g, "<").replace(/\&gt\;/g, ">").replace(/\$\{/g, "${" + i.replace(/\-/g, "_") + ".");
             return {
                 html: "<#macro " + i.replace(/\-/g, "_") + " " + i.replace(/\-/g, "_") + ">" + o + "</#macro>",
                 css: r.join(" "),
@@ -4150,14 +4163,14 @@ t.exportHTMLCSS().css), i = t.getName();
                     return;
                 }
             }), t.each(s.elements(), function(t) {
-                
-t.isContainer() || (t.setTop(t.getTop() - e), t.setLeft(t.getLeft() - n), t.setZ(t.getZ() + r + 1));
+                t.isContainer() || (t.setTop(t.getTop() - e), t.setLeft(t.getLeft() - n), t.setZ(t.getZ() + r + 1));
             });
         }
     };
     return l;
 }), define("modules/toolbar/toolbargroup", [ "require", "qpf", "knockout", "_" ], function(e) {
-    var t = e("qpf"), n = e("knockout"), r = e("_"), i = t.container.Inline.derive(function() {
+    var t = e("qpf"), n = e("knockout"), r = e("_"), i = t.container.Inline.derive
+(function() {
         return {};
     }, {
         type: "TOOLBARGROUP",
@@ -4170,7 +4183,7 @@ t.isContainer() || (t.setTop(t.getTop() - e), t.setLeft(t.getLeft() - n), t.setZ
 }), define("text!template/cache/cache.js", [], function() {
     return "/**\r\n * ----------------------------------------------------------\r\n * __cache__\u63a5\u53e3\r\n * \r\n * @module   __cachePath__\r\n * ----------------------------------------------------------\r\n */\r\ndefine([\r\n    'pro/common/cache',\r\n    'pro/common/cache/cache',\r\n    'base/util'\r\n], function(_cache, _dwr, _util, _p) {\r\n    __content__\r\n});\r\n";
 }), define("text!template/rui/ui.js", [], function() {
-    return "/**\r\n * __componentNameCap__ \u7ec4\u4ef6\u5e26\u9ed8\u8ba4UI\u5b9e\u73b0\u6587\u4ef6\r\n *\r\n * @module   __componentNameCap__\r\n */\r\nNEJ.define([\r\n    './component.js',\r\n    'text!./component.html',\r\n    'css!./component.css'\r\n], function (\r\n    Component,\r\n    html,\r\n    css\r\n) {\r\n    /**\r\n     * __componentNameCap__ UI\u7ec4\u4ef6\r\n     *\r\n     *\r\n     * @param {Object} options\r\n     * @param {Object} options.data \u4e0e\u89c6\u56fe\u5173\u8054\u7684\u6570\u636e\u6a21\u578b\r\n     */\r\n    var UxComponent = Component.$extends({\r\n        name: '__componentName__',\r\n        css: css,\r\n        template: html\r\n    });\r\n\r\n\r\n    return UxComponent;\r\n});\r\n"
+    return "/**\r\n * __componentNameCap__ \u7ec4\u4ef6\u5e26\u9ed8\u8ba4UI\u5b9e\u73b0\u6587\u4ef6\r\n *\r\n * @module   __componentNameCap__\r\n */\r\nNEJ.define([\r\n    './component.js',\r\n    'text!./component.html',\r\n    'css!./component.css'\r\n    __cacheJS__\r\n], function (\r\n    Component,\r\n    html,\r\n    css\r\n    __cacheName__\r\n) {\r\n    /**\r\n     * __componentNameCap__ UI\u7ec4\u4ef6\r\n     *\r\n     *\r\n     * @param {Object} options\r\n     * @param {Object} options.data \u4e0e\u89c6\u56fe\u5173\u8054\u7684\u6570\u636e\u6a21\u578b\r\n     */\r\n    var UxComponent = Component.$extends({\r\n        name: '__componentName__',\r\n        css: css,\r\n        template: html\r\n    });\r\n    /**\r\n     * \u9700\u8981\u5904\u7406\u7684\u5f02\u6b65\u8bf7\u6c42\r\n     */\r\n    __cacheCall__\r\n\r\n    return UxComponent;\r\n});\r\n"
 ;
 }), define("text!template/test/show.html", [], function() {
     return '<html>\r\n\r\n<head>\r\n    <meta charset="utf-8">\r\n    <title>show Component</title>\r\n    <link href="__libDir__res-base/css/style.css" rel="stylesheet" />\r\n</head>\r\n\r\n<body>\r\n    <script src="__libDir__regularjs/dist/regular.js"></script>\r\n    <script src="__libDir__nej/src/define.js?pool=__libDir__"></script>\r\n    <script>\r\n        NEJ.define([\r\n            \'../ui.js\',\r\n            \'./caseIns.js\'\r\n        ], function (\r\n            Component,\r\n            insCases\r\n        ) {\r\n            new Component({\r\n                data: __data__\r\n            }).$inject(document.body);\r\n        });\r\n\r\n    </script>\r\n</body>\r\n\r\n</html>\r\n';
@@ -4351,7 +4364,7 @@ label: "\u5782\u76f4\u5bf9\u9f50",
         }
     });
 }), define("modules/toolbar/index", [ "require", "qpf", "knockout", "../module", "text!./toolbar.xml", "text!template/module/m-example.cmp", "text!template/unit/u-example.cmp", "text!template/cache/c-example.cmp", "text!template/page/p-example.cmp", "text!template/page/page.html", "text!template/page/module.html", "text!template/page/page.js", "text!template/page/module.js", "core/command", "core/service"
-, "util/regKey", "util/exportFile", "$", "project/project", "../hierarchy/index", "modules/component/index", "modules/page/index", "../viewport/index", "../codeEditor/index", "../shellCmd/index", "../dataMock/index", "modules/common/modal", "./toolbargroup", "text!template/rui/component.js", "text!template/cache/cache.js", "text!template/cache/cache.js", "text!template/rui/component.js", "text!template/cache/cache.js", "text!template/rui/component.js", "text!template/rui/ui.js", "text!template/cache/cache.js", "text!template/test/show.html", "elements/image", "elements/text", "elements/func", "elements/umi", "elements/timeline" ], function(e) {
+, "util/regKey", "util/exportFile", "$", "project/project", "../hierarchy/index", "modules/component/index", "modules/page/index", "../viewport/index", "../codeEditor/index", "../shellCmd/index", "../dataMock/index", "modules/common/modal", "./toolbargroup", "_", "text!template/rui/component.js", "text!template/cache/cache.js", "text!template/cache/cache.js", "text!template/rui/component.js", "text!template/cache/cache.js", "text!template/rui/component.js", "text!template/rui/ui.js", "text!template/cache/cache.js", "text!template/test/show.html", "elements/image", "elements/text", "elements/func", "elements/umi", "elements/timeline" ], function(e) {
     function H(e) {
         var t = e.target.files[0];
         t && t.type.match(/image/) && (P.onload = function(e) {
@@ -4362,8 +4375,8 @@ label: "\u5782\u76f4\u5bf9\u9f50",
     }
     function B(e) {
         var t = e.target.files[0];
-        !t || t.name.substr
-(-3) !== "cmp" && t.name.substr(-10) !== "cmp_backup" ? t && t.name.substr(-4) === "cmpp" && (P.onload = function(e) {
+        !t || t.name
+.substr(-3) !== "cmp" && t.name.substr(-10) !== "cmp_backup" ? t && t.name.substr(-4) === "cmpp" && (P.onload = function(e) {
             P.onload = null;
             var t = y.importPage(JSON.parse(e.target.result));
         }, P.readAsText(t)) : (P.onload = function(e) {
@@ -4374,7 +4387,7 @@ label: "\u5782\u76f4\u5bf9\u9f50",
     var t = e("qpf"), n = e("knockout"), r = e("../module"), i = e("text!./toolbar.xml"), s = e("text!template/module/m-example.cmp"), o = e("text!template/unit/u-example.cmp"), u = e("text!template/cache/c-example.cmp"), a = e("text!template/page/p-example.cmp"), f = e("text!template/page/page.html"), l = e("text!template/page/module.html"), c = e("text!template/page/page.js"), h = e("text!template/page/module.js"), p = e("core/command"), d = e("core/service"), v = e("util/regKey"), m = e("util/exportFile"), g = e("$"), y = e("project/project"), b = e("../hierarchy/index"), w = e("modules/component/index"
 ), E = e("modules/page/index"), S = e("../viewport/index"), x = e("../codeEditor/index"), T = e("../shellCmd/index"), N = e("../dataMock/index"), C = e("modules/common/modal"), k = t.use("meta/textfield"), L = t.use("container/vbox"), A = t.use("container/container"), O = t.use("container/inline"), M = t.use("meta/label");
     e("./toolbargroup");
-    var D = new r({
+    var _ = e("_"), D = new r({
         name: "toolbar",
         xml: i,
         createElement: function() {
@@ -4395,9 +4408,9 @@ label: "\u5782\u76f4\u5bf9\u9f50",
             p.execute("create", "timeline");
         },
         showCmd: function() {
-            var e = w.selectedComponents()[0], t = "";
-            
-e && (t = _.find(E.pages(), function(t) {
+            var e = w.selectedComponents()[0], t = ""
+;
+            e && (t = _.find(E.pages(), function(t) {
                 return t.name == e.meta.name;
             }));
             var n = "";
@@ -4420,8 +4433,8 @@ e && (t = _.find(E.pages(), function(t) {
                 classStr: "pageJS",
                 codeStr: t
             }), n && i.push({
-                titleStr: "pageCacheJS.js"
-,
+                titleStr
+: "pageCacheJS.js",
                 classStr: "pageCacheJS",
                 codeStr: n
             }), x.showCode(i, function(e) {
@@ -4448,9 +4461,9 @@ e && (t = _.find(E.pages(), function(t) {
             var u = [], a = this;
             e && u.push({
                 titleStr: "component.js",
-                classStr: "componentJS",
-                
-codeStr: e
+                classStr: "componentJS"
+,
+                codeStr: e
             }), t && u.push({
                 titleStr: "ui.js",
                 classStr: "uiJS",
@@ -4477,9 +4490,9 @@ codeStr: e
                 }), a.saveProject());
             });
         },
-        zoomIn: function() {
-            
-var e = S.viewportScale();
+        zoomIn
+: function() {
+            var e = S.viewportScale();
             S.viewportScale(Math.min(Math.max(e + .1, .2), 1.5));
         },
         zoomOut: function() {
@@ -4497,13 +4510,13 @@ var e = S.viewportScale();
             });
             saveAs(n, t.name + ".cmp");
         },
-        saveProject: function() {
-            var e = w.selectedComponents()[0], t = y.export(!0, e);
-            t.result[0].elements.length > 0 && y.import(t.result);
-        },
+        saveProject: _.throttle(function(e) {
+            var t = w.selectedComponents()[0], n = y.export(!0, t);
+            n.result[0].elements.length > 0 && y.import(n.result), e && e();
+        }, 300),
         saveElement: function(e) {
-            var t = b.selectedElements(), n = t[t.length - 1
-];
+            
+var t = b.selectedElements(), n = t[t.length - 1];
             if (n) {
                 var r = y.exportElement(n);
                 r.result[0].elements.length > 0 && (y.import(r.result), e());
@@ -4529,9 +4542,9 @@ var e = S.viewportScale();
             b.removeAll(), y.loadComponent(JSON.parse(u)[0]);
         },
         changeBack: function() {
-            var e = S.backColor();
             
-e == "#fff" ? S.backColor("#9a9a9a") : S.backColor("#fff");
+var e = S.backColor();
+            e == "#fff" ? S.backColor("#9a9a9a") : S.backColor("#fff");
         },
         generatePageHtml: function(e, t, n) {
             var r = e.umi, i = t || "", s = e.name.replace(/p\-/g, "P");
@@ -4550,9 +4563,9 @@ e == "#fff" ? S.backColor("#9a9a9a") : S.backColor("#fff");
                 });
                 saveAs(t, e.name + ".ftl");
             }
-            var t = new Blob([ e.css ], {
-                
-type: "text/plain;charset=utf-8"
+            var t = new 
+Blob([ e.css ], {
+                type: "text/plain;charset=utf-8"
             });
             saveAs(t, "_" + e.name + ".scss");
         },
@@ -4576,8 +4589,8 @@ type: "text/plain;charset=utf-8"
                     });
                     saveAs(s, "cache.js");
                 }
-                var s = new Blob([ o.
-meta.componentJS ], {
+                
+var s = new Blob([ o.meta.componentJS ], {
                     type: "text/plain;charset=utf-8"
                 });
                 saveAs(s, "component.js");
@@ -4592,8 +4605,8 @@ meta.componentJS ], {
                     });
                     saveAs(s, "cache.js");
                 }
-                f ? (f = f.replace(/\_\_cacheName\_\_/g, a), t = t.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + a + "Cache").replace(/\_\_cacheCall\_\_/g, f)) : t = t.replace(/\_\_cacheJS\_\_/g, "").replace
-(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, "");
+                f ? (f = f.replace(/\_\_cacheName\_\_/g, a), t = t.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + a + "Cache").replace(/\_\_cacheCall\_\_/g, f)) : t = t.replace(/\_\_cacheJS\_\_/g
+, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, "");
                 var s = new Blob([ t ], {
                     type: "text/plain;charset=utf-8"
                 });
@@ -4620,8 +4633,8 @@ meta.componentJS ], {
             });
             saveAs(t, "_" + e.name + ".scss");
         },
-        alignProcess: function(
-) {
+        alignProcess
+: function() {
             y.alignProcess();
         }
     });
@@ -4637,19 +4650,19 @@ meta.componentJS ], {
                 return e.name == r;
             }), s = w.components()[0];
             t = w.selectedComponents()[0];
-            if (i && i.ftlPath.indexOf("/") > 0) {
+            if (i && i.ftlPath.indexOf("/") >= 0) {
                 var o = y.exportHTMLCSS(), u = o.html;
                 if (o.umi) {
-                    var a = i.ftlPath.substr(i.ftlPath.indexOf("views") + 6), f = i.cssPath.substr(i.cssPath.indexOf("scss") + 5), p = o.name.replace(/p\-/g, "P"), v = a.split("/")[0], m = a.split("/")[1], g = i.ftlPath.substring
-(0, i.ftlPath.indexOf("views")) + "javascript/", S = i.ftlPath.substring(0, i.ftlPath.indexOf("views")) + "html/", x = o.cache, T = o.cacheCall, N = e("text!template/cache/cache.js");
-                    x && (t.meta.pageCacheJS ? N = t.meta.pageCacheJS : N = N.replace(/\_\_cache\_\_/g, p).replace("__cachePath__", "pro/" + v + "/cache/" + m + "/" + p + "Cache").replace(/\_\_content\_\_/g, x), d.saveApi("/api/" + r, {
+                    var a = i.ftlPath.substr(i.ftlPath.indexOf("views") + 6), f = i.cssPath.substr(i.cssPath.indexOf("scss") + 5), p = o.name.replace(/p\-/g, "P"), v = a.split("/")[0], m = a.split("/")[1], g = 
+i.ftlPath.substring(0, i.ftlPath.indexOf("views")) + "javascript/", S = i.ftlPath.substring(0, i.ftlPath.indexOf("views")) + "html/", x = o.cache, T = o.cacheCall, N = e("text!template/cache/cache.js");
+                    x ? (t.meta.pageCacheJS ? N = t.meta.pageCacheJS : N = N.replace(/\_\_cache\_\_/g, p).replace("__cachePath__", "pro/" + v + "/cache/" + m + "/" + p + "Cache").replace(/\_\_content\_\_/g, x), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (g + v + "/cache/" + m + "/" + p + "Cache.js") + '"}',
                         cmpData: N
-                    }, p + "Cache.js\u4fdd\u5b58\u6210\u529f")), t.meta.pageJS ? c = t.meta.pageJS : c = c.replace("__path0__", v).replace("__path1__", m).replace("__pName__", p).replace("__pDesc__", i.desc), d.saveApi("/api/" + r, {
+                    }, p + "Cache.js\u4fdd\u5b58\u6210\u529f")) : N = "", t.meta.pageJS ? c = t.meta.pageJS : c = c.replace("__path0__", v).replace("__path1__", m).replace("__pName__", p).replace("__pDesc__", i.desc), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (g + v + "/pages/" + m + "/" + p + ".js") + '"}',
                         cmpData: c
-                    }, "pageJS\u4fdd\u5b58\u6210\u529f"
-);
+                    
+}, "pageJS\u4fdd\u5b58\u6210\u529f");
                     var k = o.umi.modules, L = o.umi.parentM;
                     if (Object.keys(k).length) for (var A in k) if (k[A] != "common/commonutil.html") {
                         var O = _.find(t.elements, function(e) {
@@ -4660,21 +4673,24 @@ meta.componentJS ], {
                             cmpData: P
                         }, "moduleJS\u4fdd\u5b58\u6210\u529f");
                         var H = "";
-                        O && O.properties.moduleHTML ? H = O.properties.moduleHTML : H = l.replace
-(/\_\_pName\_\_/g, M).replace("__jsName__", v + "/module/" + m + "/" + M), d.saveApi("/api/" + r, {
+                        O && O.properties.moduleHTML ? H = 
+O.properties.moduleHTML : H = l.replace(/\_\_pName\_\_/g, M).replace("__jsName__", v + "/module/" + m + "/" + M), d.saveApi("/api/" + r, {
                             ext: '{"name":"' + r + '", "url":"' + (S + v + "/" + k[A]) + '"}',
                             cmpData: H
                         }, "moduleHTML\u4fdd\u5b58\u6210\u529f"), O && (P != O.properties.moduleJS || H != O.properties.moduleHTML) && (O.properties.moduleJS = P, O.properties.moduleHTML = H, b.loadElement(O));
                     }
                     var u = "";
-                    t.meta.pageFTL && !n ? u = t.meta.pageFTL : (u = D.generatePageHtml(o, a, f), d.saveApi("/api/" + r, {
+                    t.meta.pageFTL && !n ? (u = t.meta.pageFTL, d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ftlPath + o.name + ".ftl") + '"}',
+                        cmpData: u
+                    }, "FTL\u4fdd\u5b58\u6210\u529f")) : (u = D.generatePageHtml(o, a, f), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.cssPath + o.name + ".scss") + '"}',
-                        cmpData: o.css
+                        
+cmpData: o.css
                     }, "CSS\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ftlPath + o.name + ".ftl") + '"}',
                         cmpData: u
-                    }, "FTL\u4fdd\u5b58\u6210\u529f"
-));
+                    }, "FTL\u4fdd\u5b58\u6210\u529f"));
                     if (u != t.meta.pageFTL || c != t.meta.pageJS || N != t.meta.pageCacheJS) t.meta.pageFTL = u, t.meta.pageJS = c, t.meta.pageCacheJS = N, D.saveProject();
                 } else d.saveApi("/api/" + r, {
                     ext: '{"name":"' + r + '", "url":"' + (i.cssPath + "_" + o.name + ".scss") + '"}',
@@ -4683,27 +4699,29 @@ meta.componentJS ], {
                     ext: '{"name":"' + r + '", "url":"' + (i.ftlPath + o.name + ".ftl") + '"}',
                     cmpData: o.html
                 }, "FTL\u4fdd\u5b58\u6210\u529f");
-            } else C.confirm("\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199FTL/CSS\u8def\u5f84", _date.message || "\u64cd\u4f5c\u6210\u529f", null, null, 1e3);
+            } else C.confirm("\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199FTL/CSS\u8def\u5f84"
+, "\u63d0\u793a", null, null, 1e3);
         }
     }), b.on("saveProject", function(e) {
         D.saveProject();
     }), b.on("saveElement", function(e) {
         D.saveElement(e);
     }), b.on("editModule", function(e) {
-        e && 
-e.properties.moduleJS().length ? D.showUMICodeEditor(e.properties.moduleJS(), e.properties.moduleHTML(), function(t) {
+        e && e.properties.moduleJS().length ? D.showUMICodeEditor(e.properties.moduleJS(), e.properties.moduleHTML(), function(t) {
             _.each(t, function(t) {
                 t.codeStr.length && (t.classStr == "moduleJS" ? e.properties.moduleJS(t.codeStr) : t.classStr == "moduleHTML" && e.properties.moduleHTML(t.codeStr)), D.saveProject();
             });
         }) : C.confirm("\u63d0\u793a", "\u8bf7\u5148\u4fdd\u5b58\u9875\u9762\u4ee5\u751f\u6210\u6a21\u5757\u521d\u59cb\u4ee3\u7801", null, null, 1e3);
     }), D.editorCode = function() {
         var e = w.selectedComponents()[0];
-        e.meta.pageFTL || e.meta.pageJS || e.meta.pageCacheJS ? D.showFTLCodeEditor(e.meta.pageFTL, e.meta.pageJS, e.meta.pageCacheJS) : e.meta.componentJS || e.meta.cacheJS ? D.showCodeEditor(e.meta.componentJS, e.meta.uiJS, e.meta.cacheJS, e.meta.testCaseApi, e.meta.testCaseEvt, e.meta.testCaseIns) : D.showCodeEditor("", "");
+        e.meta.pageFTL || e.meta.pageJS || e.meta.pageCacheJS ? D.showFTLCodeEditor(e.meta.pageFTL, e.meta.pageJS, e.meta.pageCacheJS) : e.meta.componentJS || e.meta.cacheJS ? D.showCodeEditor
+(e.meta.componentJS, e.meta.uiJS, e.meta.cacheJS, e.meta.testCaseApi, e.meta.testCaseEvt, e.meta.testCaseIns) : D.showCodeEditor("", "");
     }, w.on("editorJS", function() {
         D.editorCode();
-    }), w.on("enterShell", 
-function(e) {
+    }), w.on("enterShell", function(e) {
         D.showCmd();
+    }), w.on("saveProject", function(e) {
+        D.saveProject(e);
     }), w.on("saveRUI", function(t, n) {
         if (E.pages().length < 1) C.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
             C.confirm("\u63d0\u793a", "\u6b63\u5728\u4fdd\u5b58\u7ec4\u4ef6\u6587\u4ef6...", null, null, 1500);
@@ -4713,64 +4731,8 @@ function(e) {
             if (i && i.ruiPath.indexOf("/") > 0) {
                 var s = y.exportHTMLCSS(), o = s.html;
                 o = o.replace(/\$\{/g, "{"), d.saveApi("/api/" + r, {
-                    ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.html") + '"}',
-                    cmpData: o
-                }, "component.html\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
-                    ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.css") + '"}',
-                    cmpData
-: s.css
-                }, "component.css\u4fdd\u5b58\u6210\u529f");
-                var u = w.selectedComponents()[0];
-                if (u.meta.componentJS && !n) {
-                    var a = s.cache;
-                    a && u.meta.cacheJS && d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js") + '"}',
-                        cmpData: u.meta.cacheJS
-                    }, "cache.js\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
-                        cmpData: u.meta.componentJS
-                    }, "component.js\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseApi && d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseApi.js") + '"}',
-                        cmpData: u.meta.testCaseApi
-                    }, "testCaseApi\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseEvt && 
-d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseEvt.js") + '"}',
-                        cmpData: u.meta.testCaseEvt
-                    }, "testCaseEvt\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseIns && d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseIns.js") + '"}',
-                        cmpData: u.meta.testCaseIns
-                    }, "testCaseIns"), !u.meta.testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i, function(e, t, n) {
-                        u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
-                    });
-                } else {
-                    var f = s.name, l = e("text!template/rui/component.js"), c = e("text!template/cache/cache.js");
-                    l = l.replace(/\_\_componentName\_\_/g, f.toLowerCase()), f = f.replace(/m\-/g, "M").replace(/u\-/g, "U").replace
-(/c\-/g, "C"), l = l.replace(/\_\_componentNameCap\_\_/g, f);
-                    var a = s.cache, h = s.cacheCall;
-                    a && (c = c.replace(/\_\_cache\_\_/g, f).replace("__cachePath__", f).replace(/\_\_content\_\_/g, a), u.meta.cacheJS = c, d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js") + '"}',
-                        cmpData: u.meta.cacheJS
-                    }, "cache.js\u4fdd\u5b58\u6210\u529f")), h ? (h = h.replace(/\_\_cacheName\_\_/g, f), l = l.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + f + "Cache").replace(/\_\_cacheCall\_\_/g, h)) : l = l.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, ""), u.meta.componentJS = l, d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
-                        cmpData: u.meta.componentJS
-                    }, "component.js\u4fdd\u5b58\u6210\u529f"
-), m.exportTests(r, i, function(e, t, n) {
-                        u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
-                    });
-                }
-            } else C.confirm("\u63d0\u793a", "\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199RUI\u8def\u5f84", null, null, 1e3);
-        }
-    }), w.on("saveRUINew", function(t, n) {
-        if (E.pages().length < 1) C.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
-            C.confirm("\u63d0\u793a", "\u6b63\u5728\u4fdd\u5b58\u7ec4\u4ef6\u6587\u4ef6...", null, null, 1500);
-            var r = t.meta.name, i = _.find(E.pages(), function(e) {
-                return e.name == r;
-            });
-            if (i && i.ruiPath.indexOf("/") > 0) {
-                var s = y.exportHTMLCSS(), o = s.html;
-                o = o.replace(/\$\{/g, "{"), d.saveApi("/api/" + r, {
-                    
-ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.html") + '"}',
+                    ext: '{"name":"' + r + '", "url":"' + 
+(i.ruiPath + "component.html") + '"}',
                     cmpData: o
                 }, "component.html\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
                     ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.css") + '"}',
@@ -4785,11 +4747,8 @@ ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.html") + '"}',
                     }, "cache.js\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
                         cmpData: u.meta.componentJS
-                    }, "component.js\u4fdd\u5b58\u6210\u529f"
-), d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "ui.js") + '"}',
-                        cmpData: u.meta.uiJS
-                    }, "ui.js\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseApi && d.saveApi("/api/" + r, {
+                    }, "component.js\u4fdd\u5b58\u6210\u529f"), u.meta
+.testCaseApi && d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseApi.js") + '"}',
                         cmpData: u.meta.testCaseApi
                     }, "testCaseApi\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseEvt && d.saveApi("/api/" + r, {
@@ -4798,27 +4757,86 @@ ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.html") + '"}',
                     }, "testCaseEvt\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseIns && d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseIns.js") + '"}',
                         cmpData: u.meta.testCaseIns
-                    }, "testCaseIns"), !u.meta.
-testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i, function(e, t, n) {
+                    }, "testCaseIns"), !u.meta.testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i, function(e, t, n) {
+                        u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
+                    
+});
+                } else {
+                    var f = s.name, l = e("text!template/rui/component.js"), c = e("text!template/cache/cache.js");
+                    l = l.replace(/\_\_componentName\_\_/g, f.toLowerCase()), f = f.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g, "C"), l = l.replace(/\_\_componentNameCap\_\_/g, f);
+                    var a = s.cache, h = s.cacheCall;
+                    a && (c = c.replace(/\_\_cache\_\_/g, f).replace("__cachePath__", f).replace(/\_\_content\_\_/g, a), u.meta.cacheJS = c, d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js") + '"}',
+                        cmpData: u.meta.cacheJS
+                    }, "cache.js\u4fdd\u5b58\u6210\u529f")), h ? (h = h.replace(/\_\_cacheName\_\_/g, f), l = l.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + f + "Cache").replace(/\_\_cacheCall\_\_/g, h)) : l = l.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g
+, "").replace(/\_\_cacheCall\_\_/g, ""), u.meta.componentJS = l, d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
+                        cmpData: u.meta.componentJS
+                    }, "component.js\u4fdd\u5b58\u6210\u529f"), m.exportTests(r, i, function(e, t, n) {
+                        u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
+                    });
+                }
+            } else C.confirm("\u63d0\u793a", "\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199RUI\u8def\u5f84", null, null, 1e3);
+        }
+    }), w.on("saveRUINew", function(t, n) {
+        if (E.pages().length < 1) C.confirm("\u63d0\u793a", "\u7ec4\u4ef6\u6c60\u6ca1\u6709\u6570\u636e\u8bf7\u5148\u521b\u5efa\u7ec4\u4ef6\u6c60\uff01", null, null, 1e3); else {
+            C.confirm("\u63d0\u793a", "\u6b63\u5728\u4fdd\u5b58\u7ec4\u4ef6\u6587\u4ef6...", null, null, 1500);
+            
+var r = t.meta.name, i = _.find(E.pages(), function(e) {
+                return e.name == r;
+            });
+            if (i && i.ruiPath.indexOf("/") > 0) {
+                var s = y.exportHTMLCSS(), o = s.html;
+                o = o.replace(/\$\{/g, "{"), d.saveApi("/api/" + r, {
+                    ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.html") + '"}',
+                    cmpData: o
+                }, "component.html\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
+                    ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.css") + '"}',
+                    cmpData: s.css
+                }, "component.css\u4fdd\u5b58\u6210\u529f");
+                var u = w.selectedComponents()[0];
+                if (u.meta.componentJS && !n) {
+                    var a = s.cache;
+                    a && u.meta.cacheJS && d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js") + '"}',
+                        
+cmpData: u.meta.cacheJS
+                    }, "cache.js\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
+                        cmpData: u.meta.componentJS
+                    }, "component.js\u4fdd\u5b58\u6210\u529f"), d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "ui.js") + '"}',
+                        cmpData: u.meta.uiJS
+                    }, "ui.js\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseApi && d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseApi.js") + '"}',
+                        cmpData: u.meta.testCaseApi
+                    }, "testCaseApi\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseEvt && d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseEvt.js") + '"}',
+                        cmpData: u.meta.testCaseEvt
+                    
+}, "testCaseEvt\u4fdd\u5b58\u6210\u529f"), u.meta.testCaseIns && d.saveApi("/api/" + r, {
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "/test/caseIns.js") + '"}',
+                        cmpData: u.meta.testCaseIns
+                    }, "testCaseIns"), !u.meta.testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i, function(e, t, n) {
                         u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
                     });
                 } else {
                     var f = s.name, l = e("text!template/rui/component.js"), c = e("text!template/rui/ui.js"), h = e("text!template/cache/cache.js");
                     f = f.replace(/m\-/g, "M").replace(/u\-/g, "U").replace(/c\-/g, "C"), l = l.replace(/\_\_componentNameCap\_\_/g, f).replace(/\_\_componentName\_\_/g, f.toLowerCase()), c = c.replace(/\_\_componentNameCap\_\_/g, f).replace(/\_\_componentName\_\_/g, f.toLowerCase());
-                    var a = s.cache, p = s.cacheCall;
+                    
+var a = s.cache, p = s.cacheCall;
                     a && (h = h.replace(/\_\_cache\_\_/g, f).replace("__cachePath__", f).replace(/\_\_content\_\_/g, a), u.meta.cacheJS = h, d.saveApi("/api/" + r, {
-                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js"
-) + '"}',
+                        ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "cache.js") + '"}',
                         cmpData: u.meta.cacheJS
-                    }, "cache.js\u4fdd\u5b58\u6210\u529f")), p ? (p = p.replace(/\_\_cacheName\_\_/g, f), l = l.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + f + "Cache").replace(/\_\_cacheCall\_\_/g, p)) : l = l.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, ""), u.meta.componentJS = l, d.saveApi("/api/" + r, {
+                    }, "cache.js\u4fdd\u5b58\u6210\u529f")), l = l.replace(/\_\_cacheJS\_\_/g, "").replace(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, ""), u.meta.componentJS = l, d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "component.js") + '"}',
                         cmpData: u.meta.componentJS
-                    }, "component.js\u4fdd\u5b58\u6210\u529f"), u.meta.uiJS = c, d.saveApi("/api/" + r, {
+                    }, "component.js\u4fdd\u5b58\u6210\u529f"), p ? (p = p.replace(/\_\_cacheName\_\_/g, f), c = c.replace(/\_\_cacheJS\_\_/g, ",'./cache.js'").replace(/\_\_cacheName\_\_/g, "," + f + "Cache").replace(/\_\_cacheCall\_\_/g, p)) : c = c.replace(/\_\_cacheJS\_\_/g, "").replace
+(/\_\_cacheName\_\_/g, "").replace(/\_\_cacheCall\_\_/g, ""), u.meta.uiJS = c, d.saveApi("/api/" + r, {
                         ext: '{"name":"' + r + '", "url":"' + (i.ruiPath + "ui.js") + '"}',
                         cmpData: u.meta.uiJS
                     }, "ui.js\u4fdd\u5b58\u6210\u529f"), m.exportTests(r, i, function(e, t, n) {
-                        u.meta.testCaseApi = e, u.meta
-.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
+                        u.meta.testCaseApi = e, u.meta.testCaseEvt = t, u.meta.testCaseIns = n, D.saveProject();
                     });
                 }
             } else C.confirm("\u63d0\u793a", "\u8bf7\u5148\u4fdd\u5b58\u5230\u7ec4\u4ef6\u6c60\u5e76\u586b\u5199RUI\u8def\u5f84", null, null, 1e3);
@@ -4827,12 +4845,12 @@ testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i,
         var n = w.selectedComponents()[0], r = n.meta.name, i = _.find(E.pages(), function(e) {
             return e.name == r;
         }), s = i.ruiPath, o = i.libPath, u = e("text!template/test/show.html");
-        u = u.replace(/\_\_libDir\_\_/g, o).replace(/\_\_data\_\_/g, JSON.stringify(t)), d.saveApi("/api/refreshExample", {
+        u = u.replace(/\_\_libDir\_\_/g, o).replace(/\_\_data\_\_/g, JSON.stringify(t)), d.saveApi
+("/api/refreshExample", {
             ext: '{"name":"refreshExample", "url":"' + s + 'test/show.html"}',
             cmpData: u
         }, function() {
-            g("#drawMockView").html('<iframe frameborder="no" width="100%" height="100%" src="/' + s.substr(s.indexOf("src")) + 'test/show.html" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" style="position: absolute;left: 0px;"></iframe>'
-);
+            g("#drawMockView").html('<iframe frameborder="no" width="100%" height="100%" src="/' + s.substr(s.indexOf("src")) + 'test/show.html" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" style="position: absolute;left: 0px;"></iframe>');
         });
     }), N.on("showTestResult", function() {
         var e = w.selectedComponents()[0], t = e.meta.name, n = _.find(E.pages(), function(e) {
@@ -4840,13 +4858,13 @@ testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i,
         }), r = n.ruiPath;
         g("#drawMockView").html('<iframe frameborder="no" width="100%" height="100%" src="/' + r.substr(r.indexOf("src")) + 'test/test.html" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" style="position: absolute;left: 0px;background:#fff;"></iframe>');
     }), N.on("save2test", function() {
-        var e = w.selectedComponents()[0];
+        var e = w.selectedComponents
+()[0];
         if (e && e.meta.testCaseIns) {
             var t = /return ([\s\S]*?\])\;/g, n = t.exec(e.meta.testCaseIns), r = [];
             n && (r = JSON.parse(n[1])), r.push({
                 data: N.getDataValue()
-            }), e.meta.testCaseIns = e.meta.testCaseIns.replace(/(return )[\s\S]*?\](\;)/g, "$1" + JSON.stringify(r).replace(/\,/g, ",\n") + "$2"), C.confirm("\u63d0\u793a", "\u6210\u529f\u4fdd\u5b58\u5230caseIns\u4e2d,\u53ef\u4ee5\u7f16\u8f91JS\u67e5\u770b"
-, null, null, 1e3);
+            }), e.meta.testCaseIns = e.meta.testCaseIns.replace(/(return )[\s\S]*?\](\;)/g, "$1" + JSON.stringify(r).replace(/\,/g, ",\n") + "$2"), C.confirm("\u63d0\u793a", "\u6210\u529f\u4fdd\u5b58\u5230caseIns\u4e2d,\u53ef\u4ee5\u7f16\u8f91JS\u67e5\u770b", null, null, 1e3);
         }
     }), N.on("getTestData", function() {
         var e = w.selectedComponents()[0];
@@ -4857,7 +4875,8 @@ testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i,
     }), w.on("save2pool", function(e) {
         var t = e.meta.name, n = _.find(E.pages(), function(e) {
             return e.name == t;
-        }), r = y.export(!1, w.selectedComponents()[0]);
+        }), r = y.export
+(!1, w.selectedComponents()[0]);
         if (n) d.saveApi(n.postUrl, {
             ext: JSON.stringify(n),
             cmpData: JSON.stringify(r.result)
@@ -4868,8 +4887,7 @@ testCaseApi && !u.meta.testCaseEvt && !u.meta.testCaseIns && m.exportTests(r, i,
                     text: "\u7ec4\u4ef6\u63cf\u8ff0\uff1a"
                 }
             }));
-            var h = new 
-k({
+            var h = new k({
                 attributes: {
                     placeholder: "\u7ec4\u4ef6\u63cf\u8ff0"
                 }
@@ -4885,7 +4903,8 @@ k({
                 }
             });
             o.add(p), u.add(new M({
-                attributes: {
+                attributes
+: {
                     text: "\u7ec4\u4ef6\u5730\u5740\uff1a"
                 }
             }));
@@ -4900,8 +4919,7 @@ k({
                 }
             }));
             var m = new k({
-                
-attributes: {
+                attributes: {
                     placeholder: "FTL\u6587\u4ef6\u5939\u7edd\u5bf9\u8def\u5f84\u5730\u5740/"
                 }
             });
@@ -4916,7 +4934,8 @@ attributes: {
                 }
             });
             f.add(g), l.add(new M({
-                attributes: {
+                
+attributes: {
                     text: "RUI\u5730\u5740\uff1a"
                 }
             }));
@@ -4930,8 +4949,7 @@ attributes: {
                     text: "LIB\u5730\u5740\uff1a"
                 }
             }));
-            
-var S = new k({
+            var S = new k({
                 attributes: {
                     placeholder: "\u6240\u4f9d\u8d56\u7684\u7ec4\u4ef6\u6c60lib\u5730\u5740('/src/javascript/lib/')"
                 }
@@ -4942,7 +4960,8 @@ var S = new k({
                     desc: h.text(),
                     img: p.text(),
                     url: v.text(),
-                    ftlPath: m.text(),
+                    
+ftlPath: m.text(),
                     cssPath: g.text(),
                     ruiPath: b.text(),
                     libPath: S.text(),
@@ -4954,8 +4973,7 @@ var S = new k({
                 }, "\u64cd\u4f5c\u6210\u529f"), E.savePool();
             });
         }
-    }), E.on("importProject"
-, function() {
+    }), E.on("importProject", function() {
         D.importProject();
     }), E.on("importProjectFromUrl", function(e) {
         g.get(e, function(e) {
@@ -4967,5 +4985,6 @@ var S = new k({
         g("#cmd").css("display") == "none" ? D.showCmd() : g("#cmd").slideUp();
     }), v.registerKey(!1, !0, !1, "c", function() {
         g("#editor").css("display") == "none" ? D.editorCode() : g("#editor").slideUp();
-    }), e("elements/image"), e("elements/text"), e("elements/func"), e("elements/umi"), e("elements/timeline"), D;
+    }), e("elements/image"), e("elements/text"), 
+e("elements/func"), e("elements/umi"), e("elements/timeline"), D;
 });;

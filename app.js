@@ -1,3 +1,6 @@
+/**
+ * todo：计划使用electron来打包做成软件形式
+ */
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app

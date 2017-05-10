@@ -455,7 +455,6 @@
      display: flex;
  }
  
- .tabContent,
  .mainContent,
  .propContent {
      position: relative !important;
@@ -536,4 +535,83 @@
     overflow-y: auto;
     overflow-x: hidden;
     margin-left: 5px;
+}
+// base css
+.f-fl {
+    float: left;
+}
+
+.f-fr {
+    float: right;
+}
+
+.f-line,
+.f-thide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.f-cb:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+
+.f-2lines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.f-3lines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.f-4lines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.leftTabContent{
+    position: relative !important;
+    left: 0px !important;
+    & > .qpf-tab-header{
+        float: left;
+        width: 30px;
+    }
+    & > .qpf-tab-body{
+        float: right;
+        width: 200px;
+        border: none;
+        height: 100%;
+        & > .qpf-tab-views{
+            height: 100%;
+            & > .qpf-ui-panel{
+                height: 100% !important;
+                 & > .qpf-panel-body{
+                    height: 100% !important;
+                }
+            }
+        }
+    }
+}
+
+.leftTabContent > .qpf-tab-header > .qpf-tab-tabs > li a{
+    margin: 0px auto;
+    word-break: break-all; 
+}
+.leftTabContent > .qpf-tab-header > .qpf-tab-tabs > li.actived{
+    background-color: #eee;
 }
