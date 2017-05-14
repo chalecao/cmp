@@ -1,0 +1,23 @@
+<#include "../common/head.ftl">
+<@head title="中国大学MOOC(慕课)_最好的在线课程学习平台" keywords="中国大学MOOC,MOOC,慕课,在线学习,在线教育,大规模开放式在线课程,网络公开课,视频公开课,大学公开课,大学mooc, icourse163,慕课网, MOOC学院" description="中国大学MOOC(慕课) 是爱课程网携手云课堂打造的在线学习平台，每一个有提升愿望的人，都可以在这里学习中国最好的大学课程，学完还能获得认证证书。中国大学MOOC是国内最好的中文MOOC学习平台，拥有来自于39所985高校的顶级课程，最好最全的大学课程，与名师零距离。"></@head>
+<!-- @STYLE -->
+__commonStyle__
+<link type="text/css" rel="stylesheet" href="/src/css/__path__.css"/>
+<body>
+    <!-- 顶部导航栏 -->
+    __nav__
+    __html__
+    <!-- 底部工具栏  -->
+    <#include '../common/footer.ftl' >
+    <!-- @DEFINE -->
+    <script src="${nejRoot}"></script>
+    <script>
+        NEJ.define([
+            'pro/__path__',
+        ],function(_page,_p){
+            _page._$allocate();
+        });
+    </script>
+    __seo__
+</body>
+</html>

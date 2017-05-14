@@ -371,9 +371,13 @@
          }
      }
  }
- 
+ #Template,#Pool{
+    background-color: #EBEBEB;
+ }
  #Hierarchy,
  #Component,
+ #Template,
+ #Pool,
  #Page {
      .qpf-ui-list {
          height: 100%;
@@ -499,18 +503,18 @@
     .cmp-func{
         text-align: left;
         &:before{
-            background: #8BC34A;
+            background: #ff0039;
             content: '';
-            height: 20px;
+            height: 1px;
             width: 100%;
             position: absolute;
             left: 0px;
             z-index: -1;
         }
         &:after{
-            background: #8BC34A;
+            background: #ff0039;
             content: '';
-            height: 20px;
+            height: 1px;
             width: 100%;
             position: absolute;
             left: 0px;
@@ -608,10 +612,16 @@
     }
 }
 
-.leftTabContent > .qpf-tab-header > .qpf-tab-tabs > li a{
-    margin: 0px auto;
-    word-break: break-all; 
+.leftTabContent > .qpf-tab-header > .qpf-tab-tabs > li{
+    padding: 5px 0;
+    line-height: 20px;
+     a{
+        margin: 0px auto;
+        word-break: break-all; 
+    }
 }
 .leftTabContent > .qpf-tab-header > .qpf-tab-tabs > li.actived{
+    padding: 5px 0;
+    line-height: 20px;
     background-color: #eee;
 }

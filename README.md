@@ -42,20 +42,56 @@ cmps ./cmp -p 8088
 cmps ./cmp -p 8088 -s false
 ```
 
-## 约定
-1. 命名
-  组件默认m-xxx-, UI默认u-xxx-, cache默认c-xxx-。其中最外层父元素默认m/u/c-xxx-container, 后面的-container是提取标志，提取前面的m/u/c-xxx部分作为整个组件的name。导出和保存时默认以该名称命名。
-2. 定位采用相对定位+绝对定位的方式布局。目前仅支持container元素相对定位，其他元素都需要相对于container元素的绝对定位。默认创建的container元素将在输出时作为当前编辑所有元素的公共父元素，采用 align 功能时，也是基于该元素对齐到top:0px,left:0px的位置，主要是为了方便依据视觉稿来计算定位。
-3. 模块或者组件UI如果是导出regular，默认导出三个文件，component.js component.html component.css
-4. UI导出FTL则默认导出依据container提取的name.ftl和name.scss
-5. Cache默认导出 component.js component.html component.css 和cache.js ,其中component.js中会自动注入cache请求，可以作为主UI在页面中使用，通过页面的page.js来支配。
-6. 模块类型默认
-
-## 规范
-1. 支持组件通过函数来嵌套，但是不建议嵌套太深层次（嵌套2-3层可以，层次太深不利于维护），如果需要，建议拆分成子UI来做。
-
-## 局限性
-1. 目前还只能制作展示型UI组件，表单型组件正在开发中。
+## 特性
+1. 文件导出功能基于模板规范，默认只能导出基本的html和css，如果需要导出到特定的模板需要首先设置好模板规范，后缀名为cmpt。例如：
+```
+文件名： /.cmp/index.cmpt
+-------------------
+[
+    {
+        "name": "template-name", 
+        "desc": "template-desc",
+        "misc": "templates中包含name字段的内容会保留在数据模型的meta字段中，可以从文件同步到模型中",
+        "templates": [
+          {
+                "name": "pageJS(存在该字段会保存对应内容到数据模型，可以在cmp中编辑，也可以同步代码)",
+                "content": "/.cmp/tpl/ftl-mooc/page.js(读取模板目录)",
+                "dest": "/src/javascript/web/pages/__name__/__nameCamel__.js(要写出来的对应文件路径，支持变量替换，目前支持__name__:组件名称 和 __nameCamel__:camel格式的组件名称 )",
+                "vars(存放需要替换的变量, 前面是模板中的变量名，后面是替换的内容，default是系统默认数据)": {
+                    "__path__": "web/pages/__name__/__nameCamel__",
+                    "__desc__": "default",
+                    "__cachePath__": "default",
+                    "__cacheName__": "default",
+                    "__cacheCall__": "default"
+                },
+                "default(覆盖系统默认数据)": {
+                    "__cachePath__": ",\"pro/web/caches/__name__/__nameCamel__Cache\""
+                }
+            }
+            ...
+        ]
+    }
+    ...
+]
+```
+其中，支持"default"替换的系统默认数据如下：
+```
+_default = {
+    __404Path__: result["umi"] ? result["umi"]["404"] : "",
+    __module__: result["umi"] ? JSON.stringify(result["umi"]["modules"]) : "",
+    __html__: result["html"] || "",
+    __css__: result["css"] || "",
+    __name__: _name || "",
+    __nameCamel__: _nameCamel || "",
+    __desc__: _poolC.desc || "",
+    __cache__: result["cache"] || "",
+    __cachePath__: result["cache"] ? (handleReplace(t.default["__cachePath__"], _name, _nameCamel) || ",'./cache.js'") : "",
+    __cacheName__: result["cache"] ? ("," + _nameCamel + "Cache") : "",
+    __cacheCall__: handleReplace(result["cacheCall"], _name, _nameCamel) || ""
+};
+```
+2. 目前主要的功能是制作页面，附加功能会逐步移到"扩展插件"栏目中。
+3. 支持分享制作好的组件，通过导入远程组件即可。同时所有导入的远程组件会保存在“网络组件”列表中。该功能模块目前还在开发中。
 
 ## 简单介绍
 <img src="https://github.com/chalecao/cmp/raw/master/static/style/images/cmp_intro.png" />
@@ -64,7 +100,7 @@ cmps ./cmp -p 8088 -s false
 [详细使用手册](https://chalecao.gitbooks.io/cmp-manual/content/)
 
 ## feature
-1. 支持组件、UI、cache的保存和导出，可以把制作好的页面保存成.cmp格式的文件，使用的时候只要导入即可
+1. 文件导出支持模板规范，可以自行定义需要导出的模板和规范。支持页面、组件的保存和导出，可以把制作好的页面保存成.cmp格式的文件，使用的时候只要导入即可
 2. 支持hover组件，很容易制作出各种hover组件
 3. 支付FTL语法嵌套，可以使用include、IF、FOR语句，配合子组件使用。支持FTL导出，导出为依据container提取的name.ftl和name.scss
 4. 支持Regular 组件导出，导出文件为component.js component.html component.scss
@@ -75,17 +111,20 @@ cmps ./cmp -p 8088 -s false
 9. 可视化方式绘制模块的组件关系图，模块时序图（开发中）
 
 ## release
+### release 2.2.0
+1.新增模板规范，用户可以自定义需要导出的文件模板规范，自动导出需要的模板文件。
+2.新增网络组件，用户可以分享保存网络组件。
+3.新增插件扩展，cmp以后会提供用户自定义的插件方式扩展功能。
+4.修改组件池数据模型，删除不需要的数据，模板路径配置移到模板规范中处理。
 
 ### release 2.1.0
-1. 完善数据mock和测试用例功能，用户可以测试组件展示效果，同时在浏览器中跑测试用例。
+1.完善数据mock和测试用例功能，用户可以测试组件展示效果，同时在浏览器中跑测试用例。
+2.加载组件集时支持基于项目的相对路径。
 
 ### release 2.0.0
 1.新增mock数据，导出组件测试用例的功能，实时监控组件的mock data数据，用户可以自己模拟数据，也可以将模拟数据保存在测试用例中。
-
 2.新增模块UMI设计功能，每个UMI对应于模块中的一个hash节点界面，主要用于单页系统的设计。
-
 3.新增组件时序图组件，用户可以在设计阶段绘制组件逻辑时序图。
-
 4.函数组件增加else节点，最多可以增加两个else节点。
 
 

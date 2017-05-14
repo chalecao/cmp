@@ -1714,8 +1714,6 @@ define('container/tab',['require','./container','./panel','knockout','$','_'],fu
 
                     if (this.height() &&
                         this.height() !== "auto") {
-                        console.log(headerHeight);
-                        console.log("footerHeight" + footerHeight);
                         current.height(this.$el.height() );
                     }
                     // PENDING : compute the width ???
@@ -2529,48 +2527,51 @@ return Meta;
 //======================================
 // Button component
 //======================================
-define('meta/button',['require','./meta','core/xmlparser','knockout','$','_'],function(require){
+define('meta/button',['require','./meta','core/xmlparser','knockout','$','_'],function (require) {
 
-var Meta = require("./meta");
-var XMLParser = require("core/xmlparser");
-var ko = require("knockout");
-var $ = require("$");
-var _ = require("_");
+    var Meta = require("./meta");
+    var XMLParser = require("core/xmlparser");
+    var ko = require("knockout");
+    var $ = require("$");
+    var _ = require("_");
 
-var Button = Meta.derive(function(){
-return {
-    $el : $('<button data-bind="html:text"></button>'),
-    
-    // value of the button
-    text : ko.observable('Button')
-    
-}}, {
-
-    type : 'BUTTON',
-
-    css : 'button',
-
-    afterRender : function(){
-        var me = this;
-    }
-});
-
-Meta.provideBinding("button", Button);
-
-// provide parser when do xmlparsing
-XMLParser.provideParser("button", function(xmlNode){
-    
-    var text = XMLParser.util.getTextContent(xmlNode);
-    if(text){
+    var Button = Meta.derive(function () {
         return {
-            text : text
+            $el: $('<button data-bind="html:text,attr:{title:title}"></button>'),
+
+            // value of the button
+            text: ko.observable('Button'),
+            title: ko.observable("")
+
         }
-    }
+    }, {
+
+            type: 'BUTTON',
+
+            css: 'button',
+
+            afterRender: function () {
+                var me = this;
+            }
+        });
+
+    Meta.provideBinding("button", Button);
+
+    // provide parser when do xmlparsing
+    XMLParser.provideParser("button", function (xmlNode) {
+
+        var text = XMLParser.util.getTextContent(xmlNode);
+        if (text) {
+            return {
+                text: text
+            }
+        }
+    })
+
+    return Button;
+
 })
-
-return Button;
-
-});
+;
 //======================================
 // Checkbox component
 //======================================

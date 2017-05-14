@@ -23,6 +23,14 @@
     right: 100%;
     left: auto;
 }
+.e-hover-target.right {
+    top: -50%;
+    margin-left: -2px;
+    padding-left: 14px;
+    padding-top: 0px;
+    right: auto;
+    left: 100%;
+}
 
 .e-hover-code {
     display: none;
@@ -49,6 +57,16 @@
     z-index: 3;
     border-right-width: 0px;
 }
+.e-hover-arrow.right {
+    position: absolute;
+    width: 1px;
+    left: 5px;
+    height: 1px;
+    border: 9px solid transparent;
+    border-right-color: #ddd;
+    z-index: 3;
+    border-left-width: 0px;
+}
 
 .e-hover-arrow-border {
     position: absolute;
@@ -71,6 +89,17 @@
     border-right-width: 0px;
     z-index: 3;
 }
+.e-hover-arrow-border.right {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    left: 6px;
+    border: 9px solid transparent;
+    border-right-color: #fff;
+    border-left-width: 0px;
+    z-index: 3;
+}
+
 
 .e-hover-content {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
