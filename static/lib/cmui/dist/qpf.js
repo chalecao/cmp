@@ -3132,7 +3132,7 @@ define('meta/textfield',['require','./meta','knockout','_'],function (require) {
             ko.computed({
                 read: function () {
                     var _txt = self.text() + "";
-                    if (/^[1-9]\d*[\+,\-][1-9]\d*$/.test(_txt)) {
+                    if (/^[1-9]\d*[\+,\-,\/,\*][1-9]\d*$/.test(_txt)) {
                         //计算数值
                         self.text(eval(_txt));
                     }
