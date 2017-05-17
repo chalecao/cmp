@@ -5,7 +5,6 @@
         "misc": "templates中包含name字段的内容会保留在数据模型的meta字段中，可以从文件同步到模型中",
         "templates": [
             {
-                "name": "pageFTL",
                 "content": "/cmpApp/.cmp/tpl/ftl-mooc/page.html",
                 "dest": "/src/views/web/__name__/__name__.ftl",
                 "vars": {

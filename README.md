@@ -77,19 +77,45 @@ cmps ./cmp -p 8088 -s false
 其中，支持"default"替换的系统默认数据如下：
 ```
 _default = {
-    __404Path__: result["umi"] ? result["umi"]["404"] : "",
-    __module__: result["umi"] ? JSON.stringify(result["umi"]["modules"]) : "",
-    __html__: result["html"] || "",
-    __css__: result["css"] || "",
-    __name__: _name || "",
-    __nameCamel__: _nameCamel || "",
-    __desc__: _poolC.desc || "",
-    __cache__: result["cache"] || "",
-    __cachePath__: result["cache"] ? (handleReplace(t.default["__cachePath__"], _name, _nameCamel) || ",'./cache.js'") : "",
-    __cacheName__: result["cache"] ? ("," + _nameCamel + "Cache") : "",
-    __cacheCall__: handleReplace(result["cacheCall"], _name, _nameCamel) || ""
+    __404Path__: "模块化开发中需要配置的404跳转地址",
+    __module__: 模块化开发中需要配置的模块路由,
+    __html__: 生成的HTML代码片段,
+    __css__: 生成的HTML代码片段对应的css,
+    __name__: 组件名称,
+    __namePrefix__: 组件名称前缀，这里统一组件名称采用-分割，比如组件名称是index-test,那么__namePrefix__就是index,
+    __nameSufix__: 组件名称后缀，这里统一组件名称采用-分割，比如组件名称是index-test,那么__nameSufix__就是test,
+    __nameCamel__: 组件名称驼峰形式，,
+    __desc__: 组件描述,
+    __cache__: 依据组件是否有cache来生成，如果包含函数，且函数类型为cache，就会生成cache代码片段,
+    __cachePath__: cache代码的默认路径，默认是‘,./cache.js’,
+    __cacheName__: cache的名称,默认值",__nameCamel__Cache",
+    __cacheCall__: 调用cache的代码片段
 };
 ```
+其中cache的片段是根据func-cache元素来生成的，默认支持普通ajax请求和dwr请求，会生成两种请求内容，如下：
+```
+普通ajax请求：
+_p._$__name__ = function (_data, _onLoad) {
+        _cache._$request({
+            url: '__url__',
+            method: '__method__',
+            data: _data,
+            onload: _onLoad,
+            notShowLoading: true
+        });
+    };
+dwr请求：
+_p._$__name__ = function (_data, _onLoad) {
+        _dwr._$postDWR({
+            key: "__name__",
+            url: '__url__',
+            param: [_data],
+            onload: _onLoad,
+            notShowLoading: true
+        });
+    };
+```
+所以需要在cache模板中提供_cache和_dwr对象来分别处理两种请求。
 2. 目前主要的功能是制作页面，附加功能会逐步移到"扩展插件"栏目中。
 3. 支持分享制作好的组件，通过导入远程组件即可。同时所有导入的远程组件会保存在“网络组件”列表中。该功能模块目前还在开发中。
 
