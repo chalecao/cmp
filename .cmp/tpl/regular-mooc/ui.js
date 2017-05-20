@@ -24,12 +24,14 @@ NEJ.define([
     var UxComponent = Component.$extends({
         name: '__name__',
         css: css,
-        template: html
+        template: html,
+        init:function(){
+            /**
+             * 需要处理的异步请求
+             */
+            __cacheCall__
+        }
     });
-    /**
-     * 需要处理的异步请求
-     */
-    __cacheCall__
 
     return UxComponent;
 });

@@ -6,6 +6,7 @@
             key: "__name__",
             url: '__url__',
             param: [_data],
-            onload: _onLoad
+            onload: _onLoad,
+            notShowLoading: true
         });
     };

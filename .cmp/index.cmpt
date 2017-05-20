@@ -1,14 +1,37 @@
 [
     {
-        "name": "ftl-mooc",
-        "desc": "中M - FTL模板",
+        "name": "ftl-fragment",
+        "desc": "普通FTL片段模板",
+        "misc": "导出简单的ftl片段和对应的scss文件",
+        "templates": [
+            {
+                "content": "/cmpApp/.cmp/tpl/ftl/page.ftl",
+                "dest": "/src/views/web/common/__name__/__nameCamel__.ftl",
+                "udest": "__ftlPath__/__nameCamel__.ftl",
+                "vars": {
+                    "__html__": "default"
+                }
+            },
+            {
+                "content": "/cmpApp/.cmp/tpl/ftl/css.css",
+                "dest": "/src/scss/web/common/___nameCamel__.scss",
+                "udest": "__cssPath__/___nameCamel__.scss",
+                "vars": {
+                    "__css__": "default"
+                }
+            }
+        ]
+    },
+    {
+        "name": "ftl-page-mooc",
+        "desc": "中M - FTL页面模板",
         "misc": "templates中包含name字段的内容会保留在数据模型的meta字段中，可以从文件同步到模型中",
         "templates": [
             {
                 "content": "/cmpApp/.cmp/tpl/ftl-mooc/page.html",
-                "dest": "/src/views/web/__name__/__name__.ftl",
+                "dest": "/src/views/web/__name__/__nameCamel__.ftl",
                 "vars": {
-                    "__path__": "web/pages/__name__/__name__",
+                    "__path__": "web/pages/__name__/__nameCamel__",
                     "__commonStyle__": "<link type=\"text/css\" rel=\"stylesheet\" href=\"/src/css/web/common/style.css\"/>",
                     "__nav__": "<#include \"../common/nav/nav.ftl\">",
                     "__html__": "default",
@@ -43,7 +66,7 @@
             },
             {
                 "content": "/cmpApp/.cmp/tpl/ftl-mooc/css.css",
-                "dest": "/src/scss/web/pages/__name__/__name__.scss",
+                "dest": "/src/scss/web/pages/__name__/__nameCamel__.scss",
                 "vars": {
                     "__css__": "default"
                 }

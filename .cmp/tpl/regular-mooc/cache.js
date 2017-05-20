@@ -3,9 +3,9 @@
  * 
  * @path   pro/__path__
  */
-define([
-    'pro/common/cache',
+NEJ.define([
     'pro/common/cache/cache',
+    'pro/common/cache/dwr',
     'base/util'
 ], function(_cache, _dwr, _util, _p) {
     __cache__
