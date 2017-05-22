@@ -2,6 +2,7 @@ runner = ->
   pjson      = require('../package.json')
   version    = pjson.version
   cmpserver = require './cmpserver'
+  shellserver = require('./shellserver')
   resolve    = require('path').resolve
   opts       = require 'opts'
   debug      = false;
@@ -62,10 +63,14 @@ runner = ->
     exts: exts
     path: path
   })
-  
-
-  
   console.log "Starting cmpserver v#{version} for #{path} ......"
+
+  shell = opts.get('shell') || "true";
+  if (shell) {
+      let shellPort = parseInt(port) + 1;
+      shellserver.createServer(shellPort);
+      console.log("Starting shellserver v" + version + " for " + path + " , port: " + shellPort + " ......");
+  }
 
 module.exports =
   run: runner

@@ -1,33 +1,31 @@
 {
-  "name": "cmps",
-  "version": "2.2.3",
-  "contributors": [
-    {
-      "name": "Chale Cao",
-      "email": "ch19900606@gmail.com"
+    "name": "cmps",
+    "version": "2.2.5",
+    "bin": {
+        "cmps": "./bin/cmp.js"
+    },
+    "main": "app.js",
+    "contributors": [{
+        "name": "Chale Cao",
+        "email": "ch19900606@gmail.com"
+    }],
+    "description": "cmps is not only a server tool but also a powerful tool to design & make your component/UI quickly and best.",
+    "scripts": {
+        "build": "cd build && node update.js && node r.js -o config.js",
+        "builds": "coffee --compile --output lib/ lib/",
+        "start": "electron ."
+    },
+    "dependencies": {
+        "coffee-script": "^1.12.3",
+        "glob": "^7.1.1",
+        "journey": "^0.4.0-pre-3",
+        "opts": "^1.2.6"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/chalecao/cmp.git"
+    },
+    "engines": {
+        "node": ">=0.4.0"
     }
-  ],
-  "description": "cmps is not only a server tool but also a powerful tool to design & make your component/UI quickly and best.",
-  "scripts": {
-    "build": "cd build && node update.js && node r.js -o config.js",
-    "builds": "coffee --compile --output lib/ lib/",
-    "start": "electron ."
-  },
-  "dependencies": {
-    "coffee-script": "^1.12.3",
-    "glob": "^7.1.1",
-    "journey": "^0.4.0-pre-3",
-    "opts": "^1.2.6"
-  },
-  "bin": {
-    "cmps": "./bin/cmp.js"
-  },
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/chalecao/cmp.git"
-  },
-  "engines": {
-    "node": ">=0.4.0"
-  }
 }
