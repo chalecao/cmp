@@ -1,0 +1,49 @@
+<inline id="Toolbar">
+    <toolbargroup>
+        <!--<button text="eHtml" onclick="@binding[exportHTML]"></button>-->
+        <!--<button text="eRUI" onclick="@binding[exportRUI]"></button>
+        <button text="eFTL" onclick="@binding[exportFTL]"></button>-->
+        <!--<button text="eMac" onclick="@binding[exportMac]"></button>-->
+        <button text="align" title="整体对其到左上角" onclick="@binding[alignProcess]"></button>
+        <button text="newP" title="创建页面(默认包含UMI)" onclick="@binding[newPage]"></button>
+        <button text="newM" title="创建模块" onclick="@binding[newModule]"></button>
+        <button text="newU" title="创建组件" onclick="@binding[newUnit]"></button>
+        <!--<button text="newC" title="创建cache" onclick="@binding[newCache]"></button>-->
+        <button text="export" title="导出当前展示组件模型" onclick="@binding[exportProject]"></button>
+        <iconbutton icon="save" title="保存模型" onclick="@binding[saveProject]"></iconbutton>
+        <iconbutton icon="load" title="导入模型" onclick="@binding[importProject]"></iconbutton>
+    </toolbargroup>
+    <meta class="divider"></meta>
+    <toolbargroup>
+        <iconbutton icon="element" title="创建元素" onclick="@binding[createElement]"></iconbutton>
+        <iconbutton icon="image" title="创建图片" onclick="@binding[createImage]"></iconbutton>
+        <iconbutton icon="text" title="创建文本" onclick="@binding[createText]"></iconbutton>
+        <iconbutton icon="select" title="创建下拉" onclick="@binding[createSelect]"></iconbutton>
+        <iconbutton icon="function" title="创建函数" onclick="@binding[createFunction]"></iconbutton>
+        <iconbutton icon="module" title="创建模块" onclick="@binding[createModule]"></iconbutton>
+    </toolbargroup>
+    <meta class="divider"></meta>
+    <toolbargroup>  
+        <iconbutton icon="timeline" title="创建时序图" onclick="@binding[createTimeline]"></iconbutton>
+        <!--<iconbutton icon="embed" title="编辑代码" onclick="@binding[showCode]"></iconbutton>-->
+        <iconbutton icon="shell" title="远程控制台" onclick="@binding[showCmd]"></iconbutton>
+    </toolbargroup>
+    
+    <meta class="divider" ></meta>
+    <toolbargroup  style="float:right">
+        <iconbutton icon="shuffle" title="切换属性展示" onclick="@binding[expandProp]"></iconbutton>
+        <iconbutton icon="changeBack" title="切换背景" onclick="@binding[changeBack]"></iconbutton>
+    </toolbargroup>
+    <toolbargroup class="viewport-size" style="float:right">
+        <spinner value="@binding[viewportWidth]" min="0" width="100"></spinner>
+        <spinner value="@binding[viewportHeight]" min="0" width="100"></spinner>
+    </toolbargroup>
+    <toolbargroup style="float:right">
+        <!--title 要放在 icon后面，否则会报错-->
+        <iconbutton  icon="zoom-in" title="放大" onclick="@binding[zoomIn]"></iconbutton>
+        <iconbutton  icon="zoom-out" title="缩小" onclick="@binding[zoomOut]"></iconbutton>
+        <label text="@binding[viewportScale]" class="viewport-scale"></label>
+    </toolbargroup>
+    
+    
+</inline>

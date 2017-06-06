@@ -1,0 +1,2 @@
+<listtab itemView="@binding[CodeItemView]" dataSource="@binding[codeArray]"></listtab> 
+

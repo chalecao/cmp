@@ -1,6 +1,6 @@
 {
     "name": "cmps",
-    "version": "2.2.5",
+    "version": "2.2.6",
     "bin": {
         "cmps": "./bin/cmp.js"
     },

@@ -2048,7 +2048,7 @@ _mouseDown : function(e){
 
     var self = e.data.context;
     //disable selection
-    e.preventDefault();
+    // e.preventDefault();
 
     self._save();
 
@@ -2242,7 +2242,8 @@ Draggable.applyTo = function(target, options){
 }
 return Draggable;
 
-});
+})
+;
 //===================================
 // Window componennt
 // Window is a panel wich can be drag

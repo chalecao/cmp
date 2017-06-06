@@ -1,0 +1,40 @@
+<application>
+    <region  id="editor" name="codeEditor" controller="@binding[codeEditor]" height="100%"></region>
+    <region  id="cmd" name="shellCmd" controller="@binding[shellCmd]" height="100%"></region>
+    <vbox height="100%">
+        <container prefer="30" style="margin-bottom:3px;">
+            <region name="toolbar" controller="@binding[toolbar]" height="100%"></region>
+        </container>
+        <hbox class="flexBox"> 
+            <tab prefer="230"  maxTabWidth="30" minTabWidth="30" class="leftTabContent" >
+                <panel title="项目组件">
+                    <tab prefer="200" maxTabWidth="50" minTabWidth="50" height="100%">
+                        <panel title="PAGE" >
+                            <region name="page" controller="@binding[page]" style="height:100%"></region>
+                        </panel>
+                        <panel title="组件">
+                            <region name="component" controller="@binding[component]" style="height:100%"></region>
+                        </panel>
+                        <panel title="层级">
+                            <region name="hierarchy" controller="@binding[hierarchy]" style="height:100%"></region>
+                        </panel>
+                        <panel title="MOCK">
+                            <region name="dataMock" controller="@binding[dataMock]" style="height:100%"></region>
+                        </panel>
+                    </tab>
+                </panel>
+                <panel title="组件池">
+                    <region name="pool" controller="@binding[pool]" style="height:100%"></region>
+                </panel>
+                <panel title="模板规范">
+                    <region name="template" controller="@binding[template]" style="height:100%"></region>
+                </panel>
+                <panel title="插件扩展">
+                </panel>
+            </tab>
+            <region flex="1" name="viewport" class="mainContent" style="margin:0 5px;webkit-box-flex: 1;flex: 1;" controller="@binding[viewport]"></region>
+            <region class="propContent" prefer="280" name="property" controller="@binding[property]"></region>
+        </hbox>
+    </vbox>
+</application>
+

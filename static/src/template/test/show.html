@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>show Component</title>
+    <link href="__libDir__res-base/css/style.css" rel="stylesheet" />
+    <style>body{background: #eee;}</style>
+</head>
+
+<body>
+    <script src="__libDir__regularjs/dist/regular.js"></script>
+    <script src="__libDir__nej/src/define.js?pool=__libDir__"></script>
+    <script>
+        NEJ.define([
+            '../component.js'
+        ], function (
+            Component
+        ) {
+            new Component({
+                data: __data__
+            }).$inject(document.body);
+        });
+
+    </script>
+</body>
+
+</html>

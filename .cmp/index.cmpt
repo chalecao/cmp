@@ -1,10 +1,8 @@
-[
-    {
+[{
         "name": "ftl-fragment",
         "desc": "普通FTL片段模板",
         "misc": "导出简单的ftl片段和对应的scss文件",
-        "templates": [
-            {
+        "templates": [{
                 "content": "/cmpApp/.cmp/tpl/ftl/page.ftl",
                 "dest": "/src/views/web/common/__name__/__nameCamel__.ftl",
                 "udest": "__ftlPath__/__nameCamel__.ftl",
@@ -26,10 +24,11 @@
         "name": "ftl-page-mooc",
         "desc": "中M - FTL页面模板",
         "misc": "templates中包含name字段的内容会保留在数据模型的meta字段中，可以从文件同步到模型中",
-        "templates": [
-            {
+        "templates": [{
+                "name": "pageFTL",
                 "content": "/cmpApp/.cmp/tpl/ftl-mooc/page.html",
                 "dest": "/src/views/web/__name__/__nameCamel__.ftl",
+                "udest": "__ftlPath__/__nameCamel__.ftl",
                 "vars": {
                     "__path__": "web/pages/__name__/__nameCamel__",
                     "__commonStyle__": "<link type=\"text/css\" rel=\"stylesheet\" href=\"/src/css/web/common/style.css\"/>",
@@ -42,6 +41,7 @@
                 "name": "pageJS",
                 "content": "/cmpApp/.cmp/tpl/ftl-mooc/page.js",
                 "dest": "/src/javascript/web/pages/__name__/__nameCamel__.js",
+                "udest": "__compPath__/__nameCamel__.js",
                 "vars": {
                     "__path__": "web/pages/__name__/__nameCamel__",
                     "__desc__": "default",
@@ -57,6 +57,7 @@
                 "name": "pageCacheJS",
                 "content": "/cmpApp/.cmp/tpl/ftl-mooc/cache.js",
                 "dest": "/src/javascript/web/caches/__name__/__nameCamel__Cache.js",
+                "udest": "__compPath__/__nameCamel__Cache.js",
                 "if": "__cache__",
                 "vars": {
                     "__path__": "web/caches/__name__/__nameCamel__Cache",
@@ -67,6 +68,7 @@
             {
                 "content": "/cmpApp/.cmp/tpl/ftl-mooc/css.css",
                 "dest": "/src/scss/web/pages/__name__/__nameCamel__.scss",
+                "udest": "__cssPath__/__nameCamel__.scss",
                 "vars": {
                     "__css__": "default"
                 }
@@ -80,12 +82,12 @@
     },
     {
         "name": "regular-mooc",
-        "desc": "中M - Regular模板",
+        "desc": "中M - Regular模板，包含自定义路径",
         "misc": "templates中包含name字段的内容会保留在数据模型的meta字段中，可以从文件同步到模型中",
-        "templates": [
-            {
+        "templates": [{
                 "name": "componentJS",
                 "dest": "/src/javascript/web/components/__name__/component.js",
+                "udest": "__compPath__/component.js",
                 "content": "/cmpApp/.cmp/tpl/regular-mooc/component.js",
                 "vars": {
                     "__path__": "web/components/__name__/component",
@@ -96,6 +98,7 @@
             },
             {
                 "dest": "/src/javascript/web/components/__name__/component.html",
+                "udest": "__compPath__/component.html",
                 "content": "/cmpApp/.cmp/tpl/regular-mooc/html.html",
                 "vars": {
                     "__html__": "default"
@@ -103,6 +106,7 @@
             },
             {
                 "dest": "/src/javascript/web/components/__name__/component.css",
+                "udest": "__compPath__/component.css",
                 "content": "/cmpApp/.cmp/tpl/regular-mooc/css.css",
                 "vars": {
                     "__css__": "default"
@@ -111,6 +115,7 @@
             {
                 "name": "uiJS",
                 "dest": "/src/javascript/web/components/__name__/ui.js",
+                "udest": "__compPath__/ui.js",
                 "content": "/cmpApp/.cmp/tpl/regular-mooc/ui.js",
                 "vars": {
                     "__path__": "web/components/__name__/ui",
@@ -125,6 +130,7 @@
             {
                 "name": "cacheJS",
                 "dest": "/src/javascript/web/components/__name__/cache.js",
+                "udest": "__compPath__/cache.js",
                 "content": "/cmpApp/.cmp/tpl/regular-mooc/cache.js",
                 "if": "__cache__",
                 "vars": {
@@ -144,8 +150,7 @@
     {
         "name": "regular-test-mooc",
         "desc": "中M - Regular组件测试模板",
-        "templates": [
-            {
+        "templates": [{
                 "name": "testCaseApi",
                 "dest": "/src/javascript/web/components/__name__/test/caseApi.js",
                 "content": "/cmpApp/.cmp/tpl/regular-test-mooc/caseApi.js",
@@ -201,15 +206,13 @@
     {
         "name": "regular-show-mooc",
         "desc": "中M - Regular组件展示模板",
-        "templates": [
-            {
-                "dest": "/src/javascript/web/components/__name__/test/show.html",
-                "content": "/cmpApp/.cmp/tpl/regular-test-mooc/show.html",
-                "vars": {
-                    "__libDir__": "/src/javascript/lib/",
-                    "__data__": "default"
-                }
+        "templates": [{
+            "dest": "/src/javascript/web/components/__name__/test/show.html",
+            "content": "/cmpApp/.cmp/tpl/regular-test-mooc/show.html",
+            "vars": {
+                "__libDir__": "/src/javascript/lib/",
+                "__data__": "default"
             }
-        ]
+        }]
     }
 ]

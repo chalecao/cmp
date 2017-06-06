@@ -1,0 +1,46 @@
+<#include "../common/head.ftl">
+<@head title="中国大学MOOC(慕课)_最好的在线课程学习平台"
+       keywords="中国大学MOOC,MOOC,慕课,在线学习,在线教育,大规模开放式在线课程,网络公开课,视频公开课,大学公开课,大学mooc, icourse163,慕课网, MOOC学院"
+       description="中国大学MOOC(慕课) 是爱课程网携手云课堂打造的在线学习平台，每一个有提升愿望的人，都可以在这里学习中国最好的大学课程，学完还能获得认证证书。中国大学MOOC是国内最好的中文MOOC学习平台，拥有来自于39所985高校的顶级课程，最好最全的大学课程，与名师零距离。">
+</@head>
+<!-- @STYLE -->
+<link type="text/css" rel="stylesheet" href="/src/css/web/regularUI.css"/>
+<link type="text/css" rel="stylesheet" href="/src/css/web/style.css"/>
+<link type="text/css" rel="stylesheet" href="/src/css/__pageCSSPath__.css"/>
+<body>
+    <!-- 顶部导航栏 -->
+    <#include "../nav/nav.ftl">
+    __html__
+    <!-- 底部工具栏  -->
+    <#include '../common/footer.ftl' >
+    <!-- @NOPARSE -->
+    <script>
+    </script>
+    <!-- /@NOPARSE -->
+   
+    <!-- @DEFINE -->
+    <script src="${nejRoot}"></script>
+    <script>
+        NEJ.define([
+            'pro/__pageFilePath__',
+            'util/dispatcher/dispatcher'
+        ],function(_page,_p){
+           
+            _page._$allocate();
+            window.dispatcher = _p._$startup({
+                // 规则配置
+                rules:{
+                    rewrite:{
+                        // 重写规则配置
+                        '404': '__404Path__'
+                    }
+                },
+                // 模块配置
+                modules: __module__
+            });
+            
+        });
+    </script>
+    <@seoScript></@seoScript>
+</body>
+</html>

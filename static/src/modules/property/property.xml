@@ -1,0 +1,20 @@
+<tab id="Property">
+    <panel title="布局">
+        <list itemView="@binding[PropertyItemView]" dataSource="@binding[layoutProperties]"></list>
+    </panel>
+    <panel title="样式">
+        <list itemView="@binding[PropertyItemView]" dataSource="@binding[styleProperties]"></list>
+    </panel>
+    <panel title="其他">
+        <list itemView="@binding[PropertyItemView]" dataSource="@binding[customProperties]"></list>
+    </panel>
+    <panel title="函数">
+        <list itemView="@binding[PropertyItemView]" dataSource="@binding[funcProperties]"></list>
+    </panel>
+    <panel title="事件">
+        <list itemView="@binding[PropertyItemView]" dataSource="@binding[eventProperties]"></list>
+    </panel>
+    <panel title="时序">
+        <list itemView="@binding[PropertyItemView]" dataSource="@binding[timeProperties]"></list>
+    </panel>
+</tab>

@@ -3,7 +3,7 @@ node_modules
 .idea
 .git
 .vscode
-static/src
+#static/src
 
 
 static/lib/cmui/*

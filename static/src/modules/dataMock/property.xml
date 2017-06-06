@@ -1,0 +1,1 @@
+<list class="dataModal" itemView="@binding[PropertyItemView]" dataSource="@binding[dataProperties]"></list>

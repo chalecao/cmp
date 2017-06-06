@@ -1,0 +1,50 @@
+.f-fl {
+    float: left;
+}
+
+.f-fr {
+    float: right;
+}
+.f-cb:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+.f-line,
+.f-thide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.f-2lines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.f-3lines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.f-4lines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.f-transition {
+    -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
